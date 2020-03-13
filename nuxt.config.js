@@ -40,13 +40,18 @@ export default {
    */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    '@nuxtjs/markdownit'
   ],
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
   axios: {},
+  /** markdownit */
+  markdownit: {
+    injected: true
+  },
   /*
    ** Build configuration
    */
@@ -55,5 +60,18 @@ export default {
      ** You can extend webpack config here
      */
     extend(config, ctx) {}
+  },
+  /** */
+  generate: {
+    routes() {
+      const fs = require('fs')
+      const path = require('path')
+      return fs.readdirSync('./assets/content/blog').map((file) => {
+        return {
+          route: `/blog/${path.parse(file).name}`, // Return the slug
+          payload: require(`./assets/content/blog/${file}`)
+        }
+      })
+    }
   }
 }
