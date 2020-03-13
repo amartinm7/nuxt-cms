@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div>
+    <div class="">
       <logo />
       <h1 class="title">
         cms
