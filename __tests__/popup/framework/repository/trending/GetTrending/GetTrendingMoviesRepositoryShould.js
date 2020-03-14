@@ -1,10 +1,12 @@
-
 // eslint-disable-next-line no-unused-vars
 import {
-  GetTrendingMoviesRepository, GetTrendingMoviesRepositoryRequest,
-  GetTrendingMoviesRepositoryResponse
+  GetTrendingMoviesRepository,
+  GetTrendingMoviesRepositoryRequest
 } from '../../../../../../middleware/framework/repository/trending/GetTrending/GetTrendingMoviesRepository'
-import * as TrendingTypes from '../../../../../../middleware/adomain/trending/TrendingTypes'
+import {
+  MEDIA_TYPES,
+  TIME_WINDOWS_TYPES
+} from '../../../../../../middleware/adomain/trending/TrendingTypes'
 
 // eslint-disable-next-line no-unused-vars
 const assert = require('assert')
@@ -22,8 +24,8 @@ describe('GetTrendingMoviesRepository', function() {
         { axios, apiToken }
       ).execute(
         new GetTrendingMoviesRepositoryRequest({
-          mediaType: TrendingTypes.MEDIA_TYPES.MOVIE,
-          timeWindow: TrendingTypes.TIME_WINDOWS_TYPES.WEEK
+          mediaType: MEDIA_TYPES.MOVIE,
+          timeWindow: TIME_WINDOWS_TYPES.WEEK
         })
       )
       // then
