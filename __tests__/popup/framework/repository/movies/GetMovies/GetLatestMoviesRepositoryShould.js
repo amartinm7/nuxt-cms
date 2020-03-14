@@ -14,11 +14,11 @@ describe('GetLatestMoviesRepository', function() {
   describe('execute', function() {
     it('should save', async function() {
       // given
-      const apiToken = `eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjNWUzMTJmMzMwZTkwOTk0OWZiNmIwNDViN2VhYmE2NSIsInN1YiI6IjVlNmJkMmMyY2VkYWM0MDAxNzQ5NjJlYiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.YEVmEFcunK4clG1KuUXQm9msRV70n5hF1e9ozfIMjbc`
+      const accessToken = `eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjNWUzMTJmMzMwZTkwOTk0OWZiNmIwNDViN2VhYmE2NSIsInN1YiI6IjVlNmJkMmMyY2VkYWM0MDAxNzQ5NjJlYiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.YEVmEFcunK4clG1KuUXQm9msRV70n5hF1e9ozfIMjbc`
       // when
       const getLatestMoviesRepository = await new GetLatestMoviesRepository(
-        { axios, apiToken }
-      ).execute(new GetLatestMoviesRepositoryRequest(apiToken))
+        { axios, accessToken }
+      ).execute(new GetLatestMoviesRepositoryRequest())
       // then
       // eslint-disable-next-line no-unused-vars
       const expected = {
@@ -60,3 +60,5 @@ describe('GetLatestMoviesRepository', function() {
     })
   })
 })
+
+// https://image.tmdb.org/t/p/w370_and_h556_bestv2/eFCzU9Jqp2Ea17ysDkG8PB0NLiR.jpg

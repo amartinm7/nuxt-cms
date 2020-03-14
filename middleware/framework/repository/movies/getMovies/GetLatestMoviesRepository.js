@@ -1,7 +1,7 @@
 class GetLatestMoviesRepository {
-  constructor({ axios, apiToken }) {
+  constructor({ axios, accessToken }) {
     this._axios = axios
-    this._apiToken = apiToken
+    this._accessToken = accessToken
   }
 
   execute(getLatestFilmsRepositoryRequest) {
@@ -11,7 +11,7 @@ class GetLatestMoviesRepository {
       'Content-Type': 'application/json;charset=utf-8',
       Accept: '*/*',
       'Cache-Control': 'no-cache',
-      Authorization: `Bearer ${vm._apiToken}`
+      Authorization: `Bearer ${vm._accessToken}`
     }
     const url = `https://api.themoviedb.org/3/movie/latest`
     const axiosRequest = {
