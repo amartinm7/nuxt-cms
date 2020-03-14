@@ -2,7 +2,7 @@
 import {
   GetLatestMoviesRepository,
   GetLatestMoviesRepositoryRequest
-} from '../../../../../../middleware/framework/repository/movies/getMovies/GetLatestMoviesRepository'
+} from '../../../../../middleware/framework/repository/movies/getMovies/GetLatestMoviesRepository'
 
 // eslint-disable-next-line no-unused-vars
 const assert = require('assert')

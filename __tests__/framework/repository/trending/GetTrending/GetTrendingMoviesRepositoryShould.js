@@ -2,11 +2,11 @@
 import {
   GetTrendingMoviesRepository,
   GetTrendingMoviesRepositoryRequest
-} from '../../../../../../middleware/framework/repository/trending/GetTrending/GetTrendingMoviesRepository'
+} from '../../../../../middleware/framework/repository/trending/GetTrending/GetTrendingMoviesRepository'
 import {
   MEDIA_TYPES,
   TIME_WINDOWS_TYPES
-} from '../../../../../../middleware/adomain/trending/TrendingTypes'
+} from '../../../../../middleware/adomain/trending/TrendingTypes'
 
 // eslint-disable-next-line no-unused-vars
 const assert = require('assert')
