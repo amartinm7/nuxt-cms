@@ -1,5 +1,6 @@
 <template>
   <div>
+    <amazon-banner></amazon-banner>
     <article
       v-for="(movie, index) in getTrendingResponse._results"
       :key="movie._id"
@@ -35,25 +36,12 @@ import {
   MEDIA_TYPES,
   TIME_WINDOWS_TYPES
 } from '../middleware/adomain/trending/TrendingTypes'
+import AmazonBanner from '../components/amazon/AmazonBanner'
 const axios = require('axios')
 const accessToken = `eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjNWUzMTJmMzMwZTkwOTk0OWZiNmIwNDViN2VhYmE2NSIsInN1YiI6IjVlNmJkMmMyY2VkYWM0MDAxNzQ5NjJlYiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.YEVmEFcunK4clG1KuUXQm9msRV70n5hF1e9ozfIMjbc`
 
 export default {
-  head() {
-    return {
-      title: 'Cinemotion movies news',
-      meta: [
-        {
-          name: 'keywords',
-          content:
-            'Movies, TV Shows, Reviews, API, Actors, Actresses, Photos, User Ratings, Synopsis, Trailers, Teasers, Credits, Cast'
-        },
-        {
-          charset: 'utf-8'
-        }
-      ]
-    }
-  },
+  components: { AmazonBanner },
   data() {
     return {
       getTrendingResponse: {
@@ -63,6 +51,12 @@ export default {
         results: {}
       }
     }
+  },
+  created() {},
+  // eslint-disable-next-line require-await
+  async mounted() {
+    console.log('>>>init ')
+    this.getTrending()
   },
   methods: {
     getPosterURL(posterPath) {
@@ -81,44 +75,22 @@ export default {
       console.log(JSON.stringify(this.getTrendingResponse))
     }
   },
-  created() {},
-  // eslint-disable-next-line require-await
-  async mounted() {
-    console.log('>>>init ')
-    this.getTrending()
+  head() {
+    return {
+      title: 'Cinemotion movies news',
+      meta: [
+        {
+          name: 'keywords',
+          content:
+            'Movies, TV Shows, Reviews, API, Actors, Actresses, Photos, User Ratings, Synopsis, Trailers, Teasers, Credits, Cast'
+        },
+        {
+          charset: 'utf-8'
+        }
+      ]
+    }
   }
 }
 </script>
 
-<style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
-</style>
+<style></style>
