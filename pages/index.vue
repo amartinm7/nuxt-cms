@@ -41,7 +41,14 @@ const accessToken = `eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjNWUzMTJmMzMwZTkwOTk0OWZiNm
 export default {
   head() {
     return {
-      title: 'Home page'
+      title: 'Cinemotion movies news',
+      meta: [
+        {
+          hid: 'movies news, cinema news ',
+          name: 'movies news, cinema news',
+          content: 'movies news, cinema news'
+        }
+      ]
     }
   },
   data() {
