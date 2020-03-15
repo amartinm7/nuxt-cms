@@ -17,7 +17,8 @@
     "@nuxtjs/markdownit": "^1.2.9",
     "nuxt": "^2.0.0",
     "uikit": "^3.3.6",
-    "vue": "latest"
+    "vue": "latest",
+    "axios": "latest"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^2.0.0",
