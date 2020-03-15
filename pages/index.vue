@@ -44,9 +44,12 @@ export default {
       title: 'Cinemotion movies news',
       meta: [
         {
-          hid: 'movies news, cinema news ',
-          name: 'movies news, cinema news',
-          content: 'movies news, cinema news'
+          name: 'keywords',
+          content:
+            'Movies, TV Shows, Reviews, API, Actors, Actresses, Photos, User Ratings, Synopsis, Trailers, Teasers, Credits, Cast'
+        },
+        {
+          charset: 'utf-8'
         }
       ]
     }
