@@ -5,6 +5,14 @@
 </template>
 
 <style>
+/** for debug styling **/
+div {
+  background-color: lightgrey;
+  border: 1px solid green;
+  padding: 1px;
+  margin: 1px;
+}
+/**
 html {
   font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
     Roboto, 'Helvetica Neue', Arial, sans-serif;
@@ -52,4 +60,5 @@ html {
   color: #fff;
   background-color: #35495e;
 }
+**/
 </style>

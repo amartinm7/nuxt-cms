@@ -62,3 +62,6 @@ describe('GetLatestMoviesRepository', function() {
 })
 
 // https://image.tmdb.org/t/p/w370_and_h556_bestv2/eFCzU9Jqp2Ea17ysDkG8PB0NLiR.jpg
+
+// https://image.tmdb.org/t/p/w185_and_h278_bestv2/eFCzU9Jqp2Ea17ysDkG8PB0NLiR.jpg
+

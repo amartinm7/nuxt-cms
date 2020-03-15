@@ -1,23 +1,29 @@
-<!-- eslint-disable -->
 <template>
-  <div class="container">
-    dsfsdfdasf
-    <article class="uk-comment" v-for="(movie, index) in getTrending()" v-bind:todo="movie" v-bind:key="movie.id">
-      <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
-        <div class="uk-card-media-left uk-cover-container">
-          <img :src="getPosterURL(movie.poster_path)" alt="" uk-cover>
-          <canvas width="600" height="400"></canvas>
-        </div>
-        <div>
-          <div class="uk-card-body">
-            <h3 class="uk-card-title">{{movie.title}}</h3>
-            <p>{{movie.description}}</p>
-          </div>
+  <div>
+    <article
+      v-for="(movie, index) in getTrendingResponse._results"
+      :key="movie._id"
+      :todo="movie"
+      class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin"
+      uk-grid
+    >
+      <div
+        class="uk-card-media-left uk-cover-container"
+        style="width: 185px; height: 278px;"
+      >
+        <img :src="getPosterURL(movie._poster_path, index)" alt="" uk-cover />
+        <canvas></canvas>
+      </div>
+      <div>
+        <div class="uk-card-body">
+          <h3 class="uk-card-title">{{ movie._title }}</h3>
+          <p>{{ movie._overview }}</p>
         </div>
       </div>
     </article>
   </div>
 </template>
+<!-- eslint-disable -->
 <!-- eslint-enable -->
 
 <script>
@@ -35,33 +41,41 @@ const accessToken = `eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjNWUzMTJmMzMwZTkwOTk0OWZiNm
 export default {
   head() {
     return {
-      /* eslint-disable */
-      script: [{ src: 'https://identity.netlify.com/v1/netlify-identity-widget.js' }],
+      title: 'Home page'
     }
   },
-  data: function () {
-    return {}
+  data() {
+    return {
+      getTrendingResponse: {
+        page: 1,
+        total_pages: 1,
+        total_results: 1,
+        results: {}
+      }
+    }
   },
   methods: {
-    getPosterURL: function(posterPath){
-      return  `https://image.tmdb.org/t/p/w370_and_h556_bestv2/${posterPath}`
+    getPosterURL(posterPath) {
+      return `https://image.tmdb.org/t/p/w185_and_h278_bestv2/${posterPath}`
     },
-    getTrending: async function(){
+    async getTrending() {
       const getTrendingMoviesRepositoryResponse = await new GetTrendingMoviesRepository(
         { axios, accessToken }
-      ).execute(
+      ).executeAsync(
         new GetTrendingMoviesRepositoryRequest({
           mediaType: MEDIA_TYPES.MOVIE,
           timeWindow: TIME_WINDOWS_TYPES.WEEK
         })
       )
-      return getTrendingMoviesRepositoryResponse
+      this.getTrendingResponse = { ...getTrendingMoviesRepositoryResponse }
+      console.log(JSON.stringify(this.getTrendingResponse))
     }
   },
-  created() {
-  },
-  mounted: async function () {
-    console.log(">>>init ")
+  created() {},
+  // eslint-disable-next-line require-await
+  async mounted() {
+    console.log('>>>init ')
+    this.getTrending()
   }
 }
 </script>
