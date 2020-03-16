@@ -15,7 +15,12 @@
           <img :src="getPosterURL(movie._poster_path, index)" alt="" uk-cover />
           <canvas width="185" height="278"></canvas>
         </div>
-        <div class="uk-width-expand">dsfdsf</div>
+        <div class="uk-width-expand">
+          <span uk-icon="icon: check"></span>
+          <span uk-icon="icon: check"></span>
+          <span uk-icon="icon: check"></span>
+          <span uk-icon="icon: check"></span>
+        </div>
       </div>
       <div>
         <div class="uk-card-body">
