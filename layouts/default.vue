@@ -5,14 +5,18 @@
 </template>
 
 <style>
-/** for debug styling
+/** for debug styling **/
 div {
   background-color: lightgrey;
   border: 1px solid green;
   padding: 1px;
   margin: 1px;
 }
-**/
+
+body {
+  min-width: 320px;
+}
+/* **/
 /**
 html {
   font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',

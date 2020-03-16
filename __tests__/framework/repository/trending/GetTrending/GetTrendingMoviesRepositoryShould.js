@@ -7,6 +7,7 @@ import {
   MEDIA_TYPES,
   TIME_WINDOWS_TYPES
 } from '../../../../../middleware/adomain/trending/TrendingTypes'
+import { GetLatestMoviesRepository } from '../../../../../middleware/framework/repository/movies/getMovies/GetLatestMoviesRepository'
 
 // eslint-disable-next-line no-unused-vars
 const assert = require('assert')
@@ -19,6 +20,12 @@ describe('GetTrendingMoviesRepository', function() {
     it('should save', async function() {
       // given
       const accessToken = `eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjNWUzMTJmMzMwZTkwOTk0OWZiNmIwNDViN2VhYmE2NSIsInN1YiI6IjVlNmJkMmMyY2VkYWM0MDAxNzQ5NjJlYiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.YEVmEFcunK4clG1KuUXQm9msRV70n5hF1e9ozfIMjbc`
+      const mockedAds = {}
+      const mockGetTrendingMoviesRepository = jest.fn()
+      GetTrendingMoviesRepository.prototype.execute = mockGetTrendingMoviesRepository
+      mockGetTrendingMoviesRepository.mockReturnValue(
+        Promise.resolve(mockedAds)
+      )
       // when
       const getTrendingMoviesRepositoryResponse = await new GetTrendingMoviesRepository(
         { axios, accessToken }

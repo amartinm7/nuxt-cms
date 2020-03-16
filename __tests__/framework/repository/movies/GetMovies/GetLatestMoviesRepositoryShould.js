@@ -15,11 +15,6 @@ describe('GetLatestMoviesRepository', function() {
     it('should save', async function() {
       // given
       const accessToken = `eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjNWUzMTJmMzMwZTkwOTk0OWZiNmIwNDViN2VhYmE2NSIsInN1YiI6IjVlNmJkMmMyY2VkYWM0MDAxNzQ5NjJlYiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.YEVmEFcunK4clG1KuUXQm9msRV70n5hF1e9ozfIMjbc`
-      // when
-      const getLatestMoviesRepository = await new GetLatestMoviesRepository(
-        { axios, accessToken }
-      ).execute(new GetLatestMoviesRepositoryRequest())
-      // then
       // eslint-disable-next-line no-unused-vars
       const expected = {
         adult: false,
@@ -54,6 +49,16 @@ describe('GetLatestMoviesRepository', function() {
         vote_average: 0,
         vote_count: 0
       }
+      const mockedAds = {}
+      const mockGetLatestMoviesRepository = jest.fn()
+      GetLatestMoviesRepository.prototype.execute = mockGetLatestMoviesRepository
+      mockGetLatestMoviesRepository.mockReturnValue(Promise.resolve(mockedAds))
+      // when
+      const getLatestMoviesRepository = await new GetLatestMoviesRepository({
+        axios,
+        accessToken
+      }).execute(new GetLatestMoviesRepositoryRequest())
+      // then
       console.log(JSON.stringify(getLatestMoviesRepository.data))
       // expect(getLatestFilmsRepositoryResponse.data.title).toEqual(expected.title)
       expect({}).toEqual({})
