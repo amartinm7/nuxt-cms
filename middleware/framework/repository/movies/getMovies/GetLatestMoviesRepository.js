@@ -1,3 +1,5 @@
+import GetAxiosRequest from '../../../modules/axios/GetAxiosRequest'
+
 class GetLatestMoviesRepository {
   constructor({ axios, accessToken }) {
     this._axios = axios
@@ -10,21 +12,14 @@ class GetLatestMoviesRepository {
    * @returns {*}
    */
   execute(getLatestFilmsRepositoryRequest) {
-    const vm = this
     console.log('>>>GetFilmsRepository.execute')
-    const headers = {
-      'Content-Type': 'application/json;charset=utf-8',
-      Accept: '*/*',
-      'Cache-Control': 'no-cache',
-      Authorization: `Bearer ${vm._accessToken}`
-    }
-    const url = `https://api.themoviedb.org/3/movie/latest`
-    const axiosRequest = {
-      method: 'get',
-      url,
-      headers
-    }
-    return this._axios(axiosRequest)
+    const urlPath = `/movie/latest`
+    return this._axios(
+      new GetAxiosRequest({
+        accessToken: this._accessToken,
+        baseURL: 'https://api.themoviedb.org/3'
+      }).getRequest(urlPath)
+    )
   }
 
   async executeAsync(getLatestFilmsRepositoryRequest) {
