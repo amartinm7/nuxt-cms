@@ -6,7 +6,7 @@ import {
 
 // eslint-disable-next-line no-unused-vars
 const assert = require('assert')
-const axios = require ("axios")
+const axios = require('axios')
 
 console.log('welcome! GetLatestMoviesRepository test')
 
@@ -18,38 +18,33 @@ describe('GetLatestMoviesRepository', function() {
       // eslint-disable-next-line no-unused-vars
       const expected = {
         adult: false,
-        backdrop_path: null,
+        backdrop_path: '/hkaV970KVugX2ZSffp2jTFhcH0w.jpg',
         belongs_to_collection: null,
         budget: 0,
-        genres: [
-          { id: 99, name: 'Documentary' },
-          { id: 18, name: 'Drama' }
-        ],
+        genres: [],
         homepage: '',
-        id: 683240,
-        imdb_id: 'tt10937534',
+        id: 683882,
+        imdb_id: 'tt0861703',
         original_language: 'en',
-        original_title:
-          'The Gift to Be Simple: Satire and Sympathy in The Flavor of Green Tea over Rice',
+        original_title: 'Dil Kitna Nadan Hai',
         overview:
-          "David Bordwell, author of Ozu and the Poetics of Cinema, discusses some of the key themes and stylistic qualities that define Yasujiro Ozu's work and The Flavor of Green Tea Over Rice, in this interview for The Criterion Collection.",
+          'Kiran, upon completion of her studies abroad, returns to India. She falls in love with Raja without realising his deception.',
         popularity: 0,
-        poster_path: null,
+        poster_path: '/5kVkkr7N28OjJnY74wcvf8iITdV.jpg',
         production_companies: [],
         production_countries: [],
-        release_date: '',
+        release_date: '1997-05-08',
         revenue: 0,
-        runtime: 26,
+        runtime: 0,
         spoken_languages: [],
         status: 'Released',
         tagline: '',
-        title:
-          'The Gift to Be Simple: Satire and Sympathy in The Flavor of Green Tea over Rice',
+        title: 'Dil Kitna Nadan Hai',
         video: false,
         vote_average: 0,
         vote_count: 0
       }
-      const mockedAds = {}
+      const mockedAds = require('./GetLatestMoviesRepositoryAxiosResponse.json')
       const mockGetLatestMoviesRepository = jest.fn()
       GetLatestMoviesRepository.prototype.execute = mockGetLatestMoviesRepository
       mockGetLatestMoviesRepository.mockReturnValue(Promise.resolve(mockedAds))
@@ -61,7 +56,7 @@ describe('GetLatestMoviesRepository', function() {
       // then
       console.log(JSON.stringify(getLatestMoviesRepository.data))
       // expect(getLatestFilmsRepositoryResponse.data.title).toEqual(expected.title)
-      expect({}).toEqual({})
+      expect(expected).toEqual(getLatestMoviesRepository)
     })
   })
 })

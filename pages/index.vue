@@ -78,7 +78,9 @@ export default {
           timeWindow: TIME_WINDOWS_TYPES.WEEK
         })
       )
-      this.trendingMovies = { ...getTrendingMoviesRepositoryResponse }
+      this.trendingMovies = {
+        ...getTrendingMoviesRepositoryResponse
+      }
     },
     async getTrendingTVs() {
       const getTrendingMoviesRepositoryResponse = await new GetTrendingMoviesRepository(
@@ -89,7 +91,9 @@ export default {
           timeWindow: TIME_WINDOWS_TYPES.WEEK
         })
       )
-      this.trendingTVs = { ...getTrendingMoviesRepositoryResponse }
+      this.trendingTVs = {
+        ...getTrendingMoviesRepositoryResponse
+      }
     }
   },
   head() {
