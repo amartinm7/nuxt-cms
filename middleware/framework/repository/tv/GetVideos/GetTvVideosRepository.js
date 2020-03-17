@@ -1,23 +1,19 @@
 import GetAxiosRequest from '../../../modules/axios/GetAxiosRequest'
 
-class GetTrendingMoviesRepository {
+class GetTvVideosRepository {
   constructor({ axios, accessToken }) {
     this._axios = axios
     this._accessToken = accessToken
   }
 
   /**
-   * Get the daily or weekly trending items.
-   * The daily trending list tracks items over the period of a day while items
-   * have a 24 hour half life. The weekly list tracks items over a 7 day period,
-   * with a 7 day half life.
-   * @param getTrendingMoviesRepositoryRequest
+   * Get the videos that have been added to a TV show.
+   * @param getTvVideosRepositoryRequest
    * @returns {*}
    */
-  execute(getTrendingMoviesRepositoryRequest) {
+  execute(getTvVideosRepositoryRequest) {
     console.log('>>>GetTrendingMoviesRepository.execute')
-    const { _mediaType, _timeWindow } = getTrendingMoviesRepositoryRequest
-    const urlPath = `/trending/${_mediaType}/${_timeWindow}`
+    const urlPath = `/tv/${getTvVideosRepositoryRequest._id}}/videos`
     return this._axios(
       new GetAxiosRequest({
         accessToken: this._accessToken,
@@ -26,33 +22,32 @@ class GetTrendingMoviesRepository {
     )
   }
 
-  async executeAsync(getLatestFilmsRepositoryRequest) {
-    const axiosResponse = await this.execute(getLatestFilmsRepositoryRequest)
-    return new GetTrendingMoviesRepositoryResponse({ ...axiosResponse.data })
+  async executeAsync(getTvVideosRepositoryRequest) {
+    const axiosResponse = await this.execute(getTvVideosRepositoryRequest)
+    return new GetTvVideosRepositoryResponse({ ...axiosResponse.data })
   }
 }
 
-class GetTrendingMoviesRepositoryRequest {
-  constructor({ mediaType, timeWindow }) {
-    this._mediaType = mediaType
-    this._timeWindow = timeWindow
+class GetTvVideosRepositoryRequest {
+  constructor({ id }) {
+    this._id = id
   }
 }
 
 /* eslint-disable camelcase */
-class GetTrendingMoviesRepositoryResponse {
+class GetTvVideosRepositoryResponse {
   constructor({ page, total_pages, total_results, results }) {
     this._page = page
     this._total_pages = total_pages
     this._total_results = total_results
     this._results = results.map((it) => {
       // eslint-disable-next-line no-new
-      return new GetTrendingMoviesRepositoryResponseResult(it)
+      return new GetTvVideosRepositoryResponseResult(it)
     })
   }
 }
 
-class GetTrendingMoviesRepositoryResponseResult {
+class GetTvVideosRepositoryResponseResult {
   constructor({
     id,
     title,
@@ -77,8 +72,7 @@ class GetTrendingMoviesRepositoryResponseResult {
 }
 
 export {
-  GetTrendingMoviesRepository,
-  GetTrendingMoviesRepositoryRequest,
-  GetTrendingMoviesRepositoryResponse,
-  GetTrendingMoviesRepositoryResponseResult
+  GetTvVideosRepository,
+  GetTvVideosRepositoryRequest,
+  GetTvVideosRepositoryResponse
 }
