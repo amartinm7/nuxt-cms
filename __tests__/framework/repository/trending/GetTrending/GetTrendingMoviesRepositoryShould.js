@@ -20,23 +20,6 @@ describe('GetTrendingMoviesRepository', function() {
     it('should save', async function() {
       // given
       const accessToken = `eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjNWUzMTJmMzMwZTkwOTk0OWZiNmIwNDViN2VhYmE2NSIsInN1YiI6IjVlNmJkMmMyY2VkYWM0MDAxNzQ5NjJlYiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.YEVmEFcunK4clG1KuUXQm9msRV70n5hF1e9ozfIMjbc`
-      const mockedAds = {}
-      const mockGetTrendingMoviesRepository = jest.fn()
-      GetTrendingMoviesRepository.prototype.execute = mockGetTrendingMoviesRepository
-      mockGetTrendingMoviesRepository.mockReturnValue(
-        Promise.resolve(mockedAds)
-      )
-      // when
-      const getTrendingMoviesRepositoryResponse = await new GetTrendingMoviesRepository(
-        { axios, accessToken }
-      ).executeAsync(
-        new GetTrendingMoviesRepositoryRequest({
-          mediaType: MEDIA_TYPES.MOVIE,
-          timeWindow: TIME_WINDOWS_TYPES.WEEK
-        })
-      )
-      // then
-      // eslint-disable-next-line no-unused-vars
       const expected = {
         adult: false,
         backdrop_path: null,
@@ -70,6 +53,24 @@ describe('GetTrendingMoviesRepository', function() {
         vote_average: 0,
         vote_count: 0
       }
+      /**
+      const mockedAds = require('./GetTrendingMoviesRepositoryAxiosResponse.json')
+      const mockGetTrendingMoviesRepository = jest.fn()
+      GetTrendingMoviesRepository.prototype.execute = mockGetTrendingMoviesRepository
+      mockGetTrendingMoviesRepository.mockReturnValue(
+        Promise.resolve(mockedAds)
+      )
+       **/
+      // when
+      const getTrendingMoviesRepositoryResponse = await new GetTrendingMoviesRepository(
+        { axios, accessToken }
+      ).executeAsync(
+        new GetTrendingMoviesRepositoryRequest({
+          mediaType: MEDIA_TYPES.MOVIE,
+          timeWindow: TIME_WINDOWS_TYPES.WEEK
+        })
+      )
+      // then
       console.log(JSON.stringify(getTrendingMoviesRepositoryResponse.data))
       // expect(getLatestFilmsRepositoryResponse.data.title).toEqual(expected.title)
       expect({}).toEqual({})

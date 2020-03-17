@@ -4,6 +4,11 @@ class GetLatestMoviesRepository {
     this._accessToken = accessToken
   }
 
+  /**
+   * Get the most newly created movie. This is a live response and will continuously change.
+   * @param getLatestFilmsRepositoryRequest
+   * @returns {*}
+   */
   execute(getLatestFilmsRepositoryRequest) {
     const vm = this
     console.log('>>>GetFilmsRepository.execute')

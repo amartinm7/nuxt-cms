@@ -4,6 +4,14 @@ class GetTrendingMoviesRepository {
     this._accessToken = accessToken
   }
 
+  /**
+   * Get the daily or weekly trending items.
+   * The daily trending list tracks items over the period of a day while items
+   * have a 24 hour half life. The weekly list tracks items over a 7 day period,
+   * with a 7 day half life.
+   * @param getTrendingMoviesRepositoryRequest
+   * @returns {*}
+   */
   execute(getTrendingMoviesRepositoryRequest) {
     const vm = this
     console.log('>>>GetTrendingMoviesRepository.execute')

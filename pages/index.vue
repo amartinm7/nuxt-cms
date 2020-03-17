@@ -78,7 +78,9 @@ export default {
           timeWindow: TIME_WINDOWS_TYPES.WEEK
         })
       )
-      this.trendingMovies = { ...getTrendingMoviesRepositoryResponse }
+      this.trendingMovies = {
+        ...getTrendingMoviesRepositoryResponse
+      }
     },
     async getTrendingTVs() {
       const getTrendingMoviesRepositoryResponse = await new GetTrendingMoviesRepository(
@@ -89,17 +91,19 @@ export default {
           timeWindow: TIME_WINDOWS_TYPES.WEEK
         })
       )
-      this.trendingTVs = { ...getTrendingMoviesRepositoryResponse }
+      this.trendingTVs = {
+        ...getTrendingMoviesRepositoryResponse
+      }
     }
   },
   head() {
     return {
-      title: 'Cinemotion movies news',
+      title: 'Estrenos Cine Hoy',
       meta: [
         {
           name: 'keywords',
           content:
-            'Movies, TV Shows, Reviews, API, Actors, Actresses, Photos, User Ratings, Synopsis, Trailers, Teasers, Credits, Cast'
+            'estrenos de cine, peliculas tv hoy, programacion tv, Movies, TV Shows, Reviews, API, Actors, Actresses, Photos, User Ratings, Synopsis, Trailers, Teasers, Credits, Cast'
         },
         {
           charset: 'utf-8'
