@@ -98,12 +98,12 @@ export default {
   },
   head() {
     return {
-      title: 'Cinemotion movies news',
+      title: 'Estrenos Cine Hoy',
       meta: [
         {
           name: 'keywords',
           content:
-            'Movies, TV Shows, Reviews, API, Actors, Actresses, Photos, User Ratings, Synopsis, Trailers, Teasers, Credits, Cast'
+            'estrenos de cine, peliculas tv hoy, programacion tv, Movies, TV Shows, Reviews, API, Actors, Actresses, Photos, User Ratings, Synopsis, Trailers, Teasers, Credits, Cast'
         },
         {
           charset: 'utf-8'

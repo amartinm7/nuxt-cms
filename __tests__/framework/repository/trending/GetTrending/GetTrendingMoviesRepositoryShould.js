@@ -64,7 +64,7 @@ describe('GetTrendingMoviesRepository', function() {
       // when
       const getTrendingMoviesRepositoryResponse = await new GetTrendingMoviesRepository(
         { axios, accessToken }
-      ).execute(
+      ).executeAsync(
         new GetTrendingMoviesRepositoryRequest({
           mediaType: MEDIA_TYPES.MOVIE,
           timeWindow: TIME_WINDOWS_TYPES.WEEK
