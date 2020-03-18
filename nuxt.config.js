@@ -11,7 +11,9 @@ export default {
       {
         hid: 'estrenoscinehoy',
         name: 'estrenos cine hoy',
-        content: process.env.npm_package_description || 'Estrenos de cine, peliculas tv hoy, programacion tv, Movies, TV Shows, Reviews, API, Actors, Actresses, Photos, User Ratings, Synopsis, Trailers, Teasers, Credits, Cast''
+        content:
+          process.env.npm_package_description ||
+          'Estrenos de cine, peliculas tv hoy, programacion tv, Movies, TV Shows, Reviews, API, Actors, Actresses, Photos, User Ratings, Synopsis, Trailers, Teasers, Credits, Cast'
       }
     ],
     link: [
@@ -41,9 +43,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [
-    { src: '~/plugins/uikit.js', ssr: false }
-  ],
+  plugins: [{ src: '~/plugins/uikit.js', ssr: false }],
   /*
    ** Nuxt.js dev-modules
    */
