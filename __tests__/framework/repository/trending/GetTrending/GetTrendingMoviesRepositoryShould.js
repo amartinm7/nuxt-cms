@@ -62,8 +62,8 @@ describe('GetTrendingMoviesRepository', function() {
       // then
       console.log(JSON.stringify(getTrendingMoviesRepositoryResponse))
       // expect(getLatestFilmsRepositoryResponse.data.title).toEqual(expected.title)
-      expect(getTrendingMoviesRepositoryResponse).toEqual(
-        new GetTrendingMoviesRepositoryResponse(expected)
+      expect(new GetTrendingMoviesRepositoryResponse(expected)).toEqual(
+        getTrendingMoviesRepositoryResponse
       )
     })
   })

@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import {
   GetLatestMoviesRepository,
-  GetLatestMoviesRepositoryRequest
+  GetLatestMoviesRepositoryRequest, GetLatestMoviesRepositoryResponse
 } from '../../../../../middleware/framework/repository/movies/getMovies/GetLatestMoviesRepository'
 
 // eslint-disable-next-line no-unused-vars
@@ -49,14 +49,18 @@ describe('GetLatestMoviesRepository', function() {
       GetLatestMoviesRepository.prototype.execute = mockGetLatestMoviesRepository
       mockGetLatestMoviesRepository.mockReturnValue(Promise.resolve(mockedAds))
       // when
-      const getLatestMoviesRepository = await new GetLatestMoviesRepository({
-        axios,
-        accessToken
-      }).execute(new GetLatestMoviesRepositoryRequest())
+      const getLatestMoviesRepositoryResponse = await new GetLatestMoviesRepository(
+        {
+          axios,
+          accessToken
+        }
+      ).executeAsync(new GetLatestMoviesRepositoryRequest())
       // then
-      console.log(JSON.stringify(getLatestMoviesRepository.data))
+      console.log(JSON.stringify(getLatestMoviesRepositoryResponse))
       // expect(getLatestFilmsRepositoryResponse.data.title).toEqual(expected.title)
-      expect(expected).toEqual(getLatestMoviesRepository)
+      expect(new GetLatestMoviesRepositoryResponse(expected)).toEqual(
+        getLatestMoviesRepositoryResponse
+      )
     })
   })
 })

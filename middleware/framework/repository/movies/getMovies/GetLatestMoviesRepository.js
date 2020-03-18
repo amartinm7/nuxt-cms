@@ -23,8 +23,8 @@ class GetLatestMoviesRepository {
   }
 
   async executeAsync(getLatestFilmsRepositoryRequest) {
-    const axiosRsponse = await this.execute(getLatestFilmsRepositoryRequest)
-    return new GetLatestFilmsRepositoryResponse({ ...axiosRsponse.data })
+    const axiosResponse = await this.execute(getLatestFilmsRepositoryRequest)
+    return new GetLatestMoviesRepositoryResponse(axiosResponse)
   }
 }
 
@@ -34,7 +34,7 @@ class GetLatestMoviesRepositoryRequest {
 }
 
 /* eslint-disable camelcase */
-class GetLatestFilmsRepositoryResponse {
+class GetLatestMoviesRepositoryResponse {
   constructor({
     adult,
     genres,
@@ -69,5 +69,5 @@ class GetLatestFilmsRepositoryResponse {
 export {
   GetLatestMoviesRepository,
   GetLatestMoviesRepositoryRequest,
-  GetLatestFilmsRepositoryResponse
+  GetLatestMoviesRepositoryResponse
 }
