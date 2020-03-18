@@ -28,7 +28,7 @@ class GetTrendingMoviesRepository {
 
   async executeAsync(getLatestFilmsRepositoryRequest) {
     const axiosResponse = await this.execute(getLatestFilmsRepositoryRequest)
-    return new GetTrendingMoviesRepositoryResponse(axiosResponse)
+    return new GetTrendingMoviesRepositoryResponse({ ...axiosResponse.data })
   }
 }
 
