@@ -1,7 +1,7 @@
 {
-  "name": "cms",
+  "name": "estrenoscinehoy",
   "version": "1.0.0",
-  "description": "cms",
+  "description": "Estrenos Cine Hoy",
   "author": "antonio.martin",
   "private": true,
   "scripts": {
