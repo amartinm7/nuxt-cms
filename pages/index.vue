@@ -1,26 +1,6 @@
 <template>
   <div>
     <section class="uk-section uk-section-xsmall">
-      <ul uk-tab class="uk-flex uk-flex-around">
-        <li class="uk-active"><a href="#" uk-icon="icon: copy"></a>Movies</li>
-        <li><a href="#" uk-icon="icon: heart"></a>TV</li>
-      </ul>
-      <div class="uk-switcher">
-        <div class="uk-active">
-          <movies-card
-            :movies="trendingMovies._results"
-            class="ma-scroll-spy-effect"
-          ></movies-card>
-        </div>
-        <div>
-          <movies-card
-            :movies="trendingTVs._results"
-            class="ma-scroll-spy-effect"
-          ></movies-card>
-        </div>
-      </div>
-    </section>
-    <section class="uk-section uk-section-xsmall">
       <div class="uk-position-relative uk-visible-toggle uk-light">
         <a class="uk-button uk-button-default" href="#modal-center" uk-toggle>
           <img
@@ -43,6 +23,26 @@
             uk-responsive
             uk-video="automute: false"
           ></iframe>
+        </div>
+      </div>
+    </section>
+    <section class="uk-section uk-section-xsmall">
+      <ul uk-tab class="uk-flex uk-flex-around">
+        <li class="uk-active"><a href="#" uk-icon="icon: copy"></a>Movies</li>
+        <li><a href="#" uk-icon="icon: heart"></a>TV</li>
+      </ul>
+      <div class="uk-switcher">
+        <div class="uk-active">
+          <movies-card
+            :movies="trendingMovies._results"
+            class="ma-scroll-spy-effect"
+          ></movies-card>
+        </div>
+        <div>
+          <movies-card
+            :movies="trendingTVs._results"
+            class="ma-scroll-spy-effect"
+          ></movies-card>
         </div>
       </div>
     </section>
