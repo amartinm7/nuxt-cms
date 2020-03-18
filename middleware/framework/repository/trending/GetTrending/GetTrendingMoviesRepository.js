@@ -15,27 +15,25 @@ class GetTrendingMoviesRepository {
    * @returns {*}
    */
   execute(getTrendingMoviesRepositoryRequest) {
-    console.log('>>>GetTrendingMoviesRepository.execute')
-    const { _mediaType, _timeWindow } = getTrendingMoviesRepositoryRequest
-    const urlPath = `/trending/${_mediaType}/${_timeWindow}`
-    return this._axios(
-      new GetAxiosRequest({
-        accessToken: this._accessToken,
-        baseURL: 'https://api.themoviedb.org/3'
-      }).getRequest(urlPath)
-    )
+    const { mediaType, timeWindow } = getTrendingMoviesRepositoryRequest
+    const urlPath = `/trending/${mediaType}/${timeWindow}`
+    const axiosRequest = new GetAxiosRequest({
+      accessToken: this._accessToken,
+      baseURL: 'https://api.themoviedb.org/3'
+    }).getRequest(urlPath)
+    return this._axios(axiosRequest)
   }
 
-  async executeAsync(getLatestFilmsRepositoryRequest) {
-    const axiosResponse = await this.execute(getLatestFilmsRepositoryRequest)
+  async executeAsync(getTrendingMoviesRepositoryRequest) {
+    const axiosResponse = await this.execute(getTrendingMoviesRepositoryRequest)
     return new GetTrendingMoviesRepositoryResponse({ ...axiosResponse.data })
   }
 }
 
 class GetTrendingMoviesRepositoryRequest {
   constructor({ mediaType, timeWindow }) {
-    this._mediaType = mediaType
-    this._timeWindow = timeWindow
+    this.mediaType = mediaType
+    this.timeWindow = timeWindow
   }
 }
 
@@ -61,8 +59,11 @@ class GetTrendingMoviesRepositoryResponseResult {
     release_date,
     overview,
     adult,
+    genre_ids,
     poster_path,
-    backdrop_path
+    backdrop_path,
+    popularity,
+    media_type
   }) {
     this._id = id
     this._title = title
@@ -71,8 +72,11 @@ class GetTrendingMoviesRepositoryResponseResult {
     this._release_date = release_date
     this._overview = overview
     this._adult = adult
+    this._genre_ids = genre_ids
     this._poster_path = poster_path
     this._backdrop_path = backdrop_path
+    this._popularity = popularity
+    this._media_type = media_type
   }
 }
 

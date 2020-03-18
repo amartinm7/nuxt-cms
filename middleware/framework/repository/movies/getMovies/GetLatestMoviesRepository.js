@@ -12,7 +12,6 @@ class GetLatestMoviesRepository {
    * @returns {*}
    */
   execute(getLatestFilmsRepositoryRequest) {
-    console.log('>>>GetFilmsRepository.execute')
     const urlPath = `/movie/latest`
     return this._axios(
       new GetAxiosRequest({
@@ -23,8 +22,8 @@ class GetLatestMoviesRepository {
   }
 
   async executeAsync(getLatestFilmsRepositoryRequest) {
-    const axiosRsponse = await this.execute(getLatestFilmsRepositoryRequest)
-    return new GetLatestFilmsRepositoryResponse({ ...axiosRsponse.data })
+    const axiosResponse = await this.execute(getLatestFilmsRepositoryRequest)
+    return new GetLatestMoviesRepositoryResponse({ ...axiosResponse.data })
   }
 }
 
@@ -34,7 +33,7 @@ class GetLatestMoviesRepositoryRequest {
 }
 
 /* eslint-disable camelcase */
-class GetLatestFilmsRepositoryResponse {
+class GetLatestMoviesRepositoryResponse {
   constructor({
     adult,
     genres,
@@ -69,5 +68,5 @@ class GetLatestFilmsRepositoryResponse {
 export {
   GetLatestMoviesRepository,
   GetLatestMoviesRepositoryRequest,
-  GetLatestFilmsRepositoryResponse
+  GetLatestMoviesRepositoryResponse
 }
