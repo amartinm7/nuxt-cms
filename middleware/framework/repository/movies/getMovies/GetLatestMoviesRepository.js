@@ -12,7 +12,6 @@ class GetLatestMoviesRepository {
    * @returns {*}
    */
   execute(getLatestFilmsRepositoryRequest) {
-    console.log('>>>GetFilmsRepository.execute')
     const urlPath = `/movie/latest`
     return this._axios(
       new GetAxiosRequest({

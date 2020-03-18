@@ -12,7 +12,6 @@ class GetTvVideosRepository {
    * @returns {*}
    */
   execute(getTvVideosRepositoryRequest) {
-    console.log('>>>GetTrendingMoviesRepository.execute')
     const urlPath = `/tv/${getTvVideosRepositoryRequest._id}}/videos`
     return this._axios(
       new GetAxiosRequest({
