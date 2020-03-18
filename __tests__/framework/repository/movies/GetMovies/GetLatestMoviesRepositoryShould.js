@@ -44,7 +44,7 @@ describe('GetLatestMoviesRepository', function() {
         vote_average: 0,
         vote_count: 0
       }
-      const mockedAds = require('./GetLatestMoviesRepositoryAxiosResponse.json')
+      const mockedAds = require('./getLatestMoviesRepositoryAxiosResponse.json')
       const mockGetLatestMoviesRepository = jest.fn()
       GetLatestMoviesRepository.prototype.execute = mockGetLatestMoviesRepository
       mockGetLatestMoviesRepository.mockReturnValue(Promise.resolve(mockedAds))

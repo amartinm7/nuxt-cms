@@ -28,7 +28,7 @@ class GetTrendingMoviesRepository {
 
   async executeAsync(getLatestFilmsRepositoryRequest) {
     const axiosResponse = await this.execute(getLatestFilmsRepositoryRequest)
-    return new GetTrendingMoviesRepositoryResponse({ ...axiosResponse.data })
+    return new GetTrendingMoviesRepositoryResponse(axiosResponse)
   }
 }
 
@@ -61,8 +61,11 @@ class GetTrendingMoviesRepositoryResponseResult {
     release_date,
     overview,
     adult,
+    genre_ids,
     poster_path,
-    backdrop_path
+    backdrop_path,
+    popularity,
+    media_type
   }) {
     this._id = id
     this._title = title
@@ -71,8 +74,11 @@ class GetTrendingMoviesRepositoryResponseResult {
     this._release_date = release_date
     this._overview = overview
     this._adult = adult
+    this._genre_ids = genre_ids
     this._poster_path = poster_path
     this._backdrop_path = backdrop_path
+    this._popularity = popularity
+    this._media_type = media_type
   }
 }
 
