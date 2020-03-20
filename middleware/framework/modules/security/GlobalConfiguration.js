@@ -1,5 +1,5 @@
 const firebaseConfigEnv = process.env.ESTRENOSCINEHOY_FIRESTORE_CONFIG
-if (firebaseConfigEnv === undefined || firebaseConfigEnv == null){
+if (firebaseConfigEnv === undefined || firebaseConfigEnv == null) {
   console.error(
     '(Estrenos cine hoy) FirebaseConfigEnv... empty!!. Setup environment vars...'
   )
