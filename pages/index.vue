@@ -28,8 +28,10 @@
     </section>
     <section class="uk-section uk-section-xsmall">
       <ul uk-tab class="uk-flex uk-flex-around">
-        <li class="uk-active"><a href="#" uk-icon="icon: copy"></a>Movies</li>
-        <li><a href="#" uk-icon="icon: heart"></a>TV</li>
+        <li class="uk-active">
+          <a href="#" uk-icon="icon: video-camera"></a>Movies
+        </li>
+        <li><a href="#" uk-icon="icon: tv"></a>TV Shows</li>
       </ul>
       <div class="uk-switcher">
         <div class="uk-active">
