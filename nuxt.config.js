@@ -77,6 +77,9 @@ export default {
   markdownit: {
     injected: true
   },
+  sitemap: {
+    hostname: 'https://estrenoscinehoy.com'
+  },
   /*
    ** Build configuration
    */
