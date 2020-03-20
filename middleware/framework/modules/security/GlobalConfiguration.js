@@ -1,6 +1,8 @@
 const firebaseConfigEnv = process.env.ESTRENOSCINEHOY_FIRESTORE_CONFIG
 if (firebaseConfigEnv === undefined || firebaseConfigEnv == null){
-  console.error('firebaseConfigEnv... empty!!. Setup environment vars...')
+  console.error(
+    '(Estrenos cine hoy) FirebaseConfigEnv... empty!!. Setup environment vars...'
+  )
 }
 const firebaseConfigString = decodeToBase64(firebaseConfigEnv)
 const firebaseConfig = JSON.parse(firebaseConfigString)
