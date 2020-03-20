@@ -1,6 +1,6 @@
 # cms
 
-> cms
+> estrenoscinehoy
 
 ## Build Setup
 
@@ -71,3 +71,15 @@ put here your styles...
 ````
 
 restart server o npm run dev
+
+
+### adding firebase
+```bash
+npm install firebase --save
+```
+
+### adding sitemap
+https://github.com/nuxt-community/sitemap-module
+```bash
+npm install @nuxtjs/sitemap
+```

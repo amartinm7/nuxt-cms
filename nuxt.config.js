@@ -1,5 +1,13 @@
 export default {
   mode: 'universal',
+  /**
+   * https://nuxtjs.org/api/configuration-env/
+   * Note that Nuxt uses webpack's definePlugin to define the environmental variable. This means that the actual process or process.env from Node.js is neither available nor defined. Each of the env properties defined in nuxt.config.js is individually mapped to process.env.xxxx and converted during compilation.
+   */
+  env: {
+    ESTRENOSCINEHOY_FIRESTORE_CONFIG:
+      process.env.ESTRENOSCINEHOY_FIRESTORE_CONFIG
+  },
   /*
    ** Headers of the page
    */
@@ -10,7 +18,7 @@ export default {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {
         hid: 'estrenoscinehoy',
-        name: 'estrenos cine hoy',
+        name: 'Estrenos Cine Hoy',
         content:
           process.env.npm_package_description ||
           'Estrenos de cine, peliculas tv hoy, programacion tv, Movies, TV Shows, Reviews, API, Actors, Actresses, Photos, User Ratings, Synopsis, Trailers, Teasers, Credits, Cast'
@@ -49,7 +57,8 @@ export default {
    */
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
-    '@nuxtjs/eslint-module'
+    '@nuxtjs/eslint-module',
+    '@nuxtjs/sitemap'
   ],
   /*
    ** Nuxt.js modules
