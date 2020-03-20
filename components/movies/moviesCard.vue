@@ -7,21 +7,13 @@
       class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin"
       uk-grid
     >
-      <div class="uk-flex">
+      <div class="uk-flex uk-flex-center">
         <div
           class="uk-card-media-left uk-cover-container"
           style="width: 185px; height: 278px;"
         >
           <img :src="getPosterURL(movie._poster_path, index)" alt="" uk-cover />
           <canvas width="185" height="278"></canvas>
-        </div>
-        <div class="uk-grid uk-child-width-expand@s uk-text-center" uk-grid>
-          <div>
-            <span uk-icon="icon: check"></span>
-          </div>
-          <div>
-            <span uk-icon="icon: heart"></span>
-          </div>
         </div>
       </div>
       <div>
