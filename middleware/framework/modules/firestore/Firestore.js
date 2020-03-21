@@ -16,7 +16,11 @@ class FirestoreRef {
 
   static init() {
     if (firestoreRef == null) {
-      firebase.initializeApp(firebaseConfig)
+      try {
+        firebase.initializeApp(firebaseConfig)
+      } catch (e) {
+        console.log('skipping hot reloading common error...')
+      }
       firestoreRef = firebase.firestore()
     }
   }
