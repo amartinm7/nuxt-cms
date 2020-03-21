@@ -1,6 +1,5 @@
 <template>
   <div>
-    <user-profile></user-profile>
     <section class="uk-section uk-section-xsmall">
       <div
         class="uk-position-relative uk-visible-toggle uk-light uk-width-auto"
@@ -65,10 +64,9 @@
 import AmazonBanner from '../components/amazon/AmazonBanner'
 import MoviesCard from '../components/movies/MoviesCard'
 import ApplicationFacadeFactoryBean from '../middleware/framework/facade/ApplicationFacadeFactoryBean'
-import UserProfile from '../components/users/UserProfile'
 
 export default {
-  components: { UserProfile, MoviesCard, AmazonBanner },
+  components: { MoviesCard, AmazonBanner },
   // eslint-disable-next-line require-await
   async asyncData({ params }) {
     const getTrendingMoviesResponse = await ApplicationFacadeFactoryBean.getTrendingMoviesController().getTrendingMovies()
