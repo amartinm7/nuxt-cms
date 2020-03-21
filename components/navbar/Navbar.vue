@@ -3,9 +3,8 @@
     <nav class="uk-navbar-container" uk-navbar>
       <div class="uk-navbar-left">
         <ul class="uk-navbar-nav">
-          <li class="uk-active"><a href="#">Estrenos Cine Hoy</a></li>
           <li>
-            <a href="#">Cine</a>
+            <a href="#"><span uk-icon="icon: video-camera"></span>&nbsp;Cine</a>
             <div class="uk-navbar-dropdown">
               <ul class="uk-nav uk-navbar-dropdown-nav">
                 <li class="uk-active"><a href="#">Estrenos</a></li>
@@ -20,7 +19,7 @@
             </div>
           </li>
           <li>
-            <a href="#">TV Shows</a>
+            <a href="#"><span uk-icon="icon: tv"></span>&nbsp;TV Shows</a>
             <div class="uk-navbar-dropdown">
               <ul class="uk-nav uk-navbar-dropdown-nav">
                 <li class="uk-active"><a href="#">Estrenos</a></li>
@@ -40,23 +39,39 @@
         <ul class="uk-navbar-nav">
           <li>
             <a href="#">
-              Perfil
+              <span uk-icon="icon: user"></span>&nbsp;Perfil
               <img
                 class="uk-border-circle"
-                width="64"
-                height="64"
+                width="32"
+                height="32"
                 src="https://sw25672.smartweb-static.com/upload_dir/shop/category/images-_sjove-tegninger-af-dyr_.w293.h293.fill.png"
               />
             </a>
             <div class="uk-navbar-dropdown">
               <ul class="uk-nav uk-navbar-dropdown-nav">
-                <li class="uk-active"><a href="#">Datos de Acceso</a></li>
-                <li><a href="#">Usuario y password</a></li>
+                <li class="uk-active">
+                  <a href="#">Datos de Acceso</a>
+                </li>
+                <li>
+                  <a href="#">
+                    <span uk-icon="icon: user"
+                      >&nbsp;&nbsp;Usuario-password</span
+                    >
+                  </a>
+                </li>
                 <li class="uk-nav-header">Preferencias</li>
-                <li><a href="#">Tus Favoritos</a></li>
+                <li>
+                  <a href="#">
+                    <span uk-icon="icon: heart">&nbsp;&nbsp;Favoritos</span>
+                  </a>
+                </li>
                 <li><a href="#">Item</a></li>
                 <li class="uk-nav-divider"></li>
-                <li><a href="#">ayuda</a></li>
+                <li>
+                  <a href="#">
+                    <span uk-icon="icon: info">&nbsp;&nbsp;ayuda</span>
+                  </a>
+                </li>
               </ul>
             </div>
           </li>
