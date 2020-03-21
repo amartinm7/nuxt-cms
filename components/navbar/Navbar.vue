@@ -54,22 +54,20 @@
                 </li>
                 <li>
                   <a href="#">
-                    <span uk-icon="icon: user"
-                      >&nbsp;&nbsp;Usuario-password</span
-                    >
+                    <span uk-icon="icon: user"></span
+                    >&nbsp;&nbsp;Usuario-password
                   </a>
                 </li>
                 <li class="uk-nav-header">Preferencias</li>
                 <li>
                   <a href="#">
-                    <span uk-icon="icon: heart">&nbsp;&nbsp;Favoritos</span>
+                    <span uk-icon="icon: heart"></span>&nbsp;&nbsp;Favoritos
                   </a>
                 </li>
-                <li><a href="#">Item</a></li>
                 <li class="uk-nav-divider"></li>
                 <li>
                   <a href="#">
-                    <span uk-icon="icon: info">&nbsp;&nbsp;ayuda</span>
+                    <span uk-icon="icon: info"></span>&nbsp;&nbsp;ayuda
                   </a>
                 </li>
               </ul>
