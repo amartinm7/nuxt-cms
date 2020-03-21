@@ -1,9 +1,17 @@
 <template>
   <div>
+    <navbar></navbar>
     <nuxt />
   </div>
 </template>
-
+<script>
+import Navbar from '../components/navbar/Navbar'
+export default {
+  components: {
+    Navbar
+  }
+}
+</script>
 <style>
 /** for debug styling
 div {
@@ -12,9 +20,12 @@ div {
   padding: 1px;
   margin: 1px;
 }
-**/
+ **/
 body {
   min-width: 320px;
+}
+
+.ech-scroll-spy-effect {
 }
 /**
 html {

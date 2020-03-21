@@ -1,8 +1,14 @@
 <template>
   <div>
     <section class="uk-section uk-section-xsmall">
-      <div class="uk-position-relative uk-visible-toggle uk-light">
-        <a class="uk-button uk-button-default" href="#modal-center" uk-toggle>
+      <div
+        class="uk-position-relative uk-visible-toggle uk-light uk-width-auto"
+      >
+        <a
+          class="uk-button uk-button-default uk-align-center"
+          href="#modal-center"
+          uk-toggle
+        >
           <img
             src="https://image.tmdb.org/t/p/w1000_and_h563_face/6ZdQTBy20HzWudZthAV7NkZWfIb.jpg"
           />
@@ -37,13 +43,13 @@
         <div class="uk-active">
           <movies-card
             :movies="trendingMovies._results"
-            class="ma-scroll-spy-effect"
+            class="ech-scroll-spy-effect"
           ></movies-card>
         </div>
         <div>
           <movies-card
             :movies="trendingTVShows._results"
-            class="ma-scroll-spy-effect"
+            class="ech-scroll-spy-effect"
           ></movies-card>
         </div>
       </div>
@@ -56,11 +62,24 @@
 
 <script>
 import AmazonBanner from '../components/amazon/AmazonBanner'
-import MoviesCard from '../components/movies/moviesCard'
+import MoviesCard from '../components/movies/MoviesCard'
 import ApplicationFacadeFactoryBean from '../middleware/framework/facade/ApplicationFacadeFactoryBean'
 
 export default {
   components: { MoviesCard, AmazonBanner },
+  // eslint-disable-next-line require-await
+  async asyncData({ params }) {
+    const getTrendingMoviesResponse = await ApplicationFacadeFactoryBean.getTrendingMoviesController().getTrendingMovies()
+    const trendingMovies = {
+      ...getTrendingMoviesResponse
+    }
+
+    const getTrendingTVShowsResponse = await ApplicationFacadeFactoryBean.getTrendingMoviesController().getTrendingTVShows()
+    const trendingTVShows = {
+      ...getTrendingTVShowsResponse
+    }
+    return { trendingMovies, trendingTVShows }
+  },
   data() {
     return {
       trendingMovies: {
@@ -76,19 +95,6 @@ export default {
         _results: []
       }
     }
-  },
-  // eslint-disable-next-line require-await
-  async asyncData({ params }) {
-    const getTrendingMoviesResponse = await ApplicationFacadeFactoryBean.getTrendingMoviesController().getTrendingMovies()
-    const trendingMovies = {
-      ...getTrendingMoviesResponse
-    }
-
-    const getTrendingTVShowsResponse = await ApplicationFacadeFactoryBean.getTrendingMoviesController().getTrendingTVShows()
-    const trendingTVShows = {
-      ...getTrendingTVShowsResponse
-    }
-    return { trendingMovies, trendingTVShows }
   },
   created() {},
   methods: {
