@@ -1,12 +1,27 @@
 import * as firebase from 'firebase/app'
 import 'firebase/storage'
 import 'firebase/database'
-import firestore from 'firebase/firestore' // no borrar, si no, no funciona
+import * as firestore from 'firebase/firestore'
 console.log(firestore)
 
 const { firebaseConfig } = require('../security/GlobalConfiguration')
-firebase.initializeApp(firebaseConfig)
 
-const firestoreRef = firebase.firestore()
+// eslint-disable-next-line import/no-mutable-exports
+let firestoreRef = null
+
+class FirestoreRef {
+  constructor() {
+    console.log('init firestore...')
+  }
+
+  static init() {
+    if (firestoreRef == null) {
+      firebase.initializeApp(firebaseConfig)
+      firestoreRef = firebase.firestore()
+    }
+  }
+}
+
+FirestoreRef.init()
 
 export { firestoreRef }
