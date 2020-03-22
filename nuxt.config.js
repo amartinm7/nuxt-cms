@@ -6,7 +6,9 @@ export default {
    */
   env: {
     ESTRENOSCINEHOY_FIRESTORE_CONFIG:
-      process.env.ESTRENOSCINEHOY_FIRESTORE_CONFIG
+      process.env.ESTRENOSCINEHOY_FIRESTORE_CONFIG,
+    ESTRENOSCINEHOY_THEMOVIEDB_CONFIG:
+      process.env.ESTRENOSCINEHOY_THEMOVIEDB_CONFIG
   },
   /*
    ** Headers of the page

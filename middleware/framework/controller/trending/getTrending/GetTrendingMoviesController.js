@@ -1,4 +1,4 @@
-import { GetTrendingMoviesServiceRequest } from '../../../../application/usecases/trending/GetTrending/GetTrendingMoviesService'
+import { GetTrendingMoviesServiceRequest } from '../../../../application/usecases/trending/getTrending/GetTrendingMoviesService'
 import {
   MEDIA_TYPES,
   TIME_WINDOWS_TYPES

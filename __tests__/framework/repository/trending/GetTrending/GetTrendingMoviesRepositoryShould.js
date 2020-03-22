@@ -2,7 +2,7 @@
 import {
   GetTrendingMoviesRepository,
   GetTrendingMoviesRepositoryRequest, GetTrendingMoviesRepositoryResponse
-} from '../../../../../middleware/framework/repository/trending/GetTrending/GetTrendingMoviesRepository'
+} from '../../../../../middleware/framework/repository/trending/getTrending/GetTrendingMoviesRepository'
 import {
   MEDIA_TYPES,
   TIME_WINDOWS_TYPES
@@ -18,7 +18,7 @@ describe('GetTrendingMoviesRepository', function() {
   describe('execute', function() {
     it('should save', async function() {
       // given
-      const accessToken = `eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjNWUzMTJmMzMwZTkwOTk0OWZiNmIwNDViN2VhYmE2NSIsInN1YiI6IjVlNmJkMmMyY2VkYWM0MDAxNzQ5NjJlYiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.YEVmEFcunK4clG1KuUXQm9msRV70n5hF1e9ozfIMjbc`
+      const accessToken = `accessToken`
       const expected = {
         page: 1,
         total_pages: 1000,

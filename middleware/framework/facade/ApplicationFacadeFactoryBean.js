@@ -1,15 +1,19 @@
 import { GetLatestMoviesRepository } from '../repository/movies/getMovies/GetLatestMoviesRepository'
-import { GetTrendingMoviesRepository } from '../repository/trending/GetTrending/GetTrendingMoviesRepository'
+import { GetTrendingMoviesRepository } from '../repository/trending/getTrending/GetTrendingMoviesRepository'
 import { GetTvVideosRepository } from '../repository/tv/GetVideos/GetTvVideosRepository'
 import { GetLatestMoviesService } from '../../application/usecases/movies/getMovies/GetLatestMoviesService'
-import { GetTrendingMoviesService } from '../../application/usecases/trending/GetTrending/GetTrendingMoviesService'
+import { GetTrendingMoviesService } from '../../application/usecases/trending/getTrending/GetTrendingMoviesService'
 import { GetTvVideosService } from '../../application/usecases/tv/GetVideos/GetTvVideosService'
-import { GetTrendingMoviesController } from '../controller/trending/GetTrending/GetTrendingMoviesController'
+import { GetTrendingMoviesController } from '../controller/trending/getTrending/GetTrendingMoviesController'
 import { GetLatestMoviesController } from '../controller/movies/getMovies/GetLatestMoviesController'
 import { GetTvVideosController } from '../controller/tv/GetVideos/GetTvVideosController'
+import { GetMovieVideosRepository } from '../repository/movies/getVideos/GetMovieVideosRepository'
+import { GetMovieVideosService } from '../../application/usecases/movies/getMovieVideos/GetMovieVideosService'
+import { GetMovieVideosController } from '../controller/movies/getMovieVideos/GetMovieVideosController'
+import * as Globalconfiguration from '../modules/security/GlobalConfiguration'
 
+const accessToken = Globalconfiguration.theMovieDBConfigEnv
 const axios = require('axios')
-const accessToken = `eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjNWUzMTJmMzMwZTkwOTk0OWZiNmIwNDViN2VhYmE2NSIsInN1YiI6IjVlNmJkMmMyY2VkYWM0MDAxNzQ5NjJlYiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.YEVmEFcunK4clG1KuUXQm9msRV70n5hF1e9ozfIMjbc`
 
 let instance = null
 
@@ -19,6 +23,8 @@ export default class ApplicationFacadeFactoryBean {
     const getLatestMoviesRepository = new GetLatestMoviesRepository(config)
     const getTrendingMoviesRepository = new GetTrendingMoviesRepository(config)
     const getTvVideosRepository = new GetTvVideosRepository(config)
+    const getMovieVideosRepository = new GetMovieVideosRepository(config)
+
     const getLatestMoviesService = new GetLatestMoviesService({
       getLatestMoviesRepository
     })
@@ -26,6 +32,10 @@ export default class ApplicationFacadeFactoryBean {
       getTrendingMoviesRepository
     })
     const getTvVideosService = new GetTvVideosService({ getTvVideosRepository })
+
+    const getMovieVideosService = new GetMovieVideosService({
+      getMovieVideosRepository
+    })
 
     this._getLatestMoviesController = new GetLatestMoviesController({
       getLatestMoviesService
@@ -37,6 +47,10 @@ export default class ApplicationFacadeFactoryBean {
 
     this._getTvVideosController = new GetTvVideosController({
       getTvVideosService
+    })
+
+    this._getMovieVideosController = new GetMovieVideosController({
+      getMovieVideosService
     })
   }
 
@@ -57,5 +71,9 @@ export default class ApplicationFacadeFactoryBean {
 
   static getTvVideosController() {
     return this.getInstance()._getTvVideosController
+  }
+
+  static getMovieVideosController() {
+    return this.getInstance()._getMovieVideosController
   }
 }
