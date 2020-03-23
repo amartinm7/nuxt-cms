@@ -1,4 +1,4 @@
-const firebaseConfig = getfirebaseConfigEnv()
+const firebaseConfig = getFirebaseConfigEnv()
 const theMovieDBConfigEnv = getTheMovieDBConfigEnv()
 
 export { firebaseConfig, theMovieDBConfigEnv }
@@ -11,7 +11,7 @@ function encodeToBase64(data) {
   return Buffer.from(data).toString('base64')
 }
 
-function getfirebaseConfigEnv(){
+function getFirebaseConfigEnv() {
   const firebaseConfigEnv = process.env.ESTRENOSCINEHOY_FIRESTORE_CONFIG
   if (firebaseConfigEnv === undefined || firebaseConfigEnv == null) {
     console.error(

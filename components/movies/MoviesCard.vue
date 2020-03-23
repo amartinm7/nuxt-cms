@@ -12,9 +12,20 @@
           class="uk-card-media-left uk-cover-container"
           style="width: 185px; height: 278px;"
         >
-          <img :src="getPosterURL(movie._poster_path, index)" alt="" uk-cover />
-          <canvas width="185" height="278"></canvas>
+          <a
+            class="uk-button uk-button-default uk-align-center"
+            :href="movie._videoHref"
+            uk-toggle
+          >
+            <img
+              :src="getPosterURL(movie._poster_path, index)"
+              alt=""
+              uk-cover
+            />
+            <canvas width="185" height="278"></canvas>
+          </a>
         </div>
+        <video-frame :movie="movie"></video-frame>
       </div>
       <div>
         <div class="uk-card-body">
@@ -26,13 +37,15 @@
   </div>
 </template>
 <script>
+import VideoFrame from './VideoFrame'
 export default {
+  name: 'MoviesCard',
+  components: { VideoFrame },
   props: {
     movies: {
       type: Array
     }
   },
-  name: 'MoviesCard',
   methods: {
     getPosterURL(posterPath) {
       return `https://image.tmdb.org/t/p/w185_and_h278_bestv2/${posterPath}`

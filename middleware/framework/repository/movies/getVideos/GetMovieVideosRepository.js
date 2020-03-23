@@ -54,6 +54,7 @@ class GetMovieVideosRepositoryResponseResult {
     this._site = site
     this._size = size
     this._type = type
+    this._videoHref = `#ref-${key}`
   }
 }
 
