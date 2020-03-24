@@ -23,7 +23,6 @@ class GetMovieVideosRepository {
 
   async executeAsync(getMovieVideosRepositoryRequest) {
     const axiosResponse = await this.execute(getMovieVideosRepositoryRequest)
-    console.log(JSON.stringify(axiosResponse))
     return new GetMovieVideosRepositoryResponse({ ...axiosResponse.data })
   }
 }
@@ -54,7 +53,6 @@ class GetMovieVideosRepositoryResponseResult {
     this._site = site
     this._size = size
     this._type = type
-    this._videoHref = `#ref-${key}`
   }
 }
 

@@ -22,8 +22,7 @@ describe('GetMovieVideosController', function() {
               'Sonic The Hedgehog (2020) - New Official Trailer - Paramount Pictures',
             _site: 'YouTube',
             _size: 1080,
-            _type: 'Trailer',
-            _videoHref: '#ref-szby7ZHLnkA'
+            _type: 'Trailer'
           }
         ]
       }

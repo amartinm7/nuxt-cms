@@ -1,7 +1,8 @@
 // eslint-disable-next-line no-unused-vars
 import {
   GetTrendingMoviesRepository,
-  GetTrendingMoviesRepositoryRequest, GetTrendingMoviesRepositoryResponse
+  GetTrendingMoviesRepositoryRequest,
+  GetTrendingMoviesRepositoryResponse
 } from '../../../../../middleware/framework/repository/trending/getTrending/GetTrendingMoviesRepository'
 import {
   MEDIA_TYPES,
