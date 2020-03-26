@@ -54,6 +54,7 @@ class GetTrendingMoviesRepositoryResponseResult {
   constructor({
     id,
     title,
+    name,
     vote_account,
     vote_average,
     release_date,
@@ -67,6 +68,7 @@ class GetTrendingMoviesRepositoryResponseResult {
   }) {
     this._id = id
     this._title = title
+    this._name = name
     this._vote_account = vote_account
     this._vote_average = vote_average
     this._release_date = release_date

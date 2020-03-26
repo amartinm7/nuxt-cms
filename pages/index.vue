@@ -47,10 +47,10 @@
           ></movies-card>
         </div>
         <div>
-          <movies-card
+          <tv-show-card
             :movies="trendingTVShows._results"
             class="ech-scroll-spy-effect"
-          ></movies-card>
+          ></tv-show-card>
         </div>
       </div>
     </section>
@@ -64,9 +64,10 @@
 import AmazonBanner from '../components/amazon/AmazonBanner'
 import MoviesCard from '../components/movies/MoviesCard'
 import ApplicationFacadeFactoryBean from '../middleware/framework/facade/ApplicationFacadeFactoryBean'
+import TvShowCard from '../components/movies/TVShowCard'
 
 export default {
-  components: { MoviesCard, AmazonBanner },
+  components: { TvShowCard, MoviesCard, AmazonBanner },
   // eslint-disable-next-line require-await
   async asyncData({ params }) {
     const getTrendingMoviesResponse = await ApplicationFacadeFactoryBean.getTrendingMoviesController().getTrendingMovies()
@@ -78,6 +79,7 @@ export default {
     const trendingTVShows = {
       ...getTrendingTVShowsResponse
     }
+    console.log(JSON.stringify(trendingTVShows))
     return { trendingMovies, trendingTVShows }
   },
   data() {

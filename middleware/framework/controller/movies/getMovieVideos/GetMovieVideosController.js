@@ -1,4 +1,5 @@
 import { GetMovieVideosServiceRequest } from '../../../../application/usecases/movies/getMovieVideos/GetMovieVideosService'
+const _isEmpty = require('lodash.isempty')
 
 class GetMovieVideosController {
   constructor({ getMovieVideosService }) {
@@ -11,6 +12,23 @@ class GetMovieVideosController {
       new GetMovieVideosServiceRequest({ ...getMovieVideosControllerRequest })
     )
     return { ...getMovieVideosServiceResponse }
+  }
+
+  async getFirstVideoURL(getMovieVideosControllerRequest) {
+    const getMovieVideosServiceResponse = await this.execute(
+      getMovieVideosControllerRequest
+    )
+    if (
+      _isEmpty(getMovieVideosServiceResponse._results) ||
+      _isEmpty(getMovieVideosServiceResponse._results[0])
+    ) {
+      return {
+        url: ''
+      }
+    }
+    const key = getMovieVideosServiceResponse._results[0]._key
+    const url = `https://www.youtube.com/embed/${key}?autoplay=1&amp;showinfo=0&amp;rel=0&amp;modestbranding=1&amp;playsinline=1`
+    return { url }
   }
 }
 

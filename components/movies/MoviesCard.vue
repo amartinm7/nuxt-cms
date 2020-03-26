@@ -7,51 +7,73 @@
       class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin"
       uk-grid
     >
-      <div class="uk-flex uk-flex-center">
-        <div
-          class="uk-card-media-left uk-cover-container"
-          style="width: 185px; height: 278px;"
+      <div
+        class="uk-position-relative uk-visible-toggle uk-light uk-width-auto"
+      >
+        <a
+          class="uk-button uk-button-default uk-align-center"
+          :href="`#openVideo_${movie._id}`"
+          uk-toggle
+          @click="initVideoURL(movie)"
         >
-          <a
-            class="uk-button uk-button-default uk-align-center"
-            :href="movie._videoHref"
-            uk-toggle
-          >
-            <img
-              :src="getPosterURL(movie._poster_path, index)"
-              alt=""
-              uk-cover
-            />
-            <canvas width="185" height="278"></canvas>
-          </a>
-        </div>
-        <video-frame :movie="movie"></video-frame>
+          <img :src="getPosterURL(movie._poster_path, index)" />
+        </a>
       </div>
       <div>
         <div class="uk-card-body">
-          <h3 class="uk-card-title">{{ movie._title }}</h3>
+          <h3 class="uk-card-title">
+            {{ movie._title || movie._name }} - {{ movie._id }}
+          </h3>
           <p>{{ movie._overview }}</p>
+        </div>
+      </div>
+      <div :id="`openVideo_${movie._id}`" class="uk-flex-top" uk-modal>
+        <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+          <button
+            class="uk-modal-close-default"
+            type="button"
+            uk-close
+          ></button>
+          <div :id="`videoFrame_${movie._id}`"></div>
         </div>
       </div>
     </article>
   </div>
 </template>
 <script>
+import Vue from 'vue'
+import ApplicationFacadeFactoryBean from '../../middleware/framework/facade/ApplicationFacadeFactoryBean'
+import { GetMovieVideosControllerRequest } from '../../middleware/framework/controller/movies/getMovieVideos/GetMovieVideosController'
 import VideoFrame from './VideoFrame'
+
 export default {
   name: 'MoviesCard',
-  components: { VideoFrame },
   props: {
     movies: {
       type: Array
+    },
+    mediatype: {
+      type: String
     }
   },
   methods: {
     getPosterURL(posterPath) {
       return `https://image.tmdb.org/t/p/w185_and_h278_bestv2/${posterPath}`
+    },
+    async initVideoURL(movie) {
+      const getMovieVideosControllerResponse = await ApplicationFacadeFactoryBean.getMovieVideosController().getFirstVideoURL(
+        new GetMovieVideosControllerRequest({ movie_id: movie._id })
+      )
+      console.log('initVideoURL...' + getMovieVideosControllerResponse.url)
+      const VideoFrameClass = Vue.extend(VideoFrame)
+      new VideoFrameClass({
+        propsData: {
+          url: getMovieVideosControllerResponse.url,
+          movie_id: movie._id
+        }
+      }).$mount(`#videoFrame_${movie._id}`)
     }
   }
 }
 </script>
-
 <style></style>
