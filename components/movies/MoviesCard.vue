@@ -24,7 +24,7 @@
           <h3 class="uk-card-title">
             {{ movie._title || movie._name }} - {{ movie._id }}
           </h3>
-          <p>{{ movie._overview }}</p>
+          <p class="uk-dropcap">{{ movie._overview }}</p>
         </div>
       </div>
       <div :id="`openVideo_${movie._id}`" class="uk-flex-top" uk-modal>

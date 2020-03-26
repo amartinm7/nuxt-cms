@@ -17,7 +17,7 @@
       <div>
         <div class="uk-card-body">
           <h3 class="uk-card-title">{{ movie._name }} - {{ movie._id }}</h3>
-          <p>{{ movie._overview }}</p>
+          <p class="uk-dropcap">{{ movie._overview }}</p>
         </div>
       </div>
     </article>
