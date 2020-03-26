@@ -7,16 +7,16 @@
       class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin"
       uk-grid
     >
-      <div
-        class="uk-position-relative uk-visible-toggle uk-light uk-width-auto"
-      >
+      <div class="uk-position-relative uk-visible-toggle uk-light">
         <a class="uk-button uk-button-default uk-align-center">
           <img :src="getPosterURL(movie._poster_path, index)" />
         </a>
       </div>
       <div>
         <div class="uk-card-body">
-          <h3 class="uk-card-title">{{ movie._name }} - {{ movie._id }}</h3>
+          <h3 class="uk-card-title">
+            {{ movie._name }} <span class="uk-label">{{ movie._id }}</span>
+          </h3>
           <p class="uk-dropcap">{{ movie._overview }}</p>
         </div>
       </div>
