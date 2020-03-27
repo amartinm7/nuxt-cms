@@ -1,8 +1,9 @@
 // eslint-disable-next-line no-unused-vars
 import { GetMovieVideosRepository } from '../../../../../middleware/framework/repository/movies/getVideos/GetMovieVideosRepository'
 import ApplicationFacadeFactoryBean from '../../../../../middleware/framework/facade/ApplicationFacadeFactoryBean'
-import { GetMovieVideosControllerRequest } from '../../../../../middleware/framework/controller/movies/getMovieVideos/GetMovieVideosController'
+import { GetMovieVideosControllerRequest } from '../../../../../middleware/framework/controller/movies/getVideos/GetMovieVideosController'
 
+// eslint-disable-next-line no-unused-vars
 const assert = require('assert')
 
 console.log('welcome! GetMovieVideosController test')
@@ -39,7 +40,9 @@ describe('GetMovieVideosController', function() {
       // then
       console.log(JSON.stringify(getMovieVideosControllerResponse))
       // expect(getLatestFilmsRepositoryResponse.data.title).toEqual(expected.title)
-      expect(getMovieVideosControllerResponse._results[0]).toEqual(expected._results[0])
+      expect(getMovieVideosControllerResponse._results[0]).toEqual(
+        expected._results[0]
+      )
     })
   })
 })

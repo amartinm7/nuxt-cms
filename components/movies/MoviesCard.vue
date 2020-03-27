@@ -41,7 +41,7 @@
 <script>
 import Vue from 'vue'
 import ApplicationFacadeFactoryBean from '../../middleware/framework/facade/ApplicationFacadeFactoryBean'
-import { GetMovieVideosControllerRequest } from '../../middleware/framework/controller/movies/getMovieVideos/GetMovieVideosController'
+import { GetMovieVideosControllerRequest } from '../../middleware/framework/controller/movies/getVideos/GetMovieVideosController'
 import VideoFrame from './VideoFrame'
 
 export default {

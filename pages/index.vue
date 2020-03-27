@@ -35,9 +35,12 @@
     <section class="uk-section uk-section-xsmall">
       <ul uk-tab class="uk-flex uk-flex-around">
         <li class="uk-active">
-          <a href="#" uk-icon="icon: video-camera"></a>Movies
+          <a href="#" uk-icon="icon: video-camera"></a>Trending Movies
         </li>
-        <li><a href="#" uk-icon="icon: tv"></a>TV Shows</li>
+        <li class="uk-active">
+          <a href="#" uk-icon="icon: video-camera"></a>Now Playing
+        </li>
+        <li><a href="#" uk-icon="icon: tv"></a>Trending TV Shows</li>
       </ul>
       <div class="uk-switcher">
         <div class="uk-active">
