@@ -39,4 +39,7 @@ body {
   -webkit-transition: opacity 0.2s ease-out;
   -o-transition: opacity 0.2s ease-out;
 }
+
+.ech-scroll-spy-effect {
+}
 </style>
