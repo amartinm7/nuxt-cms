@@ -19,7 +19,7 @@
       </div>
       <div>
         <div class="uk-card-body">
-          <h3 class="uk-card-title">
+          <h3 class="uk-card-title ech-basic">
             {{ movie._title }} <span class="uk-label">{{ movie._id }}</span>
           </h3>
           <p class="uk-dropcap">{{ movie._overview }}</p>

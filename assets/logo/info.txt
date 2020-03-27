@@ -1,0 +1,14 @@
+
+Hope you enjoy your new logo, here are the people that
+made your beautiful logo happen :)
+font name: sofiapro-light
+font link: https://www.fontspring.com/fonts/mostardesign/sofia-pro/sofia-pro-light
+font author: Mostardesign
+font author site: http://www.motyfo.com/
+
+
+icon designer: Ben Davis
+icon designer link: /smashicons
+        
+{"bg":"#F7F2D9","icon-gradient-0":"#C5194B","icon-gradient-1":"#DFDF4F","font":"#3E261A","slogan":"#523a2e"}
+      
