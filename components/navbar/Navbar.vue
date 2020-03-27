@@ -3,23 +3,12 @@
     <nav class="uk-navbar-container" uk-navbar>
       <div class="uk-navbar-left">
         <ul class="uk-navbar-nav">
-          <li>
-            <a href="#"><span uk-icon="icon: video-camera"></span>&nbsp;Cine</a>
-            <div class="uk-navbar-dropdown">
-              <ul class="uk-nav uk-navbar-dropdown-nav">
-                <li class="uk-active"><a href="#">Estrenos</a></li>
-                <li><a href="#">Ultima Semana</a></li>
-                <li><a href="#">Ultimo Mes</a></li>
-                <li class="uk-nav-header">Categorias</li>
-                <li><a href="#">Sfy-fy</a></li>
-                <li><a href="#">Drama</a></li>
-                <li class="uk-nav-divider"></li>
-                <li><a href="#">Comedia</a></li>
-              </ul>
-            </div>
-          </li>
-          <li>
-            <a href="#"><span uk-icon="icon: tv"></span>&nbsp;TV Shows</a>
+          <li class="uk-width-1-2">
+            <a href="#" class="uk-link-reset ech-basic" style="cursor: default"
+              ><img
+                src="../../assets/logo/vector/default-monochrome-black.svg"
+                uk-svg
+            /></a>
             <div class="uk-navbar-dropdown">
               <ul class="uk-nav uk-navbar-dropdown-nav">
                 <li class="uk-active"><a href="#">Estrenos</a></li>

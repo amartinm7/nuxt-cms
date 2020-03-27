@@ -1,8 +1,9 @@
 // eslint-disable-next-line no-unused-vars
 import {
   GetLatestMoviesRepository,
-  GetLatestMoviesRepositoryRequest, GetLatestMoviesRepositoryResponse
-} from '../../../../../middleware/framework/repository/movies/getMovies/GetLatestMoviesRepository'
+  GetLatestMoviesRepositoryRequest,
+  GetLatestMoviesRepositoryResponse
+} from '../../../../../middleware/framework/repository/movies/getLatest/GetLatestMoviesRepository'
 
 // eslint-disable-next-line no-unused-vars
 const assert = require('assert')
