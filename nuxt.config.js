@@ -23,7 +23,7 @@ export default {
         name: 'Estrenos Cine Hoy',
         content:
           process.env.npm_package_description ||
-          'Estrenos de cine, peliculas tv hoy, programacion tv, Movies, TV Shows, Reviews, API, Actors, Actresses, Photos, User Ratings, Synopsis, Trailers, Teasers, Credits, Cast'
+          'Estrenos de cine, peliculas tvShows hoy, programacion tvShows, Movies, TV Shows, Reviews, API, Actors, Actresses, Photos, User Ratings, Synopsis, Trailers, Teasers, Credits, Cast'
       }
     ],
     link: [

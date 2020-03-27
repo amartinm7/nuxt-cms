@@ -1,0 +1,73 @@
+{
+  "data": {
+    "id": 63247,
+    "results": [
+      {
+        "id": "59fc47fec3a3681abb027e0f",
+        "iso_639_1": "en",
+        "iso_3166_1": "US",
+        "key": "JctIuZfSsa4",
+        "name": "Official Trailer",
+        "site": "YouTube",
+        "size": 720,
+        "type": "Trailer"
+      },
+      {
+        "id": "5d461af80f2fbd0fa0ee54b9",
+        "iso_639_1": "en",
+        "iso_3166_1": "US",
+        "key": "jAygEy8dujg",
+        "name": "Westworld Season 1- Episode Clip: Welcome To Westworld",
+        "site": "YouTube",
+        "size": 1080,
+        "type": "Clip"
+      }
+    ]
+  },
+  "status": 200,
+  "statusText": "OK",
+  "headers": {
+    "content-type": "application/json;charset=utf-8",
+    "content-length": "380",
+    "cache-control": "public, max-age=21600",
+    "last-modified": "2020-03-27 02:38:19 UTC"
+  },
+  "config": {
+    "url": "https://api.themoviedb.org/3/tv/63247}/videos",
+    "method": "get",
+    "headers": {
+      "Accept": "*/*",
+      "Cache-Control": "no-cache",
+      "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjNWUzMTJmMzMwZTkwOTk0OWZiNmIwNDViN2VhYmE2NSIsInN1YiI6IjVlNmJkMmMyY2VkYWM0MDAxNzQ5NjJlYiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.YEVmEFcunK4clG1KuUXQm9msRV70n5hF1e9ozfIMjbc"
+    },
+    "transformRequest": [
+      null
+    ],
+    "transformResponse": [
+      null
+    ],
+    "timeout": 0,
+    "xsrfCookieName": "XSRF-TOKEN",
+    "xsrfHeaderName": "X-XSRF-TOKEN",
+    "maxContentLength": -1
+  },
+  "request": {
+    "upload": {
+      "_ownerDocument": {
+        "location": {
+          "href": "http://localhost/",
+          "origin": "http://localhost",
+          "protocol": "http:",
+          "host": "localhost",
+          "hostname": "localhost",
+          "port": "",
+          "pathname": "/",
+          "search": "",
+          "hash": ""
+        }
+      }
+    },
+    "_registeredHandlers": {},
+    "_eventHandlers": {}
+  }
+}

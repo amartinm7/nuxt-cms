@@ -1,12 +1,12 @@
 import { GetLatestMoviesRepository } from '../repository/movies/getMovies/GetLatestMoviesRepository'
 import { GetTrendingMoviesRepository } from '../repository/trending/getTrending/GetTrendingMoviesRepository'
-import { GetTvVideosRepository } from '../repository/tv/GetVideos/GetTvVideosRepository'
+import { GetTvShowsVideosRepository } from '../repository/tvShows/GetVideos/GetTvShowsVideosRepository'
 import { GetLatestMoviesService } from '../../application/usecases/movies/getMovies/GetLatestMoviesService'
 import { GetTrendingMoviesService } from '../../application/usecases/trending/getTrending/GetTrendingMoviesService'
-import { GetTvVideosService } from '../../application/usecases/tv/GetVideos/GetTvVideosService'
+import { GetTvShowsVideosService } from '../../application/usecases/tv/GetVideos/GetTvShowsVideosService'
 import { GetTrendingMoviesController } from '../controller/trending/getTrending/GetTrendingMoviesController'
 import { GetLatestMoviesController } from '../controller/movies/getMovies/GetLatestMoviesController'
-import { GetTvVideosController } from '../controller/tv/GetVideos/GetTvVideosController'
+import { GetTvShowsVideosController } from '../controller/tv/GetVideos/GetTvShowsVideosController'
 import { GetMovieVideosRepository } from '../repository/movies/getVideos/GetMovieVideosRepository'
 import { GetMovieVideosService } from '../../application/usecases/movies/getMovieVideos/GetMovieVideosService'
 import { GetMovieVideosController } from '../controller/movies/getMovieVideos/GetMovieVideosController'
@@ -22,7 +22,7 @@ export default class ApplicationFacadeFactoryBean {
     const config = { axios, accessToken }
     const getLatestMoviesRepository = new GetLatestMoviesRepository(config)
     const getTrendingMoviesRepository = new GetTrendingMoviesRepository(config)
-    const getTvVideosRepository = new GetTvVideosRepository(config)
+    const getTvShowsVideosRepository = new GetTvShowsVideosRepository(config)
     const getMovieVideosRepository = new GetMovieVideosRepository(config)
 
     const getLatestMoviesService = new GetLatestMoviesService({
@@ -31,7 +31,9 @@ export default class ApplicationFacadeFactoryBean {
     const getTrendingMoviesService = new GetTrendingMoviesService({
       getTrendingMoviesRepository
     })
-    const getTvVideosService = new GetTvVideosService({ getTvVideosRepository })
+    const getTvShowsVideosService = new GetTvShowsVideosService({
+      getTvShowsVideosRepository
+    })
 
     const getMovieVideosService = new GetMovieVideosService({
       getMovieVideosRepository
@@ -45,8 +47,8 @@ export default class ApplicationFacadeFactoryBean {
       getTrendingMoviesService
     })
 
-    this._getTvVideosController = new GetTvVideosController({
-      getTvVideosService
+    this._getTvShowsVideosController = new GetTvShowsVideosController({
+      getTvShowsVideosService
     })
 
     this._getMovieVideosController = new GetMovieVideosController({
@@ -69,8 +71,8 @@ export default class ApplicationFacadeFactoryBean {
     return this.getInstance()._getTrendingMoviesController
   }
 
-  static getTvVideosController() {
-    return this.getInstance()._getTvVideosController
+  static getTvShowsVideosController() {
+    return this.getInstance()._getTvShowsVideosController
   }
 
   static getMovieVideosController() {
