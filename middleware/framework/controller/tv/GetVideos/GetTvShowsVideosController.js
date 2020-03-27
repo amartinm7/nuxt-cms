@@ -31,7 +31,7 @@ class GetTvShowsVideosController {
   }
 }
 /* eslint-disable camelcase */
-class GetTvShowsVideosControllerRequest{
+class GetTvShowsVideosControllerRequest {
   constructor({ movie_id }) {
     this.movie_id = movie_id
   }
