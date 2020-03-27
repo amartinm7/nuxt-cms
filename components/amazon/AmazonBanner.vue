@@ -12,6 +12,24 @@
         frameborder="0"
       ></iframe>
     </div>
+    <div class="uk-flex uk-flex-center uk-align-center">
+      <a href="http://www.amazon.es/prime?&tag=rmd73-21">
+        <img
+          src="https://www.optimize360.fr/wp-content/uploads/2019/11/logo-amazon-prime.jpg"
+          width="234"
+          height="60"
+        />
+      </a>
+    </div>
+    <div class="uk-flex uk-flex-center uk-align-center">
+      <a href="https://www.primevideo.com/?&tag=rmd73-21">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Prime_Video.png"
+          width="234"
+          height="60"
+        />
+      </a>
+    </div>
     <div
       class="uk-grid uk-align-center uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-6"
     >
