@@ -23,7 +23,7 @@
       <div>
         <div class="uk-card-body">
           <h3 class="uk-card-title">
-            {{ movie._name }} <span class="uk-label">{{ movie._id }}</span>
+            {{ movie._name }}&nbsp;<span class="uk-label">{{ movie._id }}</span>
           </h3>
           <p class="uk-dropcap">{{ movie._overview }}</p>
         </div>
