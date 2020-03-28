@@ -4,11 +4,21 @@ const theMovieDBConfigEnv = getTheMovieDBConfigEnv()
 export { firebaseConfig, theMovieDBConfigEnv }
 
 function decodeToBase64(base64String) {
-  return Buffer.from(base64String, 'base64').toString('ascii')
+  try {
+    return Buffer.from(base64String, 'base64').toString('ascii')
+  } catch (e) {
+    console.error(e)
+    return ''
+  }
 }
 // eslint-disable-next-line no-unused-vars
 function encodeToBase64(data) {
-  return Buffer.from(data).toString('base64')
+  try {
+    return Buffer.from(data).toString('base64')
+  } catch (e) {
+    console.error(e)
+    return ''
+  }
 }
 
 function getFirebaseConfigEnv() {
