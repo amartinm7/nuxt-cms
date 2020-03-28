@@ -8,6 +8,9 @@
       uk-grid
     >
       <div class="uk-position-relative uk-visible-toggle uk-light">
+        <span class="uk-border-rounded uk-card-badge uk-label-success">
+          &nbsp;{{ movie._vote_average }}&nbsp;
+        </span>
         <a
           class="uk-button uk-button-default uk-align-center"
           :href="`#openVideo_${movie._id}`"
