@@ -11,6 +11,12 @@ import { GetMovieVideosRepository } from '../repository/movies/getVideos/GetMovi
 import { GetMovieVideosService } from '../../application/usecases/movies/getVideos/GetMovieVideosService'
 import { GetMovieVideosController } from '../controller/movies/getVideos/GetMovieVideosController'
 import * as Globalconfiguration from '../modules/security/GlobalConfiguration'
+import { GetGenresMovieListController } from '../controller/genres/getGenresMovieListController/GetGenresMovieListController'
+import { GetGenresTvShowListController } from '../controller/genres/getGenresTvShowListController/GetGenresTvShowListController'
+import { GetGenresTvShowListService } from '../../application/usecases/genres/getGenresTvShowList/GetGenresTvShowListService'
+import { GetGenresMovieListService } from '../../application/usecases/genres/getGenresMovieList/GetGenresMovieListService'
+import { GetGenresMovieListRepository } from '../repository/genres/getGenresMovieList/GetGenresMovieListRepository'
+import { GetGenresTvShowListRepository } from '../repository/genres/getGenresTvShowList/GetGenresTvShowListRepository'
 
 const accessToken = Globalconfiguration.theMovieDBConfigEnv
 const axios = require('axios')
@@ -24,6 +30,12 @@ export default class ApplicationFacadeFactoryBean {
     const getTrendingMoviesRepository = new GetTrendingMoviesRepository(config)
     const getTvShowsVideosRepository = new GetTvShowsVideosRepository(config)
     const getMovieVideosRepository = new GetMovieVideosRepository(config)
+    const getGenresMovieListRepository = new GetGenresMovieListRepository(
+      config
+    )
+    const getGenresTvShowListRepository = new GetGenresTvShowListRepository(
+      config
+    )
 
     const getLatestMoviesService = new GetLatestMoviesService({
       getLatestMoviesRepository
@@ -37,6 +49,13 @@ export default class ApplicationFacadeFactoryBean {
 
     const getMovieVideosService = new GetMovieVideosService({
       getMovieVideosRepository
+    })
+
+    const getGenresMovieListService = new GetGenresMovieListService({
+      getGenresMovieListRepository
+    })
+    const getGenresTvShowListService = new GetGenresTvShowListService({
+      getGenresTvShowListRepository
     })
 
     this._getLatestMoviesController = new GetLatestMoviesController({
@@ -53,6 +72,14 @@ export default class ApplicationFacadeFactoryBean {
 
     this._getMovieVideosController = new GetMovieVideosController({
       getMovieVideosService
+    })
+
+    this._getGenresMovieListController = new GetGenresMovieListController({
+      getGenresMovieListService
+    })
+
+    this._getGenresTvShowLisController = new GetGenresTvShowListController({
+      getGenresTvShowListService
     })
   }
 
@@ -77,5 +104,13 @@ export default class ApplicationFacadeFactoryBean {
 
   static getMovieVideosController() {
     return this.getInstance()._getMovieVideosController
+  }
+
+  static getGenresMovieListController() {
+    return this.getInstance()._getGenresMovieListController
+  }
+
+  static getGenresTvShowListController() {
+    return this.getInstance()._getGenresTvShowLisController
   }
 }

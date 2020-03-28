@@ -1,17 +1,17 @@
 import GetAxiosRequest from '../../../modules/axios/GetAxiosRequest'
 
-class GetGenreTvShowListRepository {
+class GetGenresMovieListRepository {
   constructor({ axios, accessToken }) {
     this._axios = axios
     this._accessToken = accessToken
   }
 
   /**
-   * Get the list of official genres for TV shows.
+   * Get the list of official genres for movies.
    * @returns {*}
    */
   execute() {
-    const urlPath = `/genre/tv/list`
+    const urlPath = `/genre/movie/list`
     return this._axios(
       new GetAxiosRequest({
         accessToken: this._accessToken,
@@ -22,25 +22,25 @@ class GetGenreTvShowListRepository {
 
   async executeAsync() {
     const axiosResponse = await this.execute()
-    return new GetGenreTvShowListRepositoryResponse({ ...axiosResponse.data })
+    return new GetGenresMovieListRepositoryResponse({ ...axiosResponse.data })
   }
 }
 
 /* eslint-disable camelcase */
-class GetGenreTvShowListRepositoryResponse {
+class GetGenresMovieListRepositoryResponse {
   constructor({ genres }) {
     this._genres = genres.map((it) => {
       // eslint-disable-next-line no-new
-      return new GetGenreTvShowListRepositoryResponseResult(it)
+      return new GetGenresMovieListRepositoryyResponseResult(it)
     })
   }
 }
 
-class GetGenreTvShowListRepositoryResponseResult {
+class GetGenresMovieListRepositoryyResponseResult {
   constructor({ id, name }) {
     this._id = id
     this._name = name
   }
 }
 
-export { GetGenreTvShowListRepository, GetGenreTvShowListRepositoryResponse }
+export { GetGenresMovieListRepository, GetGenresMovieListRepositoryResponse }
