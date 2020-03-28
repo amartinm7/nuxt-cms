@@ -8,7 +8,7 @@
       uk-grid
     >
       <div class="uk-position-relative uk-visible-toggle uk-light">
-        <span class="uk-border-rounded uk-card-badge uk-label-success">
+        <span class="uk-card-badge uk-label-success ech-basic">
           &nbsp;{{ movie._vote_average }}&nbsp;
         </span>
         <a
@@ -28,6 +28,18 @@
             >
           </h3>
           <p class="uk-dropcap">{{ movie._overview }}</p>
+        </div>
+        <div class="uk-flex uk-flex-right uk-width-auto">
+          <div
+            v-for="genre in getThisGenres"
+            :key="genre._id"
+            :todo="genre"
+            class="uk-padding"
+          >
+            <span class="uk-label-warning ech-basic">
+              &nbsp;{{ genre._name }}&nbsp;
+            </span>
+          </div>
         </div>
       </div>
       <div :id="`openVideo_${movie._id}`" class="uk-flex-top" uk-modal>
@@ -59,6 +71,15 @@ export default {
       type: String
     }
   },
+  data() {
+    return {
+      genres: [28, 12, 35],
+      getThisGenres: []
+    }
+  },
+  async mounted() {
+    await this.getGenres()
+  },
   methods: {
     getPosterURL(posterPath) {
       return `https://image.tmdb.org/t/p/w185_and_h278_bestv2/${posterPath}`
@@ -75,6 +96,17 @@ export default {
           movie_id: movie._id
         }
       }).$mount(`#videoFrame_${movie._id}`)
+    },
+    async getGenres() {
+      const vm = this
+      const getGenresMovieListControllerResponse = await ApplicationFacadeFactoryBean.getGenresMovieListController().execute()
+      const response = getGenresMovieListControllerResponse._genres.filter(
+        (it) => {
+          return vm.genres.includes(it._id)
+        }
+      )
+      console.log(JSON.stringify(response))
+      this.getThisGenres = response
     }
   }
 }

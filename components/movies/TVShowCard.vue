@@ -8,7 +8,7 @@
       uk-grid
     >
       <div class="uk-position-relative uk-visible-toggle uk-light">
-        <span class="uk-border-rounded uk-card-badge uk-label-success">
+        <span class="uk-card-badge uk-label-success ech-basic">
           &nbsp;{{ movie._vote_average }}&nbsp;
         </span>
         <a
