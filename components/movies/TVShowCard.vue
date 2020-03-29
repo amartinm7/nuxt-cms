@@ -9,7 +9,7 @@
     >
       <div class="uk-position-relative uk-visible-toggle uk-light">
         <span class="uk-card-badge uk-label-success ech-basic">
-          &nbsp;{{ movie._vote_average }}&nbsp;
+          &nbsp;{{ movie._vote_average.toFixed(1) }}&nbsp;
         </span>
         <a
           class="uk-button uk-button-default uk-align-center"
