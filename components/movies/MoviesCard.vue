@@ -17,7 +17,10 @@
           uk-toggle
           @click="initVideoURL(movie)"
         >
-          <img :src="getPosterURL(movie._poster_path, index)" />
+          <img
+            :src="getPosterURL(movie._poster_path, index)"
+            alt="poster-cover"
+          />
         </a>
       </div>
       <div>
@@ -44,11 +47,9 @@
       </div>
       <div :id="`openVideo_${movie._id}`" class="uk-flex-top" uk-modal>
         <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
-          <button
-            class="uk-modal-close-default"
-            type="button"
-            uk-close
-          ></button>
+          <button class="uk-modal-close-default" type="button" uk-close>
+            Close
+          </button>
           <div :id="`videoFrame_${movie._id}`"></div>
         </div>
       </div>
@@ -93,7 +94,8 @@ export default {
       new VideoFrameClass({
         propsData: {
           url: getMovieVideosControllerResponse.url,
-          movie_id: movie._id
+          movie_id: movie._id,
+          movie_title: movie._title
         }
       }).$mount(`#videoFrame_${movie._id}`)
     },

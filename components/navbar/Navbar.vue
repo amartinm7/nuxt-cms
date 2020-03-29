@@ -7,6 +7,7 @@
             <a href="#" class="uk-link-reset ech-basic" style="cursor: default"
               ><img
                 src="../../assets/logo/vector/default-monochrome-black.svg"
+                alt="logo"
                 uk-svg
             /></a>
             <div class="uk-navbar-dropdown">
@@ -34,6 +35,7 @@
                 width="32"
                 height="32"
                 src="https://sw25672.smartweb-static.com/upload_dir/shop/category/images-_sjove-tegninger-af-dyr_.w293.h293.fill.png"
+                alt="avatar"
               />
             </a>
             <div class="uk-navbar-dropdown">
