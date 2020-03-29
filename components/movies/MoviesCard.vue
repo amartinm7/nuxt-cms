@@ -107,7 +107,6 @@ export default {
           return vm.genres.includes(it._id)
         }
       )
-      console.log(JSON.stringify(response))
       this.getThisGenres = response
     }
   }

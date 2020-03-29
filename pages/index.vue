@@ -81,7 +81,6 @@ export default {
     const trendingTVShows = {
       ...getTrendingTVShowsResponse
     }
-    console.log(JSON.stringify(trendingTVShows))
     return { trendingMovies, trendingTVShows }
   },
   data() {

@@ -86,8 +86,30 @@ export default {
    */
   pwa: {
     manifest: {
-      name: 'My Awesome App',
-      lang: 'fa'
+      name: 'Estrenos Cine Hoy',
+      short_name: 'Estrenos Cine Hoy',
+      description: 'Estrenos Cine Hoy: movies, TV Shows and so on...',
+      lang: 'es-ES',
+      start_url: '.',
+      background_color: '#fff',
+      theme_color: '#0598EC',
+      icons: [
+        {
+          src: '/favicon.ico',
+          sizes: '1000x1000',
+          type: 'image/png'
+        },
+        {
+          src: '/icon.ico',
+          sizes: '1000x1000',
+          type: 'image/png'
+        },
+        {
+          src: '/apple-touch-icon-192x192.png',
+          sizes: '192x192',
+          type: 'image/png'
+        }
+      ]
     }
   },
   /**
