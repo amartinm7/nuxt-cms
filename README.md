@@ -83,3 +83,11 @@ https://github.com/nuxt-community/sitemap-module
 ```bash
 npm install @nuxtjs/sitemap
 ```
+
+### adding pwa-asset-generator
+Basic usage with local PNG input, skips scraping specs, generating both splash screens and icons;
+https://itnext.io/pwa-splash-screen-and-icon-generator-a74ebb8a130
+```bash
+npm i pwa-asset-generator
+npx pwa-asset-generator ./img/logo.png --background "#ababab" --scrape false
+```
