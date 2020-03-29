@@ -34,7 +34,7 @@
             v-for="genre in getThisGenres"
             :key="genre._id"
             :todo="genre"
-            class="uk-padding"
+            class="uk-padding-small"
           >
             <span class="uk-label-warning ech-basic">
               &nbsp;{{ genre._name }}&nbsp;
