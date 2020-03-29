@@ -68,6 +68,7 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
+    '@nuxtjs/pwa',
     '@nuxtjs/markdownit'
   ],
   /*
@@ -79,6 +80,19 @@ export default {
   markdownit: {
     injected: true
   },
+  /*
+   ** PWA module configuration
+   ** See https://pwa.nuxtjs.org/modules/manifest.html, https://developer.mozilla.org/en-US/docs/Web/Manifest
+   */
+  pwa: {
+    manifest: {
+      name: 'My Awesome App',
+      lang: 'fa'
+    }
+  },
+  /**
+   * sitemap module
+   */
   sitemap: {
     hostname: 'https://estrenoscinehoy.com'
   },
