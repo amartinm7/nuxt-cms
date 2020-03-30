@@ -91,3 +91,9 @@ https://itnext.io/pwa-splash-screen-and-icon-generator-a74ebb8a130
 npm i pwa-asset-generator
 npx pwa-asset-generator ./img/logo.png --background "#ababab" --scrape false
 ```
+
+### PWA
+https://pwa.nuxtjs.org/
+
+enable service worker
+https://pwa.nuxtjs.org/modules/workbox.html#options
