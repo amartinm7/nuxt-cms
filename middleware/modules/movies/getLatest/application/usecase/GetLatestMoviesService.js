@@ -1,4 +1,4 @@
-import { GetLatestMoviesRepositoryRequest } from '../../../../framework/repository/movies/usecase/GetLatestMoviesRepository'
+import { GetLatestMoviesRepositoryRequest } from '../../infrastructure/repository/GetLatestMoviesRepository'
 
 class GetLatestMoviesService {
   constructor({ getLatestMoviesRepository }) {

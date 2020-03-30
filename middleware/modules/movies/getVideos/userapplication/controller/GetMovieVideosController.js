@@ -1,4 +1,5 @@
-import { GetMovieVideosServiceRequest } from '../../../../application/usecases/movies/getVideos/GetMovieVideosService'
+import { GetMovieVideosServiceRequest } from '../../application/usecase/GetMovieVideosService'
+
 const _isEmpty = require('lodash.isempty')
 
 class GetMovieVideosController {

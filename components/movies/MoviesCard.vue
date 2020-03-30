@@ -58,9 +58,10 @@
 </template>
 <script>
 import Vue from 'vue'
-import ApplicationFacadeFactoryBean from '../../middleware/framework/facade/ApplicationFacadeFactoryBean'
 import { GetMovieVideosControllerRequest } from '../../middleware/framework/controller/movies/getVideos/GetMovieVideosController'
 import VideoFrame from './VideoFrame'
+const BeanContainerRegistry = require('../../middleware/BeanContainerRegistry')
+const beanContainer = BeanContainerRegistry()
 
 export default {
   name: 'MoviesCard',
@@ -86,7 +87,7 @@ export default {
       return `https://image.tmdb.org/t/p/w185_and_h278_bestv2/${posterPath}`
     },
     async initVideoURL(movie) {
-      const getMovieVideosControllerResponse = await ApplicationFacadeFactoryBean.getMovieVideosController().getFirstVideoURL(
+      const getMovieVideosControllerResponse = await beanContainer.getMovieVideosController.getFirstVideoURL(
         new GetMovieVideosControllerRequest({ movie_id: movie._id })
       )
       console.log('initVideoURL...' + getMovieVideosControllerResponse.url)
@@ -101,7 +102,7 @@ export default {
     },
     async getGenres() {
       const vm = this
-      const getGenresMovieListControllerResponse = await ApplicationFacadeFactoryBean.getGenresMovieListController().execute()
+      const getGenresMovieListControllerResponse = await beanContainer.getGenresMovieListController.execute()
       const response = getGenresMovieListControllerResponse._genres.filter(
         (it) => {
           return vm.genres.includes(it._id)

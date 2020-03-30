@@ -1,4 +1,4 @@
-import { GetTrendingMoviesRepositoryRequest } from '../../../../framework/repository/trending/getTrending/GetTrendingMoviesRepository'
+import { GetTrendingMoviesRepositoryRequest } from '../../infrastructure/repository/GetTrendingMoviesRepository'
 
 class GetTrendingMoviesService {
   constructor({ getTrendingMoviesRepository }) {

@@ -1,4 +1,4 @@
-import { GetMovieVideosRepositoryRequest } from '../../../../framework/repository/movies/getVideos/GetMovieVideosRepository'
+import { GetMovieVideosRepositoryRequest } from '../../infrastructure/repository/GetMovieVideosRepository'
 
 class GetMovieVideosService {
   constructor({ getMovieVideosRepository }) {

@@ -1,8 +1,5 @@
-import { GetTrendingMoviesServiceRequest } from '../../../../application/usecases/trending/getTrending/GetTrendingMoviesService'
-import {
-  MEDIA_TYPES,
-  TIME_WINDOWS_TYPES
-} from '../../../../adomain/trending/TrendingTypes'
+import { MEDIA_TYPES, TIME_WINDOWS_TYPES } from '../../adomain/TrendingTypes'
+import { GetTrendingMoviesServiceRequest } from '../../application/usecase/GetTrendingMoviesService'
 
 class GetTrendingMoviesController {
   constructor({ getTrendingMoviesService }) {

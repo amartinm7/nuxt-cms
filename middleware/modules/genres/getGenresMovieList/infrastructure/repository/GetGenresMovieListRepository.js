@@ -1,4 +1,4 @@
-import GetAxiosRequest from '../../../modules/axios/GetAxiosRequest'
+import GetAxiosRequest from '../../../../../framework/modules/axios/GetAxiosRequest'
 
 class GetGenresMovieListRepository {
   constructor({ axios, accessToken }) {
