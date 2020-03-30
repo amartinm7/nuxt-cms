@@ -219,7 +219,6 @@ export default {
       description: 'Estrenos Cine Hoy: movies, TV Shows and so on...',
       lang: 'es-ES',
       start_url: '.',
-      background_color: '#fff',
       theme_color: '#0598EC',
       icons: [
         {
