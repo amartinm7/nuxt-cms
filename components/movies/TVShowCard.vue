@@ -44,10 +44,10 @@
 </template>
 <script>
 import Vue from 'vue'
-import { GetTvShowsVideosControllerRequest } from '../../middleware/framework/controller/tv/GetVideos/GetTvShowsVideosController'
+import { BeanContainerRegistry } from '../../middleware/BeanContainerRegistry'
+import { GetTvShowsVideosControllerRequest } from '../../middleware/modules/tvShows/getVideos/userapplication/controller/GetTvShowsVideosController'
 import VideoFrame from './VideoFrame'
-const BeanContainerRegistry = require('../../middleware/BeanContainerRegistry')
-const beanContainer = BeanContainerRegistry()
+const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
   name: 'TvShowCard',

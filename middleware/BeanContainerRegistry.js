@@ -1,37 +1,55 @@
 import BeanContainer from './BeanContainer'
-import * as Globalconfiguration from './framework/modules/security/GlobalConfiguration'
+import { theMovieDBConfigEnv } from './framework/modules/security/GlobalConfiguration'
 import Configuration from './Configuration'
+import GetGenresMovieListProvider from './modules/genres/getGenresMovieList/GetGenresMovieListProvider'
+import GetGenresTvShowListProvider from './modules/genres/getGenresTvShowList/GetGenresTvShowListProvider'
+import GetLatestProvider from './modules/movies/getLatest/GetLatestMoviesProvider'
+import GetVideosProvider from './modules/movies/getVideos/GetVideosMoviesProvider'
+import GetTrendingProvider from './modules/trending/getTrending/GetTrendingProvider'
+import GetVideosTvShowProvider from './modules/tvShows/getVideos/GetVideosTvShowProvider'
 
-module.exports = function() {
-  const container = new BeanContainer()
+let beanContainerRegistryInstance = null
 
-  // TODO INJECT THIS DEPENCIES IN A NEAR FUTURE
-  const accessToken = Globalconfiguration.theMovieDBConfigEnv
-  const axios = require('axios')
+export class BeanContainerRegistry {
+  constructor() {
+    this._beanContainer = new BeanContainer()
 
-  container.service(
-    'configuration',
-    (container) =>
-      new Configuration({
-        accessToken,
-        axios
-      })
-  )
+    // TODO INJECT THIS DEPENCIES IN A NEAR FUTURE
+    const accessToken = theMovieDBConfigEnv
+    const axios = require('axios')
 
-  require('./modules/genres/getGenresMovieList/GetGenresMovieListProvider')(
-    container
-  )
+    this._beanContainer.service(
+      'configuration',
+      (container) =>
+        new Configuration({
+          accessToken,
+          axios
+        })
+    )
+    // eslint-disable-next-line no-new
+    new GetGenresMovieListProvider(this._beanContainer)
+    // eslint-disable-next-line no-new
+    new GetGenresTvShowListProvider(this._beanContainer)
+    // eslint-disable-next-line no-new
+    new GetLatestProvider(this._beanContainer)
+    // eslint-disable-next-line no-new
+    new GetVideosProvider(this._beanContainer)
+    // eslint-disable-next-line no-new
+    new GetTrendingProvider(this._beanContainer)
+    // eslint-disable-next-line no-new
+    new GetVideosTvShowProvider(this._beanContainer)
+  }
 
-  require('./modules/genres/getGenresMovieList/GetGenresMovieListProvider')(
-    container
-  )
-  require('./modules/genres/getGenresTvShowList/GetGenresTvShowListProvider')(
-    container
-  )
-  require('./modules/movies/getLatest/GetLatesProvider')(container)
-  require('./modules/movies/getVideos/GetVideosProvider')(container)
-  require('./modules/trending/getTrending/GetTrendingProvider')(container)
-  require('./modules/tvShows/getVideos/GetVideosProvider')(container)
+  static getInstance() {
+    if (!beanContainerRegistryInstance) {
+      beanContainerRegistryInstance = new BeanContainerRegistry()
+    }
+    return beanContainerRegistryInstance
+  }
 
-  return container
+  static getBeanContainer() {
+    return BeanContainerRegistry.getInstance()._beanContainer
+  }
 }
+
+export default { BeanContainerRegistry }

@@ -58,10 +58,11 @@
 </template>
 <script>
 import Vue from 'vue'
-import { GetMovieVideosControllerRequest } from '../../middleware/framework/controller/movies/getVideos/GetMovieVideosController'
+import { BeanContainerRegistry } from '../../middleware/BeanContainerRegistry'
+import { GetMovieVideosControllerRequest } from '../../middleware/modules/movies/getVideos/userapplication/controller/GetMovieVideosController'
 import VideoFrame from './VideoFrame'
-const BeanContainerRegistry = require('../../middleware/BeanContainerRegistry')
-const beanContainer = BeanContainerRegistry()
+
+const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
   name: 'MoviesCard',

@@ -66,13 +66,14 @@
 import AmazonBanner from '../components/amazon/AmazonBanner'
 import MoviesCard from '../components/movies/MoviesCard'
 import TvShowCard from '../components/movies/TVShowCard'
-const BeanContainerRegistry = require('../middleware/BeanContainerRegistry')
-const beanContainer = BeanContainerRegistry()
+import { BeanContainerRegistry } from '../middleware/BeanContainerRegistry'
+const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
   components: { TvShowCard, MoviesCard, AmazonBanner },
   // eslint-disable-next-line require-await
   async asyncData({ params }) {
+    console.log('beanContainer... ' + beanContainer)
     const getTrendingMoviesResponse = await beanContainer.getTrendingMoviesController.getTrendingMovies()
     const trendingMovies = {
       ...getTrendingMoviesResponse

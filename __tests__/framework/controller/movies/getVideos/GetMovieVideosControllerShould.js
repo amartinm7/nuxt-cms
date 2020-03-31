@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-unused-vars
-import { GetMovieVideosRepository } from '../../../../../middleware/framework/repository/movies/getVideos/GetMovieVideosRepository'
-import ApplicationFacadeFactoryBean from '../../../../../middleware/framework/facade/ApplicationFacadeFactoryBean'
-import { GetMovieVideosControllerRequest } from '../../../../../middleware/framework/controller/movies/getVideos/GetMovieVideosController'
+import { BeanContainerRegistry } from '../../../../../middleware/BeanContainerRegistry'
+import { GetMovieVideosRepository } from '../../../../../middleware/modules/movies/getVideos/infrastructure/repository/GetMovieVideosRepository'
+import { GetMovieVideosControllerRequest } from '../../../../../middleware/modules/movies/getVideos/userapplication/controller/GetMovieVideosController'
 
 // eslint-disable-next-line no-unused-vars
 const assert = require('assert')
@@ -32,14 +32,15 @@ describe('GetMovieVideosController', function() {
       GetMovieVideosRepository.prototype.execute = mockGetMovieVideosRepository
       mockGetMovieVideosRepository.mockReturnValue(Promise.resolve(mockedAds))
       // when
-      const getMovieVideosControllerResponse = await ApplicationFacadeFactoryBean.getMovieVideosController().execute(
+      const beanContainer = BeanContainerRegistry.getBeanContainer()
+      const getMovieVideosControllerResponse = await beanContainer.getMovieVideosController.execute(
         new GetMovieVideosControllerRequest({
           movie_id: '454626'
         })
       )
       // then
       console.log(JSON.stringify(getMovieVideosControllerResponse))
-      // expect(getLatestFilmsRepositoryResponse.data.title).toEqual(expected.title)
+      // ex pect(getLatestFilmsRepositoryResponse.data.title).toEqual(expected.title)
       expect(getMovieVideosControllerResponse._results[0]).toEqual(
         expected._results[0]
       )

@@ -1,17 +1,13 @@
-// eslint-disable-next-line no-unused-vars
+import { BeanContainerRegistry } from '../../../../../middleware/BeanContainerRegistry'
 import {
   GetTrendingMoviesRepository,
   GetTrendingMoviesRepositoryRequest,
   GetTrendingMoviesRepositoryResponse
-} from '../../../../../middleware/framework/repository/trending/getTrending/GetTrendingMoviesRepository'
+} from '../../../../../middleware/modules/trending/getTrending/infrastructure/repository/GetTrendingMoviesRepository'
 import {
   MEDIA_TYPES,
   TIME_WINDOWS_TYPES
-} from '../../../../../middleware/adomain/trending/TrendingTypes'
-
-// eslint-disable-next-line no-unused-vars
-const assert = require('assert')
-const axios = require('axios')
+} from '../../../../../middleware/modules/trending/getTrending/adomain/TrendingTypes'
 
 console.log('welcome! GetTrendingMoviesRepository test')
 
@@ -19,7 +15,6 @@ describe('GetTrendingMoviesRepository', function() {
   describe('execute', function() {
     it('should save', async function() {
       // given
-      const accessToken = `accessToken`
       const expected = {
         page: 1,
         total_pages: 1000,
@@ -52,9 +47,8 @@ describe('GetTrendingMoviesRepository', function() {
         Promise.resolve(mockedAds)
       )
       // when
-      const getTrendingMoviesRepositoryResponse = await new GetTrendingMoviesRepository(
-        { axios, accessToken }
-      ).executeAsync(
+      const beanContainer = BeanContainerRegistry.getBeanContainer()
+      const getTrendingMoviesRepositoryResponse = await beanContainer.getTrendingMoviesRepository.executeAsync(
         new GetTrendingMoviesRepositoryRequest({
           mediaType: MEDIA_TYPES.MOVIE,
           timeWindow: TIME_WINDOWS_TYPES.WEEK

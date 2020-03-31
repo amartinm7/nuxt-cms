@@ -1,8 +1,8 @@
+import { BeanContainerRegistry } from '../../../../../middleware/BeanContainerRegistry'
 import {
   GetTvShowsVideosRepository,
   GetTvShowsVideosRepositoryRequest
-} from '../../../../../middleware/framework/repository/tvShows/GetVideos/GetTvShowsVideosRepository'
-import ApplicationFacadeFactoryBean from '../../../../../middleware/framework/facade/ApplicationFacadeFactoryBean'
+} from '../../../../../middleware/modules/tvShows/getVideos/infrastructure/repository/GetTvShowsVideosRepository'
 
 const assert = require('assert')
 
@@ -31,7 +31,8 @@ describe('GetTvShowsVideosController', function() {
       GetTvShowsVideosRepository.prototype.execute = mockGetTvShowsVideosRepository
       mockGetTvShowsVideosRepository.mockReturnValue(Promise.resolve(mockedAds))
       // when
-      const getTvShowsVideosRepositoryRequestResponse = await ApplicationFacadeFactoryBean.getTvShowsVideosController().execute(
+      const beanContainer = BeanContainerRegistry.getBeanContainer()
+      const getTvShowsVideosRepositoryRequestResponse = await beanContainer.getTvShowsVideosController.execute(
         new GetTvShowsVideosRepositoryRequest({
           movie_id: '63247'
         })

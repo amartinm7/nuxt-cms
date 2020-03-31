@@ -4,7 +4,7 @@
  * - Lazy instantiation
  * - A container that looks just like a regular object
  */
-export default class BeanContainer {
+class BeanContainer {
   constructor() {
     this.services = {}
   }
@@ -24,3 +24,5 @@ export default class BeanContainer {
     return this
   }
 }
+
+export default BeanContainer
