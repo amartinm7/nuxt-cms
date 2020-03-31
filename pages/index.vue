@@ -73,7 +73,6 @@ export default {
   components: { TvShowCard, MoviesCard, AmazonBanner },
   // eslint-disable-next-line require-await
   async asyncData({ params }) {
-    console.log('beanContainer... ' + beanContainer)
     const getTrendingMoviesResponse = await beanContainer.getTrendingMoviesController.getTrendingMovies()
     const trendingMovies = {
       ...getTrendingMoviesResponse

@@ -64,7 +64,6 @@ export default {
       const getTvShowsVideosControllerResponse = await beanContainer.getTvShowsVideosController.getFirstVideoURL(
         new GetTvShowsVideosControllerRequest({ movie_id: movie._id })
       )
-      console.log('initVideoURL...' + getTvShowsVideosControllerResponse.url)
       const VideoFrameClass = Vue.extend(VideoFrame)
       new VideoFrameClass({
         propsData: {

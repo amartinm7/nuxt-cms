@@ -91,7 +91,6 @@ export default {
       const getMovieVideosControllerResponse = await beanContainer.getMovieVideosController.getFirstVideoURL(
         new GetMovieVideosControllerRequest({ movie_id: movie._id })
       )
-      console.log('initVideoURL...' + getMovieVideosControllerResponse.url)
       const VideoFrameClass = Vue.extend(VideoFrame)
       new VideoFrameClass({
         propsData: {
