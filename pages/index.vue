@@ -65,19 +65,20 @@
 <script>
 import AmazonBanner from '../components/amazon/AmazonBanner'
 import MoviesCard from '../components/movies/MoviesCard'
-import ApplicationFacadeFactoryBean from '../middleware/framework/facade/ApplicationFacadeFactoryBean'
 import TvShowCard from '../components/movies/TVShowCard'
+import { BeanContainerRegistry } from '../middleware/BeanContainerRegistry'
+const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
   components: { TvShowCard, MoviesCard, AmazonBanner },
   // eslint-disable-next-line require-await
   async asyncData({ params }) {
-    const getTrendingMoviesResponse = await ApplicationFacadeFactoryBean.getTrendingMoviesController().getTrendingMovies()
+    const getTrendingMoviesResponse = await beanContainer.getTrendingMoviesController.getTrendingMovies()
     const trendingMovies = {
       ...getTrendingMoviesResponse
     }
 
-    const getTrendingTVShowsResponse = await ApplicationFacadeFactoryBean.getTrendingMoviesController().getTrendingTVShows()
+    const getTrendingTVShowsResponse = await beanContainer.getTrendingMoviesController.getTrendingTVShows()
     const trendingTVShows = {
       ...getTrendingTVShowsResponse
     }

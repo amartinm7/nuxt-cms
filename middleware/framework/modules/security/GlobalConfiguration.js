@@ -1,8 +1,3 @@
-const firebaseConfig = getFirebaseConfigEnv()
-const theMovieDBConfigEnv = getTheMovieDBConfigEnv()
-
-export { firebaseConfig, theMovieDBConfigEnv }
-
 function decodeToBase64(base64String) {
   return Buffer.from(base64String, 'base64').toString('ascii')
 }
@@ -32,3 +27,8 @@ function getTheMovieDBConfigEnv() {
   }
   return theMovieDBConfigEnv
 }
+
+const firebaseConfig = getFirebaseConfigEnv()
+const theMovieDBConfigEnv = getTheMovieDBConfigEnv()
+
+export { firebaseConfig, theMovieDBConfigEnv }

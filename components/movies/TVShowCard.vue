@@ -44,9 +44,10 @@
 </template>
 <script>
 import Vue from 'vue'
-import ApplicationFacadeFactoryBean from '../../middleware/framework/facade/ApplicationFacadeFactoryBean'
-import { GetTvShowsVideosControllerRequest } from '../../middleware/framework/controller/tv/GetVideos/GetTvShowsVideosController'
+import { BeanContainerRegistry } from '../../middleware/BeanContainerRegistry'
+import { GetTvShowsVideosControllerRequest } from '../../middleware/modules/tvShows/getVideos/userapplication/controller/GetTvShowsVideosController'
 import VideoFrame from './VideoFrame'
+const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
   name: 'TvShowCard',
@@ -60,10 +61,9 @@ export default {
       return `https://image.tmdb.org/t/p/w185_and_h278_bestv2/${posterPath}`
     },
     async initVideoURL(movie) {
-      const getTvShowsVideosControllerResponse = await ApplicationFacadeFactoryBean.getTvShowsVideosController().getFirstVideoURL(
+      const getTvShowsVideosControllerResponse = await beanContainer.getTvShowsVideosController.getFirstVideoURL(
         new GetTvShowsVideosControllerRequest({ movie_id: movie._id })
       )
-      console.log('initVideoURL...' + getTvShowsVideosControllerResponse.url)
       const VideoFrameClass = Vue.extend(VideoFrame)
       new VideoFrameClass({
         propsData: {

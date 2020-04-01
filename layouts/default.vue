@@ -24,7 +24,6 @@ div {
   margin: 1px;
 }
 **/
-/**  background: linear-gradient(to bottom, #ffffff 0%, #dddee1 100%); **/
 
 body {
   min-width: 320px;

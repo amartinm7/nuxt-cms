@@ -1,13 +1,9 @@
 // eslint-disable-next-line no-unused-vars
+import { BeanContainerRegistry } from '../../../../../middleware/BeanContainerRegistry'
 import {
   GetLatestMoviesRepository,
-  GetLatestMoviesRepositoryRequest,
-  GetLatestMoviesRepositoryResponse
-} from '../../../../../middleware/framework/repository/movies/getLatest/GetLatestMoviesRepository'
-
-// eslint-disable-next-line no-unused-vars
-const assert = require('assert')
-const axios = require('axios')
+  GetLatestMoviesRepositoryRequest, GetLatestMoviesRepositoryResponse
+} from '../../../../../middleware/modules/movies/getLatest/infrastructure/repository/GetLatestMoviesRepository'
 
 console.log('welcome! GetLatestMoviesRepository test')
 
@@ -15,7 +11,6 @@ describe('GetLatestMoviesRepository', function() {
   describe('execute', function() {
     it('should save', async function() {
       // given
-      const accessToken = `accessToken`
       // eslint-disable-next-line no-unused-vars
       const expected = {
         adult: false,
@@ -50,15 +45,12 @@ describe('GetLatestMoviesRepository', function() {
       GetLatestMoviesRepository.prototype.execute = mockGetLatestMoviesRepository
       mockGetLatestMoviesRepository.mockReturnValue(Promise.resolve(mockedAds))
       // when
-      const getLatestMoviesRepositoryResponse = await new GetLatestMoviesRepository(
-        {
-          axios,
-          accessToken
-        }
-      ).executeAsync(new GetLatestMoviesRepositoryRequest())
+      const beanContainer = BeanContainerRegistry.getBeanContainer()
+      const getLatestMoviesRepositoryResponse = await beanContainer.getLatestMoviesRepository.executeAsync(
+        new GetLatestMoviesRepositoryRequest()
+      )
       // then
       console.log(JSON.stringify(getLatestMoviesRepositoryResponse))
-      // expect(getLatestFilmsRepositoryResponse.data.title).toEqual(expected.title)
       expect(new GetLatestMoviesRepositoryResponse(expected)).toEqual(
         getLatestMoviesRepositoryResponse
       )
