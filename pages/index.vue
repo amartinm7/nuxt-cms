@@ -1,5 +1,8 @@
 <template>
   <div>
+    <nuxt-link to="/tvShows/_detail">Detail</nuxt-link>
+    <nuxt-link to="/tvShows/newdetail">new detail</nuxt-link>
+
     <section class="uk-section uk-section-xsmall">
       <div
         class="uk-position-relative uk-visible-toggle uk-light uk-width-auto"

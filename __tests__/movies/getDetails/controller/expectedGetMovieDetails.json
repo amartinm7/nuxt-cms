@@ -1,0 +1,115 @@
+{
+  "_adult": false,
+  "_genres": [
+    {
+      "id": 28,
+      "name": "Action"
+    },
+    {
+      "id": 12,
+      "name": "Adventure"
+    },
+    {
+      "id": 878,
+      "name": "Science Fiction"
+    }
+  ],
+  "_id": 351286,
+  "_imdb_id": "tt4881806",
+  "_original_language": "en",
+  "_original_title": "Jurassic World: Fallen Kingdom",
+  "_overview": "Three years after the demise of Jurassic World, a volcanic eruption threatens the remaining dinosaurs on the isla Nublar, so Claire Dearing, the former park manager, recruits Owen Grady to help prevent the extinction of the dinosaurs once again.",
+  "_popularity": 355.501,
+  "_poster_path": "/c9XxwwhPHdaImA2f1WEfEsbhaFB.jpg",
+  "_release_date": "2018-06-06",
+  "_runtime": 129,
+  "_status": "Released",
+  "_title": "Jurassic World: Fallen Kingdom",
+  "_videos": [
+    {
+      "_id": {
+        "id": "5dbcb23d97a4e600157c516f",
+        "iso_639_1": "en",
+        "iso_3166_1": "US",
+        "key": "266EI7hdjFs",
+        "name": "Jurassic World: Fallen Kingdom - Trailer Thursday (Run) (HD)",
+        "site": "YouTube",
+        "size": 1080,
+        "type": "Teaser"
+      }
+    },
+    {
+      "_id": {
+        "id": "5dbcb24d0792e100134d8394",
+        "iso_639_1": "en",
+        "iso_3166_1": "US",
+        "key": "uBHTIiBmAzc",
+        "name": "Jurassic World: Fallen Kingdom - Trailer Thursday (Awesome) (HD)",
+        "site": "YouTube",
+        "size": 1080,
+        "type": "Teaser"
+      }
+    },
+    {
+      "_id": {
+        "id": "5dbcb25942022800105c932b",
+        "iso_639_1": "en",
+        "iso_3166_1": "US",
+        "key": "OH-Dy1mKaEE",
+        "name": "Jurassic World: Fallen Kingdom - Trailer Thursday (Legacy) (HD)",
+        "site": "YouTube",
+        "size": 1080,
+        "type": "Teaser"
+      }
+    },
+    {
+      "_id": {
+        "id": "5dbcb26254f6eb00154fa7e3",
+        "iso_639_1": "en",
+        "iso_3166_1": "US",
+        "key": "-hfwJfrqkOk",
+        "name": "Jurassic World: Fallen Kingdom - Trailer Tonight (Remarkable) (HD)",
+        "site": "YouTube",
+        "size": 1080,
+        "type": "Teaser"
+      }
+    },
+    {
+      "_id": {
+        "id": "5b3069f9c3a368575d009f8f",
+        "iso_639_1": "en",
+        "iso_3166_1": "US",
+        "key": "vn9mMeWcgoM",
+        "name": "Jurassic World: Fallen Kingdom - Official Trailer [HD]",
+        "site": "YouTube",
+        "size": 1080,
+        "type": "Trailer"
+      }
+    },
+    {
+      "_id": {
+        "id": "5dbcb0f8a5890200196adc21",
+        "iso_639_1": "en",
+        "iso_3166_1": "US",
+        "key": "NooW_RbfdWI",
+        "name": "Jurassic World: Fallen Kingdom - Official Trailer #2 [HD]",
+        "site": "YouTube",
+        "size": 1080,
+        "type": "Trailer"
+      }
+    },
+    {
+      "_id": {
+        "id": "5dbcb0ff42022800105c9172",
+        "iso_639_1": "en",
+        "iso_3166_1": "US",
+        "key": "1FJD7jZqZEk",
+        "name": "Jurassic World: Fallen Kingdom - Final Trailer [HD]",
+        "site": "YouTube",
+        "size": 1080,
+        "type": "Trailer"
+      }
+    }
+  ],
+  "_images": {}
+}
