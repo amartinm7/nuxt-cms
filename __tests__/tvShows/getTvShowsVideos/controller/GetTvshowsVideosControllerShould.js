@@ -1,8 +1,8 @@
-import { BeanContainerRegistry } from '../../../../../middleware/BeanContainerRegistry'
+import { BeanContainerRegistry } from '../../../../middleware/BeanContainerRegistry'
 import {
   GetTvShowsVideosRepository,
   GetTvShowsVideosRepositoryRequest
-} from '../../../../../middleware/modules/tvShows/getVideos/infrastructure/repository/GetTvShowsVideosRepository'
+} from '../../../../middleware/modules/tvShows/getVideos/infrastructure/repository/GetTvShowsVideosRepository'
 
 const assert = require('assert')
 

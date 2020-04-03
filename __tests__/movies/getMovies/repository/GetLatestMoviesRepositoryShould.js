@@ -1,9 +1,9 @@
 // eslint-disable-next-line no-unused-vars
-import { BeanContainerRegistry } from '../../../../../middleware/BeanContainerRegistry'
+import { BeanContainerRegistry } from '../../../../middleware/BeanContainerRegistry'
 import {
   GetLatestMoviesRepository,
   GetLatestMoviesRepositoryRequest, GetLatestMoviesRepositoryResponse
-} from '../../../../../middleware/modules/movies/getLatest/infrastructure/repository/GetLatestMoviesRepository'
+} from '../../../../middleware/modules/movies/getLatest/infrastructure/repository/GetLatestMoviesRepository'
 
 console.log('welcome! GetLatestMoviesRepository test')
 

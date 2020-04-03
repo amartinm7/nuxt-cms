@@ -1,13 +1,13 @@
-import { BeanContainerRegistry } from '../../../../../middleware/BeanContainerRegistry'
+import { BeanContainerRegistry } from '../../../middleware/BeanContainerRegistry'
 import {
   GetTrendingMoviesRepository,
   GetTrendingMoviesRepositoryRequest,
   GetTrendingMoviesRepositoryResponse
-} from '../../../../../middleware/modules/trending/getTrending/infrastructure/repository/GetTrendingMoviesRepository'
+} from '../../../middleware/modules/trending/getTrending/infrastructure/repository/GetTrendingMoviesRepository'
 import {
   MEDIA_TYPES,
   TIME_WINDOWS_TYPES
-} from '../../../../../middleware/modules/trending/getTrending/adomain/TrendingTypes'
+} from '../../../middleware/modules/trending/getTrending/adomain/TrendingTypes'
 
 console.log('welcome! GetTrendingMoviesRepository test')
 
