@@ -1,0 +1,164 @@
+{
+  "data": {
+    "adult": false,
+    "backdrop_path": "/3s9O5af2xWKWR5JzP2iJZpZeQQg.jpg",
+    "belongs_to_collection": {
+      "id": 328,
+      "name": "Jurassic Park Collection",
+      "poster_path": "/qIm2nHXLpBBdMxi8dvfrnDkBUDh.jpg",
+      "backdrop_path": "/njFixYzIxX8jsn6KMSEtAzi4avi.jpg"
+    },
+    "budget": 170000000,
+    "genres": [
+      {
+        "id": 28,
+        "name": "Action"
+      },
+      {
+        "id": 12,
+        "name": "Adventure"
+      },
+      {
+        "id": 878,
+        "name": "Science Fiction"
+      }
+    ],
+    "homepage": "http://www.jurassicworld.com",
+    "id": 351286,
+    "imdb_id": "tt4881806",
+    "original_language": "en",
+    "original_title": "Jurassic World: Fallen Kingdom",
+    "overview": "Three years after the demise of Jurassic World, a volcanic eruption threatens the remaining dinosaurs on the isla Nublar, so Claire Dearing, the former park manager, recruits Owen Grady to help prevent the extinction of the dinosaurs once again.",
+    "popularity": 355.501,
+    "poster_path": "/c9XxwwhPHdaImA2f1WEfEsbhaFB.jpg",
+    "production_companies": [
+      {
+        "id": 56,
+        "logo_path": "/cEaxANEisCqeEoRvODv2dO1I0iI.png",
+        "name": "Amblin Entertainment",
+        "origin_country": "US"
+      },
+      {
+        "id": 923,
+        "logo_path": "/5UQsZrfbfG2dYJbx8DxfoTr2Bvu.png",
+        "name": "Legendary Entertainment",
+        "origin_country": "US"
+      },
+      {
+        "id": 33,
+        "logo_path": "/8lvHyhjr8oUKOOy2dKXoALWKdp0.png",
+        "name": "Universal Pictures",
+        "origin_country": "US"
+      },
+      {
+        "id": 10338,
+        "logo_path": "/el2ap6lvjcEDdbyJoB3oKiYgXu9.png",
+        "name": "Perfect World Pictures",
+        "origin_country": "CN"
+      }
+    ],
+    "production_countries": [
+      {
+        "iso_3166_1": "US",
+        "name": "United States of America"
+      }
+    ],
+    "release_date": "2018-06-06",
+    "revenue": 1303459585,
+    "runtime": 129,
+    "spoken_languages": [
+      {
+        "iso_639_1": "en",
+        "name": "English"
+      },
+      {
+        "iso_639_1": "ru",
+        "name": "Pусский"
+      }
+    ],
+    "status": "Released",
+    "tagline": "The park is gone",
+    "title": "Jurassic World: Fallen Kingdom",
+    "video": false,
+    "vote_average": 6.5,
+    "vote_count": 7166,
+    "videos": {
+      "results": [
+        {
+          "id": "5dbcb23d97a4e600157c516f",
+          "iso_639_1": "en",
+          "iso_3166_1": "US",
+          "key": "266EI7hdjFs",
+          "name": "Jurassic World: Fallen Kingdom - Trailer Thursday (Run) (HD)",
+          "site": "YouTube",
+          "size": 1080,
+          "type": "Teaser"
+        },
+        {
+          "id": "5dbcb24d0792e100134d8394",
+          "iso_639_1": "en",
+          "iso_3166_1": "US",
+          "key": "uBHTIiBmAzc",
+          "name": "Jurassic World: Fallen Kingdom - Trailer Thursday (Awesome) (HD)",
+          "site": "YouTube",
+          "size": 1080,
+          "type": "Teaser"
+        },
+        {
+          "id": "5dbcb25942022800105c932b",
+          "iso_639_1": "en",
+          "iso_3166_1": "US",
+          "key": "OH-Dy1mKaEE",
+          "name": "Jurassic World: Fallen Kingdom - Trailer Thursday (Legacy) (HD)",
+          "site": "YouTube",
+          "size": 1080,
+          "type": "Teaser"
+        },
+        {
+          "id": "5dbcb26254f6eb00154fa7e3",
+          "iso_639_1": "en",
+          "iso_3166_1": "US",
+          "key": "-hfwJfrqkOk",
+          "name": "Jurassic World: Fallen Kingdom - Trailer Tonight (Remarkable) (HD)",
+          "site": "YouTube",
+          "size": 1080,
+          "type": "Teaser"
+        },
+        {
+          "id": "5b3069f9c3a368575d009f8f",
+          "iso_639_1": "en",
+          "iso_3166_1": "US",
+          "key": "vn9mMeWcgoM",
+          "name": "Jurassic World: Fallen Kingdom - Official Trailer [HD]",
+          "site": "YouTube",
+          "size": 1080,
+          "type": "Trailer"
+        },
+        {
+          "id": "5dbcb0f8a5890200196adc21",
+          "iso_639_1": "en",
+          "iso_3166_1": "US",
+          "key": "NooW_RbfdWI",
+          "name": "Jurassic World: Fallen Kingdom - Official Trailer #2 [HD]",
+          "site": "YouTube",
+          "size": 1080,
+          "type": "Trailer"
+        },
+        {
+          "id": "5dbcb0ff42022800105c9172",
+          "iso_639_1": "en",
+          "iso_3166_1": "US",
+          "key": "1FJD7jZqZEk",
+          "name": "Jurassic World: Fallen Kingdom - Final Trailer [HD]",
+          "site": "YouTube",
+          "size": 1080,
+          "type": "Trailer"
+        }
+      ]
+    },
+    "images": {
+      "backdrops": [],
+      "posters": []
+    }
+  }
+}

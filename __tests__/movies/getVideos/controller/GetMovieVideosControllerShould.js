@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-unused-vars
-import { BeanContainerRegistry } from '../../../../../middleware/BeanContainerRegistry'
-import { GetMovieVideosRepository } from '../../../../../middleware/modules/movies/getVideos/infrastructure/repository/GetMovieVideosRepository'
-import { GetMovieVideosControllerRequest } from '../../../../../middleware/modules/movies/getVideos/userapplication/controller/GetMovieVideosController'
+import { BeanContainerRegistry } from '../../../../middleware/BeanContainerRegistry'
+import { GetMovieVideosRepository } from '../../../../middleware/modules/movies/getVideos/infrastructure/repository/GetMovieVideosRepository'
+import { GetMovieVideosControllerRequest } from '../../../../middleware/modules/movies/getVideos/userapplication/controller/GetMovieVideosController'
 
 // eslint-disable-next-line no-unused-vars
 const assert = require('assert')

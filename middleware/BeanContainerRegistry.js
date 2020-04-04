@@ -7,6 +7,7 @@ import GetLatestProvider from './modules/movies/getLatest/GetLatestMoviesProvide
 import GetVideosProvider from './modules/movies/getVideos/GetVideosMoviesProvider'
 import GetTrendingProvider from './modules/trending/getTrending/GetTrendingProvider'
 import GetVideosTvShowProvider from './modules/tvShows/getVideos/GetVideosTvShowProvider'
+import GetMovieDetailsProvider from './modules/movies/getDetails/GetMovieDetailsProvider'
 
 let beanContainerRegistryInstance = null
 
@@ -28,6 +29,8 @@ export class BeanContainerRegistry {
     )
     // eslint-disable-next-line no-new
     new GetGenresMovieListProvider(this._beanContainer)
+    // eslint-disable-next-line no-new
+    new GetMovieDetailsProvider(this._beanContainer)
     // eslint-disable-next-line no-new
     new GetGenresTvShowListProvider(this._beanContainer)
     // eslint-disable-next-line no-new

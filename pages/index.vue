@@ -56,21 +56,19 @@
         </div>
       </div>
     </section>
-    <amazon-banner></amazon-banner>
   </div>
 </template>
 <!-- eslint-disable -->
 <!-- eslint-enable -->
 
 <script>
-import AmazonBanner from '../components/amazon/AmazonBanner'
 import MoviesCard from '../components/movies/MoviesCard'
 import TvShowCard from '../components/movies/TVShowCard'
 import { BeanContainerRegistry } from '../middleware/BeanContainerRegistry'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
-  components: { TvShowCard, MoviesCard, AmazonBanner },
+  components: { TvShowCard, MoviesCard },
   // eslint-disable-next-line require-await
   async asyncData({ params }) {
     const getTrendingMoviesResponse = await beanContainer.getTrendingMoviesController.getTrendingMovies()
