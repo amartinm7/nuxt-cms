@@ -23,7 +23,6 @@
     "firebase-admin": "^8.10.0",
     "lodash.isempty": "^4.4.0",
     "nuxt": "^2.0.0",
-    "slugger": "^1.0.1",
     "uikit": "^3.3.6",
     "vue": "latest"
   },
