@@ -4,12 +4,15 @@
       <div class="uk-navbar-left">
         <ul class="uk-navbar-nav">
           <li class="uk-width-1-2">
-            <a href="#" class="uk-link-reset ech-basic" style="cursor: default"
+            <nuxt-link
+              to="/"
+              class="uk-link-reset ech-basic"
+              style="cursor: default"
               ><img
                 src="../../assets/logo/vector/default-monochrome-black.svg"
                 alt="logo"
                 uk-svg
-            /></a>
+            /></nuxt-link>
             <div class="uk-navbar-dropdown">
               <ul class="uk-nav uk-navbar-dropdown-nav">
                 <li class="uk-active"><a href="#">Estrenos</a></li>

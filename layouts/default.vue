@@ -2,12 +2,15 @@
   <div>
     <navbar></navbar>
     <nuxt />
+    <amazon-banner></amazon-banner>
   </div>
 </template>
 <script>
 import Navbar from '../components/navbar/Navbar'
+import AmazonBanner from '../components/amazon/AmazonBanner'
 export default {
   components: {
+    AmazonBanner,
     Navbar
   },
   mounted() {

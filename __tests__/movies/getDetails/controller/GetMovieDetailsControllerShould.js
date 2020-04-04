@@ -6,9 +6,9 @@ import { GetMovieDetailsControllerRequest } from '../../../../middleware/modules
 // eslint-disable-next-line no-unused-vars
 const assert = require('assert')
 
-console.log('welcome! GetMovieVideosController test')
+console.log('welcome! GetMovieDetailsController test')
 
-describe('GetMovieVideosController', function() {
+describe('GetMovieDetailsController', function() {
   describe('execute', function() {
     it('should save', async function() {
       // given

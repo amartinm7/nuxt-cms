@@ -51,6 +51,8 @@ class GetMovieDetailsRepositoryResponse {
     runtime,
     status,
     title,
+    vote_average,
+    vote_count,
     videos,
     images
   }) {
@@ -67,6 +69,8 @@ class GetMovieDetailsRepositoryResponse {
     this._runtime = runtime
     this._status = status
     this._title = title
+    this._vote_average = vote_average
+    this._vote_count = vote_count
     if (!_isEmpty(videos) && !_isEmpty(videos.results)) {
       this._videos = videos.results.map((it) => {
         // eslint-disable-next-line no-new

@@ -25,11 +25,16 @@
       </div>
       <div>
         <div class="uk-card-body">
-          <h3 class="uk-card-title ech-basic">
-            {{ movie._title }}&nbsp;<span class="uk-label">
-              {{ movie._id }}</span
-            >
-          </h3>
+          <nuxt-link
+            class="uk-link-reset"
+            :to="getMovieDetailURL(movie._id, movie._title)"
+          >
+            <h3 class="uk-card-title ech-basic">
+              {{ movie._title }}&nbsp;<span class="uk-label">
+                {{ movie._id }}</span
+              >
+            </h3>
+          </nuxt-link>
           <p class="uk-dropcap">{{ movie._overview }}</p>
         </div>
         <div class="uk-flex uk-flex-right uk-width-auto">
@@ -57,9 +62,11 @@
   </div>
 </template>
 <script>
+/* eslint-disable camelcase */
 import Vue from 'vue'
 import { BeanContainerRegistry } from '../../middleware/BeanContainerRegistry'
 import { GetMovieVideosControllerRequest } from '../../middleware/modules/movies/getVideos/userapplication/controller/GetMovieVideosController'
+import * as ServiceLocator from '../../middleware/framework/modules/ServiceLocator'
 import VideoFrame from './VideoFrame'
 
 const beanContainer = BeanContainerRegistry.getBeanContainer()
@@ -74,6 +81,10 @@ export default {
       type: String
     }
   },
+  asyncData({ params }) {
+    console.log('params ' + params)
+    return {}
+  },
   data() {
     return {
       genres: [28, 12, 35],
@@ -84,6 +95,10 @@ export default {
     await this.getGenres()
   },
   methods: {
+    getMovieDetailURL(movie_id, movie_title) {
+      const slugger = ServiceLocator.Slugger.sluggify(movie_id, movie_title)
+      return `/movies/${slugger}`
+    },
     getPosterURL(posterPath) {
       return `https://image.tmdb.org/t/p/w185_and_h278_bestv2/${posterPath}`
     },
