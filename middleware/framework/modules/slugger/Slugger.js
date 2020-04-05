@@ -31,8 +31,12 @@ class Slugger {
     return result
   }
 
-  static sluggify(movie_id, movie_title) {
-    return Slugger._slugger(`${movie_id} ${movie_title}`)
+  static sluggify(arrayOfStrings) {
+    return arrayOfStrings
+      .map((it) => {
+        return Slugger._slugger(`${it}`)
+      })
+      .join('-')
   }
 }
 

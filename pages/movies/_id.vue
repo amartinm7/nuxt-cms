@@ -19,7 +19,9 @@ export default {
   components: { MoviesCard },
   // eslint-disable-next-line require-await
   async asyncData({ route, params }) {
-    const movie_id = params.detail.split('-')[0]
+    console.log(route.params.id)
+    console.log(params)
+    const movie_id = params.id.split('-')[0]
     const getMovieDetailsControllerResponse = await beanContainer.getMovieDetailsController.execute(
       new GetMovieDetailsControllerRequest({
         movie_id
