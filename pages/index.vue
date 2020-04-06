@@ -43,16 +43,16 @@
       </ul>
       <div class="uk-switcher">
         <div class="uk-active">
-          <movies-card
+          <ech-movies-card
             :movies="trendingMovies._results"
             class="ech-scroll-spy-effect"
-          ></movies-card>
+          ></ech-movies-card>
         </div>
         <div>
-          <tv-show-card
+          <ech-tv-show-card
             :movies="trendingTVShows._results"
             class="ech-scroll-spy-effect"
-          ></tv-show-card>
+          ></ech-tv-show-card>
         </div>
       </div>
     </section>
@@ -62,25 +62,41 @@
 <!-- eslint-enable -->
 
 <script>
-import MoviesCard from '../components/movies/MoviesCard'
-import TvShowCard from '../components/movies/TVShowCard'
+import EchMoviesCard from '../components/movies/EchMoviesCard'
+import EchTvShowCard from '../components/movies/EchTvShowCard'
 import { BeanContainerRegistry } from '../middleware/BeanContainerRegistry'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
+const _isEmpty = require('lodash.isempty')
 
 export default {
-  components: { TvShowCard, MoviesCard },
+  components: { EchTvShowCard, EchMoviesCard },
   // eslint-disable-next-line require-await
-  async asyncData({ params }) {
-    const getTrendingMoviesResponse = await beanContainer.getTrendingMoviesController.getTrendingMovies()
+  async asyncData({ app, params, store }) {
+    const language = store.state.language
+    const getTrendingMoviesResponse = await beanContainer.getTrendingMoviesController.getTrendingMovies(
+      { language }
+    )
     const trendingMovies = {
       ...getTrendingMoviesResponse
     }
-
-    const getTrendingTVShowsResponse = await beanContainer.getTrendingMoviesController.getTrendingTVShows()
+    const getTrendingTVShowsResponse = await beanContainer.getTrendingMoviesController.getTrendingTVShows(
+      { language }
+    )
     const trendingTVShows = {
       ...getTrendingTVShowsResponse
     }
-    return { trendingMovies, trendingTVShows }
+
+    const cachedTrendingMovies = {}
+    cachedTrendingMovies[language] = trendingMovies
+    const cachedTrendingTVShows = {}
+    cachedTrendingTVShows[language] = trendingTVShows
+
+    return {
+      trendingMovies,
+      trendingTVShows,
+      cachedTrendingMovies,
+      cachedTrendingTVShows
+    }
   },
   data() {
     return {
@@ -95,6 +111,18 @@ export default {
         _total_pages: 1,
         _total_results: 1,
         _results: []
+      },
+      cachedTrendingMovies: {},
+      cachedTrendingTVShows: {}
+    }
+  },
+  watch: {
+    '$store.state.language'(newValue, oldValue) {
+      console.log('changing language ' + newValue + ' ' + oldValue)
+      const language = newValue
+      if (newValue !== oldValue) {
+        this.getTrendingMovies({ language })
+        this.getTrendingMoviesTvShows({ language })
       }
     }
   },
@@ -102,6 +130,30 @@ export default {
   methods: {
     getPosterURL(posterPath) {
       return `https://image.tmdb.org/t/p/w185_and_h278_bestv2/${posterPath}`
+    },
+    async getTrendingMovies({ language }) {
+      if (!_isEmpty(this.cachedTrendingMovies[language])) {
+        this.trendingMovies = this.cachedTrendingMovies[language]
+        return
+      }
+      console.log('getTrendingMovies...')
+      const getTrendingMoviesResponse = await beanContainer.getTrendingMoviesController.getTrendingMovies(
+        { language }
+      )
+      this.cachedTrendingMovies[language] = { ...getTrendingMoviesResponse }
+      this.trendingMovies = this.cachedTrendingMovies[language]
+    },
+    async getTrendingMoviesTvShows({ language }) {
+      if (!_isEmpty(this.cachedTrendingTVShows[language])) {
+        this.trendingTVShows = this.cachedTrendingTVShows[language]
+        return
+      }
+      console.log('getTrendingMoviesTvShows...')
+      const getTrendingTVShowsResponse = await beanContainer.getTrendingMoviesController.getTrendingTVShows(
+        { language }
+      )
+      this.cachedTrendingTVShows[language] = { ...getTrendingTVShowsResponse }
+      this.trendingTVShows = this.cachedTrendingTVShows[language]
     }
   },
   head() {

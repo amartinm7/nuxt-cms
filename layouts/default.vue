@@ -1,20 +1,20 @@
 <template>
   <div>
-    <navbar></navbar>
+    <ech-navbar></ech-navbar>
     <nuxt />
-    <amazon-banner></amazon-banner>
+    <ech-footer></ech-footer>
+    <ech-amazon-banner></ech-amazon-banner>
   </div>
 </template>
 <script>
-import Navbar from '../components/navbar/Navbar'
-import AmazonBanner from '../components/amazon/AmazonBanner'
+import EchNavbar from '../components/navbar/EchNavbar'
+import EchFooter from '../components/footer/EchFooter'
+import EchAmazonBanner from '../components/amazon/EchAmazonBanner'
 export default {
   components: {
-    AmazonBanner,
-    Navbar
-  },
-  mounted() {
-    console.log(Navbar)
+    EchAmazonBanner,
+    EchNavbar,
+    EchFooter
   }
 }
 </script>

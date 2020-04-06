@@ -97,7 +97,7 @@
 </template>
 <script>
 export default {
-  name: 'AmazonBanner',
+  name: 'EchAmazonBanner',
   data() {
     return {}
   }

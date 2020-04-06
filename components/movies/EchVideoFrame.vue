@@ -14,7 +14,7 @@
 </template>
 <script>
 export default {
-  name: 'VideoFrame',
+  name: 'EchVideoFrame',
   props: {
     url: {
       default() {

@@ -16,8 +16,9 @@ class GetMovieDetailsController {
 
 /* eslint-disable camelcase */
 class GetMovieDetailsControllerRequest {
-  constructor({ movie_id }) {
+  constructor({ movie_id, language }) {
     this.movie_id = movie_id
+    this.language = language
   }
 }
 export { GetMovieDetailsController, GetMovieDetailsControllerRequest }

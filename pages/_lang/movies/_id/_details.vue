@@ -3,6 +3,7 @@
     <section class="uk-section uk-section-xsmall">
       <movies-card :movies="movies" class="ech-scroll-spy-effect"></movies-card>
     </section>
+    <section class="uk-section uk-section-xsmall"></section>
   </div>
 </template>
 <!-- eslint-disable -->
@@ -11,7 +12,7 @@
 <script>
 /* eslint-disable camelcase */
 import { GetMovieDetailsControllerRequest } from '../../../../middleware/modules/movies/getDetails/userapplication/controller/GetMovieDetailsController'
-import MoviesCard from '../../../../components/movies/MoviesCard'
+import MoviesCard from '../../../../components/movies/EchMoviesCard'
 import { BeanContainerRegistry } from '../../../../middleware/BeanContainerRegistry'
 
 const beanContainer = BeanContainerRegistry.getBeanContainer()
@@ -19,14 +20,16 @@ const beanContainer = BeanContainerRegistry.getBeanContainer()
 export default {
   components: { MoviesCard },
   // eslint-disable-next-line require-await
-  async asyncData({ route, params }) {
+  async asyncData({ route, params, store }) {
     //
+    const language = store.state.language
     console.log(route.params.id)
     console.log(params)
     const movie_id = route.params.id
     const getMovieDetailsControllerResponse = await beanContainer.getMovieDetailsController.execute(
       new GetMovieDetailsControllerRequest({
-        movie_id
+        movie_id,
+        language
       })
     )
     const movie = {

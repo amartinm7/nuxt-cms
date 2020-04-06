@@ -46,14 +46,17 @@
 import Vue from 'vue'
 import { BeanContainerRegistry } from '../../middleware/BeanContainerRegistry'
 import { GetTvShowsVideosControllerRequest } from '../../middleware/modules/tvShows/getVideos/userapplication/controller/GetTvShowsVideosController'
-import VideoFrame from './VideoFrame'
+import VideoFrame from './EchVideoFrame'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
-  name: 'TvShowCard',
+  name: 'EchTvShowCard',
   props: {
     movies: {
-      type: Array
+      type: Array,
+      default() {
+        return []
+      }
     }
   },
   methods: {
