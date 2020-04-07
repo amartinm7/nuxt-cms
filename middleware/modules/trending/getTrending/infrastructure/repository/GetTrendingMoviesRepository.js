@@ -15,8 +15,12 @@ class GetTrendingMoviesRepository {
    * @returns {*}
    */
   execute(getTrendingMoviesRepositoryRequest) {
-    const { mediaType, timeWindow } = getTrendingMoviesRepositoryRequest
-    const urlPath = `/trending/${mediaType}/${timeWindow}`
+    const {
+      mediaType,
+      timeWindow,
+      language
+    } = getTrendingMoviesRepositoryRequest
+    const urlPath = `/trending/${mediaType}/${timeWindow}?language=${language}`
     const axiosRequest = new GetAxiosRequest({
       accessToken: this._accessToken,
       baseURL: 'https://api.themoviedb.org/3'
@@ -31,9 +35,10 @@ class GetTrendingMoviesRepository {
 }
 
 class GetTrendingMoviesRepositoryRequest {
-  constructor({ mediaType, timeWindow }) {
+  constructor({ mediaType, timeWindow, language }) {
     this.mediaType = mediaType
     this.timeWindow = timeWindow
+    this.language = language
   }
 }
 

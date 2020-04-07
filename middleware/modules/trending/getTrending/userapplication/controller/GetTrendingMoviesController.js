@@ -15,17 +15,20 @@ class GetTrendingMoviesController {
     return getTrendingMoviesServiceResponse
   }
 
-  getTrendingMovies() {
+  getTrendingMovies({ language }) {
     return this.execute({
       mediaType: MEDIA_TYPES.MOVIE,
-      timeWindow: TIME_WINDOWS_TYPES.WEEK
+      timeWindow: TIME_WINDOWS_TYPES.WEEK,
+      language
     })
   }
 
-  getTrendingTVShows() {
+  getTrendingTVShows({ language }) {
+    // eslint-disable-next-line no-return-await
     return this.execute({
       mediaType: MEDIA_TYPES.TV,
-      timeWindow: TIME_WINDOWS_TYPES.WEEK
+      timeWindow: TIME_WINDOWS_TYPES.WEEK,
+      language
     })
   }
 }

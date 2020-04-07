@@ -13,7 +13,9 @@ class GetMovieDetailsRepository {
    * @returns {*}
    */
   execute(getMovieDetailsRepositoryRequest) {
-    const urlPath = `/movie/${getMovieDetailsRepositoryRequest.movie_id}}?append_to_response=videos,images`
+    /* eslint-disable camelcase */
+    const { movie_id, language } = { ...getMovieDetailsRepositoryRequest }
+    const urlPath = `/movie/${movie_id}}?language=${language}&append_to_response=videos,images`
     return this._axios(
       new GetAxiosRequest({
         accessToken: this._accessToken,
@@ -30,8 +32,9 @@ class GetMovieDetailsRepository {
 
 /* eslint-disable camelcase */
 class GetMovieDetailsRepositoryRequest {
-  constructor({ movie_id }) {
+  constructor({ movie_id, language }) {
     this.movie_id = movie_id
+    this.language = language
   }
 }
 

@@ -35,17 +35,20 @@
               >
             </h3>
           </nuxt-link>
-          <p class="uk-dropcap">{{ movie._overview }}</p>
+          <span uk-icon="quote-left"></span>
+          <p class="uk-dropcap">
+            {{ movie._overview }}
+          </p>
         </div>
         <div class="uk-flex uk-flex-right uk-width-auto">
           <div
-            v-for="genre in getThisGenres"
-            :key="genre._id"
+            v-for="genre in movie._genres"
+            :key="genre.id"
             :todo="genre"
             class="uk-padding-small"
           >
             <span class="uk-label-warning ech-basic">
-              &nbsp;{{ genre._name }}&nbsp;
+              &nbsp;{{ genre.name }}&nbsp;
             </span>
           </div>
         </div>
@@ -67,37 +70,27 @@ import Vue from 'vue'
 import { BeanContainerRegistry } from '../../middleware/BeanContainerRegistry'
 import { GetMovieVideosControllerRequest } from '../../middleware/modules/movies/getVideos/userapplication/controller/GetMovieVideosController'
 import * as ServiceLocator from '../../middleware/framework/modules/ServiceLocator'
-import VideoFrame from './VideoFrame'
+import VideoFrame from './EchVideoFrame'
 
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
-  name: 'MoviesCard',
+  name: 'EchMoviesCard',
   props: {
     movies: {
-      type: Array
-    },
-    mediatype: {
-      type: String
+      type: Array,
+      default() {
+        return []
+      }
     }
-  },
-  asyncData({ params }) {
-    console.log('params ' + params)
-    return {}
   },
   data() {
-    return {
-      genres: [28, 12, 35],
-      getThisGenres: []
-    }
-  },
-  async mounted() {
-    await this.getGenres()
+    return {}
   },
   methods: {
     getMovieDetailURL(movie_id, movie_title) {
-      const slugger = ServiceLocator.Slugger.sluggify(movie_id, movie_title)
-      return `/movies/${slugger}`
+      const slugger = ServiceLocator.Slugger.sluggify([movie_title])
+      return `/lang/${this.$store.state.language}/movies/${movie_id}/${slugger}`
     },
     getPosterURL(posterPath) {
       return `https://image.tmdb.org/t/p/w185_and_h278_bestv2/${posterPath}`
@@ -118,12 +111,12 @@ export default {
     async getGenres() {
       const vm = this
       const getGenresMovieListControllerResponse = await beanContainer.getGenresMovieListController.execute()
+      // eslint-disable-next-line no-unused-vars
       const response = getGenresMovieListControllerResponse._genres.filter(
         (it) => {
           return vm.genres.includes(it._id)
         }
       )
-      this.getThisGenres = response
     }
   }
 }

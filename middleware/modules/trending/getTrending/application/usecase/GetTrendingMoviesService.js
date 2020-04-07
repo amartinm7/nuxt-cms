@@ -18,9 +18,10 @@ class GetTrendingMoviesService {
 }
 
 class GetTrendingMoviesServiceRequest {
-  constructor({ mediaType, timeWindow }) {
+  constructor({ mediaType, timeWindow, language }) {
     this.mediaType = mediaType
     this.timeWindow = timeWindow
+    this.language = language
   }
 }
 

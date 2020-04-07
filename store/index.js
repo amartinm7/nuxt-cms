@@ -1,5 +1,6 @@
 export const state = () => ({
   blogPosts: [],
+  language: 'es-ES',
   videoURL:
     'https://www.youtube.com/embed/Yj0l7iGKh8g?autoplay=1&amp;showinfo=0&amp;rel=0&amp;modestbranding=1&amp;playsinline=1'
 })
@@ -7,6 +8,9 @@ export const state = () => ({
 export const mutations = {
   setBlogPosts(state, list) {
     state.blogPosts = list
+  },
+  setLanguage(state, language) {
+    state.language = language
   },
   videoURL(state, url) {
     state.videoURL = url
