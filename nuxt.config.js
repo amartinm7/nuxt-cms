@@ -218,7 +218,7 @@ export default {
       short_name: 'Estrenos Cine Hoy',
       description: 'Estrenos Cine Hoy: movies, TV Shows and so on...',
       lang: 'es-ES',
-      start_url: '.',
+      start_url: '/',
       theme_color: '#0598EC',
       icons: [
         {
