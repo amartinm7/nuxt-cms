@@ -87,15 +87,25 @@
 export default {
   // eslint-disable-next-line require-await
   async asyncData({ route, params }) {
-    return {}
+    console.log('navbar route...' + JSON.stringify(route))
   },
   data() {
     return {}
   },
   methods: {
     async setupLanguage(language) {
-      console.log('setupLanguage')
+      if (this.$store.state.language === language) {
+        return
+      }
+      // changing language in the route path
+      const path = this.$route.path
+        .split('/')
+        .map((it) => {
+          return it === this.$store.state.language ? language : it
+        })
+        .join('/')
       await this.$store.commit('setLanguage', language)
+      this.$router.push({ path })
     }
   },
   head() {

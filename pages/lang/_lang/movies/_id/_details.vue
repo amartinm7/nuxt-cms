@@ -11,48 +11,44 @@
 
 <script>
 /* eslint-disable camelcase */
-import { GetMovieDetailsControllerRequest } from '../../../../middleware/modules/movies/getDetails/userapplication/controller/GetMovieDetailsController'
-import MoviesCard from '../../../../components/movies/EchMoviesCard'
-import { BeanContainerRegistry } from '../../../../middleware/BeanContainerRegistry'
-
+import MoviesCard from '../../../../../components/movies/EchMoviesCard'
+import { BeanContainerRegistry } from '../../../../../middleware/BeanContainerRegistry'
+import { GetMovieDetailsControllerRequest } from '../../../../../middleware/modules/movies/getDetails/userapplication/controller/GetMovieDetailsController'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
   components: { MoviesCard },
   // eslint-disable-next-line require-await
   async asyncData({ route, params, store }) {
-    //
+    console.log('asyncdata _details....')
     const language = store.state.language
-    console.log(route.params.id)
-    console.log(params)
     const movie_id = route.params.id
     const getMovieDetailsControllerResponse = await beanContainer.getMovieDetailsController.execute(
-      new GetMovieDetailsControllerRequest({
-        movie_id,
-        language
-      })
+      new GetMovieDetailsControllerRequest({ movie_id, language })
     )
     const movie = {
       ...getMovieDetailsControllerResponse
     }
-    return { movies: [movie] }
+    return {
+      movies: [movie]
+    }
   },
   data() {
     return {
-      movie: {
-        _id: 1
-      }
+      movies: [],
+      movie_title: '',
+      movie_id: 0
     }
   },
-  created() {},
   methods: {
     getPosterURL(posterPath) {
       return `https://image.tmdb.org/t/p/w185_and_h278_bestv2/${posterPath}`
     }
   },
   head() {
+    const vm = this
     return {
-      title: 'Estrenos Cine Hoy',
+      title: `${vm.movies[0]._title}`,
       meta: [
         {
           name: 'keywords',
@@ -67,5 +63,4 @@ export default {
   }
 }
 </script>
-
 <style></style>
