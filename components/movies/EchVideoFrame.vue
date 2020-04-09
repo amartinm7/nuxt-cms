@@ -13,6 +13,7 @@
   </div>
 </template>
 <script>
+/* eslint-disable camelcase, no-console */
 export default {
   name: 'EchVideoFrame',
   props: {
@@ -22,12 +23,14 @@ export default {
       },
       type: String
     },
+    // eslint-disable-next-line vue/prop-name-casing
     movie_id: {
       default() {
-        return '000000'
+        return 0
       },
       type: String
     },
+    // eslint-disable-next-line vue/prop-name-casing
     movie_title: {
       default() {
         return 'ech-player'

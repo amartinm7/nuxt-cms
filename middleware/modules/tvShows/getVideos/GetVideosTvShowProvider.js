@@ -1,7 +1,7 @@
 import { GetTvShowsVideosService } from './application/usecase/GetTvShowsVideosService'
 import { GetTvShowsVideosRepository } from './infrastructure/repository/GetTvShowsVideosRepository'
 import { GetTvShowsVideosController } from './userapplication/controller/GetTvShowsVideosController'
-
+/* eslint-disable camelcase, no-console */
 class GetVideosTvShowProvider {
   constructor(container) {
     container.service(

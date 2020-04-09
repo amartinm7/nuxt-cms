@@ -1,5 +1,5 @@
 import { GetLatestMoviesRepositoryRequest } from '../../infrastructure/repository/GetLatestMoviesRepository'
-
+/* eslint-disable camelcase, no-console */
 class GetLatestMoviesService {
   constructor({ getLatestMoviesRepository }) {
     this._getLatestMoviesRepository = getLatestMoviesRepository

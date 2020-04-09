@@ -12,8 +12,8 @@
           &nbsp;{{ movie._vote_average.toFixed(1) }}&nbsp;
         </span>
         <a
-          class="uk-button uk-button-default uk-align-center"
           :href="`#openVideo_${movie._id}`"
+          class="uk-button uk-button-default uk-align-center"
           uk-toggle
           @click="initVideoURL(movie)"
         >
@@ -65,7 +65,7 @@
   </div>
 </template>
 <script>
-/* eslint-disable camelcase */
+/* eslint-disable camelcase, no-console */
 import Vue from 'vue'
 import { BeanContainerRegistry } from '../../middleware/BeanContainerRegistry'
 import { GetMovieVideosControllerRequest } from '../../middleware/modules/movies/getVideos/userapplication/controller/GetMovieVideosController'
@@ -107,16 +107,6 @@ export default {
           movie_title: movie._title
         }
       }).$mount(`#videoFrame_${movie._id}`)
-    },
-    async getGenres() {
-      const vm = this
-      const getGenresMovieListControllerResponse = await beanContainer.getGenresMovieListController.execute()
-      // eslint-disable-next-line no-unused-vars
-      const response = getGenresMovieListControllerResponse._genres.filter(
-        (it) => {
-          return vm.genres.includes(it._id)
-        }
-      )
     }
   }
 }

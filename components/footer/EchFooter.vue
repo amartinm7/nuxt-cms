@@ -38,6 +38,7 @@
   </div>
 </template>
 <script>
+/* eslint-disable camelcase, no-console */
 import EchSocialMedia from './EchSocialMedia'
 export default {
   components: { EchSocialMedia }

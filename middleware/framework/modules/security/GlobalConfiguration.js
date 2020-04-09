@@ -1,3 +1,5 @@
+/* eslint-disable camelcase, no-console */
+
 function decodeToBase64(base64String) {
   return Buffer.from(base64String, 'base64').toString('ascii')
 }

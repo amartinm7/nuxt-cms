@@ -1,3 +1,4 @@
+/* eslint-disable camelcase, no-console */
 class GetAxiosRequest {
   constructor({ accessToken, baseURL }) {
     this._accessToken = accessToken
@@ -13,12 +14,11 @@ class GetAxiosRequest {
       Authorization: `Bearer ${vm._accessToken}`
     }
     const url = `${this._baseURL}${urlPath}`
-    const axiosRequest = {
+    return {
       method: 'get',
       url,
       headers
     }
-    return axiosRequest
   }
 }
 

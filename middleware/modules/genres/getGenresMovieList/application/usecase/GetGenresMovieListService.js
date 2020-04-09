@@ -1,3 +1,4 @@
+/* eslint-disable camelcase, no-console */
 class GetGenresMovieListService {
   constructor({ getGenresMovieListRepository }) {
     this._getGenresMovieListRepository = getGenresMovieListRepository

@@ -1,3 +1,4 @@
+/* eslint-disable camelcase, no-console */
 class GetGenresTvShowListService {
   constructor({ getGenresTvShowListRepository }) {
     this._getGenresTvShowListRepository = getGenresTvShowListRepository

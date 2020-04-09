@@ -1,7 +1,7 @@
 import { GetLatestMoviesRepository } from './infrastructure/repository/GetLatestMoviesRepository'
 import { GetLatestMoviesService } from './application/usecase/GetLatestMoviesService'
 import { GetLatestMoviesController } from './userapplication/controller/GetLatestMoviesController'
-
+/* eslint-disable camelcase, no-console */
 class GetLatestMoviesProvider {
   constructor(container) {
     container.service(

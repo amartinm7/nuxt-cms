@@ -1,5 +1,5 @@
 const _isEmpty = require('lodash.isempty')
-
+/* eslint-disable camelcase, no-console */
 class GetTvShowsVideosController {
   constructor({ getTvShowsVideosService }) {
     this._getTvShowsVideosService = getTvShowsVideosService

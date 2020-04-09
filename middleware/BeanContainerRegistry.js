@@ -8,7 +8,7 @@ import GetVideosProvider from './modules/movies/getVideos/GetVideosMoviesProvide
 import GetTrendingProvider from './modules/trending/getTrending/GetTrendingProvider'
 import GetVideosTvShowProvider from './modules/tvShows/getVideos/GetVideosTvShowProvider'
 import GetMovieDetailsProvider from './modules/movies/getDetails/GetMovieDetailsProvider'
-
+/* eslint-disable camelcase, no-console */
 let beanContainerRegistryInstance = null
 
 export class BeanContainerRegistry {

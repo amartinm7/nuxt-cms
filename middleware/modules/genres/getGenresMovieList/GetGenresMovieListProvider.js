@@ -1,7 +1,7 @@
 import { GetGenresMovieListRepository } from './infrastructure/repository/GetGenresMovieListRepository'
 import { GetGenresMovieListService } from './application/usecase/GetGenresMovieListService'
 import { GetGenresMovieListController } from './userapplication/controller/GetGenresMovieListController'
-
+/* eslint-disable camelcase, no-console */
 class GetGenresMovieListProvider {
   constructor(container) {
     container.service(

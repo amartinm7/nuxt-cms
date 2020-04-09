@@ -83,7 +83,7 @@
   </div>
 </template>
 <script>
-/* eslint-disable camelcase */
+/* eslint-disable camelcase, no-console */
 export default {
   // eslint-disable-next-line require-await
   async asyncData({ route, params }) {

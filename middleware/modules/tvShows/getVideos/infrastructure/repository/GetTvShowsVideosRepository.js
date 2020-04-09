@@ -1,5 +1,5 @@
 import GetAxiosRequest from '../../../../../framework/modules/axios/GetAxiosRequest'
-
+/* eslint-disable camelcase, no-console */
 class GetTvShowsVideosRepository {
   constructor({ axios, accessToken }) {
     this._axios = axios

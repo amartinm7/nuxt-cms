@@ -43,6 +43,7 @@
   </div>
 </template>
 <script>
+/* eslint-disable camelcase, no-console */
 import Vue from 'vue'
 import { BeanContainerRegistry } from '../../middleware/BeanContainerRegistry'
 import { GetTvShowsVideosControllerRequest } from '../../middleware/modules/tvShows/getVideos/userapplication/controller/GetTvShowsVideosController'

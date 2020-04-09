@@ -1,3 +1,4 @@
+/* eslint-disable camelcase, no-console */
 /**
  * benefits:
  * - A declarative dependency resolver

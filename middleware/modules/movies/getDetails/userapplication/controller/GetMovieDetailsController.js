@@ -1,5 +1,5 @@
 import { GetMovieDetailsServiceRequest } from '../../application/usecase/GetMovieDetailsService'
-
+/* eslint-disable camelcase, no-console */
 class GetMovieDetailsController {
   constructor({ getMovieDetailsService }) {
     this._getMovieDetailsService = getMovieDetailsService

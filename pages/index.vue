@@ -4,6 +4,7 @@
 <!-- eslint-disable -->
 <!-- eslint-enable -->
 <script>
+/* eslint-disable camelcase, no-console */
 export default {
   // eslint-disable-next-line require-await
   async asyncData({ app, params, store, redirect }) {

@@ -1,3 +1,4 @@
+/* eslint-disable camelcase, no-console */
 class GetTvShowsVideosService {
   constructor({ getTvShowsVideosRepository }) {
     this._getTvShowsVideosRepository = getTvShowsVideosRepository

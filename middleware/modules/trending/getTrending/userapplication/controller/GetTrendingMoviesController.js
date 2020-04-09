@@ -1,6 +1,6 @@
 import { MEDIA_TYPES, TIME_WINDOWS_TYPES } from '../../adomain/TrendingTypes'
 import { GetTrendingMoviesServiceRequest } from '../../application/usecase/GetTrendingMoviesService'
-
+/* eslint-disable camelcase, no-console */
 class GetTrendingMoviesController {
   constructor({ getTrendingMoviesService }) {
     this._getTrendingMoviesService = getTrendingMoviesService

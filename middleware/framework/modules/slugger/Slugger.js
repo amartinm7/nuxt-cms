@@ -1,6 +1,6 @@
 // https://github.com/HenrikJoreteg/slugger/blob/master/slugger.js
 //
-/* eslint-disable camelcase */
+/* eslint-disable camelcase, no-console */
 class Slugger {
   // replaces all whitespace with '-' and removes
   static _slugger(string, opts) {

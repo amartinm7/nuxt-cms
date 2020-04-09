@@ -1,5 +1,5 @@
 import { GetTrendingMoviesRepositoryRequest } from '../../infrastructure/repository/GetTrendingMoviesRepository'
-
+/* eslint-disable camelcase, no-console */
 class GetTrendingMoviesService {
   constructor({ getTrendingMoviesRepository }) {
     this._getTrendingMoviesRepository = getTrendingMoviesRepository

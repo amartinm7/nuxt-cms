@@ -1,7 +1,7 @@
 import { GetMovieVideosRepository } from './infrastructure/repository/GetMovieVideosRepository'
 import { GetMovieVideosService } from './application/usecase/GetMovieVideosService'
 import { GetMovieVideosController } from './userapplication/controller/GetMovieVideosController'
-
+/* eslint-disable camelcase, no-console */
 class GetVideosMoviesProvider {
   constructor(container) {
     container.service(

@@ -1,7 +1,7 @@
 import { GetGenresTvShowListRepository } from './infrastructure/repository/GetGenresTvShowListRepository'
 import { GetGenresTvShowListService } from './application/usecase/GetGenresTvShowListService'
 import { GetGenresTvShowListController } from './userapplication/controller/GetGenresTvShowListController'
-
+/* eslint-disable camelcase, no-console */
 class GetGenresTvShowListProvider {
   constructor(container) {
     container.service(

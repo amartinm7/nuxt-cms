@@ -1,5 +1,5 @@
 import { GetMovieVideosServiceRequest } from '../../application/usecase/GetMovieVideosService'
-
+/* eslint-disable camelcase, no-console */
 const _isEmpty = require('lodash.isempty')
 
 class GetMovieVideosController {

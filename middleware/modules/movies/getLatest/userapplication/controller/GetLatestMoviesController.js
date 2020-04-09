@@ -1,3 +1,4 @@
+/* eslint-disable camelcase, no-console */
 class GetLatestMoviesController {
   constructor({ getLatestMoviesService }) {
     this._getLatestMoviesService = getLatestMoviesService

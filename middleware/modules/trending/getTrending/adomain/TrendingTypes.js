@@ -1,3 +1,4 @@
+/* eslint-disable camelcase, no-console */
 const MEDIA_TYPES = {
   ALL: 'all',
   MOVIE: 'movie',

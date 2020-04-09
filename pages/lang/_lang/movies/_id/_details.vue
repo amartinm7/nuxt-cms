@@ -10,7 +10,7 @@
 <!-- eslint-enable -->
 
 <script>
-/* eslint-disable camelcase */
+/* eslint-disable camelcase, no-console */
 import MoviesCard from '../../../../../components/movies/EchMoviesCard'
 import { BeanContainerRegistry } from '../../../../../middleware/BeanContainerRegistry'
 import { GetMovieDetailsControllerRequest } from '../../../../../middleware/modules/movies/getDetails/userapplication/controller/GetMovieDetailsController'

@@ -1,7 +1,7 @@
 import { GetTrendingMoviesRepository } from './infrastructure/repository/GetTrendingMoviesRepository'
 import { GetTrendingMoviesService } from './application/usecase/GetTrendingMoviesService'
 import { GetTrendingMoviesController } from './userapplication/controller/GetTrendingMoviesController'
-
+/* eslint-disable camelcase, no-console */
 class GetTrendingProvider {
   constructor(container) {
     container.service(

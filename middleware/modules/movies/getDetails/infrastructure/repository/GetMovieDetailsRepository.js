@@ -1,6 +1,6 @@
 import GetAxiosRequest from '../../../../../framework/modules/axios/GetAxiosRequest'
 const _isEmpty = require('lodash.isempty')
-
+/* eslint-disable camelcase, no-console */
 class GetMovieDetailsRepository {
   constructor({ axios, accessToken }) {
     this._axios = axios
@@ -13,7 +13,6 @@ class GetMovieDetailsRepository {
    * @returns {*}
    */
   execute(getMovieDetailsRepositoryRequest) {
-    /* eslint-disable camelcase */
     const { movie_id, language } = { ...getMovieDetailsRepositoryRequest }
     const urlPath = `/movie/${movie_id}}?language=${language}&append_to_response=videos,images`
     return this._axios(

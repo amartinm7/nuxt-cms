@@ -1,5 +1,5 @@
 import { GetMovieVideosRepositoryRequest } from '../../infrastructure/repository/GetMovieVideosRepository'
-
+/* eslint-disable camelcase, no-console */
 class GetMovieVideosService {
   constructor({ getMovieVideosRepository }) {
     this._getMovieVideosRepository = getMovieVideosRepository
