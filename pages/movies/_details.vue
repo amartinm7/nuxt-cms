@@ -11,9 +11,9 @@
 
 <script>
 /* eslint-disable camelcase, no-console */
-import MoviesCard from '../../../../../components/movies/EchMoviesCard'
-import { BeanContainerRegistry } from '../../../../../middleware/BeanContainerRegistry'
-import { GetMovieDetailsControllerRequest } from '../../../../../middleware/modules/movies/getDetails/userapplication/controller/GetMovieDetailsController'
+import MoviesCard from '../../components/movies/EchMoviesCard'
+import { BeanContainerRegistry } from '../../middleware/BeanContainerRegistry'
+import { GetMovieDetailsControllerRequest } from '../../middleware/modules/movies/getDetails/userapplication/controller/GetMovieDetailsController'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
@@ -22,7 +22,7 @@ export default {
   async asyncData({ route, params, store }) {
     console.log('asyncdata _details....')
     const language = store.state.language
-    const movie_id = route.params.id
+    const movie_id = params.details.split('-')[0]
     const getMovieDetailsControllerResponse = await beanContainer.getMovieDetailsController.execute(
       new GetMovieDetailsControllerRequest({ movie_id, language })
     )

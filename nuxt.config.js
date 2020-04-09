@@ -253,21 +253,15 @@ export default {
   },
   /** */
   generate: {
-    routes: [
-      '/lang/es-ES',
-      '/lang/es-ES/movies/181812',
-      '/lang/es-EN',
-      '/lang/es-EN/movies/181812'
-    ]
-    // routes() {
-    //   const fs = require('fs')
-    //   const path = require('path')
-    //   return fs.readdirSync('./assets/content/blog').map((file) => {
-    //     return {
-    //       route: `/blog/${path.parse(file).name}`, // Return the slug
-    //       payload: require(`./assets/content/blog/${file}`)
-    //     }
-    //   })
-    // }
+    routes() {
+      const fs = require('fs')
+      const path = require('path')
+      return fs.readdirSync('./assets/content/blog').map((file) => {
+        return {
+          route: `/blog/${path.parse(file).name}`, // Return the slug
+          payload: require(`./assets/content/blog/${file}`)
+        }
+      })
+    }
   }
 }

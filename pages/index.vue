@@ -8,9 +8,8 @@
 export default {
   // eslint-disable-next-line require-await
   async asyncData({ app, params, store, redirect }) {
-    const language = store.state.language
     console.log('redirect...')
-    return redirect(`/lang/${language}`)
+    return redirect(`/movies`)
   },
   head() {
     return {

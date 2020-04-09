@@ -97,15 +97,9 @@ export default {
       if (this.$store.state.language === language) {
         return
       }
-      // changing language in the route path
-      const path = this.$route.path
-        .split('/')
-        .map((it) => {
-          return it === this.$store.state.language ? language : it
-        })
-        .join('/')
+      const path = `${this.$route.path}?lang=${language}`
       await this.$store.commit('setLanguage', language)
-      this.$router.push({ path })
+      this.$router.push({ path, force: true })
     }
   },
   head() {

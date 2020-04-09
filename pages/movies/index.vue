@@ -62,9 +62,9 @@
 <!-- eslint-enable -->
 <script>
 /* eslint-disable camelcase, no-console */
-import EchTvShowCard from '../../../components/movies/EchTvShowCard'
-import EchMoviesCard from '../../../components/movies/EchMoviesCard'
-import { BeanContainerRegistry } from '../../../middleware/BeanContainerRegistry'
+import EchTvShowCard from '../../components/movies/EchTvShowCard'
+import EchMoviesCard from '../../components/movies/EchMoviesCard'
+import { BeanContainerRegistry } from '../../middleware/BeanContainerRegistry'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {

@@ -1,7 +1,7 @@
 <template>
   <div>
     <ech-navbar></ech-navbar>
-    <nuxt />
+    <nuxt :key="$route.fullPath" />
     <ech-footer></ech-footer>
     <ech-amazon-banner></ech-amazon-banner>
   </div>

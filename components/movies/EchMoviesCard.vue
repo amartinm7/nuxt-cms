@@ -90,7 +90,7 @@ export default {
   methods: {
     getMovieDetailURL(movie_id, movie_title) {
       const slugger = ServiceLocator.Slugger.sluggify([movie_title])
-      return `/lang/${this.$store.state.language}/movies/${movie_id}/${slugger}`
+      return `/movies/${movie_id}-${slugger}`
     },
     getPosterURL(posterPath) {
       return `https://image.tmdb.org/t/p/w185_and_h278_bestv2/${posterPath}`
