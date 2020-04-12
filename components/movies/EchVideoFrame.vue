@@ -28,7 +28,7 @@ export default {
       default() {
         return 0
       },
-      type: String
+      type: Number
     },
     // eslint-disable-next-line vue/prop-name-casing
     movie_title: {

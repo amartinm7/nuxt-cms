@@ -1,6 +1,7 @@
 export const state = () => ({
   blogPosts: [],
-  language: 'es-ES',
+  language: 'es',
+  locale: locales.es,
   videoURL:
     'https://www.youtube.com/embed/Yj0l7iGKh8g?autoplay=1&amp;showinfo=0&amp;rel=0&amp;modestbranding=1&amp;playsinline=1'
 })
@@ -11,6 +12,9 @@ export const mutations = {
   },
   setLanguage(state, language) {
     state.language = language
+  },
+  setLocale(state, locale) {
+    state.locale = locale
   },
   videoURL(state, url) {
     state.videoURL = url
@@ -27,5 +31,18 @@ export const actions = {
       return res
     })
     await commit('setBlogPosts', blogPosts)
+  }
+}
+
+export const locales = {
+  es: {
+    code: 'es',
+    iso: 'es-ES',
+    name: 'Español'
+  },
+  en: {
+    code: 'en',
+    iso: 'en-EN',
+    name: 'English'
   }
 }

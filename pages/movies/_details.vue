@@ -19,9 +19,10 @@ const beanContainer = BeanContainerRegistry.getBeanContainer()
 export default {
   components: { MoviesCard },
   // eslint-disable-next-line require-await
-  async asyncData({ route, params, store }) {
+  async asyncData({ app, route, params, store }) {
     console.log('asyncdata _details....')
-    const language = store.state.language
+    const language = app.i18n.locale
+    console.log('/pages/movies/index...' + app.i18n.locale)
     const movie_id = params.details.split('-')[0]
     const getMovieDetailsControllerResponse = await beanContainer.getMovieDetailsController.execute(
       new GetMovieDetailsControllerRequest({ movie_id, language })

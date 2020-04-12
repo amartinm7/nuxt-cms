@@ -18,7 +18,9 @@ class FirestoreRef {
       try {
         firebase.initializeApp(firebaseConfig)
       } catch (e) {
-        console.log('skipping hot reloading common error...')
+        console.log(
+          'Ech-firestore: skipping hot reloading common error. Everything works well up to now.'
+        )
       }
       firestoreRef = firebase.firestore()
     }

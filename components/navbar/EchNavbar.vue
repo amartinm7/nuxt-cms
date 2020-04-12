@@ -53,16 +53,15 @@
                   </a>
                 </li>
                 <li class="uk-nav-header">Preferencias</li>
-                <li>
-                  <a @click="setupLanguage('es-ES')">
-                    <span uk-icon="icon: world"></span>&nbsp;&nbsp;Idioma ES
-                  </a>
-                </li>
-                <li>
-                  <a @click="setupLanguage('en-EN')">
-                    <span uk-icon="icon: world"></span>&nbsp;&nbsp;Language EN
-                  </a>
-                </li>
+                <nuxt-link
+                  v-for="(locale, i) in showLocales"
+                  :key="i"
+                  :to="switchLocalePath(locale.code)"
+                >
+                  <li>
+                    <span uk-icon="icon: world"></span>&nbsp;{{ locale.name }}
+                  </li>
+                </nuxt-link>
                 <li>
                   <a href="#">
                     <span uk-icon="icon: heart"></span>&nbsp;&nbsp;Favoritos
@@ -92,14 +91,12 @@ export default {
   data() {
     return {}
   },
-  methods: {
-    async setupLanguage(language) {
-      if (this.$store.state.language === language) {
-        return
-      }
-      const path = `${this.$route.path}?lang=${language}`
-      await this.$store.commit('setLanguage', language)
-      this.$router.push({ path, force: true })
+  computed: {
+    showLocales() {
+      console.log('showLocales... ' + this.$i18n.locale)
+      return this.$i18n.locales.filter(
+        (locale) => locale.code !== this.$i18n.locale
+      )
     }
   },
   head() {

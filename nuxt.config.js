@@ -193,6 +193,7 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
+    'nuxt-i18n',
     '@nuxtjs/pwa',
     '@nuxtjs/markdownit'
   ],
@@ -201,6 +202,36 @@ export default {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {},
+  /*
+   ** i18n
+   */
+  i18n: {
+    locales: [
+      {
+        code: 'en',
+        iso: 'en-US',
+        name: 'English',
+        langFile: 'en.json'
+      },
+      {
+        code: 'es',
+        iso: 'es-ES',
+        name: 'Español',
+        langFile: 'es.json'
+      }
+    ],
+    rootRedirect: 'es',
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'ech_i18n_redirected',
+      alwaysRedirect: true,
+      fallbackLocale: 'es'
+    },
+    defaultLocale: 'es',
+    strategy: 'prefix',
+    loadLanguagesAsync: true,
+    langDir: 'lang/'
+  },
   /** markdownit */
   markdownit: {
     injected: true
@@ -253,15 +284,16 @@ export default {
   },
   /** */
   generate: {
-    routes() {
-      const fs = require('fs')
-      const path = require('path')
-      return fs.readdirSync('./assets/content/blog').map((file) => {
-        return {
-          route: `/blog/${path.parse(file).name}`, // Return the slug
-          payload: require(`./assets/content/blog/${file}`)
-        }
-      })
-    }
+    routes: ['/es', '/en', '/es/movies', '/en/movies']
+    // routes() {
+    //   const fs = require('fs')
+    //   const path = require('path')
+    //   return fs.readdirSync('./assets/content/blog').map((file) => {
+    //     return {
+    //       route: `/blog/${path.parse(file).name}`, // Return the slug
+    //       payload: require(`./assets/content/blog/${file}`)
+    //     }
+    //   })
+    // }
   }
 }
