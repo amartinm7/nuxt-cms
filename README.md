@@ -103,4 +103,8 @@ https://pwa.nuxtjs.org/modules/workbox.html#options
 API Orchestrator
 
 
-
+handleSelect(path) {
+      this.$router.push({
+        path: this.$i18n.path(path)
+      });
+    }

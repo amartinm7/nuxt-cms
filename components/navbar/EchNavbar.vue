@@ -5,7 +5,7 @@
         <ul class="uk-navbar-nav">
           <li class="uk-width-1-2">
             <nuxt-link
-              to="/"
+              :to="localePath('/')"
               class="uk-link-reset ech-basic"
               style="cursor: default"
               ><img
