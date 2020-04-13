@@ -8,9 +8,7 @@ export default {
     ESTRENOSCINEHOY_FIRESTORE_CONFIG:
       process.env.ESTRENOSCINEHOY_FIRESTORE_CONFIG,
     ESTRENOSCINEHOY_THEMOVIEDB_CONFIG:
-      process.env.ESTRENOSCINEHOY_THEMOVIEDB_CONFIG,
-    baseUrl: process.env.BASE_URL || 'http://localhost:3000',
-    buildLocale: process.env.BUILD_LOCALE || 'es'
+      process.env.ESTRENOSCINEHOY_THEMOVIEDB_CONFIG
   },
   /*
    ** Headers of the page

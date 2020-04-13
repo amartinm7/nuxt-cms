@@ -12,7 +12,7 @@
           &nbsp;{{ movie._vote_average.toFixed(1) }}&nbsp;
         </span>
         <a
-          :href="`#openVideo_${movie._id}`"
+          :href="`#openVideo${movie._id}`"
           class="uk-button uk-button-default uk-align-center"
           uk-toggle
           @click="initVideoURL(movie)"
@@ -53,7 +53,7 @@
           </div>
         </div>
       </div>
-      <div :id="`openVideo_${movie._id}`" class="uk-flex-top" uk-modal>
+      <div :id="`openVideo${movie._id}`" class="uk-flex-top" uk-modal>
         <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
           <button class="uk-modal-close-default" type="button" uk-close>
             Close
@@ -98,7 +98,10 @@ export default {
     },
     async initVideoURL(movie) {
       const getMovieVideosControllerResponse = await beanContainer.getMovieVideosController.getFirstVideoURL(
-        new GetMovieVideosControllerRequest({ movie_id: movie._id })
+        new GetMovieVideosControllerRequest({
+          movie_id: movie._id,
+          language: this.$i18n.locale
+        })
       )
       const VideoFrameClass = Vue.extend(VideoFrame)
       new VideoFrameClass({

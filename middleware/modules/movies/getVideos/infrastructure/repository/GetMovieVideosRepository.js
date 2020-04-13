@@ -12,7 +12,8 @@ class GetMovieVideosRepository {
    * @returns {*}
    */
   execute(getMovieVideosRepositoryRequest) {
-    const urlPath = `/movie/${getMovieVideosRepositoryRequest.movie_id}/videos`
+    const { movie_id, language } = getMovieVideosRepositoryRequest
+    const urlPath = `/movie/${movie_id}/videos?language=${language}`
     return this._axios(
       new GetAxiosRequest({
         accessToken: this._accessToken,
@@ -29,8 +30,9 @@ class GetMovieVideosRepository {
 
 /* eslint-disable camelcase */
 class GetMovieVideosRepositoryRequest {
-  constructor({ movie_id }) {
+  constructor({ movie_id, language }) {
     this.movie_id = movie_id
+    this.language = language
   }
 }
 
