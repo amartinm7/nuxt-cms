@@ -1,45 +1,43 @@
 <template>
   <div>
     <nav class="uk-navbar-container" uk-navbar>
-      <div class="uk-navbar-left">
-        <ul class="uk-navbar-nav">
-          <li class="uk-width-1-2">
-            <nuxt-link
-              :to="localePath('/')"
-              class="uk-link-reset ech-basic"
-              style="cursor: default"
-              ><img
-                src="../../assets/logo/vector/default-monochrome-black.svg"
-                alt="logo"
-                uk-svg
-            /></nuxt-link>
-            <div class="uk-navbar-dropdown">
-              <ul class="uk-nav uk-navbar-dropdown-nav">
-                <li class="uk-active"><a href="#">Estrenos</a></li>
-                <li><a href="#">Ultima Semana</a></li>
-                <li><a href="#">Ultimo Mes</a></li>
-                <li class="uk-nav-header">Categorias</li>
-                <li><a href="#">Sfy-fy</a></li>
-                <li><a href="#">Drama</a></li>
-                <li class="uk-nav-divider"></li>
-                <li><a href="#">Comedia</a></li>
-              </ul>
-            </div>
-          </li>
-        </ul>
+      <div class="uk-navbar-left uk-width-1-2">
+        <nuxt-link class="uk-navbar-item" :to="localePath('/')">
+          <img
+            src="../../assets/logo/vector/default-monochrome-black.svg"
+            uk-svg
+            style="min-width: 50%; max-width: 60%;"
+          />
+        </nuxt-link>
       </div>
       <div class="uk-navbar-right">
+        <div class="uk-navbar-item">
+          <div>
+            <nuxt-link
+              v-for="(locale, i) in showLocales"
+              :key="i"
+              :to="switchLocalePath(locale.code)"
+              class="uk-link-reset ech-basic"
+            >
+              {{ locale.code }}
+            </nuxt-link>
+          </div>
+        </div>
         <ul class="uk-navbar-nav">
           <li>
             <a href="#">
-              <span uk-icon="icon: user"></span>&nbsp;Perfil
-              <img
+              <span
+                class="uk-icon uk-margin-small-right"
+                uk-icon="icon: table"
+              ></span>
+              <!--
+                <img
                 class="uk-border-circle"
                 width="32"
                 height="32"
                 src="https://sw25672.smartweb-static.com/upload_dir/shop/category/images-_sjove-tegninger-af-dyr_.w293.h293.fill.png"
                 alt="avatar"
-              />
+              /> -->
             </a>
             <div class="uk-navbar-dropdown">
               <ul class="uk-nav uk-navbar-dropdown-nav">
@@ -116,3 +114,4 @@ export default {
   }
 }
 </script>
+<style></style>
