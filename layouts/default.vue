@@ -1,20 +1,20 @@
 <template>
   <div>
-    <ech-navbar></ech-navbar>
+    <ech-navbar-main></ech-navbar-main>
     <nuxt :key="$route.fullPath" />
-    <ech-footer></ech-footer>
-    <ech-amazon-banner></ech-amazon-banner>
+    <ech-contact-footer-main></ech-contact-footer-main>
+    <ech-footer-main></ech-footer-main>
   </div>
 </template>
 <script>
-import EchNavbar from '../components/navbar/EchNavbar'
-import EchFooter from '../components/footer/EchFooter'
-import EchAmazonBanner from '../components/amazon/EchAmazonBanner'
+import EchNavbarMain from '../components/navbar/EchNavbarMain'
+import EchContactFooterMain from '../components/footer/EchContactFooterMain'
+import EchFooterMain from '../components/footer/EchFooterMain'
 export default {
   components: {
-    EchAmazonBanner,
-    EchNavbar,
-    EchFooter
+    EchNavbarMain,
+    EchContactFooterMain,
+    EchFooterMain
   }
 }
 </script>

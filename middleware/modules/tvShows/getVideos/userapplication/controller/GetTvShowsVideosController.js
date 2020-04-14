@@ -32,8 +32,9 @@ class GetTvShowsVideosController {
 }
 /* eslint-disable camelcase */
 class GetTvShowsVideosControllerRequest {
-  constructor({ movie_id }) {
+  constructor({ movie_id, isoLangCode }) {
     this.movie_id = movie_id
+    this.isoLangCode = isoLangCode
   }
 }
 

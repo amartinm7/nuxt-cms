@@ -13,7 +13,8 @@ class GetTvShowsVideosRepository {
    * @returns {*}
    */
   execute(getTvShowsVideosRepositoryRequest) {
-    const urlPath = `/tv/${getTvShowsVideosRepositoryRequest.movie_id}}/videos`
+    const { movie_id, isoLangCode } = getTvShowsVideosRepositoryRequest
+    const urlPath = `/tv/${movie_id}}/videos?language=${isoLangCode}`
     return this._axios(
       new GetAxiosRequest({
         accessToken: this._accessToken,
@@ -30,8 +31,9 @@ class GetTvShowsVideosRepository {
 
 /* eslint-disable camelcase */
 class GetTvShowsVideosRepositoryRequest {
-  constructor({ movie_id }) {
+  constructor({ movie_id, isoLangCode }) {
     this.movie_id = movie_id
+    this.isoLangCode = isoLangCode
   }
 }
 

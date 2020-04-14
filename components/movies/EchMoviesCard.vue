@@ -58,7 +58,7 @@
           <button class="uk-modal-close-default" type="button" uk-close>
             Close
           </button>
-          <div :id="`videoFrame_${movie._id}`"></div>
+          <div :id="`videoFrame${movie._id}`"></div>
         </div>
       </div>
     </article>
@@ -96,11 +96,17 @@ export default {
     getPosterURL(posterPath) {
       return `https://image.tmdb.org/t/p/w185_and_h278_bestv2/${posterPath}`
     },
+    currentLocale() {
+      return this.$i18n.locales.find(
+        (locale) => locale.code === this.$i18n.locale
+      )
+    },
     async initVideoURL(movie) {
+      const isoLangCode = this.currentLocale().iso
       const getMovieVideosControllerResponse = await beanContainer.getMovieVideosController.getFirstVideoURL(
         new GetMovieVideosControllerRequest({
           movie_id: movie._id,
-          language: this.$i18n.locale
+          isoLangCode
         })
       )
       const VideoFrameClass = Vue.extend(VideoFrame)
@@ -110,7 +116,7 @@ export default {
           movie_id: movie._id,
           movie_title: movie._title
         }
-      }).$mount(`#videoFrame_${movie._id}`)
+      }).$mount(`#videoFrame${movie._id}`)
     }
   }
 }

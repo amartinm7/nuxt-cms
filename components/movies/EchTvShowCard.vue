@@ -13,7 +13,7 @@
         </span>
         <a
           class="uk-button uk-button-default uk-align-center"
-          :href="`#openVideo_${movie._id}`"
+          :href="`#openVideo${movie._id}`"
           uk-toggle
           @click="initVideoURL(movie)"
         >
@@ -31,12 +31,12 @@
           <p class="uk-dropcap">{{ movie._overview }}</p>
         </div>
       </div>
-      <div :id="`openVideo_${movie._id}`" class="uk-flex-top" uk-modal>
+      <div :id="`openVideo${movie._id}`" class="uk-flex-top" uk-modal>
         <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
           <button class="uk-modal-close-default" type="button" uk-close>
             Close
           </button>
-          <div :id="`videoFrame_${movie._id}`"></div>
+          <div :id="`videoFrame${movie._id}`"></div>
         </div>
       </div>
     </article>
@@ -64,9 +64,18 @@ export default {
     getPosterURL(posterPath) {
       return `https://image.tmdb.org/t/p/w185_and_h278_bestv2/${posterPath}`
     },
+    currentLocale() {
+      return this.$i18n.locales.find(
+        (locale) => locale.code === this.$i18n.locale
+      )
+    },
     async initVideoURL(movie) {
+      const isoLangCode = this.currentLocale().iso
       const getTvShowsVideosControllerResponse = await beanContainer.getTvShowsVideosController.getFirstVideoURL(
-        new GetTvShowsVideosControllerRequest({ movie_id: movie._id })
+        new GetTvShowsVideosControllerRequest({
+          movie_id: movie._id,
+          isoLangCode
+        })
       )
       const VideoFrameClass = Vue.extend(VideoFrame)
       new VideoFrameClass({
@@ -75,7 +84,7 @@ export default {
           movie_id: movie._id,
           movie_title: movie._name
         }
-      }).$mount(`#videoFrame_${movie._id}`)
+      }).$mount(`#videoFrame${movie._id}`)
     }
   }
 }

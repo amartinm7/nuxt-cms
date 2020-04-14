@@ -20,9 +20,9 @@ class GetMovieVideosService {
 
 /* eslint-disable camelcase */
 class GetMovieVideosServiceRequest {
-  constructor({ movie_id, language }) {
+  constructor({ movie_id, isoLangCode }) {
     this.movie_id = movie_id
-    this.language = language
+    this.isoLangCode = isoLangCode
   }
 }
 
