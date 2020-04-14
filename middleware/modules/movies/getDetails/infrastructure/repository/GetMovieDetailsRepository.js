@@ -14,7 +14,7 @@ class GetMovieDetailsRepository {
    */
   execute(getMovieDetailsRepositoryRequest) {
     const { movie_id, language } = { ...getMovieDetailsRepositoryRequest }
-    const urlPath = `/movie/${movie_id}}?language=${language}&append_to_response=videos,images`
+    const urlPath = `/movie/${movie_id}}?language=${language}&append_to_response=videos,images,credits`
     return this._axios(
       new GetAxiosRequest({
         accessToken: this._accessToken,
@@ -56,7 +56,8 @@ class GetMovieDetailsRepositoryResponse {
     vote_average,
     vote_count,
     videos,
-    images
+    images,
+    credits
   }) {
     this._adult = adult
     this._genres = genres
@@ -81,6 +82,12 @@ class GetMovieDetailsRepositoryResponse {
     }
     if (!_isEmpty(images)) {
       this._images = new GetImageDetailsResponse(images)
+    }
+    if (!_isEmpty(credits) && !_isEmpty(credits.cast)) {
+      this._videos = credits.cast.map((it) => {
+        // eslint-disable-next-line no-new
+        return new GetCreditCastsResponse({ ...it })
+      })
     }
   }
 }
@@ -112,6 +119,29 @@ class GetImageDetailsResponse {
         return new GetBackDropsPostersDetailsResponse(it)
       })
     }
+  }
+}
+
+/* eslint-disable camelcase */
+class GetCreditCastsResponse {
+  constructor({
+    cast_id,
+    character,
+    credit_id,
+    gender,
+    id,
+    name,
+    order,
+    profile_path
+  }) {
+    this.cast_id = cast_id
+    this.character = character
+    this.credit_id = credit_id
+    this.gender = gender
+    this.id = id
+    this.name = name
+    this.order = order
+    this.profile_path = profile_path
   }
 }
 
