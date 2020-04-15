@@ -36,130 +36,6 @@ export default {
       {
         rel: 'stylesheet',
         href: 'https://fonts.googleapis.com/css?family=Staatliches'
-      },
-      { rel: 'apple-touch-icon', sizes: '180x180', href: 'apple-icon-180.png' },
-      { rel: 'apple-touch-icon', sizes: '167x167', href: 'apple-icon-167.png' },
-      { rel: 'apple-touch-icon', sizes: '152x152', href: 'apple-icon-152.png' },
-      { rel: 'apple-touch-icon', sizes: '120x120', href: 'apple-icon-120.png' },
-      {
-        rel: 'apple-touch-startup-image',
-        href: 'apple-splash-2048-2732.png',
-        media:
-          '(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)'
-      },
-      {
-        rel: 'apple-touch-startup-image',
-        href: 'apple-splash-2732-2048.png',
-        media:
-          '(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)'
-      },
-      {
-        rel: 'apple-touch-startup-image',
-        href: 'apple-splash-1668-2388.png',
-        media:
-          '(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)'
-      },
-      {
-        rel: 'apple-touch-startup-image',
-        href: 'apple-splash-2388-1668.png',
-        media:
-          '(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)'
-      },
-      {
-        rel: 'apple-touch-startup-image',
-        href: 'apple-splash-1668-2224.png',
-        media:
-          '(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)'
-      },
-      {
-        rel: 'apple-touch-startup-image',
-        href: 'apple-splash-2224-1668.png',
-        media:
-          '(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)'
-      },
-      {
-        rel: 'apple-touch-startup-image',
-        href: 'apple-splash-1536-2048.png',
-        media:
-          '(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)'
-      },
-      {
-        rel: 'apple-touch-startup-image',
-        href: 'apple-splash-2048-1536.png',
-        media:
-          '(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)'
-      },
-      {
-        rel: 'apple-touch-startup-image',
-        href: 'apple-splash-1242-2688.png',
-        media:
-          '(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)'
-      },
-      {
-        rel: 'apple-touch-startup-image',
-        href: 'apple-splash-2688-1242.png',
-        media:
-          '(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)'
-      },
-      {
-        rel: 'apple-touch-startup-image',
-        href: 'apple-splash-1125-2436.png',
-        media:
-          '(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)'
-      },
-      {
-        rel: 'apple-touch-startup-image',
-        href: 'apple-splash-2436-1125.png',
-        media:
-          '(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)'
-      },
-      {
-        rel: 'apple-touch-startup-image',
-        href: 'apple-splash-828-1792.png',
-        media:
-          '(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)'
-      },
-      {
-        rel: 'apple-touch-startup-image',
-        href: 'apple-splash-1792-828.png',
-        media:
-          '(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)'
-      },
-      {
-        rel: 'apple-touch-startup-image',
-        href: 'apple-splash-1242-2208.png',
-        media:
-          '(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)'
-      },
-      {
-        rel: 'apple-touch-startup-image',
-        href: 'apple-splash-2208-1242.png',
-        media:
-          '(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)'
-      },
-      {
-        rel: 'apple-touch-startup-image',
-        href: 'apple-splash-750-1334.png',
-        media:
-          '(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)'
-      },
-      {
-        rel: 'apple-touch-startup-image',
-        href: 'apple-splash-1334-750.png',
-        media:
-          '(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)'
-      },
-      {
-        rel: 'apple-touch-startup-image',
-        href: 'apple-splash-640-1136.png',
-        media:
-          '(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)'
-      },
-      {
-        rel: 'apple-touch-startup-image',
-        href: 'apple-splash-1136-640.png',
-        media:
-          '(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)'
       }
     ]
   },
@@ -193,9 +69,7 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    'nuxt-i18n',
-    '@nuxtjs/pwa',
-    '@nuxtjs/markdownit'
+    'nuxt-i18n'
   ],
   /*
    ** Axios module configuration
@@ -232,46 +106,11 @@ export default {
     loadLanguagesAsync: true,
     langDir: 'lang/'
   },
-  /** markdownit */
-  markdownit: {
-    injected: true
-  },
-  /*
-   ** PWA module configuration
-   ** See https://pwa.nuxtjs.org/modules/manifest.html, https://developer.mozilla.org/en-US/docs/Web/Manifest
-   */
-  pwa: {
-    icon: {
-      srcDir: '../icon.png'
-    },
-    manifest: {
-      name: 'Estrenos Cine Hoy',
-      short_name: 'Estrenos Cine Hoy',
-      description: 'Estrenos Cine Hoy: movies, TV Shows and so on...',
-      lang: 'es-ES',
-      start_url: '/',
-      theme_color: '#0598EC',
-      icons: [
-        {
-          src: '../manifest-icon-192.png',
-          sizes: '192x192',
-          type: 'image/png',
-          purpose: 'maskable any'
-        },
-        {
-          src: '../manifest-icon-512.png',
-          sizes: '512x512',
-          type: 'image/png',
-          purpose: 'maskable any'
-        }
-      ]
-    }
-  },
   /**
    * sitemap module
    */
   sitemap: {
-    hostname: 'https://estrenoscinehoy.com'
+    hostname: 'https://www.estrenoscinehoy.com'
   },
   /*
    ** Build configuration
@@ -281,19 +120,10 @@ export default {
      ** You can extend webpack config here
      */
     extend(config, ctx) {}
-  },
-  /** */
+  }
+  /**
   generate: {
     routes: ['/es', '/en', '/es/movies', '/en/movies']
-    // routes() {
-    //   const fs = require('fs')
-    //   const path = require('path')
-    //   return fs.readdirSync('./assets/content/blog').map((file) => {
-    //     return {
-    //       route: `/blog/${path.parse(file).name}`, // Return the slug
-    //       payload: require(`./assets/content/blog/${file}`)
-    //     }
-    //   })
-    // }
   }
+   */
 }

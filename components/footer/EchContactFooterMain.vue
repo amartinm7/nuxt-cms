@@ -1,5 +1,5 @@
 <template>
-  <div id="tm-bottom" class="tm-bottom uk-section-image">
+  <div id="tm-bottom" class="uk-section-image">
     <div
       data-src="https://getuikit.com/pro/themes/wordpress/2017/joline/wp-content/themes/yootheme/cache/home-bottom-0d42a025.webp"
       data-srcset="https://getuikit.com/pro/themes/wordpress/2017/joline/wp-content/themes/yootheme/cache/home-bottom-47fb92c8.webp 768w,
@@ -11,7 +11,7 @@
       data-sizes="(max-aspect-ratio: 3000/960) 313vh"
       uk-img=""
       class="uk-background-norepeat uk-background-cover uk-background-top-right uk-section uk-section-large"
-      style='background-color: rgb(255, 255, 255); background-image: url("https://demo.yootheme.com/themes/wordpress/2017/joline/wp-content/themes/yootheme/cache/home-bottom-0d42a025.webp");'
+      style="background-color: rgb(255, 255, 255); background-image: url('https://demo.yootheme.com/themes/wordpress/2017/joline/wp-content/themes/yootheme/cache/home-bottom-0d42a025.webp');"
     >
       <div class="uk-container uk-container-expand">
         <div class="uk-child-width-expand@m uk-grid uk-grid-stack" uk-grid="">

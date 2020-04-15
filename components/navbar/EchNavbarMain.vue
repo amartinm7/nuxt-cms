@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- header to mobile -->
-    <div class="tm-header-mobile uk-hidden@m">
+    <div class="uk-hidden@m">
       <div class="uk-navbar-container">
         <nav uk-navbar="" class="uk-navbar">
           <div class="uk-navbar-left">
@@ -126,63 +126,6 @@
                       >{{ locale.name }}
                     </li>
                   </nuxt-link>
-                  <!--
-                  <li class="uk-active uk-parent">
-                    <a href="/themes/joomla/2016/horizon/index.php/zoo-zoo"
-                      >ZOO</a
-                    >
-                    <ul class="uk-nav-sub">
-                      <li>
-                        <a
-                          href="/themes/joomla/2016/horizon/index.php/zoo-zoo/blog-zoo"
-                          >Blog</a
-                        >
-                      </li>
-                      <li>
-                        <a
-                          href="/themes/joomla/2016/horizon/index.php/zoo-zoo/product-zoo"
-                          >Product</a
-                        >
-                      </li>
-                      <li>
-                        <a
-                          href="/themes/joomla/2016/horizon/index.php/zoo-zoo/download-zoo"
-                          >Download</a
-                        >
-                      </li>
-                      <li>
-                        <a
-                          href="/themes/joomla/2016/horizon/index.php/zoo-zoo/business-zoo"
-                          >Business</a
-                        >
-                      </li>
-                      <li class="uk-active">
-                        <a
-                          href="/themes/joomla/2016/horizon/index.php/zoo-zoo/movie-zoo"
-                          >Movie</a
-                        >
-                      </li>
-                      <li>
-                        <a
-                          href="/themes/joomla/2016/horizon/index.php/zoo-zoo/cookbook-zoo"
-                          >Cookbook</a
-                        >
-                      </li>
-                      <li>
-                        <a
-                          href="/themes/joomla/2016/horizon/index.php/zoo-zoo/documentation-zoo"
-                          >Documentation</a
-                        >
-                      </li>
-                      <li>
-                        <a
-                          href="/themes/joomla/2016/horizon/index.php/zoo-zoo/page-zoo"
-                          >Page</a
-                        >
-                      </li>
-                    </ul>
-                  </li>
-                  -->
                 </ul>
               </div>
             </div>
@@ -191,8 +134,8 @@
       </div>
     </div>
     <!-- header to ipad, desktop and so on -->
-    <div class="tm-header uk-visible@m" uk-header="">
-      <div class="tm-headerbar-top">
+    <div class="uk-visible@m" uk-header="">
+      <div>
         <div class="uk-container uk-padding">
           <div class="uk-text-center">
             <nuxt-link :to="localePath('/')" class="uk-logo">
@@ -221,7 +164,7 @@
           <div class="uk-container">
             <nav
               class="uk-navbar"
-              uk-navbar='{"align":"left","boundary":"!.uk-navbar-container"}'
+              uk-navbar="{'align':'left','boundary':'!.uk-navbar-container'}"
             >
               <div class="uk-navbar-center">
                 <ul class="uk-navbar-nav">
@@ -315,7 +258,6 @@
   </div>
 </template>
 <script>
-/* eslint-disable camelcase, no-console */
 export default {
   computed: {
     showLocales() {
