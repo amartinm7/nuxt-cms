@@ -12,9 +12,7 @@
           &nbsp;{{ movie._vote_average.toFixed(1) }}&nbsp;
         </span>
         <a
-          :href="`#openVideo${movie._id}`"
           class="uk-button uk-button-default uk-align-center"
-          uk-toggle
           @click="initVideoURL(movie)"
         >
           <img
@@ -117,6 +115,7 @@ export default {
           movie_title: movie._title
         }
       }).$mount(`#videoFrame${movie._id}`)
+      this.$uikit.modal(`#openVideo${movie._id}`).show()
     }
   }
 }

@@ -1,3 +1,5 @@
+[![NPM version]1.6.0](https://github.com/amartinm7/nuxt-cms)
+
 # cms
 
 > estrenoscinehoy

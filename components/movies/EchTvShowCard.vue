@@ -13,8 +13,6 @@
         </span>
         <a
           class="uk-button uk-button-default uk-align-center"
-          :href="`#openVideo${movie._id}`"
-          uk-toggle
           @click="initVideoURL(movie)"
         >
           <img
@@ -85,6 +83,7 @@ export default {
           movie_title: movie._name
         }
       }).$mount(`#videoFrame${movie._id}`)
+      this.$uikit.modal(`#openVideo${movie._id}`).show()
     }
   }
 }
