@@ -17,6 +17,7 @@ import { GetMovieDetailsControllerRequest } from '../../middleware/modules/movie
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
+  scrollToTop: true,
   components: { MoviesCard },
   // eslint-disable-next-line require-await
   async asyncData({ app, route, params, store }) {

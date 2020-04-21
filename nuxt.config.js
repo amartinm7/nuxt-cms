@@ -40,6 +40,14 @@ export default {
     ]
   },
   /*
+   ** Really important, scroll to top everytime you move to another link
+   */
+  router: {
+    scrollBehavior(to, from, savedPosition) {
+      return { x: 0, y: 0 }
+    }
+  },
+  /*
    ** Customize the progress-bar color
    */
   loading: { color: '#fff' },
