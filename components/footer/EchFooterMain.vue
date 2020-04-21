@@ -26,7 +26,7 @@
                 <div class="el-content uk-panel">
                   <a href="#" uk-scroll="" class="el-link uk-link-muted"
                     ><span
-                      class="uk-icon uk-margin-small-right"
+                      class="uk-icon uk-margin-small-right ech-spin-icon"
                       uk-icon="instagram"
                     ></span
                     >Instagram
@@ -37,7 +37,7 @@
                 <div class="el-content uk-panel">
                   <a href="#" uk-scroll="" class="el-link uk-link-muted">
                     <span
-                      class="uk-icon uk-margin-small-right"
+                      class="uk-icon uk-margin-small-right ech-spin-icon"
                       uk-icon="pinterest"
                     ></span
                     >Pinterest
@@ -48,7 +48,7 @@
                 <div class="el-content uk-panel">
                   <a href="#" uk-scroll="" class="el-link uk-link-muted">
                     <span
-                      class="uk-icon uk-margin-small-right"
+                      class="uk-icon uk-margin-small-right ech-spin-icon"
                       uk-icon="facebook"
                     ></span
                     >Facebook
@@ -59,7 +59,7 @@
                 <div class="el-content uk-panel">
                   <a href="#" uk-scroll="" class="el-link uk-link-muted">
                     <span
-                      class="uk-icon uk-margin-small-right"
+                      class="uk-icon uk-margin-small-right ech-spin-icon"
                       uk-icon="youtube"
                     ></span
                     >Youtube

@@ -46,4 +46,14 @@ body {
 
 .ech-scroll-spy-effect {
 }
+
+.ech-spin-icon {
+  transition: all 0.5s ease-in-out 0s;
+}
+
+.ech-spin-icon:hover {
+  cursor: default;
+  transform: rotate(360deg);
+  transition: all 0.5s ease-in-out 0s;
+}
 </style>
