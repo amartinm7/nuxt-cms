@@ -84,48 +84,98 @@
               <div id="module-menu-mobile" class="uk-panel">
                 <ul class="uk-nav uk-nav-default">
                   <li>
-                    <nuxt-link :to="localePath('/')">Home</nuxt-link>
-                  </li>
-                  <li class="uk-parent">
-                    <nuxt-link :to="localePath('/')">Accion</nuxt-link>
-                    <ul class="uk-nav-sub">
-                      <li>
-                        <nuxt-link :to="localePath('/')">Adventure</nuxt-link>
-                      </li>
-                      <li>
-                        <nuxt-link :to="localePath('/')">Scify</nuxt-link>
-                      </li>
-                    </ul>
+                    <nuxt-link :to="localePath('/')">{{
+                      $t('pages.home')
+                    }}</nuxt-link>
                   </li>
                   <li>
-                    <nuxt-link :to="localePath('/')">Drama</nuxt-link>
+                    <hr />
                   </li>
                   <li>
-                    <nuxt-link :to="localePath('/')">Comedy</nuxt-link>
-                  </li>
-                  <li>
-                    <nuxt-link :to="localePath('/')">Family</nuxt-link>
-                  </li>
-                  <li>
-                    <nuxt-link :to="localePath('/')">News</nuxt-link>
-                  </li>
-                  <li>
-                    <hr class="uk-divider" />
-                  </li>
-                  <nuxt-link
-                    v-for="(locale, i) in showLocales"
-                    :key="i"
-                    :to="switchLocalePath(locale.code)"
-                    class="uk-link-reset"
-                  >
-                    <li>
-                      <span
+                    <nuxt-link :to="localePath('/')"
+                      ><span
                         class="uk-margin-small-right uk-icon"
-                        uk-icon="icon: world; "
+                        uk-icon="icon: tv; "
                       ></span
-                      >{{ locale.name }}
-                    </li>
-                  </nuxt-link>
+                      >{{ $t('pages.accion') }}</nuxt-link
+                    >
+                  </li>
+                  <li>
+                    <nuxt-link :to="localePath('/')"
+                      ><span
+                        class="uk-margin-small-right uk-icon"
+                        uk-icon="icon: bolt; "
+                      ></span
+                      >{{ $t('pages.adventure') }}</nuxt-link
+                    >
+                  </li>
+                  <li>
+                    <nuxt-link :to="localePath('/')"
+                      ><span
+                        class="uk-margin-small-right uk-icon"
+                        uk-icon="icon: video-camera; "
+                      ></span
+                      >{{ $t('pages.scify') }}</nuxt-link
+                    >
+                  </li>
+                  <li>
+                    <nuxt-link :to="localePath('/')"
+                      ><span
+                        class="uk-margin-small-right uk-icon"
+                        uk-icon="icon: lifesaver; "
+                      ></span
+                      >{{ $t('pages.drama') }}</nuxt-link
+                    >
+                  </li>
+                  <li>
+                    <nuxt-link :to="localePath('/')"
+                      ><span
+                        class="uk-margin-small-right uk-icon"
+                        uk-icon="icon: happy; "
+                      ></span
+                      >{{ $t('pages.comedy') }}</nuxt-link
+                    >
+                  </li>
+                  <li>
+                    <nuxt-link :to="localePath('/')"
+                      ><span
+                        class="uk-margin-small-right uk-icon"
+                        uk-icon="icon: users; "
+                      ></span
+                      >{{ $t('pages.family') }}</nuxt-link
+                    >
+                  </li>
+                  <li>
+                    <nuxt-link :to="localePath('/')"
+                      ><span
+                        class="uk-margin-small-right uk-icon"
+                        uk-icon="icon: rss; "
+                      ></span
+                      >{{ $t('pages.news') }}</nuxt-link
+                    >
+                  </li>
+                  <li>
+                    <hr />
+                  </li>
+                  <li>
+                    {{ $t('select.language') }}
+                  </li>
+                  <ul class="uk-nav-sub">
+                    <nuxt-link
+                      v-for="(locale, i) in showLocales"
+                      :key="i"
+                      :to="switchLocalePath(locale.code)"
+                      class="uk-link-reset"
+                    >
+                      <li>
+                        <span
+                          class="uk-margin-small-right uk-icon"
+                          uk-icon="icon: world; "
+                        ></span
+                        >{{ locale.name }}
+                      </li>
+                    </nuxt-link>
+                  </ul>
                 </ul>
               </div>
             </div>

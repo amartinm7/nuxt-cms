@@ -88,18 +88,19 @@ export default {
    ** i18n
    */
   i18n: {
+    lazy: true,
     locales: [
       {
         code: 'en',
         iso: 'en-US',
         name: 'English',
-        langFile: 'en.json'
+        file: 'en.js'
       },
       {
         code: 'es',
         iso: 'es-ES',
         name: 'Español',
-        langFile: 'es.json'
+        file: 'es.js'
       }
     ],
     rootRedirect: 'es',
@@ -112,7 +113,7 @@ export default {
     defaultLocale: 'es',
     strategy: 'prefix_and_default',
     loadLanguagesAsync: true,
-    langDir: 'lang/'
+    langDir: 'locales/'
   },
   /**
    * sitemap module
