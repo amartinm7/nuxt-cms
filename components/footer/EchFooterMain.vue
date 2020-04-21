@@ -20,33 +20,49 @@
           <div
             class="uk-flex-auto uk-width-1-4@s uk-grid-margin uk-first-column"
           >
-            <h3 class="uk-h5 uk-text-left@s uk-text-center">Follow Me</h3>
+            <h3 class="uk-h5 uk-text-left@s uk-text-center">Follow Us!</h3>
             <ul class="uk-list uk-text-left@s uk-text-center">
               <li class="el-item">
                 <div class="el-content uk-panel">
                   <a href="#" uk-scroll="" class="el-link uk-link-muted"
+                    ><span
+                      class="uk-icon uk-margin-small-right"
+                      uk-icon="instagram"
+                    ></span
                     >Instagram
                   </a>
                 </div>
               </li>
               <li class="el-item">
                 <div class="el-content uk-panel">
-                  <a href="#" uk-scroll="" class="el-link uk-link-muted"
+                  <a href="#" uk-scroll="" class="el-link uk-link-muted">
+                    <span
+                      class="uk-icon uk-margin-small-right"
+                      uk-icon="pinterest"
+                    ></span
                     >Pinterest
                   </a>
                 </div>
               </li>
               <li class="el-item">
                 <div class="el-content uk-panel">
-                  <a href="#" uk-scroll="" class="el-link uk-link-muted"
+                  <a href="#" uk-scroll="" class="el-link uk-link-muted">
+                    <span
+                      class="uk-icon uk-margin-small-right"
+                      uk-icon="facebook"
+                    ></span
                     >Facebook
                   </a>
                 </div>
               </li>
               <li class="el-item">
                 <div class="el-content uk-panel">
-                  <a href="#" uk-scroll="" class="el-link uk-link-muted"
-                    >Google+
+                  <a href="#" uk-scroll="" class="el-link uk-link-muted">
+                    <span
+                      class="uk-icon uk-margin-small-right"
+                      uk-icon="youtube"
+                    ></span
+                    >Youtube
                   </a>
                 </div>
               </li>

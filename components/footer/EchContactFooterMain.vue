@@ -19,7 +19,7 @@
             <div id="widget-text-1" class="uk-panel widget-text">
               <div class="uk-panel textwidget">
                 <h2 class="uk-text-center">
-                  Stay informed
+                  Stay Connected
                 </h2>
                 <p
                   class="uk-margin-medium-bottom uk-width-large uk-margin-auto uk-text-center uk-text-large"
