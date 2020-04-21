@@ -56,7 +56,11 @@
           <button class="uk-modal-close-default" type="button" uk-close>
             Close
           </button>
-          <div :id="`videoFrame${movie._id}`"></div>
+          <div
+            v-if="showVideo"
+            :id="`videoFrame${movie._id}`"
+            @focusout="closeModal()"
+          ></div>
         </div>
       </div>
     </article>
@@ -83,7 +87,10 @@ export default {
     }
   },
   data() {
-    return {}
+    return {
+      showVideo: true,
+      videoFrameInstance: undefined
+    }
   },
   methods: {
     getMovieDetailURL(movie_id, movie_title) {
@@ -99,7 +106,13 @@ export default {
         (locale) => locale.code === this.$i18n.locale
       )
     },
+    closeModal() {
+      console.log('destroy videoFrameInstance')
+      this.showVideo = false
+      this.videoFrameInstance.$destroy()
+    },
     async initVideoURL(movie) {
+      const vm = this
       const isoLangCode = this.currentLocale().iso
       const getMovieVideosControllerResponse = await beanContainer.getMovieVideosController.getFirstVideoURL(
         new GetMovieVideosControllerRequest({
@@ -107,8 +120,10 @@ export default {
           isoLangCode
         })
       )
+      vm.showVideo = true
+      // vm.videoFrameInstance.$destroy()
       const VideoFrameClass = Vue.extend(VideoFrame)
-      new VideoFrameClass({
+      vm.videoFrameInstance = new VideoFrameClass({
         propsData: {
           url: getMovieVideosControllerResponse.url,
           movie_id: movie._id,

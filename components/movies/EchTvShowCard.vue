@@ -34,7 +34,11 @@
           <button class="uk-modal-close-default" type="button" uk-close>
             Close
           </button>
-          <div :id="`videoFrame${movie._id}`"></div>
+          <div
+            v-if="showVideo"
+            :id="`videoFrame${movie._id}`"
+            @focusout="closeModal()"
+          ></div>
         </div>
       </div>
     </article>
@@ -58,6 +62,12 @@ export default {
       }
     }
   },
+  data() {
+    return {
+      showVideo: true,
+      videoFrameInstance: undefined
+    }
+  },
   methods: {
     getPosterURL(posterPath) {
       return `https://image.tmdb.org/t/p/w185_and_h278_bestv2/${posterPath}`
@@ -67,7 +77,13 @@ export default {
         (locale) => locale.code === this.$i18n.locale
       )
     },
+    closeModal() {
+      console.log('destroy videoFrameInstance')
+      this.showVideo = false
+      this.videoFrameInstance.$destroy()
+    },
     async initVideoURL(movie) {
+      const vm = this
       const isoLangCode = this.currentLocale().iso
       const getTvShowsVideosControllerResponse = await beanContainer.getTvShowsVideosController.getFirstVideoURL(
         new GetTvShowsVideosControllerRequest({
@@ -75,6 +91,7 @@ export default {
           isoLangCode
         })
       )
+      vm.showVideo = true
       const VideoFrameClass = Vue.extend(VideoFrame)
       new VideoFrameClass({
         propsData: {

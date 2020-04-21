@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div :id="`videoFrame${movie_id}`">
     <iframe
       :src="url"
       width="1920"
