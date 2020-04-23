@@ -9,9 +9,7 @@ function encodeToBase64(data) {
 }
 
 function getFirebaseConfigEnv() {
-  const firebaseConfigEnv =
-    process.env.ESTRENOSCINEHOY_FIRESTORE_CONFIG ||
-    'undefined_value_key_used_for_test'
+  const firebaseConfigEnv = process.env.ESTRENOSCINEHOY_FIRESTORE_CONFIG
   if (firebaseConfigEnv === undefined || firebaseConfigEnv == null) {
     console.error(
       '(Estrenos cine hoy) FirebaseConfigEnv... empty!!. Setup environment vars...'
@@ -23,9 +21,7 @@ function getFirebaseConfigEnv() {
 }
 
 function getTheMovieDBConfigEnv() {
-  const theMovieDBConfigEnv =
-    process.env.ESTRENOSCINEHOY_THEMOVIEDB_CONFIG ||
-    'undefined_value_key_used_for_test'
+  const theMovieDBConfigEnv = process.env.ESTRENOSCINEHOY_THEMOVIEDB_CONFIG
   if (theMovieDBConfigEnv === undefined || theMovieDBConfigEnv == null) {
     console.error(
       '(Estrenos cine hoy) theMovieDBConfigEnv... empty!!. Setup environment vars...'

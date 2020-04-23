@@ -45,7 +45,7 @@ describe('GetLatestMoviesRepository', function() {
       GetLatestMoviesRepository.prototype.execute = mockGetLatestMoviesRepository
       mockGetLatestMoviesRepository.mockReturnValue(Promise.resolve(mockedAds))
       // when
-      const beanContainer = BeanContainerRegistry.getBeanContainer()
+      const beanContainer = BeanContainerRegistry.getBeanContainerWith('token')
       const getLatestMoviesRepositoryResponse = await beanContainer.getLatestMoviesRepository.executeAsync(
         new GetLatestMoviesRepositoryRequest()
       )

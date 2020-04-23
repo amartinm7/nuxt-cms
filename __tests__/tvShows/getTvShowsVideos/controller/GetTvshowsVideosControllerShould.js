@@ -31,7 +31,7 @@ describe('GetTvShowsVideosController', function() {
       GetTvShowsVideosRepository.prototype.execute = mockGetTvShowsVideosRepository
       mockGetTvShowsVideosRepository.mockReturnValue(Promise.resolve(mockedAds))
       // when
-      const beanContainer = BeanContainerRegistry.getBeanContainer()
+      const beanContainer = BeanContainerRegistry.getBeanContainerWith('token')
       const getTvShowsVideosRepositoryRequestResponse = await beanContainer.getTvShowsVideosController.execute(
         new GetTvShowsVideosRepositoryRequest({
           movie_id: '63247'

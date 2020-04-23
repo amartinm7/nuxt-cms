@@ -20,7 +20,7 @@ describe('GetMovieDetailsController', function() {
       GetMovieDetailsRepository.prototype.execute = mockGetMovieDetailsRepository
       mockGetMovieDetailsRepository.mockReturnValue(Promise.resolve(mockedAds))
       // when
-      const beanContainer = BeanContainerRegistry.getBeanContainer()
+      const beanContainer = BeanContainerRegistry.getBeanContainerWith('token')
       const getMovieDetailsControllerResponse = await beanContainer.getMovieDetailsController.execute(
         new GetMovieDetailsControllerRequest({
           movie_id: '454626'

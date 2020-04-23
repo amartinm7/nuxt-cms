@@ -32,7 +32,7 @@ describe('GetMovieVideosController', function() {
       GetMovieVideosRepository.prototype.execute = mockGetMovieVideosRepository
       mockGetMovieVideosRepository.mockReturnValue(Promise.resolve(mockedAds))
       // when
-      const beanContainer = BeanContainerRegistry.getBeanContainer()
+      const beanContainer = BeanContainerRegistry.getBeanContainerWith('token')
       const getMovieVideosControllerResponse = await beanContainer.getMovieVideosController.execute(
         new GetMovieVideosControllerRequest({
           movie_id: '454626'

@@ -8,16 +8,16 @@ import GetVideosProvider from './modules/movies/getVideos/GetVideosMoviesProvide
 import GetTrendingProvider from './modules/trending/getTrending/GetTrendingProvider'
 import GetVideosTvShowProvider from './modules/tvShows/getVideos/GetVideosTvShowProvider'
 import GetMovieDetailsProvider from './modules/movies/getDetails/GetMovieDetailsProvider'
+const _isEmpty = require('lodash.isempty')
 /* eslint-disable camelcase, no-console */
 let beanContainerRegistryInstance = null
 
 export class BeanContainerRegistry {
-  constructor() {
+  constructor(token, axiosRef) {
     this._beanContainer = new BeanContainer()
-
     // TODO INJECT THIS DEPENCIES IN A NEAR FUTURE
-    const accessToken = theMovieDBConfigEnv
-    const axios = require('axios')
+    const accessToken = !_isEmpty(token) ? token : theMovieDBConfigEnv
+    const axios = !_isEmpty(axiosRef) ? axiosRef : require('axios')
 
     this._beanContainer.service(
       'configuration',
@@ -43,15 +43,20 @@ export class BeanContainerRegistry {
     new GetVideosTvShowProvider(this._beanContainer)
   }
 
-  static getInstance() {
+  static _getInstance(token, axios) {
     if (!beanContainerRegistryInstance) {
-      beanContainerRegistryInstance = new BeanContainerRegistry()
+      beanContainerRegistryInstance = new BeanContainerRegistry(token, axios)
     }
     return beanContainerRegistryInstance
   }
 
   static getBeanContainer() {
-    return BeanContainerRegistry.getInstance()._beanContainer
+    return BeanContainerRegistry._getInstance()._beanContainer
+  }
+
+  static getBeanContainerWith(token) {
+    const axios = require('axios')
+    return BeanContainerRegistry._getInstance(token, axios)._beanContainer
   }
 }
 

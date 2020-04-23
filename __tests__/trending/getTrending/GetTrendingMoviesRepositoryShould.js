@@ -47,7 +47,7 @@ describe('GetTrendingMoviesRepository', function() {
         Promise.resolve(mockedAds)
       )
       // when
-      const beanContainer = BeanContainerRegistry.getBeanContainer()
+      const beanContainer = BeanContainerRegistry.getBeanContainerWith('token')
       const getTrendingMoviesRepositoryResponse = await beanContainer.getTrendingMoviesRepository.executeAsync(
         new GetTrendingMoviesRepositoryRequest({
           mediaType: MEDIA_TYPES.MOVIE,
