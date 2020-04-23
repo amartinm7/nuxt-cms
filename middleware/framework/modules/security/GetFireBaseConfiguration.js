@@ -9,7 +9,16 @@ function encodeToBase64(data) {
 }
 
 function getFirebaseConfigEnv() {
-  const firebaseConfigEnv = process.env.ESTRENOSCINEHOY_FIRESTORE_CONFIG
+  const firebaseConfigEnv = process.env.ESTRENOSCINEHOY_FIRESTORE_CONFIG || {
+    apiKey: 'XXX',
+    authDomain: 'XXX',
+    databaseURL: 'XXX',
+    projectId: 'XXX',
+    storageBucket: 'XXX',
+    messagingSenderId: 'XXX',
+    appId: '1:XX:web:XX',
+    measurementId: 'X-XXX'
+  }
   if (firebaseConfigEnv === undefined || firebaseConfigEnv == null) {
     console.error(
       '(Estrenos cine hoy) FirebaseConfigEnv... empty!!. Setup environment vars ESTRENOSCINEHOY_FIRESTORE_CONFIG...'
