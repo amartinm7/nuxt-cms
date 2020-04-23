@@ -1,7 +1,7 @@
 // https://github.com/HenrikJoreteg/slugger/blob/master/slugger.js
 //
 /* eslint-disable camelcase, no-console */
-class Slugger {
+export default class Slugger {
   // replaces all whitespace with '-' and removes
   static _slugger(string, opts) {
     const whitespace = /\s+/g
@@ -40,4 +40,3 @@ class Slugger {
   }
 }
 
-export { Slugger }

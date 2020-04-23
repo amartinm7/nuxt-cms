@@ -6,12 +6,14 @@ import 'firebase/database'
 import firestore from 'firebase/firestore' // no borrar si no, no funciona
 import * as firestoreRefWrapper from '../../../../middleware/framework/modules/firestore/Firestore'
 // eslint-disable-next-line no-unused-vars
-const firestoreRef = firestoreRefWrapper.firestoreRef
+
 
 describe('firestore', () => {
-  it('should add data to a collection', async () => {
+  // eslint-disable-next-line require-await
+  it.skip('should add data to a collection', async () => {
     // eslint-disable-next-line no-unused-vars
     const postData = {
+      const firestoreRef = firestoreRefWrapper.firestoreRef
       name: {
         surname: 'Uno',
         lastName1: 'App1',

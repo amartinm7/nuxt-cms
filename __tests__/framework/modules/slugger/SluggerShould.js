@@ -1,4 +1,5 @@
-import * as ServiceLocator from '../../../../middleware/framework/modules/ServiceLocator'
+// eslint-disable-next-line import/named
+import Slugger from '../../../../middleware/framework/modules/slugger/Slugger'
 
 const assert = require('assert')
 
@@ -9,14 +10,14 @@ describe('SluggerShould', function() {
     it('should slugger one param', function() {
       const expectedSlug = 'star-wars-the-rice-of-skywalker'
       const movie_title = 'Star Wars The Rice of SkyWalker'
-      const actualSlug = ServiceLocator.Slugger.sluggify([movie_title])
+      const actualSlug = Slugger.sluggify([movie_title])
       expect(actualSlug).toEqual(expectedSlug)
     })
     it('should slugger two params', function() {
       const expectedSlug = '12341234-star-wars-the-rice-of-skywalker'
       const movie_id = 12341234
       const movie_title = 'Star Wars The Rice of SkyWalker'
-      const actualSlug = ServiceLocator.Slugger.sluggify([
+      const actualSlug = Slugger.sluggify([
         movie_id,
         movie_title
       ])
