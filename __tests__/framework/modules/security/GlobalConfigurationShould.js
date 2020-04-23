@@ -1,4 +1,4 @@
-import { firebaseConfig } from '../../../../middleware/framework/modules/security/GlobalConfiguration'
+import { firebaseConfig } from '../../../../middleware/framework/modules/security/GetFireBaseConfiguration'
 
 describe('GlobalConfigurationTest', () => {
   it.skip('should add data to a collection', () => {

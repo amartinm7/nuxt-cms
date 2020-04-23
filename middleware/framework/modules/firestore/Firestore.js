@@ -5,7 +5,7 @@ import 'firebase/database'
 import * as firestore from 'firebase/firestore'
 console.log(firestore)
 
-const { firebaseConfig } = require('../security/GlobalConfiguration')
+const { firebaseConfig } = require('../security/GetFireBaseConfiguration')
 let firestoreRef = null
 
 class FirestoreRef {

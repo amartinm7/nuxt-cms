@@ -1,5 +1,5 @@
 import BeanContainer from './BeanContainer'
-import { theMovieDBConfigEnv } from './framework/modules/security/GlobalConfiguration'
+import { theMovieDBConfigEnv } from './framework/modules/security/GetTheMovieDBConfiguration'
 import Configuration from './Configuration'
 import GetGenresMovieListProvider from './modules/genres/getGenresMovieList/GetGenresMovieListProvider'
 import GetGenresTvShowListProvider from './modules/genres/getGenresTvShowList/GetGenresTvShowListProvider'
