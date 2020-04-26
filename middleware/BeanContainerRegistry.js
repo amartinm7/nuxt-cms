@@ -8,6 +8,7 @@ import GetVideosProvider from './modules/movies/getVideos/GetVideosMoviesProvide
 import GetTrendingProvider from './modules/trending/getTrending/GetTrendingProvider'
 import GetVideosTvShowProvider from './modules/tvShows/getVideos/GetVideosTvShowProvider'
 import GetMovieDetailsProvider from './modules/movies/getDetails/GetMovieDetailsProvider'
+import GetDetailsTvShowProvider from './modules/tvShows/getDetails/GetDetailsTvShowProvider'
 const _isEmpty = require('lodash.isempty')
 /* eslint-disable camelcase, no-console */
 let beanContainerRegistryInstance = null
@@ -41,6 +42,8 @@ export class BeanContainerRegistry {
     new GetTrendingProvider(this._beanContainer)
     // eslint-disable-next-line no-new
     new GetVideosTvShowProvider(this._beanContainer)
+    // eslint-disable-next-line no-new
+    new GetDetailsTvShowProvider(this._beanContainer)
   }
 
   static _getInstance(token, axios) {
@@ -55,8 +58,7 @@ export class BeanContainerRegistry {
   }
 
   static getBeanContainerWith(token) {
-    const axios = require('axios')
-    return BeanContainerRegistry._getInstance(token, axios)._beanContainer
+    return BeanContainerRegistry._getInstance(token)._beanContainer
   }
 }
 

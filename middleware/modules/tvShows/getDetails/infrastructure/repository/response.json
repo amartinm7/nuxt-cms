@@ -1,0 +1,573 @@
+{
+  "backdrop_path": "/xGexTKCJDkl12dTW4YCBDXWb1AD.jpg",
+  "created_by": [
+    {
+      "id": 82725,
+      "credit_id": "590e3f13c3a368650a013106",
+      "name": "Álex Pina",
+      "gender": 2,
+      "profile_path": "/hMKcFPRKo0I4WLBvkvppyBFDGr8.jpg"
+    }
+  ],
+  "episode_run_time": [
+    70,
+    47
+  ],
+  "first_air_date": "2017-05-02",
+  "genres": [
+    {
+      "id": 80,
+      "name": "Crime"
+    },
+    {
+      "id": 18,
+      "name": "Drama"
+    }
+  ],
+  "homepage": "https://www.netflix.com/title/80192098",
+  "id": 71446,
+  "in_production": true,
+  "languages": [
+    "es"
+  ],
+  "last_air_date": "2020-04-03",
+  "last_episode_to_air": {
+    "air_date": "2020-04-03",
+    "episode_number": 16,
+    "id": 2208994,
+    "name": "The Paris Plan",
+    "overview": "The Professor, Benjamin and the others attempt to free Lisboa. Tokyo's anger threatens her faith in the plan. Sierra takes matters into her own hands.",
+    "production_code": "",
+    "season_number": 2,
+    "show_id": 71446,
+    "still_path": "/tTmzHsIA2tsLYIK9lHTRLvBpZqs.jpg",
+    "vote_average": 6.5,
+    "vote_count": 4
+  },
+  "name": "Money Heist",
+  "next_episode_to_air": null,
+  "networks": [
+    {
+      "name": "Netflix",
+      "id": 213,
+      "logo_path": "/wwemzKWzjKYJFfCeiB57q3r4Bcm.png",
+      "origin_country": ""
+    },
+    {
+      "name": "Antena 3",
+      "id": 400,
+      "logo_path": "/l7MngINTyv0O6mNlwNsUlhQ9iwZ.png",
+      "origin_country": "ES"
+    }
+  ],
+  "number_of_episodes": 31,
+  "number_of_seasons": 2,
+  "origin_country": [
+    "ES"
+  ],
+  "original_language": "es",
+  "original_name": "La casa de papel",
+  "overview": "To carry out the biggest heist in history, a mysterious man called The Professor recruits a band of eight robbers who have a single characteristic: none of them has anything to lose. Five months of seclusion - memorizing every step, every detail, every probability - culminate in eleven days locked up in the National Coinage and Stamp Factory of Spain, surrounded by police forces and with dozens of hostages in their power, to find out whether their suicide wager will lead to everything or nothing.",
+  "popularity": 134.752,
+  "poster_path": "/MoEKaPFHABtA1xKoOteirGaHl1.jpg",
+  "production_companies": [
+    {
+      "id": 100783,
+      "logo_path": "/1q2hr0UqW0PdMwyfWpnVbwmV1y3.png",
+      "name": "Vancouver Media",
+      "origin_country": "ES"
+    }
+  ],
+  "seasons": [
+    {
+      "air_date": "2017-05-01",
+      "episode_count": 15,
+      "id": 87809,
+      "name": "Season 1",
+      "overview": "Under the guidance of The Professor, a group of eight very peculiar robbers have attacked the National Coinage and Stamp Factory of Spain and took hostages to carry out the most perfect robbery in the history, aiming to take home 2.4 billion Euros in cash.",
+      "poster_path": "/jAGeeCuAh4Id4p78BOYsSFXLrC8.jpg",
+      "season_number": 1
+    },
+    {
+      "air_date": "2019-07-19",
+      "episode_count": 16,
+      "id": 122186,
+      "name": "Season 2",
+      "overview": "The Professor and his team reunite to free Rio, this time targeting the Bank of Spain with a daring and dangerous new plan. The Resistance continues.",
+      "poster_path": "/bp2MEZT8dsl33ULA8RA1IK6ZbZ.jpg",
+      "season_number": 2
+    }
+  ],
+  "status": "Returning Series",
+  "type": "Scripted",
+  "vote_average": 8.4,
+  "vote_count": 5378,
+  "videos": {
+    "results": [
+      {
+        "id": "5c9655269251416b33f32459",
+        "iso_639_1": "en",
+        "iso_3166_1": "US",
+        "key": "cQYvQIrM1FY",
+        "name": "La Casa De Papel (Money Heist) TV Series Trailer",
+        "site": "YouTube",
+        "size": 1080,
+        "type": "Trailer"
+      },
+      {
+        "id": "5e974edd097c4900120a4229",
+        "iso_639_1": "en",
+        "iso_3166_1": "US",
+        "key": "ZAXA1DV4dtI",
+        "name": "Money Heist - Part 2 | Official Trailer | Netflix",
+        "site": "YouTube",
+        "size": 1080,
+        "type": "Trailer"
+      },
+      {
+        "id": "5e974eaed1444300124fd952",
+        "iso_639_1": "en",
+        "iso_3166_1": "US",
+        "key": "TFJwUwnShnA",
+        "name": "Money Heist: Part 3 | Official Trailer | Netflix",
+        "site": "YouTube",
+        "size": 1080,
+        "type": "Trailer"
+      },
+      {
+        "id": "5e974e2bb339030015a0fe21",
+        "iso_639_1": "en",
+        "iso_3166_1": "US",
+        "key": "p_PJbmrX4uk",
+        "name": "Money Heist: Part 4 | Official Trailer | Netflix",
+        "site": "YouTube",
+        "size": 1080,
+        "type": "Trailer"
+      }
+    ]
+  },
+  "images": {
+    "backdrops": [],
+    "posters": []
+  },
+  "credits": {
+    "cast": [
+      {
+        "character": "Tokyo (Silene Oliveira)",
+        "credit_id": "5a422574c3a36858c5036f41",
+        "id": 1042728,
+        "name": "Úrsula Corberó",
+        "gender": 1,
+        "profile_path": "/wZkK15LnloSAhzs1jxI3AZbR6f0.jpg",
+        "order": 0
+      },
+      {
+        "character": "El Profesor / Salvador \"Salva\" Martín (Sergio Marquina)",
+        "credit_id": "5d3376536a300b1834ac44e5",
+        "id": 1340020,
+        "name": "Álvaro Morte",
+        "gender": 2,
+        "profile_path": "/2TGPhdpRC5wjdFEJqnLYiN5kbwg.jpg",
+        "order": 1
+      },
+      {
+        "character": "Raquel Murillo (Lisboa)",
+        "credit_id": "5a4225d29251411fab04d6ea",
+        "id": 947514,
+        "name": "Itziar Ituño",
+        "gender": 1,
+        "profile_path": "/6OrC7CNSAMsf7Y96iPc53jIpmFr.jpg",
+        "order": 2
+      },
+      {
+        "character": "Berlín (Andrés de Fonollosa)",
+        "credit_id": "5d34b7bd17792c0012bcac8d",
+        "id": 1109836,
+        "name": "Pedro Alonso",
+        "gender": 2,
+        "profile_path": "/llGDFMdR3xNAIHENP50KOtaUcHX.jpg",
+        "order": 3
+      },
+      {
+        "character": "Nairobi (Ágata Jiménez)",
+        "credit_id": "5d34ba206a300b05f6a27d9d",
+        "id": 1283843,
+        "name": "Alba Flores",
+        "gender": 1,
+        "profile_path": "/9ExASXw097MyNuSy6N23fpkqpXq.jpg",
+        "order": 4
+      },
+      {
+        "character": "Río (Anibal Cortés)",
+        "credit_id": "5a4227c89251411f4f04a5b3",
+        "id": 1428896,
+        "name": "Miguel Herrán",
+        "gender": 2,
+        "profile_path": "/sDzdBhIjjtbTYAqXOr83FYRaIVT.jpg",
+        "order": 5
+      },
+      {
+        "character": "Dénver (Ricardo Ramos)",
+        "credit_id": "5a773f46c3a3682273001229",
+        "id": 1972706,
+        "name": "Jaime Lorente",
+        "gender": 2,
+        "profile_path": "/nLaxzU92z14FIbe25sE8jDMIThZ.jpg",
+        "order": 6
+      },
+      {
+        "character": "Mónica Gaztambide",
+        "credit_id": "5a773f680e0a26598500132a",
+        "id": 1972707,
+        "name": "Esther Acebo",
+        "gender": 1,
+        "profile_path": "/mwCGuJJNfwY5MdeY3INVHaZWR5A.jpg",
+        "order": 7
+      },
+      {
+        "character": "Arturo Román",
+        "credit_id": "5a773eeac3a368227b001336",
+        "id": 944099,
+        "name": "Enrique Arce",
+        "gender": 2,
+        "profile_path": "/AtDTmAEatA25QTuvJZhoPNvkLIL.jpg",
+        "order": 8
+      },
+      {
+        "character": "Helsinki (Yashin Dasayev)",
+        "credit_id": "5a773f9a92514177690011a6",
+        "id": 1898026,
+        "name": "Darko Peric",
+        "gender": 2,
+        "profile_path": "/5YvbVRHcG9fxS0Ew7GbO7qh4tYC.jpg",
+        "order": 9
+      },
+      {
+        "character": "Bogotá",
+        "credit_id": "5d2e078f6a300b000fa4d50c",
+        "id": 1131415,
+        "name": "Hovik Keuchkerian",
+        "gender": 2,
+        "profile_path": "/63EMwfdseM8pANTBuPArFY9J31L.jpg",
+        "order": 10
+      },
+      {
+        "character": "Palermo (Martín)",
+        "credit_id": "5d2e07af839d93000eefbc63",
+        "id": 18478,
+        "name": "Rodrigo de la Serna",
+        "gender": 2,
+        "profile_path": "/vMuKUJSnEGOmjjLYzVDKGukiaCr.jpg",
+        "order": 11
+      },
+      {
+        "character": "Alicia Sierra",
+        "credit_id": "5d2e09e8caab6d1e81a3b6f2",
+        "id": 16442,
+        "name": "Najwa Nimri",
+        "gender": 1,
+        "profile_path": "/vs4OFxsN3s1dPacyp19JKRkJlb9.jpg",
+        "order": 12
+      },
+      {
+        "character": "",
+        "credit_id": "5e81e5fece4ddc001574f332",
+        "id": 2583800,
+        "name": "Antonio Cuellar Rodriguez",
+        "gender": 0,
+        "profile_path": null,
+        "order": 17
+      },
+      {
+        "character": "Pablo",
+        "credit_id": "5e8704c8af58cb0012e2adf6",
+        "id": 2587936,
+        "name": "Daniel Oliveira",
+        "gender": 2,
+        "profile_path": "/miaAZc0S6AyvBMWqXTQcUz0ML00.jpg",
+        "order": 18
+      }
+    ],
+    "crew": [
+      {
+        "credit_id": "5d2e0adbcaab6d164099b8e2",
+        "department": "Production",
+        "id": 2013084,
+        "name": "Cristina López Ferraz",
+        "gender": 1,
+        "job": "Producer",
+        "profile_path": null
+      },
+      {
+        "credit_id": "5d31e89f1d78f20011e0ee3b",
+        "department": "Sound",
+        "id": 1801920,
+        "name": "Manuel Robles",
+        "gender": 2,
+        "job": "Sound Mixer",
+        "profile_path": null
+      },
+      {
+        "credit_id": "5d31e8b36a300b11afa2f5e5",
+        "department": "Sound",
+        "id": 1714782,
+        "name": "José Ignacio Arrufat",
+        "gender": 0,
+        "job": "Sound Supervisor",
+        "profile_path": null
+      },
+      {
+        "credit_id": "5d31e8c22f8d090010d806e7",
+        "department": "Sound",
+        "id": 2013069,
+        "name": "Mikel Z. Castells",
+        "gender": 0,
+        "job": "Sound Supervisor",
+        "profile_path": null
+      },
+      {
+        "credit_id": "5d31e9351d78f2000ee0ed43",
+        "department": "Editing",
+        "id": 2013075,
+        "name": "Fernando Martínez",
+        "gender": 0,
+        "job": "Color Grading",
+        "profile_path": null
+      },
+      {
+        "credit_id": "5d31e9402f8d094522d64e22",
+        "department": "Editing",
+        "id": 2013076,
+        "name": "Pepe Abellán",
+        "gender": 0,
+        "job": "Color Grading",
+        "profile_path": null
+      },
+      {
+        "credit_id": "5d31e9572f8d090012d818d3",
+        "department": "Editing",
+        "id": 2365657,
+        "name": "David González",
+        "gender": 0,
+        "job": "Color Grading",
+        "profile_path": null
+      },
+      {
+        "credit_id": "5d31e9842f8d094522d64ee6",
+        "department": "Crew",
+        "id": 2365658,
+        "name": "Miguel Angel Gómez Fernandez",
+        "gender": 0,
+        "job": "Post Production Supervisor",
+        "profile_path": null
+      },
+      {
+        "credit_id": "5d31e9926a300b16aaa98ed4",
+        "department": "Costume & Make-Up",
+        "id": 1026834,
+        "name": "Carlos Díez",
+        "gender": 2,
+        "job": "Costume Designer",
+        "profile_path": null
+      },
+      {
+        "credit_id": "5d31e99d2f8d095259d76ec0",
+        "department": "Costume & Make-Up",
+        "id": 2013081,
+        "name": "Eva Martínez",
+        "gender": 0,
+        "job": "Makeup Designer",
+        "profile_path": null
+      },
+      {
+        "credit_id": "5d31e9a81d78f2000fe0ebc0",
+        "department": "Costume & Make-Up",
+        "id": 2013081,
+        "name": "Eva Martínez",
+        "gender": 0,
+        "job": "Hair Designer",
+        "profile_path": null
+      },
+      {
+        "credit_id": "5d31e9c12f8d095259d76f26",
+        "department": "Art",
+        "id": 2013082,
+        "name": "Fernando González",
+        "gender": 2,
+        "job": "Production Design",
+        "profile_path": null
+      },
+      {
+        "credit_id": "5d31e9e0caab6d1dfc99442a",
+        "department": "Camera",
+        "id": 1074399,
+        "name": "David Azcano",
+        "gender": 2,
+        "job": "Director of Photography",
+        "profile_path": null
+      },
+      {
+        "credit_id": "5d31ea066a300b11afa2f97c",
+        "department": "Production",
+        "id": 1695910,
+        "name": "Nacho Fernández",
+        "gender": 0,
+        "job": "Production Manager",
+        "profile_path": null
+      },
+      {
+        "credit_id": "5d31ea11caab6d31b2a3eab5",
+        "department": "Production",
+        "id": 2365659,
+        "name": "Laia Coll",
+        "gender": 0,
+        "job": "Production Manager",
+        "profile_path": null
+      },
+      {
+        "credit_id": "5d31ea591d78f20011e0f263",
+        "department": "Production",
+        "id": 2365660,
+        "name": "Sol de la Fuente",
+        "gender": 0,
+        "job": "Production Coordinator",
+        "profile_path": null
+      },
+      {
+        "credit_id": "5d31eaae1d78f2000fe0ed4f",
+        "department": "Production",
+        "id": 2365663,
+        "name": "Nuria Hernando",
+        "gender": 0,
+        "job": "Production Assistant",
+        "profile_path": null
+      },
+      {
+        "credit_id": "5d31eab96a300b5922ad68fa",
+        "department": "Production",
+        "id": 2365664,
+        "name": "Paula Moreno",
+        "gender": 0,
+        "job": "Production Assistant",
+        "profile_path": null
+      },
+      {
+        "credit_id": "5d31eac42f8d094522d650f6",
+        "department": "Production",
+        "id": 2365665,
+        "name": "Daniel Nuñez",
+        "gender": 0,
+        "job": "Production Assistant",
+        "profile_path": null
+      },
+      {
+        "credit_id": "5d31eacf2f8d090010d80ace",
+        "department": "Production",
+        "id": 2365666,
+        "name": "Siro Giannattasio",
+        "gender": 0,
+        "job": "Production Assistant",
+        "profile_path": null
+      },
+      {
+        "credit_id": "5ac1267692514126c100a242",
+        "department": "Production",
+        "id": 6530,
+        "name": "Eva Leira",
+        "gender": 1,
+        "job": "Casting",
+        "profile_path": "/4GN5ktAhXpDz0ORAshczX8eqhgD.jpg"
+      },
+      {
+        "credit_id": "5ac12682c3a3684448050657",
+        "department": "Production",
+        "id": 6531,
+        "name": "Yolanda Serrano",
+        "gender": 1,
+        "job": "Casting",
+        "profile_path": "/cmLBXjGxyhnOC0s90z3Ct6W16WY.jpg"
+      },
+      {
+        "credit_id": "5ac1268f0e0a260c4d00aba9",
+        "department": "Sound",
+        "id": 2013067,
+        "name": "Manel Santisteban",
+        "gender": 2,
+        "job": "Original Music Composer",
+        "profile_path": "/1tMVCZnC5Fe70Bh2MnfQV2I4aFA.jpg"
+      },
+      {
+        "credit_id": "5ac126a092514126c100a279",
+        "department": "Sound",
+        "id": 2013068,
+        "name": "Iván M. Lacámara",
+        "gender": 0,
+        "job": "Original Music Composer",
+        "profile_path": null
+      },
+      {
+        "credit_id": "5ac128090e0a260c3900b679",
+        "department": "Art",
+        "id": 1733162,
+        "name": "Abdón Alcañiz",
+        "gender": 2,
+        "job": "Art Direction",
+        "profile_path": null
+      },
+      {
+        "credit_id": "5ac12850925141271200afd4",
+        "department": "Camera",
+        "id": 45551,
+        "name": "Migue Amoedo",
+        "gender": 2,
+        "job": "Director of Photography",
+        "profile_path": "/wBpOCKDK90CqkfuZai4H9ykoqqq.jpg"
+      },
+      {
+        "credit_id": "5ac1286ac3a3682d9a00a8ff",
+        "department": "Production",
+        "id": 82725,
+        "name": "Álex Pina",
+        "gender": 2,
+        "job": "Executive Producer",
+        "profile_path": "/hMKcFPRKo0I4WLBvkvppyBFDGr8.jpg"
+      },
+      {
+        "credit_id": "5ac12887c3a3682d9a00a92b",
+        "department": "Production",
+        "id": 1608537,
+        "name": "Jesús Colmenar",
+        "gender": 2,
+        "job": "Executive Producer",
+        "profile_path": "/pvfNjlwcwUFFuB9CSFgVcEGzUZt.jpg"
+      },
+      {
+        "credit_id": "5ac13a0bc3a3682d3500cb57",
+        "department": "Writing",
+        "id": 82725,
+        "name": "Álex Pina",
+        "gender": 2,
+        "job": "Writer",
+        "profile_path": "/hMKcFPRKo0I4WLBvkvppyBFDGr8.jpg"
+      },
+      {
+        "credit_id": "5ac13c200e0a260c4a00dffc",
+        "department": "Writing",
+        "id": 2013213,
+        "name": "Javier Gómez Santander",
+        "gender": 2,
+        "job": "Writer",
+        "profile_path": "/68WzEpYjiKzWKtaOqbBvmKC3eA4.jpg"
+      },
+      {
+        "credit_id": "5ac13c56c3a3682d9a00c7f5",
+        "department": "Production",
+        "id": 2013217,
+        "name": "Valerio Marello",
+        "gender": 0,
+        "job": "Location Manager",
+        "profile_path": null
+      }
+    ]
+  }
+}

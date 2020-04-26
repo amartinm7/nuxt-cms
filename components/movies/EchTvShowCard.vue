@@ -23,9 +23,16 @@
       </div>
       <div>
         <div class="uk-card-body">
-          <h3 class="uk-card-title">
-            {{ movie._name }}&nbsp;<span class="uk-label">{{ movie._id }}</span>
-          </h3>
+          <nuxt-link
+            class="uk-link-reset"
+            :to="getTvShowDetailURL(movie._id, movie._name)"
+          >
+            <h3 class="uk-card-title">
+              {{ movie._name }}&nbsp;<span class="uk-label">{{
+                movie._id
+              }}</span>
+            </h3>
+          </nuxt-link>
           <p class="uk-dropcap">{{ movie._overview }}</p>
         </div>
       </div>
@@ -49,6 +56,7 @@
 import Vue from 'vue'
 import { BeanContainerRegistry } from '../../middleware/BeanContainerRegistry'
 import { GetTvShowsVideosControllerRequest } from '../../middleware/modules/tvShows/getVideos/userapplication/controller/GetTvShowsVideosController'
+import * as ServiceLocator from '../../middleware/framework/modules/ServiceLocator'
 import VideoFrame from './EchVideoFrame'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
@@ -69,6 +77,11 @@ export default {
     }
   },
   methods: {
+    getTvShowDetailURL(movie_id, movie_name) {
+      const language = this.$i18n.locale
+      const slugger = ServiceLocator.Slugger.sluggify([movie_name])
+      return `/${language}/tvshows/${movie_id}-${slugger}`
+    },
     getPosterURL(posterPath) {
       return `https://image.tmdb.org/t/p/w185_and_h278_bestv2/${posterPath}`
     },
