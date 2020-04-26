@@ -72,7 +72,7 @@ export default {
   // eslint-disable-next-line require-await
   async asyncData({ app, params, store }) {
     const language = app.i18n.locale
-    console.log('/pages/movies/index...' + app.i18n.locale)
+    console.log('/pages/index...' + app.i18n.locale)
     const getTrendingMoviesResponse = await beanContainer.getTrendingMoviesController.getTrendingMovies(
       { language }
     )

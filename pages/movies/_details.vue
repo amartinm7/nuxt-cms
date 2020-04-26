@@ -26,7 +26,7 @@ export default {
   async asyncData({ app, route, params, store }) {
     console.log('asyncdata _details....')
     const language = app.i18n.locale
-    console.log('/pages/movies/index...' + app.i18n.locale)
+    console.log('/pages/movies...' + app.i18n.locale)
     const movie_id = params.details.split('-')[0]
     const getMovieDetailsControllerResponse = await beanContainer.getMovieDetailsController.execute(
       new GetMovieDetailsControllerRequest({ movie_id, language })
