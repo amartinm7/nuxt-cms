@@ -1,38 +1,37 @@
 <template>
   <div>
     <section class="uk-section uk-section-xsmall">
-      <ech-movies-card
+      <ech-tv-show-card
         :movies="movies"
         class="ech-scroll-spy-effect"
-      ></ech-movies-card>
+      ></ech-tv-show-card>
     </section>
     <section class="uk-section uk-section-xsmall"></section>
   </div>
 </template>
 <!-- eslint-disable -->
 <!-- eslint-enable -->
-
 <script>
 /* eslint-disable camelcase, no-console */
-import EchMoviesCard from '../../components/movies/EchMoviesCard'
 import { BeanContainerRegistry } from '../../middleware/BeanContainerRegistry'
-import { GetMovieDetailsControllerRequest } from '../../middleware/modules/movies/getDetails/userapplication/controller/GetMovieDetailsController'
+import EchTvShowCard from '../../components/movies/EchTvShowCard'
+import { GetTvShowDetailsControllerRequest } from '../../middleware/modules/tvShows/getDetails/userapplication/controller/GetTvShowDetailsController'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
   scrollToTop: true,
-  components: { EchMoviesCard },
+  components: { EchTvShowCard },
   // eslint-disable-next-line require-await
   async asyncData({ app, route, params, store }) {
     console.log('asyncdata _details....')
     const language = app.i18n.locale
-    console.log('/pages/movies/index...' + app.i18n.locale)
+    console.log('/pages/tvshows...' + app.i18n.locale)
     const movie_id = params.details.split('-')[0]
-    const getMovieDetailsControllerResponse = await beanContainer.getMovieDetailsController.execute(
-      new GetMovieDetailsControllerRequest({ movie_id, language })
+    const getTvShowDetailsControllerResponse = await beanContainer.getTvShowDetailsController.execute(
+      new GetTvShowDetailsControllerRequest({ movie_id, language })
     )
     const movie = {
-      ...getMovieDetailsControllerResponse
+      ...getTvShowDetailsControllerResponse
     }
     return {
       movies: [movie]
@@ -41,7 +40,7 @@ export default {
   data() {
     return {
       movies: [],
-      movie_title: '',
+      movie_name: '',
       movie_id: 0
     }
   },
@@ -53,7 +52,7 @@ export default {
   head() {
     const vm = this
     return {
-      title: `${vm.movies[0]._title}`,
+      title: `${vm.movies[0]._name}`,
       meta: [
         {
           name: 'keywords',
