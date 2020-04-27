@@ -16,20 +16,12 @@ describe('should GetTvShowsDetailsController', function() {
       }
     )
     describe('when execute ...', function() {
-      // const mockedAds = require('./getTvShowsDetailsRepository.json')
-      // const mockGetTvShowDetailsRepository = jest.fn()
-      // GetTvShowDetailsRepository.prototype.execute = mockGetTvShowDetailsRepository
-      // mockGetTvShowDetailsRepository.mockReturnValue(Promise.resolve(mockedAds))
-
+      const mockedAds = require('./getTvshowsDetailsRepository.json')
+      const mockGetTvShowDetailsRepository = jest.fn()
+      GetTvShowDetailsRepository.prototype.execute = mockGetTvShowDetailsRepository
+      mockGetTvShowDetailsRepository.mockReturnValue(Promise.resolve(mockedAds))
       // eslint-disable-next-line require-await
       it('then should get details ...', async function() {
-        const mockedAds = require('./getTvShowsDetailsRepository.json')
-        const mockGetTvShowDetailsRepository = jest.fn()
-        GetTvShowDetailsRepository.prototype.execute = mockGetTvShowDetailsRepository
-        mockGetTvShowDetailsRepository.mockReturnValue(
-          Promise.resolve(mockedAds)
-        )
-
         const beanContainer = BeanContainerRegistry.getBeanContainerWith(
           'token'
         )
