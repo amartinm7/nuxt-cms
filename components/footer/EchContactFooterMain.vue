@@ -28,7 +28,7 @@
                 </p>
                 <div class="uk-text-center">
                   <nuxt-link
-                    class="uk-button uk-button-primary"
+                    class="uk-button uk-button-primary ech-basic"
                     :to="localePath('/')"
                     >Contact</nuxt-link
                   >
