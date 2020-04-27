@@ -38,7 +38,8 @@
           <a href="#" uk-icon="icon: video-camera"></a>Trending Movies
         </li>
         <li class="ech-basic">
-          <a href="#" uk-icon="icon: tv"></a>Trending TV Shows
+          <a href="#" uk-icon="icon: tv"></a>
+          Trending TV Shows
         </li>
       </ul>
       <div class="uk-switcher">

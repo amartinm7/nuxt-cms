@@ -94,7 +94,7 @@
                   <li>
                     <nuxt-link :to="localePath('/')"
                       ><span
-                        class="uk-margin-small-right uk-icon"
+                        class="uk-margin-small-right uk-icon ech-spin-icon"
                         uk-icon="icon: tv; "
                       ></span
                       >{{ $t('pages.accion') }}</nuxt-link
@@ -103,7 +103,7 @@
                   <li>
                     <nuxt-link :to="localePath('/')"
                       ><span
-                        class="uk-margin-small-right uk-icon"
+                        class="uk-margin-small-right uk-icon ech-spin-icon"
                         uk-icon="icon: bolt; "
                       ></span
                       >{{ $t('pages.adventure') }}</nuxt-link
@@ -112,7 +112,7 @@
                   <li>
                     <nuxt-link :to="localePath('/')"
                       ><span
-                        class="uk-margin-small-right uk-icon"
+                        class="uk-margin-small-right uk-icon ech-spin-icon"
                         uk-icon="icon: video-camera; "
                       ></span
                       >{{ $t('pages.scify') }}</nuxt-link
@@ -121,7 +121,7 @@
                   <li>
                     <nuxt-link :to="localePath('/')"
                       ><span
-                        class="uk-margin-small-right uk-icon"
+                        class="uk-margin-small-right uk-icon ech-spin-icon"
                         uk-icon="icon: lifesaver; "
                       ></span
                       >{{ $t('pages.drama') }}</nuxt-link
@@ -130,7 +130,7 @@
                   <li>
                     <nuxt-link :to="localePath('/')"
                       ><span
-                        class="uk-margin-small-right uk-icon"
+                        class="uk-margin-small-right uk-icon ech-spin-icon"
                         uk-icon="icon: happy; "
                       ></span
                       >{{ $t('pages.comedy') }}</nuxt-link
@@ -139,7 +139,7 @@
                   <li>
                     <nuxt-link :to="localePath('/')"
                       ><span
-                        class="uk-margin-small-right uk-icon"
+                        class="uk-margin-small-right uk-icon ech-spin-icon"
                         uk-icon="icon: users; "
                       ></span
                       >{{ $t('pages.family') }}</nuxt-link
@@ -148,7 +148,7 @@
                   <li>
                     <nuxt-link :to="localePath('/')"
                       ><span
-                        class="uk-margin-small-right uk-icon"
+                        class="uk-margin-small-right uk-icon ech-spin-icon"
                         uk-icon="icon: rss; "
                       ></span
                       >{{ $t('pages.news') }}</nuxt-link
@@ -169,7 +169,7 @@
                     >
                       <li>
                         <span
-                          class="uk-margin-small-right uk-icon"
+                          class="uk-margin-small-right uk-icon ech-spin-icon"
                           uk-icon="icon: world; "
                         ></span
                         >{{ locale.name }}
