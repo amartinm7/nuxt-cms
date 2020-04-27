@@ -23,6 +23,13 @@ describe('should GetTvShowsDetailsController', function() {
 
       // eslint-disable-next-line require-await
       it('then should get details ...', async function() {
+        const mockedAds = require('./getTvShowsDetailsRepository.json')
+        const mockGetTvShowDetailsRepository = jest.fn()
+        GetTvShowDetailsRepository.prototype.execute = mockGetTvShowDetailsRepository
+        mockGetTvShowDetailsRepository.mockReturnValue(
+          Promise.resolve(mockedAds)
+        )
+
         const beanContainer = BeanContainerRegistry.getBeanContainerWith(
           'token'
         )
