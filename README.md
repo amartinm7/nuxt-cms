@@ -110,3 +110,4 @@ handleSelect(path) {
         path: this.$i18n.path(path)
       });
     }
+
