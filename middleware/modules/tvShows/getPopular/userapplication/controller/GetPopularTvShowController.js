@@ -1,4 +1,4 @@
-import { GetPopularTvShowServiceRequest } from '../../application/usecase/GetPopularTvShowServiceRequest'
+import { GetPopularTvShowServiceRequest } from '../../application/usecase/GetPopularTvShowService'
 /* eslint-disable camelcase, no-console */
 class GetPopularTvShowController {
   constructor({ getPopularTvShowService }) {

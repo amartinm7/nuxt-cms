@@ -1,4 +1,4 @@
-import { GetLatestTvShowServiceRequest } from '../../application/usecase/GetLatestTvShowServiceRequest'
+import { GetLatestTvShowServiceRequest } from '../../application/usecase/GetLatestTvShowService'
 /* eslint-disable camelcase, no-console */
 class GetLatestTvShowController {
   constructor({ getLatestTvShowService }) {

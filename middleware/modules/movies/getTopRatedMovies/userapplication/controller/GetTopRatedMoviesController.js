@@ -1,4 +1,4 @@
-import { GetTopRatedMoviesServiceRequest } from '../../application/usecase/GetTopRatedMoviesServiceRequest'
+import { GetTopRatedMoviesServiceRequest } from '../../application/usecase/GetTopRatedMoviesService'
 /* eslint-disable camelcase, no-console */
 class GetTopRatedMoviesController {
   constructor({ getTopRatedMoviesService }) {

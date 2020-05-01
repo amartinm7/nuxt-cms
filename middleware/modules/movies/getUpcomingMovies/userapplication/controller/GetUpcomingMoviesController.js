@@ -1,4 +1,4 @@
-import { GetUpcomingMoviesServiceRequest } from '../../application/usecase/GetUpcomingMoviesServiceRequest'
+import { GetUpcomingMoviesServiceRequest } from '../../application/usecase/GetUpcomingMoviesService'
 /* eslint-disable camelcase, no-console */
 class GetUpcomingMoviesController {
   constructor({ getUpcomingMoviesService }) {

@@ -1,4 +1,4 @@
-import { {{useCase}}ServiceRequest } from '../../application/usecase/{{useCase}}ServiceRequest'
+import { {{useCase}}ServiceRequest } from '../../application/usecase/{{useCase}}Service'
 /* eslint-disable camelcase, no-console */
 class {{useCase}}Controller {
   constructor({ {{instanceUseCase}}Service }) {

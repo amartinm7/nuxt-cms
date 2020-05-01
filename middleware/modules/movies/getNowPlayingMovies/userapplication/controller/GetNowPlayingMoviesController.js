@@ -1,4 +1,4 @@
-import { GetNowPlayingMoviesServiceRequest } from '../../application/usecase/GetNowPlayingMoviesServiceRequest'
+import { GetNowPlayingMoviesServiceRequest } from '../../application/usecase/GetNowPlayingMoviesService'
 /* eslint-disable camelcase, no-console */
 class GetNowPlayingMoviesController {
   constructor({ getNowPlayingMoviesService }) {

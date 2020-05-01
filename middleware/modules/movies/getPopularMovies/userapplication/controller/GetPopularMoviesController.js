@@ -1,4 +1,4 @@
-import { GetPopularMoviesServiceRequest } from '../../application/usecase/GetPopularMoviesServiceRequest'
+import { GetPopularMoviesServiceRequest } from '../../application/usecase/GetPopularMoviesService'
 /* eslint-disable camelcase, no-console */
 class GetPopularMoviesController {
   constructor({ getPopularMoviesService }) {

@@ -1,4 +1,4 @@
-import { GetOnTheAirTvShowServiceRequest } from '../../application/usecase/GetOnTheAirTvShowServiceRequest'
+import { GetOnTheAirTvShowServiceRequest } from '../../application/usecase/GetOnTheAirTvShowService'
 /* eslint-disable camelcase, no-console */
 class GetOnTheAirTvShowController {
   constructor({ getOnTheAirTvShowService }) {

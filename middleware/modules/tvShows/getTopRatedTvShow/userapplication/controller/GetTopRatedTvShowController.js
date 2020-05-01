@@ -1,4 +1,4 @@
-import { GetTopRatedTvShowServiceRequest } from '../../application/usecase/GetTopRatedTvShowServiceRequest'
+import { GetTopRatedTvShowServiceRequest } from '../../application/usecase/GetTopRatedTvShowService'
 /* eslint-disable camelcase, no-console */
 class GetTopRatedTvShowController {
   constructor({ getTopRatedTvShowService }) {

@@ -1,4 +1,4 @@
-import { GetAiringTodayTvShowServiceRequest } from '../../application/usecase/GetAiringTodayTvShowServiceRequest'
+import { GetAiringTodayTvShowServiceRequest } from '../../application/usecase/GetAiringTodayTvShowService'
 /* eslint-disable camelcase, no-console */
 class GetAiringTodayTvShowController {
   constructor({ getAiringTodayTvShowService }) {
