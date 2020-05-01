@@ -14,3 +14,28 @@
     </div>
   </section>
 </template>
+<script>
+export default {
+  data() {
+    return {}
+  },
+  created() {
+    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining
+    console.log('created........')
+    const customer = {
+      name: 'Carl',
+      details: {
+        age: 82,
+        location: 'Paradise Falls', // detailed address is unknown
+        address: {
+          city: 'madrid'
+        }
+      }
+    }
+    const customerCity = customer.details?.address?.city
+    console.log(customerCity)
+    const nothing = customer.details?.address?.city?.nothing
+    console.log(nothing)
+  }
+}
+</script>
