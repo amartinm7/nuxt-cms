@@ -17,6 +17,7 @@ import GetTopRatedTvShowProvider from './modules/tvShows/getTopRatedTvShow/GetTo
 import GetNowPlayingMoviesProvider from './modules/movies/getNowPlayingMovies/GetNowPlayingMoviesProvider'
 import GetPopularMoviesProvider from './modules/movies/getPopularMovies/GetPopularMoviesProvider'
 import GetTopRatedMoviesProvider from './modules/movies/getTopRatedMovies/GetTopRatedMoviesProvider'
+import GetUpcomingMoviesProvider from './modules/movies/getUpcomingMovies/GetUpcomingMoviesProvider'
 const _isEmpty = require('lodash.isempty')
 /* eslint-disable camelcase, no-console */
 let beanContainerRegistryInstance = null
@@ -68,6 +69,8 @@ export class BeanContainerRegistry {
     new GetPopularMoviesProvider(this._beanContainer)
     // eslint-disable-next-line no-new
     new GetTopRatedMoviesProvider(this._beanContainer)
+    // eslint-disable-next-line no-new
+    new GetUpcomingMoviesProvider(this._beanContainer)
   }
 
   static _getInstance(token, axios) {
