@@ -1,0 +1,26 @@
+import { {{useCase}}ServiceRequest } from '../../application/usecase/{{useCase}}ServiceRequest'
+/* eslint-disable camelcase, no-console */
+class {{useCase}}Controller {
+  constructor({ {{instanceUseCase}}Service }) {
+    this._{{instanceUseCase}}Service = {{instanceUseCase}}Service
+  }
+
+  async execute({{instanceUseCase}}ControllerRequest) {
+    const {{instanceUseCase}}ServiceResponse = await this._{{instanceUseCase}}Service.execute(
+      new {{useCase}}ServiceRequest({
+        ...{{instanceUseCase}}ControllerRequest
+      })
+    )
+    return {{instanceUseCase}}ServiceResponse
+  }
+}
+
+/* eslint-disable camelcase */
+class {{useCase}}ControllerRequest {
+  constructor({ movie_id, language }) {
+    this.movie_id = movie_id
+    this.language = language
+  }
+}
+
+export { {{useCase}}Controller, {{useCase}}ControllerRequest }

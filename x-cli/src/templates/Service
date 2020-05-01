@@ -1,0 +1,27 @@
+import { {{useCase}}RepositoryRequest } from '../../infrastructure/repository/{{useCase}}Repository'
+/* eslint-disable camelcase, no-console */
+class {{useCase}}Service {
+  constructor({ {{instanceUseCase}}Repository }) {
+    this._{{instanceUseCase}}Repository = {{instanceUseCase}}Repository
+  }
+
+  async execute({{instanceUseCase}}ServiceRequest) {
+    const {{instanceUseCase}}RepositoryResponse = await this._{{instanceUseCase}}Repository.executeAsync(
+      new {{useCase}}RepositoryRequest({
+        ...{{instanceUseCase}}ServiceRequest
+      })
+    )
+    return {
+      ...{{instanceUseCase}}RepositoryResponse
+    }
+  }
+}
+
+class {{useCase}}ServiceRequest {
+  constructor({ movie_id, language }) {
+    this.movie_id = movie_id
+    this.language = language
+  }
+}
+
+export { {{useCase}}Service, {{useCase}}ServiceRequest }
