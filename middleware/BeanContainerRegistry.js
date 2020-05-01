@@ -10,6 +10,7 @@ import GetVideosTvShowProvider from './modules/tvShows/getVideos/GetVideosTvShow
 import GetMovieDetailsProvider from './modules/movies/getDetails/GetMovieDetailsProvider'
 import GetDetailsTvShowProvider from './modules/tvShows/getDetails/GetDetailsTvShowProvider'
 import GetLatestTvShowProvider from './modules/tvShows/getLatest/GetLatestTvShowProvider'
+import GetAiringTodayTvShowProvider from './modules/tvShows/getAiringToday/GetAiringTodayTvShowProvider'
 const _isEmpty = require('lodash.isempty')
 /* eslint-disable camelcase, no-console */
 let beanContainerRegistryInstance = null
@@ -47,6 +48,8 @@ export class BeanContainerRegistry {
     new GetDetailsTvShowProvider(this._beanContainer)
     // eslint-disable-next-line no-new
     new GetLatestTvShowProvider(this._beanContainer)
+    // eslint-disable-next-line no-new
+    new GetAiringTodayTvShowProvider(this._beanContainer)
   }
 
   static _getInstance(token, axios) {
