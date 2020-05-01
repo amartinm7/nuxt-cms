@@ -1,0 +1,27 @@
+{
+  "name": "x-cms-cli",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "bin": {
+    "say-me": "bin/x-cms-cli.js"
+  },
+  "scripts": {
+    "cli": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "amartinm7@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "commander": "^2.19.0",
+    "shelljs": "^0.8.3",
+    "stream-replace": "^1.0.0",
+    "yargs": "^15.3.1"
+  },
+  "devDependencies": {
+    "lodash.camelcase": "^4.3.0",
+    "lodash.intersection": "^4.4.0",
+    "lodash.isempty": "^4.4.0"
+  }
+}
