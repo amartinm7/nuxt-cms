@@ -13,7 +13,8 @@ class GetAiringTodayTvShowProvider {
       'getAiringTodayTvShowService',
       (container) =>
         new GetAiringTodayTvShowService({
-          getAiringTodayTvShowRepository: container.getAiringTodayTvShowRepository
+          getAiringTodayTvShowRepository:
+            container.getAiringTodayTvShowRepository
         })
     )
     container.service(

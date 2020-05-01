@@ -23,7 +23,9 @@ class GetAiringTodayTvShowRepository {
   }
 
   async executeAsync(getAiringTodayTvShowRepositoryRequest) {
-    const axiosResponse = await this.execute(getAiringTodayTvShowRepositoryRequest)
+    const axiosResponse = await this.execute(
+      getAiringTodayTvShowRepositoryRequest
+    )
     return new GetAiringTodayTvShowRepositoryResponse({ ...axiosResponse.data })
   }
 }
