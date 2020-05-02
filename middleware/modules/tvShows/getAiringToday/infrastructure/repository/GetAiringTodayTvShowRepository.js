@@ -78,7 +78,6 @@ class GetAiringTodayTvShowRepositoryResponseResult {
     this._poster_path = poster_path
     this._backdrop_path = backdrop_path
     this._popularity = popularity
-    this._media_type = media_type
   }
 }
 
