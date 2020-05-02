@@ -36,18 +36,6 @@ class GetLatestTvShowRepositoryRequest {
 
 /* eslint-disable camelcase */
 class GetLatestTvShowRepositoryResponse {
-  constructor({ page, total_pages, total_results, results }) {
-    this._page = page
-    this._total_pages = total_pages
-    this._total_results = total_results
-    this._results = results.map((it) => {
-      // eslint-disable-next-line no-new
-      return new GetLatestTvShowRepositoryResponseResult(it)
-    })
-  }
-}
-
-class GetLatestTvShowRepositoryResponseResult {
   constructor({
     id,
     title,
@@ -57,11 +45,14 @@ class GetLatestTvShowRepositoryResponseResult {
     release_date,
     overview,
     adult,
-    genre_ids,
+    genres,
     poster_path,
     backdrop_path,
     popularity,
-    media_type
+    homepage,
+    networks,
+    number_of_episodes,
+    number_of_seasons
   }) {
     this._id = id
     this._title = title
@@ -71,17 +62,20 @@ class GetLatestTvShowRepositoryResponseResult {
     this._release_date = release_date
     this._overview = overview
     this._adult = adult
-    this._genre_ids = genre_ids
+    this._genre_ids = genres.map((item) => item.id)
+    this._genres = genres
     this._poster_path = poster_path
     this._backdrop_path = backdrop_path
     this._popularity = popularity
-    this._media_type = media_type
+    this._homepage = homepage
+    this._networks = networks
+    this._number_of_episodes = number_of_episodes
+    this._number_of_seasons = number_of_seasons
   }
 }
 
 export {
   GetLatestTvShowRepository,
   GetLatestTvShowRepositoryRequest,
-  GetLatestTvShowRepositoryResponse,
-  GetLatestTvShowRepositoryResponseResult
+  GetLatestTvShowRepositoryResponse
 }
