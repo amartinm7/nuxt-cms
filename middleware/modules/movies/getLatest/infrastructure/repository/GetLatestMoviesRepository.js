@@ -35,33 +35,37 @@ class GetLatestMoviesRepositoryRequest {
 /* eslint-disable camelcase */
 class GetLatestMoviesRepositoryResponse {
   constructor({
+    id,
+    title,
+    name,
+    vote_account,
+    vote_average,
+    release_date,
+    overview,
     adult,
     genres,
-    id,
-    imdb_id,
-    original_language,
-    original_title,
-    overview,
-    popularity,
     poster_path,
-    release_date,
-    runtime,
-    status,
-    title
+    backdrop_path,
+    popularity,
+    homepage,
+    imdb_id
   }) {
-    this._adult = adult
-    this._genres = genres
     this._id = id
-    this._imdb_id = imdb_id
-    this._original_language = original_language
-    this._original_title = original_title
-    this._overview = overview
-    this._popularity = popularity
-    this._poster_path = poster_path
-    this._release_date = release_date
-    this._runtime = runtime
-    this._status = status
     this._title = title
+    this._name = name
+    this._vote_account = vote_account
+    this._vote_average = vote_average
+    this._release_date = release_date
+    this._overview = overview
+    this._adult = adult
+    this._genre_ids = genres.map((item) => item.id)
+    this._genres = genres
+    this._poster_path = poster_path
+    this._backdrop_path = backdrop_path
+    this._popularity = popularity
+    this._media_type = 'movie'
+    this._homepage = homepage
+    this._imdb_id = imdb_id
   }
 }
 

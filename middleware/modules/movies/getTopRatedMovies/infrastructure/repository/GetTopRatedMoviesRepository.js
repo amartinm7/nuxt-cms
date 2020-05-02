@@ -58,11 +58,10 @@ class GetTopRatedMoviesRepositoryResponseResult {
     release_date,
     overview,
     adult,
-    genre_ids,
+    genres,
     poster_path,
     backdrop_path,
-    popularity,
-    media_type
+    popularity
   }) {
     this._id = id
     this._title = title
@@ -72,11 +71,10 @@ class GetTopRatedMoviesRepositoryResponseResult {
     this._release_date = release_date
     this._overview = overview
     this._adult = adult
-    this._genre_ids = genre_ids
+    this._genres = genres
     this._poster_path = poster_path
     this._backdrop_path = backdrop_path
     this._popularity = popularity
-    this._media_type = media_type
   }
 }
 
