@@ -222,42 +222,42 @@
                     <nuxt-link
                       :to="localePath('/')"
                       class=" menu-item menu-item-type-custom menu-item-object-custom"
-                      >Accion</nuxt-link
+                      >{{ $t('pages.accion') }}</nuxt-link
                     >
                   </li>
                   <li>
                     <nuxt-link
                       :to="localePath('/')"
                       class=" menu-item menu-item-type-taxonomy menu-item-object-category"
-                      >Adventure</nuxt-link
+                      >{{ $t('pages.adventure') }}</nuxt-link
                     >
                   </li>
                   <li>
                     <nuxt-link
                       :to="localePath('/')"
                       class=" menu-item menu-item-type-post_type menu-item-object-page"
-                      >Scify</nuxt-link
+                      >{{ $t('pages.scify') }}</nuxt-link
                     >
                   </li>
                   <li>
                     <nuxt-link
                       :to="localePath('/')"
                       class=" menu-item menu-item-type-post_type menu-item-object-page"
-                      >Drama</nuxt-link
+                      >{{ $t('pages.drama') }}</nuxt-link
                     >
                   </li>
                   <li>
                     <nuxt-link
                       :to="localePath('/')"
                       class=" menu-item menu-item-type-post_type menu-item-object-page"
-                      >Comedy</nuxt-link
+                      >{{ $t('pages.comedy') }}</nuxt-link
                     >
                   </li>
                   <li>
                     <nuxt-link
                       :to="localePath('/')"
                       class=" menu-item menu-item-type-post_type menu-item-object-page"
-                      >Family</nuxt-link
+                      >{{ $t('pages.family') }}</nuxt-link
                     >
                   </li>
                   <li class="uk-parent">
@@ -265,7 +265,7 @@
                       :to="localePath('/')"
                       class=" menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"
                       aria-expanded="false"
-                      >Languages</nuxt-link
+                      >{{ $t('select.language') }}</nuxt-link
                     >
                     <div class="uk-navbar-dropdown">
                       <div

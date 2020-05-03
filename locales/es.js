@@ -11,6 +11,6 @@ export default {
     news: 'Noticias'
   },
   select: {
-    language: 'Idiomas disponibles'
+    language: 'Idiomas'
   }
 }
