@@ -92,7 +92,7 @@
                     <hr />
                   </li>
                   <li>
-                    <nuxt-link :to="localePath('/tvShows')"
+                    <nuxt-link :to="getTvShowTopListlURL()"
                       ><span
                         class="uk-margin-small-right uk-icon ech-spin-icon"
                         uk-icon="icon: tv; "
@@ -308,8 +308,6 @@
   </div>
 </template>
 <script>
-import * as ServiceLocator from '../../middleware/framework/modules/ServiceLocator'
-
 export default {
   computed: {
     showLocales() {
@@ -320,10 +318,10 @@ export default {
     }
   },
   methods: {
-    getTvShowTopListlURL(actionName) {
+    async getTvShowTopListlURL(actionName) {
       const language = this.$i18n.locale
-      this.$store.state.setActionForTvShows()
-      return `/${language}/tvshows/
+      await this.$store.dispatch('setActionForTvShows', actionName)
+      return `/${language}/tvshows/`
     }
   }
 }

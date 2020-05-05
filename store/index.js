@@ -2,22 +2,37 @@ export const state = () => ({
   locale: locales.es,
   videoURL:
     'https://www.youtube.com/embed/Yj0l7iGKh8g?autoplay=1&amp;showinfo=0&amp;rel=0&amp;modestbranding=1&amp;playsinline=1',
-  actionForTvShows: actions.tv.airingToday,
-  actionForMovies: actions.movies.latest,
+  actionForTvShows: commandActions.tv.airingToday,
+  actionForMovies: commandActions.movies.latest
 })
 
 export const mutations = {
-  setLocale(state, locale) {
+  SET_LOCALE(state, locale) {
     state.locale = locale
   },
-  videoURL(state, url) {
+  SET_VIDEO_URL(state, url) {
     state.videoURL = url
   },
-  setActionForTvShows(state, action) {
-    state.actionForTvShows = action
+  SET_ACTION_FOR_TV_SHOWS(state, actionName) {
+    state.actionForTvShows = actionName
   },
-  setActionForMovies(state, action) {
-    state.actionForMovies = action
+  SET_ACTION_FOR_MOVIES(state, actionName) {
+    state.actionForMovies = actionName
+  }
+}
+
+export const actions = {
+  setLocale({ commit }, locale) {
+    commit('SET_LOCALE', locale)
+  },
+  videoURL({ commit }, url) {
+    commit('SET_VIDEO_URL', url)
+  },
+  setActionForTvShows({ commit }, actionName) {
+    commit('SET_ACTION_FOR_TV_SHOWS', actionName)
+  },
+  setActionForMovies({ commit }, actionName) {
+    commit('SET_ACTION_FOR_MOVIES', actionName)
   }
 }
 
@@ -47,7 +62,7 @@ export const locales = {
   }
 }
 
-export const actions = {
+export const commandActions = {
   tv: {
     airingToday: 'airingToday',
     latest: 'latest',
