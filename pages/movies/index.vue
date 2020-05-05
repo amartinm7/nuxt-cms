@@ -55,9 +55,9 @@ export default {
   // eslint-disable-next-line require-await
   async asyncData({ app, params, store }) {
     const language = app.i18n.locale
-    const mediaType = MEDIA_TYPES.TV
+    const mediaType = MEDIA_TYPES.MOVIE
     const action =
-      store.getters['commandActions/commandActionsStore/getActionForTvShows']
+      store.getters['commandActions/commandActionsStore/getActionForMovies']
     const trendingTVShows = await ActionMapper.getController({
       mediaType,
       action

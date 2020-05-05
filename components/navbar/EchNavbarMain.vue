@@ -92,68 +92,51 @@
                     <hr />
                   </li>
                   <li>
-                    <nuxt-link :to="getTvShowTopListlURL()"
-                      ><span
-                        class="uk-margin-small-right uk-icon ech-spin-icon"
-                        uk-icon="icon: tv; "
-                      ></span
-                      >{{ $t('pages.accion') }}</nuxt-link
-                    >
+                    <span
+                      class="uk-margin-small-right uk-icon ech-spin-icon"
+                      uk-icon="icon: tv; "
+                    ></span>
+                    TV
                   </li>
+                  <ul class="uk-nav-sub">
+                    <nuxt-link
+                      v-for="(keyMessage, i) in showMenuListForTvShows"
+                      :key="i"
+                      :to="getTvShowTopListlURL(keyMessage)"
+                      class="uk-link-reset"
+                    >
+                      <li>
+                        <span
+                          class="uk-margin-small-right uk-icon ech-spin-icon"
+                          uk-icon="icon: play; "
+                        ></span
+                        >{{ translateKeyMessageForTvShows(keyMessage) }}
+                      </li>
+                    </nuxt-link>
+                  </ul>
                   <li>
-                    <nuxt-link :to="localePath('/')"
-                      ><span
-                        class="uk-margin-small-right uk-icon ech-spin-icon"
-                        uk-icon="icon: bolt; "
-                      ></span
-                      >{{ $t('pages.adventure') }}</nuxt-link
-                    >
+                    <span
+                      class="uk-margin-small-right uk-icon ech-spin-icon"
+                      uk-icon="icon: video-camera; "
+                    ></span>
+                    {{ $t('movies') }}
                   </li>
-                  <li>
-                    <nuxt-link :to="localePath('/')"
-                      ><span
-                        class="uk-margin-small-right uk-icon ech-spin-icon"
-                        uk-icon="icon: video-camera; "
-                      ></span
-                      >{{ $t('pages.scify') }}</nuxt-link
+                  <ul class="uk-nav-sub">
+                    <nuxt-link
+                      v-for="(keyMessage, i) in showMenuListForMovies"
+                      :key="i"
+                      :to="getMoviesTopListlURL(keyMessage)"
+                      class="uk-link-reset"
                     >
-                  </li>
-                  <li>
-                    <nuxt-link :to="localePath('/')"
-                      ><span
-                        class="uk-margin-small-right uk-icon ech-spin-icon"
-                        uk-icon="icon: lifesaver; "
-                      ></span
-                      >{{ $t('pages.drama') }}</nuxt-link
-                    >
-                  </li>
-                  <li>
-                    <nuxt-link :to="localePath('/')"
-                      ><span
-                        class="uk-margin-small-right uk-icon ech-spin-icon"
-                        uk-icon="icon: happy; "
-                      ></span
-                      >{{ $t('pages.comedy') }}</nuxt-link
-                    >
-                  </li>
-                  <li>
-                    <nuxt-link :to="localePath('/')"
-                      ><span
-                        class="uk-margin-small-right uk-icon ech-spin-icon"
-                        uk-icon="icon: users; "
-                      ></span
-                      >{{ $t('pages.family') }}</nuxt-link
-                    >
-                  </li>
-                  <li>
-                    <nuxt-link :to="localePath('/')"
-                      ><span
-                        class="uk-margin-small-right uk-icon ech-spin-icon"
-                        uk-icon="icon: rss; "
-                      ></span
-                      >{{ $t('pages.news') }}</nuxt-link
-                    >
-                  </li>
+                      <li>
+                        <span
+                          class="uk-margin-small-right uk-icon ech-spin-icon"
+                          uk-icon="icon: play; "
+                        ></span
+                        >{{ translateKeyMessageForMovies(keyMessage) }}
+                      </li>
+                    </nuxt-link>
+                  </ul>
                   <li>
                     <hr />
                   </li>
@@ -315,13 +298,36 @@ export default {
       return this.$i18n.locales.filter(
         (locale) => locale.code !== this.$i18n.locale
       )
+    },
+    showMenuListForTvShows() {
+      return Object.keys(this.$i18n.messages[this.$i18n.locale].pages.tv)
+    },
+    showMenuListForMovies() {
+      return Object.keys(this.$i18n.messages[this.$i18n.locale].pages.movies)
     }
   },
   methods: {
-    async getTvShowTopListlURL(actionName) {
+    translateKeyMessageForTvShows(key) {
+      return this.$i18n.messages[this.$i18n.locale].pages.tv[key]
+    },
+    translateKeyMessageForMovies(key) {
+      return this.$i18n.messages[this.$i18n.locale].pages.movies[key]
+    },
+    getTvShowTopListlURL(actionName) {
       const language = this.$i18n.locale
-      await this.$store.dispatch('setActionForTvShows', actionName)
+      this.$store.dispatch(
+        'commandActions/commandActionsStore/setActionForTvShows',
+        actionName
+      )
       return `/${language}/tvshows/`
+    },
+    getMoviesTopListlURL(actionName) {
+      const language = this.$i18n.locale
+      this.$store.dispatch(
+        'commandActions/commandActionsStore/setActionForMovies',
+        actionName
+      )
+      return `/${language}/movies/`
     }
   }
 }

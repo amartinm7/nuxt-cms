@@ -76,6 +76,9 @@ export default {
       videoFrameInstance: undefined
     }
   },
+  mounted() {
+    console.log('loading EchTvShowCard')
+  },
   methods: {
     getTvShowDetailURL(movie_id, movie_name) {
       const language = this.$i18n.locale

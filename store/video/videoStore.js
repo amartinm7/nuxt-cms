@@ -20,16 +20,3 @@ export const actions = {
     commit('SET_VIDEO_URL', url)
   }
 }
-
-export const actions = {
-  async nuxtServerInit({ commit }) {
-    // eslint-disable-next-line prettier/prettier
-    const files = await require.context('~/assets/content/blog/', false, /\.json$/)
-    const blogPosts = files.keys().map((key) => {
-      const res = files(key)
-      res.slug = key.slice(2, -5)
-      return res
-    })
-    await commit('setBlogPosts', blogPosts)
-  }
-}
