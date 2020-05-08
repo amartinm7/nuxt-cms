@@ -8,7 +8,7 @@ class GetLatestMoviesService {
   async execute(getLatestFilmsServiceRequest) {
     console.log('>>>GetLatestMoviesService.execute')
     const getLatestMoviesServiceResponse = await this._getLatestMoviesRepository.executeAsync(
-      new GetLatestMoviesRepositoryRequest()
+      new GetLatestMoviesRepositoryRequest({ ...getLatestFilmsServiceRequest })
     )
     return {
       ...getLatestMoviesServiceResponse
@@ -18,7 +18,9 @@ class GetLatestMoviesService {
 
 class GetLatestMoviesServiceRequest {
   // eslint-disable-next-line no-useless-constructor
-  constructor() {}
+  constructor({ language }) {
+    this.language = language
+  }
 }
 
 export { GetLatestMoviesService, GetLatestMoviesServiceRequest }

@@ -33,28 +33,11 @@
       </div>
     </section>
     <section class="uk-section uk-section-xsmall">
-      <ul uk-tab class="uk-flex uk-flex-around">
-        <li class="uk-active ech-basic">
-          <a href="#" uk-icon="icon: video-camera"></a>Trending Movies
-        </li>
-        <li class="ech-basic">
-          <a href="#" uk-icon="icon: tv"></a>
-          Trending TV Shows
-        </li>
-      </ul>
-      <div class="uk-switcher">
-        <div class="uk-active">
-          <ech-movies-card
-            :movies="trendingMovies._results"
-            class="ech-scroll-spy-effect"
-          ></ech-movies-card>
-        </div>
-        <div>
-          <ech-tv-show-card
-            :movies="trendingTVShows._results"
-            class="ech-scroll-spy-effect"
-          ></ech-tv-show-card>
-        </div>
+      <div>
+        <ech-movies-card
+          :movies="trendingMovies._results"
+          class="ech-scroll-spy-effect"
+        ></ech-movies-card>
       </div>
     </section>
   </div>
@@ -63,39 +46,29 @@
 <!-- eslint-enable -->
 <script>
 /* eslint-disable camelcase, no-console */
-import EchTvShowCard from '../components/movies/EchTvShowCard'
-import EchMoviesCard from '../components/movies/EchMoviesCard'
-import { BeanContainerRegistry } from '../middleware/BeanContainerRegistry'
-const beanContainer = BeanContainerRegistry.getBeanContainer()
+import { MEDIA_TYPES } from '../../../middleware/modules/trending/getTrending/adomain/TrendingTypes'
+import ActionMapper from '../../../middleware/ActionMapper'
+import EchMoviesCard from '../../../components/movies/EchMoviesCard'
 
 export default {
-  components: { EchTvShowCard, EchMoviesCard },
+  components: { EchMoviesCard },
   // eslint-disable-next-line require-await
-  async asyncData({ app, params, store }) {
+  async asyncData({ app, params, store, route }) {
     const language = app.i18n.locale
-    const getTrendingMoviesResponse = await beanContainer.getTrendingMoviesController.getTrendingMovies(
-      { language }
-    )
-    const trendingMovies = {
-      ...getTrendingMoviesResponse
-    }
-    const getTrendingTVShowsResponse = await beanContainer.getTrendingMoviesController.getTrendingTVShows(
-      { language }
-    )
-    const trendingTVShows = {
-      ...getTrendingTVShowsResponse
-    }
-    return { trendingMovies, trendingTVShows }
+    const mediaType = MEDIA_TYPES.MOVIE
+    const action = params.upcoming
+    // const action =
+    //   store.getters['commandActions/commandActionsStore/getActionForMovies']
+    // console.log('action ' + action)
+    const trendingMovies = await ActionMapper.getController({
+      mediaType,
+      action
+    }).execute({ language })
+    return { trendingMovies }
   },
   data() {
     return {
       trendingMovies: {
-        _page: 1,
-        _total_pages: 1,
-        _total_results: 1,
-        _results: []
-      },
-      trendingTVShows: {
         _page: 1,
         _total_pages: 1,
         _total_results: 1,

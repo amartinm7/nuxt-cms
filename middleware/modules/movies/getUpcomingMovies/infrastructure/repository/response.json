@@ -1,0 +1,396 @@
+{
+  "results": [
+    {
+      "popularity": 76.494,
+      "vote_count": 2706,
+      "video": false,
+      "poster_path": "/8ZX18L5m6rH5viSYpRnTSbb9eXh.jpg",
+      "id": 619264,
+      "adult": false,
+      "backdrop_path": "/3tkDMNfM2YuIAJlvGO6rfIzAnfG.jpg",
+      "original_language": "es",
+      "original_title": "El hoyo",
+      "genre_ids": [
+        18,
+        878
+      ],
+      "title": "The Platform",
+      "vote_average": 7.1,
+      "overview": "A mysterious place, an indescribable prison, a deep hole. An unknown number of levels. Two inmates living on each level. A descending platform containing food for all of them. An inhuman fight for survival, but also an opportunity for solidarity…",
+      "release_date": "2019-11-08"
+    },
+    {
+      "popularity": 74.212,
+      "vote_count": 1030,
+      "video": false,
+      "poster_path": "/jtrhTYB7xSrJxR1vusu99nvnZ1g.jpg",
+      "id": 522627,
+      "adult": false,
+      "backdrop_path": "/tintsaQ0WLzZsTMkTiqtMB3rfc8.jpg",
+      "original_language": "en",
+      "original_title": "The Gentlemen",
+      "genre_ids": [
+        28,
+        35,
+        80
+      ],
+      "title": "The Gentlemen",
+      "vote_average": 7.8,
+      "overview": "American expat Mickey Pearson has built a highly profitable marijuana empire in London. When word gets out that he’s looking to cash out of the business forever it triggers plots, schemes, bribery and blackmail in an attempt to steal his domain out from under him.",
+      "release_date": "2020-01-01"
+    },
+    {
+      "popularity": 41.192,
+      "vote_count": 514,
+      "video": false,
+      "poster_path": "/2kNnf7BwRCEm4bcFkdiE0T4U25s.jpg",
+      "id": 457335,
+      "adult": false,
+      "backdrop_path": "/fssCO59bqU5f0zngeYKex0g1vyb.jpg",
+      "original_language": "en",
+      "original_title": "Guns Akimbo",
+      "genre_ids": [
+        28,
+        35
+      ],
+      "title": "Guns Akimbo",
+      "vote_average": 6.4,
+      "overview": "An ordinary guy suddenly finds himself forced to fight a gladiator-like battle for a dark website that streams the violence for viewers. Miles must fight heavily armed Nix and also save his kidnapped ex-girlfriend.",
+      "release_date": "2020-02-27"
+    },
+    {
+      "popularity": 40.395,
+      "vote_count": 642,
+      "video": false,
+      "poster_path": "/33VdppGbeNxICrFUtW2WpGHvfYc.jpg",
+      "id": 481848,
+      "adult": false,
+      "backdrop_path": "/yFRpUmsreYO5Bc0HVBTsJsHIIox.jpg",
+      "original_language": "en",
+      "original_title": "The Call of the Wild",
+      "genre_ids": [
+        12,
+        18,
+        10751
+      ],
+      "title": "The Call of the Wild",
+      "vote_average": 7,
+      "overview": "Buck is a big-hearted dog whose blissful domestic life is turned upside down when he is suddenly uprooted from his California home and transplanted to the exotic wilds of the Yukon during the Gold Rush of the 1890s. As the newest rookie on a mail delivery dog sled team—and later its leader—Buck experiences the adventure of a lifetime, ultimately finding his true place in the world and becoming his own master.",
+      "release_date": "2020-02-19"
+    },
+    {
+      "popularity": 34.686,
+      "vote_count": 1283,
+      "video": false,
+      "poster_path": "/3nk9UoepYmv1G9oP18q6JJCeYwN.jpg",
+      "id": 503919,
+      "adult": false,
+      "backdrop_path": "/r4uBaF8VCdIcEp38jUpdxKP8eLJ.jpg",
+      "original_language": "en",
+      "original_title": "The Lighthouse",
+      "genre_ids": [
+        18,
+        14,
+        27,
+        9648
+      ],
+      "title": "The Lighthouse",
+      "vote_average": 7.6,
+      "overview": "Two lighthouse keepers try to maintain their sanity while living on a remote and mysterious New England island in the 1890s.",
+      "release_date": "2019-10-18"
+    },
+    {
+      "popularity": 33.59,
+      "vote_count": 141,
+      "video": false,
+      "poster_path": "/8GGS0jkFFCnmdStvZED6NL6V7gd.jpg",
+      "id": 502425,
+      "adult": false,
+      "backdrop_path": "/kolkVKNZSjhZGHwcrFU36Watpke.jpg",
+      "original_language": "en",
+      "original_title": "Escape From Pretoria",
+      "genre_ids": [
+        18,
+        36,
+        53
+      ],
+      "title": "Escape From Pretoria",
+      "vote_average": 6.5,
+      "overview": "South Africa, 1978. Tim Jenkin and Stephen Lee, two white political activists from the African National Congress imprisoned by the apartheid regime, put a plan in motion to escape from the infamous Pretoria Prison…",
+      "release_date": "2020-03-06"
+    },
+    {
+      "popularity": 30.118,
+      "id": 324553,
+      "video": false,
+      "vote_count": 0,
+      "vote_average": 0,
+      "title": "Astro Boy",
+      "release_date": "2020-05-20",
+      "original_language": "en",
+      "original_title": "Astro Boy",
+      "genre_ids": [
+        878,
+        12,
+        28
+      ],
+      "backdrop_path": null,
+      "adult": false,
+      "overview": "Astro is a robot boy created by a scientist as a replacement for the man's dead son. After going on a Pinocchio-style adventure, he ends up with a new owner and a new mission: to fight evil (in human or robot form) using his many superpowers.",
+      "poster_path": "/6XOq4jTR6htR5ayj1iZKPfBV52t.jpg"
+    },
+    {
+      "popularity": 29.475,
+      "vote_count": 432,
+      "video": false,
+      "poster_path": "/p9vCAVhDK375XyobVcKqzqzsUHE.jpg",
+      "id": 501907,
+      "adult": false,
+      "backdrop_path": "/w0tJot6O0UtLVBRIPAdg3dQ2oNO.jpg",
+      "original_language": "en",
+      "original_title": "A Beautiful Day in the Neighborhood",
+      "genre_ids": [
+        18
+      ],
+      "title": "A Beautiful Day in the Neighborhood",
+      "vote_average": 7.2,
+      "overview": "An award-winning cynical journalist, Lloyd Vogel, begrudgingly accepts an assignment to write an Esquire profile piece on the beloved television icon Fred Rogers. After his encounter with Rogers, Vogel's perspective on life is transformed.",
+      "release_date": "2019-09-07"
+    },
+    {
+      "popularity": 26.569,
+      "vote_count": 328,
+      "video": false,
+      "poster_path": "/tIpGQ9uuII7QVFF0GHCFTJFfXve.jpg",
+      "id": 555974,
+      "adult": false,
+      "backdrop_path": "/rpGYHowXtjw37UxdwO1ZcK5E8IN.jpg",
+      "original_language": "en",
+      "original_title": "Brahms: The Boy II",
+      "genre_ids": [
+        27,
+        9648,
+        53
+      ],
+      "title": "Brahms: The Boy II",
+      "vote_average": 6.5,
+      "overview": "After a family moves into the Heelshire Mansion, their young son soon makes friends with a life-like doll called Brahms.",
+      "release_date": "2020-02-20"
+    },
+    {
+      "popularity": 23.535,
+      "vote_count": 1,
+      "video": false,
+      "poster_path": "/5mCqEeBA0MW7H6akFrFQXJu68rU.jpg",
+      "id": 550231,
+      "adult": false,
+      "backdrop_path": "/zRc6SG8V8WTTDrmZ78PgqjwYqoN.jpg",
+      "original_language": "en",
+      "original_title": "The Secret: Dare to Dream",
+      "genre_ids": [
+        18
+      ],
+      "title": "The Secret: Dare to Dream",
+      "vote_average": 10,
+      "overview": "A widow with three children hires a handyman to fix her house during a major storm. When not doing home repairs, he shares his philosophy of believing in the power of the universe to deliver what we want.",
+      "release_date": "2020-04-16"
+    },
+    {
+      "popularity": 19.756,
+      "vote_count": 0,
+      "video": false,
+      "poster_path": "/uCDcQbfIKY4oTPd6tbghloFm7Gi.jpg",
+      "id": 606679,
+      "adult": false,
+      "backdrop_path": "/wh3yiCdg1gdUwWhAV7PfF2ROlMr.jpg",
+      "original_language": "en",
+      "original_title": "The High Note",
+      "genre_ids": [
+        35,
+        18,
+        10402,
+        10749
+      ],
+      "title": "The High Note",
+      "vote_average": 0,
+      "overview": "Set in the dazzling world of the LA music scene comes the story of Grace Davis, a superstar whose talent, and ego, have reached unbelievable heights. Maggie is Grace’s overworked personal assistant who’s stuck running errands, but still aspires to her childhood dream of becoming a music producer. When Grace’s manager presents her with a choice that could alter the course of her career, Maggie and Grace come up with a plan that could change their lives forever.",
+      "release_date": "2020-05-08"
+    },
+    {
+      "popularity": 18.44,
+      "vote_count": 1205,
+      "video": false,
+      "poster_path": "/j08OlatGDfjEvYjHjXSYKc2tqwt.jpg",
+      "id": 422,
+      "adult": false,
+      "backdrop_path": "/oNq6WiGDMAvx1ophgAtD6RyajpH.jpg",
+      "original_language": "it",
+      "original_title": "8½",
+      "genre_ids": [
+        18,
+        14
+      ],
+      "title": "8½",
+      "vote_average": 8.3,
+      "overview": "Guido Anselmi, a film director, finds himself creatively barren at the peak of his career. Urged by his doctors to rest, Anselmi heads for a luxurious resort, but a sorry group gathers—his producer, staff, actors, wife, mistress, and relatives—each one begging him to get on with the show. In retreat from their dependency, he fantasizes about past women and dreams of his childhood.",
+      "release_date": "1963-02-14"
+    },
+    {
+      "popularity": 18.103,
+      "id": 678917,
+      "video": false,
+      "vote_count": 0,
+      "vote_average": 0,
+      "title": "Beyond Before",
+      "release_date": "2020-05-07",
+      "original_language": "en",
+      "original_title": "Beyond Before",
+      "genre_ids": [],
+      "backdrop_path": null,
+      "adult": false,
+      "overview": "A YouTube vlogger begins a seance one dark night.",
+      "poster_path": null
+    },
+    {
+      "popularity": 17.725,
+      "vote_count": 412,
+      "video": false,
+      "poster_path": "/eqTjO8yTaPRSKWj7i6Qnr7R5cls.jpg",
+      "id": 418879,
+      "adult": false,
+      "backdrop_path": "/jypNy38bThNz4K6IWDoE7h0xlP2.jpg",
+      "original_language": "en",
+      "original_title": "The Current War",
+      "genre_ids": [
+        18,
+        36
+      ],
+      "title": "The Current War",
+      "vote_average": 6.8,
+      "overview": "Electricity titans Thomas Edison and George Westinghouse compete to create a sustainable system and market it to the American people",
+      "release_date": "2017-10-15"
+    },
+    {
+      "popularity": 14.46,
+      "vote_count": 18,
+      "video": false,
+      "poster_path": "/1UHrZxcewhGydsqrRF5Z6Qgqf6i.jpg",
+      "id": 617786,
+      "adult": false,
+      "backdrop_path": "/lxVf7wzanbz7m0mou7pUhokBYB.jpg",
+      "original_language": "en",
+      "original_title": "The Other Lamb",
+      "genre_ids": [
+        18,
+        27,
+        53
+      ],
+      "title": "The Other Lamb",
+      "vote_average": 6.5,
+      "overview": "A haunting and nightmarish tale that tells the story of Selah, a young girl born into a repressive cult known as the Flock. The members of the Flock – all women and female children– live in a rural compound, and are led by one man, known only as Shepherd. Selah, a daughter who is on the cusp of teenage-hood, is given the great honor of participating in the sacred ritual of the birthing of the lambs – upon which they depend for survival – where she has a shocking and otherworldly experience. She begins to have strange visions that make her question her own reality, and everything the Shepherd has taught her and her sisters.",
+      "release_date": "2020-04-03"
+    },
+    {
+      "popularity": 13.471,
+      "vote_count": 1585,
+      "video": false,
+      "poster_path": "/icMuU0iUvctuXJ0Cr05BdEmHLen.jpg",
+      "id": 6537,
+      "adult": false,
+      "backdrop_path": "/bEjdGHTjKEHFq3z4g606kldLDk.jpg",
+      "original_language": "es",
+      "original_title": "El orfanato",
+      "genre_ids": [
+        18,
+        27,
+        53
+      ],
+      "title": "The Orphanage",
+      "vote_average": 7.2,
+      "overview": "A woman brings her family back to her childhood home, which used to be an orphanage, intent on reopening it. Before long, her son starts to communicate with a new invisible friend.",
+      "release_date": "2007-05-20"
+    },
+    {
+      "popularity": 12.842,
+      "vote_count": 170,
+      "video": false,
+      "poster_path": "/jh2xStYNXhSK5JYFUApMEqgn0yT.jpg",
+      "id": 286519,
+      "adult": false,
+      "backdrop_path": "/7s8ruS7qYRsWPS08gEWtLMwFOAk.jpg",
+      "original_language": "en",
+      "original_title": "Boychoir",
+      "genre_ids": [
+        18,
+        10402
+      ],
+      "title": "Boychoir",
+      "vote_average": 6.8,
+      "overview": "A troubled and angry 11-year-old orphan from a small Texas town, ends up at a Boy Choir school after the death of his single mother. Completely out of his element, he finds himself in a battle of wills with a demanding Choir Master who recognises a unique talent in this young boy as he pushes him to discover his creative heart and soul in music.",
+      "release_date": "2014-09-04"
+    },
+    {
+      "popularity": 12.739,
+      "vote_count": 2,
+      "video": false,
+      "poster_path": "/7GtX3NDh8S8ImqtTp4Ww02SXh4B.jpg",
+      "id": 567714,
+      "adult": false,
+      "backdrop_path": "/acVxD0LJifkKc9gZrQHjPoxxqtA.jpg",
+      "original_language": "en",
+      "original_title": "The Roads Not Taken",
+      "genre_ids": [
+        18
+      ],
+      "title": "The Roads Not Taken",
+      "vote_average": 4.5,
+      "overview": "The film follows 24 hours in the life of father and daughter Leo and Molly as she grapples with the challenges of dealing with her father’s chaotic mental state. But as they weave their way around New York City, their ordinary but stressful day takes on a hallucinatory and epic quality, for Leo is seamlessly flowing in and out of several parallel lives; a passionate marriage with his childhood sweetheart Dolores in Mexico; a struggling career as a drummer in Manhattan with his more successful lover, Adam; and a life of solitude on a remote Greek island, where a chance encounter with two young tourists unmasks the uncomfortable truths of a family life left behind...",
+      "release_date": "2020-03-13"
+    },
+    {
+      "popularity": 12.293,
+      "vote_count": 0,
+      "video": false,
+      "poster_path": "/niyXFhGIk4W2WTcX2Eod8vx2Mfe.jpg",
+      "id": 686245,
+      "adult": false,
+      "backdrop_path": "/pPguXG07MDRKH1agJdw1mWzuEkP.jpg",
+      "original_language": "en",
+      "original_title": "Survive the Night",
+      "genre_ids": [
+        28,
+        53
+      ],
+      "title": "Survive the Night",
+      "vote_average": 0,
+      "overview": "A disgraced doctor and his family are held hostage at their home by criminals on the run, when a robbery-gone-awry requires them to seek immediate medical attention.",
+      "release_date": "2020-05-22"
+    },
+    {
+      "popularity": 11.731,
+      "vote_count": 69,
+      "video": false,
+      "poster_path": "/41YWD0M32uo6ekBEvVrQgidyemB.jpg",
+      "id": 478860,
+      "adult": false,
+      "backdrop_path": "/e8Cqw8U7vCcMrH1dHYZT9O01Jiy.jpg",
+      "original_language": "fr",
+      "original_title": "Proxima",
+      "genre_ids": [
+        28,
+        18
+      ],
+      "title": "Proxima",
+      "vote_average": 6.7,
+      "overview": "Sarah is a French astronaut training at the European Space Agency in Cologne. She is the only woman in the arduous program. She lives alone with Stella, her seven year old daughter. Sarah feels guilty that she cannot spend more time with her child. Her love is overpowering, unsettling. When Sarah is chosen to join the crew of a year-long space mission called Proxima, it creates chaos in the mother-daughter relationship.",
+      "release_date": "2019-11-27"
+    }
+  ],
+  "page": 1,
+  "total_results": 118,
+  "dates": {
+    "maximum": "2020-05-26",
+    "minimum": "2020-05-07"
+  },
+  "total_pages": 6
+}

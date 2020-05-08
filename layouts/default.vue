@@ -7,9 +7,9 @@
   </div>
 </template>
 <script>
-import EchNavbarMain from '../components/navbar/EchNavbarMain'
-import EchContactFooterMain from '../components/footer/EchContactFooterMain'
-import EchFooterMain from '../components/footer/EchFooterMain'
+import EchNavbarMain from './navbar/EchNavbarMain'
+import EchContactFooterMain from './footer/EchContactFooterMain'
+import EchFooterMain from './footer/EchFooterMain'
 export default {
   components: {
     EchNavbarMain,

@@ -29,8 +29,8 @@ class GetPopularTvShowRepository {
 }
 
 class GetPopularTvShowRepositoryRequest {
-  constructor({ page, language }) {
-    this.page = page || 1
+  constructor({ page = 1, language = 'es' }) {
+    this.page = page
     this.language = language
   }
 }
@@ -54,15 +54,14 @@ class GetPopularTvShowRepositoryResponseResult {
     title,
     name,
     vote_account,
-    vote_average,
+    vote_average = 5,
     release_date,
     overview,
     adult,
     genre_ids,
     poster_path,
     backdrop_path,
-    popularity,
-    media_type
+    popularity
   }) {
     this._id = id
     this._title = title
@@ -76,7 +75,6 @@ class GetPopularTvShowRepositoryResponseResult {
     this._poster_path = poster_path
     this._backdrop_path = backdrop_path
     this._popularity = popularity
-    this._media_type = media_type
   }
 }
 

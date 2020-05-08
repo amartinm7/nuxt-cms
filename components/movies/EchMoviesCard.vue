@@ -96,7 +96,7 @@ export default {
     getMovieDetailURL(movie_id, movie_title) {
       const language = this.$i18n.locale
       const slugger = ServiceLocator.Slugger.sluggify([movie_title])
-      return `/${language}/movies/${movie_id}-${slugger}`
+      return `/${language}/movies/details/${movie_id}-${slugger}`
     },
     getPosterURL(posterPath) {
       return `https://image.tmdb.org/t/p/w185_and_h278_bestv2/${posterPath}`

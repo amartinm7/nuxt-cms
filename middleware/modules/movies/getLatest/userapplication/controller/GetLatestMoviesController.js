@@ -1,12 +1,27 @@
 /* eslint-disable camelcase, no-console */
+import { GetLatestMoviesServiceRequest } from '../../application/usecase/GetLatestMoviesService'
+
 class GetLatestMoviesController {
   constructor({ getLatestMoviesService }) {
     this._getLatestMoviesService = getLatestMoviesService
   }
 
-  execute() {
+  async execute(getLatestTvShowControllerRequest) {
     console.log('>>>GetLatestMoviesController.execute')
+    const getLatestMoviesServiceResponse = await this._getLatestMoviesService.execute(
+      new GetLatestMoviesServiceRequest({
+        ...getLatestTvShowControllerRequest
+      })
+    )
+    return getLatestMoviesServiceResponse
   }
 }
 
-export { GetLatestMoviesController }
+/* eslint-disable camelcase */
+class GetLatestMoviesControllerRequest {
+  constructor({ language }) {
+    this.language = language
+  }
+}
+
+export { GetLatestMoviesController, GetLatestMoviesControllerRequest }

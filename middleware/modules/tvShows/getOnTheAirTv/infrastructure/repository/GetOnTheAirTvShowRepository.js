@@ -29,8 +29,8 @@ class GetOnTheAirTvShowRepository {
 }
 
 class GetOnTheAirTvShowRepositoryRequest {
-  constructor({ page, language }) {
-    this.page = page || 1
+  constructor({ page = 1, language = 'es' }) {
+    this.page = page
     this.language = language
   }
 }
@@ -61,8 +61,7 @@ class GetOnTheAirTvShowRepositoryResponseResult {
     genre_ids,
     poster_path,
     backdrop_path,
-    popularity,
-    media_type
+    popularity
   }) {
     this._id = id
     this._title = title
@@ -76,7 +75,6 @@ class GetOnTheAirTvShowRepositoryResponseResult {
     this._poster_path = poster_path
     this._backdrop_path = backdrop_path
     this._popularity = popularity
-    this._media_type = media_type
   }
 }
 

@@ -31,7 +31,7 @@ class GetTvShowDetailsRepository {
 
 /* eslint-disable camelcase */
 class GetTvShowDetailsRepositoryRequest {
-  constructor({ movie_id, language }) {
+  constructor({ movie_id, language = 'es' }) {
     this.movie_id = movie_id
     this.language = language
   }

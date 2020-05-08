@@ -1,3 +1,23 @@
+import { commandActions } from './store/commandActions/commandActionsStore'
+
+const dynamicRoutes = () => {
+  // fetching tvs
+  const routesForTv = Object.keys(commandActions.tv).map((action) => {
+    return {
+      route: `/tvshows/${action}`,
+      payload: action
+    }
+  })
+  // fetching movies
+  const routesForMovies = Object.keys(commandActions.movies).map((action) => {
+    return {
+      route: `/movies/${action}`,
+      payload: action
+    }
+  })
+  return routesForTv.concat(routesForMovies)
+}
+
 export default {
   mode: 'universal',
   /**
@@ -129,10 +149,9 @@ export default {
      ** You can extend webpack config here
      */
     extend(config, ctx) {}
-  }
-  /**
+  },
   generate: {
-    routes: ['/es', '/en', '/es/movies', '/en/movies']
+    // routes: ['/es', '/en', '/es/movies', '/en/movies']
+    routes: dynamicRoutes
   }
-   */
 }

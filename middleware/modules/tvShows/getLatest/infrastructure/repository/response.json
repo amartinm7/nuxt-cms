@@ -1,0 +1,54 @@
+{
+  "backdrop_path": "/libqCOlL2NegMSN2MPx2yJsVGjB.jpg",
+  "created_by": [],
+  "episode_run_time": [],
+  "first_air_date": "2017-11-18",
+  "genres": [],
+  "homepage": "",
+  "id": 102719,
+  "in_production": false,
+  "languages": [
+    "fa"
+  ],
+  "last_air_date": "2017-11-18",
+  "last_episode_to_air": {
+    "air_date": "2017-11-18",
+    "episode_number": 1,
+    "id": 2243377,
+    "name": "Facebook com Gasmat 01",
+    "overview": "Facebook com Gasmat 01",
+    "production_code": "",
+    "season_number": 1,
+    "show_id": 102719,
+    "still_path": null,
+    "vote_average": 0,
+    "vote_count": 0
+  },
+  "name": "facebook.com",
+  "next_episode_to_air": null,
+  "networks": [],
+  "number_of_episodes": 1,
+  "number_of_seasons": 1,
+  "origin_country": [],
+  "original_language": "fa",
+  "original_name": "فیس بوک.com",
+  "overview": "Sami is a beautiful young man who lives in a middle-class family. Due to poverty, he could not enter the university, but at the same time he took educational courses in which he learned to use the Internet and English.\n\nBecause Sami is the only son in the family, he is a bit of a jerk, he is somewhat arrogant and doesn't have much understanding.\n\nSami spends most of his time in the virtual world, especially on Facebook, until one day a girl meets him. The girl tells him that she is the daughter of an oil trader and has $ 2.5 million in a German bank. Suppose she is married.",
+  "popularity": 0,
+  "poster_path": "/hKBQpcLZQRpOONu487ZxvKnbdRH.jpg",
+  "production_companies": [],
+  "seasons": [
+    {
+      "air_date": "2017-11-18",
+      "episode_count": 1,
+      "id": 149337,
+      "name": "Season 1",
+      "overview": "",
+      "poster_path": null,
+      "season_number": 1
+    }
+  ],
+  "status": "Ended",
+  "type": "Scripted",
+  "vote_average": 0,
+  "vote_count": 0
+}
