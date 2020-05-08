@@ -31,7 +31,7 @@ class GetAiringTodayTvShowRepository {
 }
 
 class GetAiringTodayTvShowRepositoryRequest {
-  constructor({ page, language }) {
+  constructor({ page = 1, language = 'es' }) {
     this.page = page || 1
     this.language = language
   }

@@ -12,13 +12,11 @@ export default {
     news: 'Noticias',
     tv: {
       airingToday: 'Emitidas Hoy',
-      latest: 'Ultimas',
       onTheAirTv: 'Emitiendo',
       popular: 'Populares',
       topRated: 'Mas Valoradas'
     },
     movies: {
-      latest: 'Ultimas',
       nowPlaying: 'En cartelera',
       popular: 'Populares',
       topRated: 'Mas Valoradas',

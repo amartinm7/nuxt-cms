@@ -5,7 +5,6 @@ const actions = {
   tv: {
     airingToday: BeanContainerRegistry.getBeanContainer()
       .getAiringTodayTvShowController,
-    latest: BeanContainerRegistry.getBeanContainer().getLatestTvShowController,
     onTheAirTv: BeanContainerRegistry.getBeanContainer()
       .getOnTheAirTvShowController,
     popular: BeanContainerRegistry.getBeanContainer()
@@ -13,8 +12,7 @@ const actions = {
     topRated: BeanContainerRegistry.getBeanContainer()
       .getTopRatedTvShowController
   },
-  movies: {
-    latest: BeanContainerRegistry.getBeanContainer().getLatestMoviesController,
+  movie: {
     nowPlaying: BeanContainerRegistry.getBeanContainer()
       .getNowPlayingMoviesController,
     popular: BeanContainerRegistry.getBeanContainer()

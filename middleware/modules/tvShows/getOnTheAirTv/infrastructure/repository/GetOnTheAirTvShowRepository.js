@@ -29,8 +29,8 @@ class GetOnTheAirTvShowRepository {
 }
 
 class GetOnTheAirTvShowRepositoryRequest {
-  constructor({ page, language }) {
-    this.page = page || 1
+  constructor({ page = 1, language = 'es' }) {
+    this.page = page
     this.language = language
   }
 }

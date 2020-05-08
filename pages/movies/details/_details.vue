@@ -14,9 +14,9 @@
 
 <script>
 /* eslint-disable camelcase, no-console */
-import EchMoviesCard from '../../components/movies/EchMoviesCard'
-import { BeanContainerRegistry } from '../../middleware/BeanContainerRegistry'
-import { GetMovieDetailsControllerRequest } from '../../middleware/modules/movies/getDetails/userapplication/controller/GetMovieDetailsController'
+import EchMoviesCard from '../../../components/movies/EchMoviesCard'
+import { BeanContainerRegistry } from '../../../middleware/BeanContainerRegistry'
+import { GetMovieDetailsControllerRequest } from '../../../middleware/modules/movies/getDetails/userapplication/controller/GetMovieDetailsController'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {

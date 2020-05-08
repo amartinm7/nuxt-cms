@@ -34,10 +34,10 @@
     </section>
     <section class="uk-section uk-section-xsmall">
       <div>
-        <ech-tv-show-card
-          :movies="trendingTVShows._results"
+        <ech-movies-card
+          :movies="trendingMovies._results"
           class="ech-scroll-spy-effect"
-        ></ech-tv-show-card>
+        ></ech-movies-card>
       </div>
     </section>
   </div>
@@ -46,27 +46,32 @@
 <!-- eslint-enable -->
 <script>
 /* eslint-disable camelcase, no-console */
-import EchTvShowCard from '../../components/movies/EchTvShowCard'
-import { MEDIA_TYPES } from '../../middleware/modules/trending/getTrending/adomain/TrendingTypes'
-import ActionMapper from '../../middleware/ActionMapper'
+import { MEDIA_TYPES } from '../../../middleware/modules/trending/getTrending/adomain/TrendingTypes'
+import ActionMapper from '../../../middleware/ActionMapper'
+import EchMoviesCard from '../../../components/movies/EchMoviesCard'
 
 export default {
-  components: { EchTvShowCard },
+  components: { EchMoviesCard },
   // eslint-disable-next-line require-await
-  async asyncData({ app, params, store }) {
+  async asyncData({ app, params, store, route }) {
+    console.log('movies index ')
     const language = app.i18n.locale
     const mediaType = MEDIA_TYPES.MOVIE
-    const action =
-      store.getters['commandActions/commandActionsStore/getActionForMovies']
-    const trendingTVShows = await ActionMapper.getController({
+    console.log(route)
+    console.log(params)
+    const action = params.upcoming
+    // const action =
+    //   store.getters['commandActions/commandActionsStore/getActionForMovies']
+    // console.log('action ' + action)
+    const trendingMovies = await ActionMapper.getController({
       mediaType,
       action
     }).execute({ language })
-    return { trendingTVShows }
+    return { trendingMovies }
   },
   data() {
     return {
-      trendingTVShows: {
+      trendingMovies: {
         _page: 1,
         _total_pages: 1,
         _total_results: 1,

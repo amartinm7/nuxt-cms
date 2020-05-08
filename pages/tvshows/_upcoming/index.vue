@@ -46,18 +46,22 @@
 <!-- eslint-enable -->
 <script>
 /* eslint-disable camelcase, no-console */
-import EchTvShowCard from '../../components/movies/EchTvShowCard'
-import { MEDIA_TYPES } from '../../middleware/modules/trending/getTrending/adomain/TrendingTypes'
-import ActionMapper from '../../middleware/ActionMapper'
+import EchTvShowCard from '../../../components/movies/EchTvShowCard'
+import { MEDIA_TYPES } from '../../../middleware/modules/trending/getTrending/adomain/TrendingTypes'
+import ActionMapper from '../../../middleware/ActionMapper'
 
 export default {
   components: { EchTvShowCard },
   // eslint-disable-next-line require-await
-  async asyncData({ app, params, store }) {
+  async asyncData({ app, params, store, route }) {
     const language = app.i18n.locale
     const mediaType = MEDIA_TYPES.TV
-    const action =
-      store.getters['commandActions/commandActionsStore/getActionForTvShows']
+    console.log(route)
+    console.log(params)
+    const action = params.upcoming
+    // const action =
+    //   store.getters['commandActions/commandActionsStore/getActionForTvShows']
+    // console.log('action ' + action)
     const trendingTVShows = await ActionMapper.getController({
       mediaType,
       action

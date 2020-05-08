@@ -33,16 +33,14 @@ export const actions = {
 export const commandActions = {
   tv: {
     airingToday: 'airingToday',
-    latest: 'latest',
     onTheAirTv: 'onTheAirTv',
     popular: 'popular',
     topRated: 'topRated'
   },
   movies: {
-    latest: 'latest',
     nowPlaying: 'nowPlaying',
     popular: 'popular',
     topRated: 'topRated',
-    upcoming: 'upcoming'
+    upcodming: 'upcoming'
   }
 }

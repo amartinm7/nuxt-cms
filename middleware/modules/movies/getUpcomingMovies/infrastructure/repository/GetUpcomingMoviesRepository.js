@@ -13,7 +13,7 @@ class GetUpcomingMoviesRepository {
    */
   execute(getUpcomingMoviesRepositoryRequest) {
     const { page, language } = { ...getUpcomingMoviesRepositoryRequest }
-    const urlPath = `/tv/upcoming?language=${language}&page=${page}`
+    const urlPath = `/movie/upcoming?language=${language}&page=${page}`
     return this._axios(
       new GetAxiosRequest({
         accessToken: this._accessToken,
@@ -29,7 +29,7 @@ class GetUpcomingMoviesRepository {
 }
 
 class GetUpcomingMoviesRepositoryRequest {
-  constructor({ page, language }) {
+  constructor({ page = 1, language = 'es' }) {
     this.page = page
     this.language = language
   }

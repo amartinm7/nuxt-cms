@@ -201,12 +201,81 @@
             >
               <div class="uk-navbar-center">
                 <ul class="uk-navbar-nav">
-                  <li>
+                  <li class="uk-parent">
                     <nuxt-link
                       :to="localePath('/')"
-                      class=" menu-item menu-item-type-custom menu-item-object-custom"
-                      >{{ $t('pages.accion') }}</nuxt-link
+                      class=" menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"
+                      aria-expanded="false"
                     >
+                      <span
+                        class="uk-margin-small-right uk-icon ech-spin-icon"
+                        uk-icon="icon: tv; "
+                      ></span
+                      >TV</nuxt-link
+                    >
+                    <div class="uk-navbar-dropdown">
+                      <div
+                        class="uk-navbar-dropdown-grid uk-child-width-1-1 uk-grid uk-grid-stack"
+                        uk-grid=""
+                      >
+                        <div>
+                          <ul class="uk-nav uk-navbar-dropdown-nav">
+                            <nuxt-link
+                              v-for="(keyMessage, i) in showMenuListForTvShows"
+                              :key="i"
+                              :to="getTvShowTopListlURL(keyMessage)"
+                              class="uk-link-reset"
+                            >
+                              <li>
+                                <span
+                                  class="uk-margin-small-right uk-icon ech-spin-icon"
+                                  uk-icon="icon: tv; "
+                                ></span
+                                >{{ translateKeyMessageForTvShows(keyMessage) }}
+                              </li>
+                            </nuxt-link>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="uk-parent">
+                    <nuxt-link
+                      :to="localePath('/')"
+                      class=" menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"
+                      aria-expanded="false"
+                    >
+                      <span
+                        class="uk-margin-small-right uk-icon ech-spin-icon"
+                        uk-icon="icon: video-camera; "
+                      ></span
+                      >{{ $t('movies') }}</nuxt-link
+                    >
+                    <div class="uk-navbar-dropdown">
+                      <div
+                        class="uk-navbar-dropdown-grid uk-child-width-1-1 uk-grid uk-grid-stack"
+                        uk-grid=""
+                      >
+                        <div>
+                          <ul class="uk-nav uk-navbar-dropdown-nav">
+                            <nuxt-link
+                              v-for="(keyMessage, i) in showMenuListForMovies"
+                              :key="i"
+                              :to="getMoviesTopListlURL(keyMessage)"
+                              class="uk-link-reset"
+                            >
+                              <li>
+                                <span
+                                  class="uk-margin-small-right uk-icon ech-spin-icon"
+                                  uk-icon="icon: video-camera; "
+                                ></span
+                                >{{ translateKeyMessageForMovies(keyMessage) }}
+                              </li>
+                            </nuxt-link>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
                   </li>
                   <li>
                     <nuxt-link
@@ -314,20 +383,22 @@ export default {
       return this.$i18n.messages[this.$i18n.locale].pages.movies[key]
     },
     getTvShowTopListlURL(actionName) {
+      // console.log('getTvShowTopListlURL actionName ' + actionName)
       const language = this.$i18n.locale
-      this.$store.dispatch(
-        'commandActions/commandActionsStore/setActionForTvShows',
-        actionName
-      )
-      return `/${language}/tvshows/`
+      // this.$store.dispatch(
+      //   'commandActions/commandActionsStore/setActionForTvShows',
+      //   actionName
+      // )
+      return `/${language}/tvshows/${actionName}/`
     },
     getMoviesTopListlURL(actionName) {
+      // console.log('getMoviesTopListlURL actionName ' + actionName)
       const language = this.$i18n.locale
-      this.$store.dispatch(
-        'commandActions/commandActionsStore/setActionForMovies',
-        actionName
-      )
-      return `/${language}/movies/`
+      // this.$store.dispatch(
+      //   'commandActions/commandActionsStore/setActionForMovies',
+      //   actionName
+      // )
+      return `/${language}/movies/${actionName}/`
     }
   }
 }

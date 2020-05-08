@@ -92,6 +92,9 @@ export default {
       videoFrameInstance: undefined
     }
   },
+  mounted() {
+    console.log('loading EchMoviesCard')
+  },
   methods: {
     getMovieDetailURL(movie_id, movie_title) {
       const language = this.$i18n.locale

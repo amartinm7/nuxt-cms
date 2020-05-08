@@ -31,7 +31,7 @@ class GetTvShowsVideosRepository {
 
 /* eslint-disable camelcase */
 class GetTvShowsVideosRepositoryRequest {
-  constructor({ movie_id, isoLangCode }) {
+  constructor({ movie_id, isoLangCode = 'es' }) {
     this.movie_id = movie_id
     this.isoLangCode = isoLangCode
   }

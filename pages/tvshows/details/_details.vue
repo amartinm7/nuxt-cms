@@ -13,9 +13,9 @@
 <!-- eslint-enable -->
 <script>
 /* eslint-disable camelcase, no-console */
-import { BeanContainerRegistry } from '../../middleware/BeanContainerRegistry'
-import EchTvShowCard from '../../components/movies/EchTvShowCard'
-import { GetTvShowDetailsControllerRequest } from '../../middleware/modules/tvShows/getDetails/userapplication/controller/GetTvShowDetailsController'
+import { BeanContainerRegistry } from '../../../middleware/BeanContainerRegistry'
+import EchTvShowCard from '../../../components/movies/EchTvShowCard'
+import { GetTvShowDetailsControllerRequest } from '../../../middleware/modules/tvShows/getDetails/userapplication/controller/GetTvShowDetailsController'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
