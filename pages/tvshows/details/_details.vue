@@ -23,9 +23,7 @@ export default {
   components: { EchTvShowCard },
   // eslint-disable-next-line require-await
   async asyncData({ app, route, params, store }) {
-    console.log('asyncdata _details....')
     const language = app.i18n.locale
-    console.log('/pages/tvshows...' + app.i18n.locale)
     const movie_id = params.details.split('-')[0]
     const getTvShowDetailsControllerResponse = await beanContainer.getTvShowDetailsController.execute(
       new GetTvShowDetailsControllerRequest({ movie_id, language })

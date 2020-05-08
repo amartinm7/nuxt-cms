@@ -54,11 +54,8 @@ export default {
   components: { EchMoviesCard },
   // eslint-disable-next-line require-await
   async asyncData({ app, params, store, route }) {
-    console.log('movies index ')
     const language = app.i18n.locale
     const mediaType = MEDIA_TYPES.MOVIE
-    console.log(route)
-    console.log(params)
     const action = params.upcoming
     // const action =
     //   store.getters['commandActions/commandActionsStore/getActionForMovies']
