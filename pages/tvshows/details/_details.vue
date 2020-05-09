@@ -50,7 +50,7 @@ export default {
   head() {
     const vm = this
     return {
-      title: `${vm.movies[0]._name}`,
+      title: `Estrenos Cine Hoy: ${vm.movies[0]._name}`,
       meta: [
         {
           name: 'keywords',

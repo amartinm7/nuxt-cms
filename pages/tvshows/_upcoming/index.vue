@@ -60,7 +60,11 @@ export default {
   },
   head() {
     return {
-      title: 'Estrenos Cine Hoy',
+      title: `Estrenos Cine Hoy: ${
+        this.$i18n.messages[this.$i18n.locale].pages.tv[
+          this.$route.params.upcoming
+        ]
+      }`,
       meta: [
         {
           name: 'keywords',

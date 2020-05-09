@@ -116,7 +116,7 @@ export default {
   },
   head() {
     return {
-      title: 'Estrenos Cine Hoy',
+      title: this.$i18n.messages[this.$i18n.locale].seo.index,
       meta: [
         {
           name: 'keywords',

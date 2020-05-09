@@ -1,6 +1,9 @@
 export default {
   hello: 'helloxxx',
   movies: 'Movies',
+  seo: {
+    index: 'Estrenos cine hoy: all the tv shows and the cinema in a one click!'
+  },
   pages: {
     home: 'Estrenos cine hoy',
     accion: 'Accion',

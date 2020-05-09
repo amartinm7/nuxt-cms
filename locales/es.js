@@ -1,6 +1,9 @@
 export default {
   hello: 'hellobdsdd',
   movies: 'Cine',
+  seo: {
+    index: 'Estrenos cine hoy: todas las series de tv y cine a un click!'
+  },
   pages: {
     home: 'Estrenos cine hoy',
     accion: 'Accion',
