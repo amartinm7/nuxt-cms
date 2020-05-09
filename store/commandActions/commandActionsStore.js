@@ -41,6 +41,6 @@ export const commandActions = {
     nowPlaying: 'nowPlaying',
     popular: 'popular',
     topRated: 'topRated',
-    upcodming: 'upcoming'
+    upcoming: 'upcoming'
   }
 }
