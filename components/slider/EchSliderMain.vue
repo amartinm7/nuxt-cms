@@ -9,7 +9,7 @@
         <li v-for="movie in movies" :key="movie._id" :todo="movie">
           <nuxt-link
             class="uk-link-reset"
-            :to="getMovieDetailURL(movie._id, movie._name)"
+            :to="getMovieDetailURL(movie._id, movie._title || movie._name)"
           >
             <img :src="getPosterURL(movie._poster_path)" alt="movie._name" />
             <div class="uk-positio  n-center uk-panel"></div>
