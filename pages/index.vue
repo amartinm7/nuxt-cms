@@ -1,7 +1,11 @@
 <template>
   <div>
     <section class="uk-section uk-section-xsmall">
-      <div
+      <ech-slider-main
+        :movies="trendingMovies._results"
+        class="ech-scroll-spy-effect"
+      ></ech-slider-main>
+      <!--      <div
         class="uk-position-relative uk-visible-toggle uk-light uk-width-auto"
       >
         <a
@@ -30,7 +34,7 @@
             title="main-cover"
           ></iframe>
         </div>
-      </div>
+      </div>-->
     </section>
     <section class="uk-section uk-section-xsmall">
       <ul uk-tab class="uk-flex uk-flex-around">
@@ -66,10 +70,11 @@
 import EchTvShowCard from '../components/movies/EchTvShowCard'
 import EchMoviesCard from '../components/movies/EchMoviesCard'
 import { BeanContainerRegistry } from '../middleware/BeanContainerRegistry'
+import EchSliderMain from '../components/slider/EchSliderMain'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
-  components: { EchTvShowCard, EchMoviesCard },
+  components: { EchSliderMain, EchTvShowCard, EchMoviesCard },
   // eslint-disable-next-line require-await
   async asyncData({ app, params, store }) {
     const language = app.i18n.locale
