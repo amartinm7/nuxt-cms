@@ -11,7 +11,6 @@
 </template>
 <!-- eslint-disable -->
 <!-- eslint-enable -->
-
 <script>
 /* eslint-disable camelcase, no-console */
 import EchMoviesCard from '../../../components/movies/EchMoviesCard'
