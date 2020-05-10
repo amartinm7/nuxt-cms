@@ -363,6 +363,7 @@
 export default {
   computed: {
     showLocales() {
+      // eslint-disable-next-line no-console
       console.log('showLocales... ' + this.$i18n.locale)
       return this.$i18n.locales.filter(
         (locale) => locale.code !== this.$i18n.locale
@@ -383,7 +384,6 @@ export default {
       return this.$i18n.messages[this.$i18n.locale].pages.movies[key]
     },
     getTvShowTopListlURL(actionName) {
-      // console.log('getTvShowTopListlURL actionName ' + actionName)
       const language = this.$i18n.locale
       // this.$store.dispatch(
       //   'commandActions/commandActionsStore/setActionForTvShows',
@@ -392,7 +392,6 @@ export default {
       return `/${language}/tvshows/${actionName}/`
     },
     getMoviesTopListlURL(actionName) {
-      // console.log('getMoviesTopListlURL actionName ' + actionName)
       const language = this.$i18n.locale
       // this.$store.dispatch(
       //   'commandActions/commandActionsStore/setActionForMovies',
