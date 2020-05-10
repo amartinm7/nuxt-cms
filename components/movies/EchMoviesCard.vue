@@ -130,7 +130,7 @@ export default {
           movie_title: movie._title
         }
       }).$mount(`#videoFrame${movie._id}`)
-      this.$uikit.modal(`#openVideo${movie._id}`).show()
+      vm.$uikit.modal(`#openVideo${movie._id}`).show()
     }
   }
 }
