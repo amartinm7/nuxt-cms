@@ -7,6 +7,18 @@
       class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin"
       uk-grid
     >
+      <div :id="`openVideo${movie._id}`" class="uk-flex-top" uk-modal>
+        <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+          <button class="uk-modal-close-default" type="button" uk-close>
+            Close
+          </button>
+          <div
+            v-if="showVideo"
+            :id="`videoFrame${movie._id}`"
+            @focusout="closeModal()"
+          ></div>
+        </div>
+      </div>
       <div class="uk-position-relative uk-visible-toggle uk-light">
         <span class="uk-card-badge uk-label-success ech-basic">
           &nbsp;{{ movie._vote_average.toFixed(1) }}&nbsp;
@@ -36,6 +48,7 @@
           <p class="uk-dropcap">{{ movie._overview }}</p>
         </div>
       </div>
+      <!--
       <div :id="`openVideo${movie._id}`" class="uk-flex-top" uk-modal>
         <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
           <button class="uk-modal-close-default" type="button" uk-close>
@@ -48,6 +61,7 @@
           ></div>
         </div>
       </div>
+-->
     </article>
   </div>
 </template>
