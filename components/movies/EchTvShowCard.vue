@@ -127,7 +127,9 @@ export default {
           movie_title: movie._name
         }
       }).$mount(`#videoFrame${movie._id}`)
-      vm.$uikit.modal(`#openVideo${movie._id}`).show()
+      vm.$nextTick(function() {
+        vm.$uikit.modal(`#openVideo${movie._id}`).show()
+      })
     }
   }
 }
