@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- header to mobile -->
-    <div class="uk-hidden@m">
+    <div class="uk-hidden@m" uk-sticky>
       <div class="uk-navbar-container">
         <nav uk-navbar="" class="uk-navbar">
           <div class="uk-navbar-left">

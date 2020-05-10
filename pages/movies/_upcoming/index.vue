@@ -8,6 +8,9 @@
       </ech-slider-main>
     </section>
     <section class="uk-section uk-section-xsmall">
+      <h1 class="uk-text-lead uk-text-center">{{ getSection() }}</h1>
+    </section>
+    <section class="uk-section uk-section-xsmall">
       <div>
         <ech-movies-card
           :movies="trendingMovies._results"
@@ -56,15 +59,16 @@ export default {
   methods: {
     getPosterURL(posterPath) {
       return `https://image.tmdb.org/t/p/w185_and_h278_bestv2/${posterPath}`
+    },
+    getSection() {
+      return this.$i18n.messages[this.$i18n.locale].pages.movies[
+        this.$route.params.upcoming
+      ]
     }
   },
   head() {
     return {
-      title: `Estrenos Cine Hoy: ${
-        this.$i18n.messages[this.$i18n.locale].pages.movies[
-          this.$route.params.upcoming
-        ]
-      }`,
+      title: `Estrenos Cine Hoy: ${this.getSection()}`,
       meta: [
         {
           name: 'keywords',
