@@ -14,6 +14,9 @@ class GetTvShowsVideosController {
   }
 
   async getFirstVideoURL(getTvShowsVideosControllerRequest) {
+    const { movie_name, movie_id, isoLangCode } = {
+      ...getTvShowsVideosControllerRequest
+    }
     const getTvShowsVideosServiceResponse = await this.execute(
       getTvShowsVideosControllerRequest
     )
@@ -27,12 +30,14 @@ class GetTvShowsVideosController {
     }
     const key = getTvShowsVideosServiceResponse._results[0]._key
     const url = `https://www.youtube.com/embed/${key}?autoplay=1&amp;showinfo=0&amp;rel=0&amp;modestbranding=1&amp;playsinline=1`
+    console.log(`tvVideo: ${movie_id}, ${movie_name}, ${isoLangCode}, ${url}`)
     return { url }
   }
 }
 /* eslint-disable camelcase */
 class GetTvShowsVideosControllerRequest {
-  constructor({ movie_id, isoLangCode }) {
+  constructor({ movie_name, movie_id, isoLangCode }) {
+    this._movie_name = movie_name
     this.movie_id = movie_id
     this.isoLangCode = isoLangCode
   }
