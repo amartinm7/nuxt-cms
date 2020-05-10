@@ -13,7 +13,7 @@
             Close
           </button>
           <div
-            v-if="showVideo"
+            v-show="showVideo"
             :id="`videoFrame${movie._id}`"
             @focusout="closeModal()"
           ></div>
