@@ -7,6 +7,18 @@
       class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin"
       uk-grid
     >
+      <div :id="`openVideo${movie._id}`" class="uk-flex-top" uk-modal>
+        <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+          <button class="uk-modal-close-default" type="button" uk-close>
+            Close
+          </button>
+          <div
+            v-if="showVideo"
+            :id="`videoFrame${movie._id}`"
+            @focusout="closeModal()"
+          ></div>
+        </div>
+      </div>
       <div class="uk-position-relative uk-visible-toggle uk-light">
         <span class="uk-card-badge uk-label-success ech-basic">
           &nbsp;{{ movie._vote_average.toFixed(1) }}&nbsp;
@@ -36,24 +48,46 @@
           <p class="uk-dropcap">{{ movie._overview }}</p>
         </div>
       </div>
+      <!--
+      <div :id="`openVideo${movie._id}`" class="uk-flex-top" uk-modal>
+        <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+          <button class="uk-modal-close-default" type="button" uk-close>
+            Close
+          </button>
+          <div
+            v-if="showVideo"
+            :id="`videoFrame${movie._id}`"
+            @focusout="closeModal()"
+          ></div>
+        </div>
+      </div>
+-->
     </article>
   </div>
 </template>
 <script>
 /* eslint-disable camelcase, no-console */
+import Vue from 'vue'
 import { BeanContainerRegistry } from '../../middleware/BeanContainerRegistry'
 import { GetTvShowsVideosControllerRequest } from '../../middleware/modules/tvShows/getVideos/userapplication/controller/GetTvShowsVideosController'
 import * as ServiceLocator from '../../middleware/framework/modules/ServiceLocator'
+import VideoFrame from './EchVideoFrame'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
-  name: 'EchTvShowCard',
+  name: 'EchTvShowCardOld',
   props: {
     movies: {
       type: Array,
       default() {
         return []
       }
+    }
+  },
+  data() {
+    return {
+      showVideo: true,
+      videoFrameInstance: undefined
     }
   },
   methods: {
@@ -70,6 +104,11 @@ export default {
         (locale) => locale.code === this.$i18n.locale
       )
     },
+    closeModal() {
+      console.log('destroy videoFrameInstance')
+      this.showVideo = false
+      this.videoFrameInstance.$destroy(true)
+    },
     async initVideoURL(movie) {
       const vm = this
       console.log('initVideoURL...' + vm.$uikit.modal(`#openVideo${movie._id}`))
@@ -81,7 +120,20 @@ export default {
           isoLangCode
         })
       )
-      this.$emit('open-video-modal', getTvShowsVideosControllerResponse.url)
+      vm.showVideo = true
+      const VideoFrameClass = Vue.extend(VideoFrame)
+      new VideoFrameClass({
+        propsData: {
+          url: getTvShowsVideosControllerResponse.url,
+          movie_id: movie._id,
+          movie_title: movie._name
+        }
+      }).$mount(`#videoFrame${movie._id}`)
+      vm.$nextTick(function() {
+        console.log(vm.$uikit)
+        console.log(vm.$uikit.modal(`#openVideo${movie._id}`))
+        vm.$uikit.modal(`#openVideo${movie._id}`).show()
+      })
     }
   }
 }
