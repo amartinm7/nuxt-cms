@@ -1,6 +1,12 @@
 <template>
   <div>
     <section class="uk-section uk-section-xsmall">
+      <ech-video-frame-x
+        :url="url"
+        @clear-video-url="clearVideoURL"
+      ></ech-video-frame-x>
+    </section>
+    <section class="uk-section uk-section-xsmall">
       <ech-slider-main
         :movies="trendingMovies._results"
         class="ech-scroll-spy-effect"
@@ -21,12 +27,14 @@
           <ech-movies-card
             :movies="trendingMovies._results"
             class="ech-scroll-spy-effect"
+            @open-video-modal="playVideoURL"
           ></ech-movies-card>
         </div>
         <div>
           <ech-tv-show-card
             :movies="trendingTVShows._results"
             class="ech-scroll-spy-effect"
+            @open-video-modal="playVideoURL"
           ></ech-tv-show-card>
         </div>
       </div>
@@ -41,10 +49,11 @@ import EchTvShowCard from '../components/movies/EchTvShowCard'
 import EchMoviesCard from '../components/movies/EchMoviesCard'
 import { BeanContainerRegistry } from '../middleware/BeanContainerRegistry'
 import EchSliderMain from '../components/slider/EchSliderMain'
+import EchVideoFrameX from '../components/movies/EchVideoFrameX'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
-  components: { EchSliderMain, EchTvShowCard, EchMoviesCard },
+  components: { EchVideoFrameX, EchSliderMain, EchTvShowCard, EchMoviesCard },
   // eslint-disable-next-line require-await
   async asyncData({ app, params, store }) {
     const language = app.i18n.locale
@@ -75,13 +84,24 @@ export default {
         _total_pages: 1,
         _total_results: 1,
         _results: []
-      }
+      },
+      url:
+        'https://www.youtube.com/embed/Yj0l7iGKh8g?autoplay=1&amp;showinfo=0&amp;rel=0&amp;modestbranding=1&amp;playsinline=1'
     }
   },
   created() {},
   methods: {
     getPosterURL(posterPath) {
       return `https://image.tmdb.org/t/p/w185_and_h278_bestv2/${posterPath}`
+    },
+    playVideoURL(url) {
+      console.log('playVideoURL url...' + url)
+      this.url = url
+      this.$uikit.modal('#modal-center').show()
+    },
+    clearVideoURL() {
+      console.log('reset url...')
+      this.url = ''
     }
   },
   head() {
