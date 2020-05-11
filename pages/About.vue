@@ -21,6 +21,7 @@ export default {
   },
   created() {
     // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining
+    // eslint-disable-next-line no-console
     console.log('created........')
     const customer = {
       name: 'Carl',
@@ -33,8 +34,10 @@ export default {
       }
     }
     const customerCity = customer.details?.address?.city
+    // eslint-disable-next-line no-console
     console.log(customerCity)
     const nothing = customer.details?.address?.city?.nothing
+    // eslint-disable-next-line no-console
     console.log(nothing)
   }
 }

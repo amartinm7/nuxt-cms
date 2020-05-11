@@ -7,6 +7,18 @@
       class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin"
       uk-grid
     >
+      <div :id="`openVideo${movie._id}`" class="uk-flex-top" uk-modal>
+        <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+          <button class="uk-modal-close-default" type="button" uk-close>
+            Close
+          </button>
+          <div
+            v-if="showVideo"
+            :id="`videoFrame${movie._id}`"
+            @focusout="closeModal()"
+          ></div>
+        </div>
+      </div>
       <div class="uk-position-relative uk-visible-toggle uk-light">
         <span class="uk-card-badge uk-label-success ech-basic">
           &nbsp;{{ movie._vote_average.toFixed(1) }}&nbsp;
@@ -49,18 +61,6 @@
               &nbsp;{{ genre.name }}&nbsp;
             </span>
           </div>
-        </div>
-      </div>
-      <div :id="`openVideo${movie._id}`" class="uk-flex-top" uk-modal>
-        <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
-          <button class="uk-modal-close-default" type="button" uk-close>
-            Close
-          </button>
-          <div
-            v-if="showVideo"
-            :id="`videoFrame${movie._id}`"
-            @focusout="closeModal()"
-          ></div>
         </div>
       </div>
     </article>
@@ -116,6 +116,7 @@ export default {
       const isoLangCode = this.currentLocale().iso
       const getMovieVideosControllerResponse = await beanContainer.getMovieVideosController.getFirstVideoURL(
         new GetMovieVideosControllerRequest({
+          movie_title: movie._title,
           movie_id: movie._id,
           isoLangCode
         })

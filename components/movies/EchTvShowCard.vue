@@ -13,7 +13,7 @@
             Close
           </button>
           <div
-            v-show="showVideo"
+            v-if="showVideo"
             :id="`videoFrame${movie._id}`"
             @focusout="closeModal()"
           ></div>
@@ -114,6 +114,7 @@ export default {
       const isoLangCode = this.currentLocale().iso
       const getTvShowsVideosControllerResponse = await beanContainer.getTvShowsVideosController.getFirstVideoURL(
         new GetTvShowsVideosControllerRequest({
+          movie_name: movie._name,
           movie_id: movie._id,
           isoLangCode
         })
@@ -128,6 +129,7 @@ export default {
         }
       }).$mount(`#videoFrame${movie._id}`)
       vm.$nextTick(function() {
+        console.log(vm.$uikit)
         vm.$uikit.modal(`#openVideo${movie._id}`).show()
       })
     }
