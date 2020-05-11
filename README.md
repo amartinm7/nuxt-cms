@@ -1,6 +1,6 @@
 ![Node.js CI](https://github.com/amartinm7/nuxt-cms/workflows/Node.js%20CI/badge.svg)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/c815d4bf-379f-425d-9248-8ca13e0c93a3/deploy-status)](https://app.netlify.com/sites/estrenoscinehoy/deploys)
-
+[![BCH compliance](https://bettercodehub.com/edge/badge/amartinm7/nuxt-cms?branch=master)](https://bettercodehub.com/)
 
 # cms
 
