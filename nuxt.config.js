@@ -97,7 +97,8 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    'nuxt-i18n'
+    'nuxt-i18n',
+    '@nuxtjs/robots'
   ],
   /*
    ** Axios module configuration
@@ -134,6 +135,13 @@ export default {
     strategy: 'prefix_and_default',
     loadLanguagesAsync: true,
     langDir: 'locales/'
+  },
+  /**
+   * google robots
+   */
+  robots: {
+    UserAgent: '*',
+    Disallow: '/setup-these-routes-to-disallow-or-allow'
   },
   /**
    * sitemap module
