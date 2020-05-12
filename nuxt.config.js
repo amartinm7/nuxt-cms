@@ -152,6 +152,7 @@ export default {
   },
   generate: {
     // routes: ['/es', '/en', '/es/movies', '/en/movies']
-    routes: dynamicRoutes
+    routes: dynamicRoutes,
+    fallback: true
   }
 }
