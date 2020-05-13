@@ -96,7 +96,10 @@ export default {
         })
       )
       console.log('emit...' + getMovieVideosControllerResponse.url)
-      this.$emit('open-video-modal', getMovieVideosControllerResponse.url)
+      this.$emit(
+        'outbound-open-video-modal',
+        getMovieVideosControllerResponse.url
+      )
     }
   }
 }

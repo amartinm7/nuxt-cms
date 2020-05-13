@@ -1,6 +1,9 @@
 <template>
   <div>
     <section class="uk-section uk-section-xsmall">
+      <ech-header-main
+        @outbound-open-video-modal="playVideoURL"
+      ></ech-header-main>
       <ech-video-frame-x
         :url="url"
         @clear-video-url="clearVideoURL"
@@ -27,14 +30,14 @@
           <ech-movies-card
             :movies="trendingMovies._results"
             class="ech-scroll-spy-effect"
-            @open-video-modal="playVideoURL"
+            @outbound-open-video-modal="playVideoURL"
           ></ech-movies-card>
         </div>
         <div>
           <ech-tv-show-card
             :movies="trendingTVShows._results"
             class="ech-scroll-spy-effect"
-            @open-video-modal="playVideoURL"
+            @outbound-open-video-modal="playVideoURL"
           ></ech-tv-show-card>
         </div>
       </div>
@@ -50,10 +53,17 @@ import EchMoviesCard from '../components/movies/EchMoviesCard'
 import { BeanContainerRegistry } from '../middleware/BeanContainerRegistry'
 import EchSliderMain from '../components/slider/EchSliderMain'
 import EchVideoFrameX from '../components/movies/EchVideoFrameX'
+import EchHeaderMain from '../layouts/header/EchHeaderMain'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
-  components: { EchVideoFrameX, EchSliderMain, EchTvShowCard, EchMoviesCard },
+  components: {
+    EchHeaderMain,
+    EchVideoFrameX,
+    EchSliderMain,
+    EchTvShowCard,
+    EchMoviesCard
+  },
   // eslint-disable-next-line require-await
   async asyncData({ app, params, store }) {
     const language = app.i18n.locale
@@ -97,7 +107,7 @@ export default {
     playVideoURL(url) {
       console.log('playVideoURL url...' + url)
       this.url = url
-      this.$uikit.modal('#modal-center').show()
+      this.$uikit.modal('#modalcenter').show()
     },
     clearVideoURL() {
       console.log('reset url...')

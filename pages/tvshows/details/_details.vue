@@ -10,7 +10,7 @@
       <ech-tv-show-card
         :movies="movies"
         class="ech-scroll-spy-effect"
-        @open-video-modal="playVideoURL"
+        @outbound-open-video-modal="playVideoURL"
       ></ech-tv-show-card>
     </section>
     <section class="uk-section uk-section-xsmall"></section>
@@ -59,7 +59,7 @@ export default {
     playVideoURL(url) {
       console.log('playVideoURL url...' + url)
       this.url = url
-      this.$uikit.modal('#modal-center').show()
+      this.$uikit.modal('#modalcenter').show()
     },
     clearVideoURL() {
       console.log('reset url...')

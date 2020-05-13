@@ -21,7 +21,7 @@
         <ech-tv-show-card
           :movies="trendingTVShows._results"
           class="ech-scroll-spy-effect"
-          @open-video-modal="playVideoURL"
+          @outbound-open-video-modal="playVideoURL"
         ></ech-tv-show-card>
       </div>
     </section>
@@ -78,7 +78,7 @@ export default {
     playVideoURL(url) {
       console.log('playVideoURL url...' + url)
       this.url = url
-      this.$uikit.modal('#modal-center').show()
+      this.$uikit.modal('#modalcenter').show()
     },
     clearVideoURL() {
       console.log('reset url...')

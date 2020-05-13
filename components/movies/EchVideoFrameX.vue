@@ -1,17 +1,6 @@
 <template>
   <div>
-    <div class="uk-position-relative uk-visible-toggle uk-light uk-width-auto">
-      <a
-        class="uk-button uk-button-default uk-align-center"
-        href="#modal-center"
-        uk-toggle
-      >
-        <img
-          src="https://image.tmdb.org/t/p/w1000_and_h563_face/6ZdQTBy20HzWudZthAV7NkZWfIb.jpg"
-        />
-      </a>
-    </div>
-    <div id="modal-center" class="uk-flex-top" uk-modal>
+    <div id="modalcenter" class="uk-flex-top" uk-modal>
       <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
         <div>
           <button
@@ -65,7 +54,7 @@ export default {
   },
   mounted() {
     const self = this
-    this.$uikit.util.on('#modal-center', 'hidden', function() {
+    this.$uikit.util.on('#modalcenter', 'hidden', function() {
       console.log('destroy and closeModal')
       self.$emit('clear-video-url', true)
     })

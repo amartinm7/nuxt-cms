@@ -4,7 +4,7 @@
     <div class="uk-position-relative uk-visible-toggle uk-light uk-width-auto">
       <a
         class="uk-button uk-button-default uk-align-center"
-        href="#modal-center"
+        href="#modalcenter"
         uk-toggle
       >
         <img
@@ -13,7 +13,7 @@
         />
       </a>
     </div>
-    <div id="modal-center" class="uk-flex-top" uk-modal>
+    <div id="modalcenter" class="uk-flex-top" uk-modal>
       <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
         <button class="uk-modal-close-default" type="button" uk-close>
           Close

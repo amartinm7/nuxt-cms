@@ -81,7 +81,10 @@ export default {
           isoLangCode
         })
       )
-      this.$emit('open-video-modal', getTvShowsVideosControllerResponse.url)
+      this.$emit(
+        'outbound-open-video-modal',
+        getTvShowsVideosControllerResponse.url
+      )
     }
   }
 }
