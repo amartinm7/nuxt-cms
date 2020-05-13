@@ -12,6 +12,7 @@
           &nbsp;{{ movie._vote_average.toFixed(1) }}&nbsp;
         </span>
         <a
+          href="#modalcenter"
           class="uk-button uk-button-default uk-align-center"
           @click="initVideoURL(movie)"
         >
