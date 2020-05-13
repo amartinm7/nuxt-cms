@@ -36,6 +36,9 @@ export default {
   head: {
     title: process.env.npm_package_name || 'Estrenos Cine Hoy',
     meta: [
+      { 'http-equiv': 'pragma', content: 'no-cache' },
+      { 'http-equiv': 'cache-control', content: 'no-cache' },
+      { 'http-equiv': 'expires', content: '0' },
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {
@@ -136,6 +139,10 @@ export default {
     loadLanguagesAsync: true,
     langDir: 'locales/'
   },
+  /**
+   * to avoid cache the htmls pages
+   */
+  serverMiddleware: ['~/api/Logger.js', '~/api/CleanCacheHeaders.js'],
   /**
    * google robots
    */
