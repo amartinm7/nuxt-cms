@@ -13,6 +13,7 @@
   </div>
 </template>
 <script>
+/* eslint-disable camelcase, no-console */
 export default {
   name: 'EchHeaderMain',
   methods: {
