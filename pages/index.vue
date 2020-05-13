@@ -107,6 +107,7 @@ export default {
     playVideoURL(url) {
       console.log('playVideoURL url...' + url)
       this.url = url
+      console.log(this.$uikit.modal('#modalcenter'))
       this.$uikit.modal('#modalcenter').show()
     },
     clearVideoURL() {
