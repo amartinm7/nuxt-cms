@@ -118,6 +118,9 @@ export default {
   head() {
     return {
       title: this.$i18n.messages[this.$i18n.locale].seo.index,
+      script: [
+        { src: 'https://cdn.jsdelivr.net/npm/uikit@3.4.6/dist/js/uikit.min.js' }
+      ],
       meta: [
         {
           name: 'keywords',
