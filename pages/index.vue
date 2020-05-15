@@ -111,7 +111,6 @@ export default {
     self.trendingResults = self.trendingMovies
     self.$uikit.tab('#ech-tab').show(0)
     self.$uikit.util.on('#ech-switcher', 'show', function() {
-      console.log('ech-switcher')
       self.mediaType = self.mediaType === 'movies' ? 'tvshows' : 'movies'
       self.trendingResults =
         self.mediaType === 'movies' ? self.trendingMovies : self.trendingTVShows
