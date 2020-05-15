@@ -107,7 +107,6 @@ export default {
   },
   mounted() {
     const self = this
-    console.log('mounted... ' + self.mediaType)
     self.mediaType = 'tvshows'
     self.trendingResults = self.trendingMovies
     self.$uikit.tab('#ech-tab').show(0)
