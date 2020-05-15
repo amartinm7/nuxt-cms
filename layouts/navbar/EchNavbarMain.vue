@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- header to mobile -->
-    <div class="uk-hidden@m" uk-sticky>
+    <!--    <div class="uk-hidden@m" uk-sticky>
       <div class="uk-navbar-container">
         <nav uk-navbar="" class="uk-navbar">
           <div class="uk-navbar-left">
@@ -165,7 +165,8 @@
           </div>
         </div>
       </div>
-    </div>
+    </div>-->
+    <!-- from here header for desktops-->
     <!-- header to ipad, desktop and so on -->
     <div class="uk-visible@m" uk-header="">
       <div>

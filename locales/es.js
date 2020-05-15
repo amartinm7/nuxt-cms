@@ -28,5 +28,9 @@ export default {
   },
   select: {
     language: 'Idiomas'
+  },
+  switcher: {
+    trendingMovies: 'Tendencia en Cine',
+    trendingTVShows: 'Tendencia en Series TV'
   }
 }

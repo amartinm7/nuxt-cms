@@ -9,6 +9,7 @@
     <section class="uk-section uk-section-xsmall">
       <ech-slider-main
         :movies="trendingTVShows._results"
+        media-type="tvshows"
         class="ech-scroll-spy-effect"
       >
       </ech-slider-main>

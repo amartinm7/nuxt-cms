@@ -10,22 +10,26 @@
       ></ech-video-frame-x>
     </section>
     <section class="uk-section uk-section-xsmall">
-      <ech-slider-main
-        :movies="trendingMovies._results"
-        class="ech-scroll-spy-effect"
-      ></ech-slider-main>
+      <div class="uk-active">
+        <ech-slider-main
+          :movies="trendingResults._results"
+          :media-type="mediaType"
+          class="ech-scroll-spy-effect"
+        ></ech-slider-main>
+      </div>
     </section>
     <section class="uk-section uk-section-xsmall">
-      <ul uk-tab class="uk-flex uk-flex-around">
+      <ul id="ech-tab" uk-tab class="uk-flex uk-flex-around">
         <li class="uk-active ech-basic">
-          <a href="#" uk-icon="icon: video-camera"></a>Trending Movies
+          <a href="#" uk-icon="icon: video-camera"></a
+          >{{ $t('switcher.trendingMovies') }}
         </li>
         <li class="ech-basic">
-          <a href="#" uk-icon="icon: tv"></a>
-          Trending TV Shows
+          <a href="#" uk-icon="icon: tv"></a
+          >{{ $t('switcher.trendingTVShows') }}
         </li>
       </ul>
-      <div class="uk-switcher">
+      <div id="ech-switcher" class="uk-switcher">
         <div class="uk-active">
           <ech-movies-card
             :movies="trendingMovies._results"
@@ -95,9 +99,24 @@ export default {
         _total_results: 1,
         _results: []
       },
+      mediaType: 'movies',
+      trendingResults: {},
       url:
         'https://www.youtube.com/embed/Yj0l7iGKh8g?autoplay=1&amp;showinfo=0&amp;rel=0&amp;modestbranding=1&amp;playsinline=1'
     }
+  },
+  mounted() {
+    const self = this
+    console.log('mounted... ' + self.mediaType)
+    self.mediaType = 'tvshows'
+    self.trendingResults = self.trendingMovies
+    self.$uikit.tab('#ech-tab').show(0)
+    self.$uikit.util.on('#ech-switcher', 'show', function() {
+      console.log('ech-switcher')
+      self.mediaType = self.mediaType === 'movies' ? 'tvshows' : 'movies'
+      self.trendingResults =
+        self.mediaType === 'movies' ? self.trendingMovies : self.trendingTVShows
+    })
   },
   created() {},
   methods: {

@@ -28,5 +28,9 @@ export default {
   },
   select: {
     language: 'Languages'
+  },
+  switcher: {
+    trendingMovies: 'Trending Movies',
+    trendingTVShows: 'Trending TV Shows'
   }
 }

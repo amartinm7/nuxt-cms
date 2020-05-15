@@ -44,6 +44,12 @@ export default {
       default() {
         return []
       }
+    },
+    mediaType: {
+      type: String,
+      default() {
+        return ''
+      }
     }
   },
   data() {
@@ -56,7 +62,7 @@ export default {
     getMovieDetailURL(movie_id, movie_title) {
       const language = this.$i18n.locale
       const slugger = ServiceLocator.Slugger.sluggify([movie_title])
-      return `/${language}/movies/details/${movie_id}-${slugger}`
+      return `/${language}/${this.mediaType}/details/${movie_id}-${slugger}`
     }
   }
 }
