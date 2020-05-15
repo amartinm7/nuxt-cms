@@ -1,18 +1,18 @@
 <template>
   <div>
-    <ech-navbar-main></ech-navbar-main>
+    <ech-navbar-main-new></ech-navbar-main-new>
     <nuxt :key="$route.fullPath" />
     <ech-contact-footer-main></ech-contact-footer-main>
     <ech-footer-main></ech-footer-main>
   </div>
 </template>
 <script>
-import EchNavbarMain from './navbar/EchNavbarMain'
+import EchNavbarMainNew from './navbar/EchNavbarMainNew'
 import EchContactFooterMain from './footer/EchContactFooterMain'
 import EchFooterMain from './footer/EchFooterMain'
 export default {
   components: {
-    EchNavbarMain,
+    EchNavbarMainNew,
     EchContactFooterMain,
     EchFooterMain
   }
