@@ -1,6 +1,9 @@
 <template>
   <div>
     <section class="uk-section uk-section-xsmall">
+      <ech-header-main
+        @outbound-open-video-modal="playVideoURL"
+      ></ech-header-main>
       <ech-video-frame-x
         :url="url"
         @clear-video-url="clearVideoURL"
@@ -37,9 +40,12 @@ import { MEDIA_TYPES } from '../../../middleware/modules/trending/getTrending/ad
 import ActionMapper from '../../../middleware/ActionMapper'
 import EchSliderMain from '../../../components/slider/EchSliderMain'
 import EchVideoFrameX from '../../../components/movies/EchVideoFrameX'
+import EchHeaderMain from '../../../layouts/header/EchHeaderMain'
+import MediaManager from '../../../middleware/modules/vue/mixins/MediaManager'
 
 export default {
-  components: { EchVideoFrameX, EchSliderMain, EchTvShowCard },
+  components: { EchHeaderMain, EchVideoFrameX, EchSliderMain, EchTvShowCard },
+  mixins: [MediaManager],
   // eslint-disable-next-line require-await
   async asyncData({ app, params, store, route }) {
     const language = app.i18n.locale
@@ -68,22 +74,10 @@ export default {
   },
   created() {},
   methods: {
-    getPosterURL(posterPath) {
-      return `https://image.tmdb.org/t/p/w185_and_h278_bestv2/${posterPath}`
-    },
     getSection() {
       return this.$i18n.messages[this.$i18n.locale].pages.tv[
         this.$route.params.upcoming
       ]
-    },
-    playVideoURL(url) {
-      console.log('playVideoURL url...' + url)
-      this.url = url
-      this.$uikit.modal('#modalcenter').show()
-    },
-    clearVideoURL() {
-      console.log('reset url...')
-      this.url = ''
     }
   },
   head() {

@@ -58,6 +58,7 @@ import { BeanContainerRegistry } from '../middleware/BeanContainerRegistry'
 import EchSliderMain from '../components/slider/EchSliderMain'
 import EchVideoFrameX from '../components/movies/EchVideoFrameX'
 import EchHeaderMain from '../layouts/header/EchHeaderMain'
+import MediaManager from '../middleware/modules/vue/mixins/MediaManager'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
@@ -68,6 +69,7 @@ export default {
     EchTvShowCard,
     EchMoviesCard
   },
+  mixins: [MediaManager],
   // eslint-disable-next-line require-await
   async asyncData({ app, params, store }) {
     const language = app.i18n.locale
@@ -117,21 +119,7 @@ export default {
     })
   },
   created() {},
-  methods: {
-    getPosterURL(posterPath) {
-      return `https://image.tmdb.org/t/p/w185_and_h278_bestv2/${posterPath}`
-    },
-    playVideoURL(url) {
-      console.log('playVideoURL url...' + url)
-      this.url = url
-      console.log(this.$uikit.modal('#modalcenter'))
-      this.$uikit.modal('#modalcenter').show()
-    },
-    clearVideoURL() {
-      console.log('reset url...')
-      this.url = ''
-    }
-  },
+  methods: {},
   head() {
     return {
       title: this.$i18n.messages[this.$i18n.locale].seo.index,

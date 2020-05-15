@@ -24,11 +24,13 @@ import EchMoviesCard from '../../../components/movies/EchMoviesCard'
 import { BeanContainerRegistry } from '../../../middleware/BeanContainerRegistry'
 import { GetMovieDetailsControllerRequest } from '../../../middleware/modules/movies/getDetails/userapplication/controller/GetMovieDetailsController'
 import EchVideoFrameX from '../../../components/movies/EchVideoFrameX'
+import MediaManager from '../../../middleware/modules/vue/mixins/MediaManager'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
   scrollToTop: true,
   components: { EchVideoFrameX, EchMoviesCard },
+  mixins: [MediaManager],
   // eslint-disable-next-line require-await
   async asyncData({ app, route, params, store }) {
     const language = app.i18n.locale
@@ -52,20 +54,7 @@ export default {
         'https://www.youtube.com/embed/Yj0l7iGKh8g?autoplay=1&amp;showinfo=0&amp;rel=0&amp;modestbranding=1&amp;playsinline=1'
     }
   },
-  methods: {
-    getPosterURL(posterPath) {
-      return `https://image.tmdb.org/t/p/w185_and_h278_bestv2/${posterPath}`
-    },
-    playVideoURL(url) {
-      console.log('playVideoURL url...' + url)
-      this.url = url
-      this.$uikit.modal('#modalcenter').show()
-    },
-    clearVideoURL() {
-      console.log('reset url...')
-      this.url = ''
-    }
-  },
+  methods: {},
   head() {
     const vm = this
     return {
