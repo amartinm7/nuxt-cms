@@ -44,6 +44,7 @@
 import { BeanContainerRegistry } from '../../middleware/BeanContainerRegistry'
 import { GetTvShowsVideosControllerRequest } from '../../middleware/modules/tvShows/getVideos/userapplication/controller/GetTvShowsVideosController'
 import * as ServiceLocator from '../../middleware/framework/modules/ServiceLocator'
+import ValuesByDefault from '../../middleware/modules/util/ValuesByDefault'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
@@ -63,7 +64,9 @@ export default {
       return `/${language}/tvshows/details/${movie_id}-${slugger}`
     },
     getPosterURL(posterPath) {
-      return `https://image.tmdb.org/t/p/w185_and_h278_bestv2/${posterPath}`
+      console.log('posterPath...' + posterPath)
+      const sanitizedPosterPath = posterPath ?? ValuesByDefault.posterPath
+      return `https://image.tmdb.org/t/p/w185_and_h278_bestv2/${sanitizedPosterPath}`
     },
     currentLocale() {
       return this.$i18n.locales.find(

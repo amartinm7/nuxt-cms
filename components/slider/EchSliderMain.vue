@@ -35,6 +35,7 @@
 <script>
 /* eslint-disable camelcase, no-console */
 import * as ServiceLocator from '../../middleware/framework/modules/ServiceLocator'
+import ValuesByDefault from '../../middleware/modules/util/ValuesByDefault'
 
 export default {
   name: 'EchSliderMain',
@@ -57,7 +58,9 @@ export default {
   },
   methods: {
     getPosterURL(posterPath) {
-      return `https://image.tmdb.org/t/p/w185_and_h278_bestv2/${posterPath}`
+      console.log('posterPath...' + posterPath)
+      const sanitizedPosterPath = posterPath ?? ValuesByDefault.posterPath
+      return `https://image.tmdb.org/t/p/w185_and_h278_bestv2/${sanitizedPosterPath}`
     },
     getMovieDetailURL(movie_id, movie_title) {
       const language = this.$i18n.locale
