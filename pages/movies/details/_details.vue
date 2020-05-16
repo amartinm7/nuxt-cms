@@ -13,7 +13,9 @@
         @outbound-open-video-modal="playVideoURL"
       ></ech-movies-card>
     </section>
-    <section class="uk-section uk-section-xsmall"></section>
+    <section class="uk-section uk-section-xsmall">
+      <ech-slider-people :credits="credits"></ech-slider-people>
+    </section>
   </div>
 </template>
 <!-- eslint-disable -->
@@ -26,13 +28,15 @@ import { GetMovieDetailsControllerRequest } from '../../../middleware/modules/mo
 import EchVideoFrameX from '../../../components/movies/EchVideoFrameX'
 import VideoControllerManager from '../../../middleware/modules/vue/mixins/VideoControllerManager'
 import DetailsHeaderManager from '../../../middleware/modules/vue/mixins/DetailsHeaderManager'
+import EchSliderPeople from '../../../components/slider/EchSliderPeople'
+import CreditsManager from '../../../middleware/modules/vue/mixins/CreditsManager'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
   name: 'EchMoviesDetails',
   scrollToTop: true,
-  components: { EchVideoFrameX, EchMoviesCard },
-  mixins: [VideoControllerManager, DetailsHeaderManager],
+  components: { EchVideoFrameX, EchMoviesCard, EchSliderPeople },
+  mixins: [VideoControllerManager, DetailsHeaderManager, CreditsManager],
   // eslint-disable-next-line require-await
   async asyncData({ app, route, params, store }) {
     const language = app.i18n.locale

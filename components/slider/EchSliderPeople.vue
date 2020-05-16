@@ -5,21 +5,10 @@
         class="uk-slider-items"
         style="transform: translate3d(0px, 0px, 0px);"
       >
-        <a name="echSlider"></a>
-        <li v-for="movie in movies" :key="movie._id" :todo="movie">
-          <nuxt-link
-            class="uk-link-reset"
-            :to="
-              getDetailPathURL(
-                movie._id,
-                movie._title || movie._name,
-                mediaTypePath
-              )
-            "
-          >
-            <img :src="getPosterURL(movie._poster_path)" alt="movie._name" />
-            <div class="uk-positio  n-center uk-panel"></div>
-          </nuxt-link>
+        <a name="echSliderPeople"></a>
+        <li v-for="credit in credits" :key="credit.credit_id" :todo="credit">
+          <img :src="getPosterURL(credit.profile_path)" alt="movie._name" />
+          <div class="uk-positio  n-center uk-panel"></div>
         </li>
       </ul>
       <a
@@ -43,10 +32,10 @@
 import MediaManager from '../../middleware/modules/vue/mixins/MediaManager'
 
 export default {
-  name: 'EchSliderMain',
+  name: 'EchSliderPeople',
   mixins: [MediaManager],
   props: {
-    movies: {
+    credits: {
       type: Array,
       default() {
         return []
