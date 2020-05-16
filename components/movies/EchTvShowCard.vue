@@ -44,11 +44,12 @@
 import { BeanContainerRegistry } from '../../middleware/BeanContainerRegistry'
 import { GetTvShowsVideosControllerRequest } from '../../middleware/modules/tvShows/getVideos/userapplication/controller/GetTvShowsVideosController'
 import * as ServiceLocator from '../../middleware/framework/modules/ServiceLocator'
-import ValuesByDefault from '../../middleware/modules/util/ValuesByDefault'
+import PosterManager from '../../middleware/modules/vue/mixins/PosterManager'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
   name: 'EchTvShowCard',
+  mixins: [PosterManager],
   props: {
     movies: {
       type: Array,
@@ -62,11 +63,6 @@ export default {
       const language = this.$i18n.locale
       const slugger = ServiceLocator.Slugger.sluggify([movie_name])
       return `/${language}/tvshows/details/${movie_id}-${slugger}`
-    },
-    getPosterURL(posterPath) {
-      console.log('posterPath...' + posterPath)
-      const sanitizedPosterPath = posterPath ?? ValuesByDefault.posterPath
-      return `https://image.tmdb.org/t/p/w185_and_h278_bestv2/${sanitizedPosterPath}`
     },
     currentLocale() {
       return this.$i18n.locales.find(

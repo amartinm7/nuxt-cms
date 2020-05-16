@@ -23,8 +23,11 @@
 </template>
 <script>
 /* eslint-disable camelcase, no-console */
+import PosterManager from '../../middleware/modules/vue/mixins/PosterManager'
+
 export default {
   name: 'EchVideoFrameX',
+  mixins: [PosterManager],
   props: {
     url: {
       default() {
@@ -58,11 +61,6 @@ export default {
       console.log('destroy and closeModal')
       self.$emit('clear-video-url', true)
     })
-  },
-  methods: {
-    getPosterURL(posterPath) {
-      return `https://image.tmdb.org/t/p/w185_and_h278_bestv2/${posterPath}`
-    }
   }
 }
 </script>
