@@ -12,13 +12,13 @@
     <section class="uk-section uk-section-xsmall">
       <ech-slider-main
         :movies="trendingTVShows._results"
-        media-type="tvshows"
+        :media-type-path="mediaTypePath"
         class="ech-scroll-spy-effect"
       >
       </ech-slider-main>
     </section>
     <section class="uk-section uk-section-xsmall">
-      <h1 class="uk-text-lead uk-text-center">{{ getSection() }}</h1>
+      <h1 class="uk-text-lead uk-text-center">{{ getSection(mediaType) }}</h1>
     </section>
     <section class="uk-section uk-section-xsmall">
       <div>
@@ -41,12 +41,14 @@ import ActionMapper from '../../../middleware/ActionMapper'
 import EchSliderMain from '../../../components/slider/EchSliderMain'
 import EchVideoFrameX from '../../../components/movies/EchVideoFrameX'
 import EchHeaderMain from '../../../layouts/header/EchHeaderMain'
-import MediaManager from '../../../middleware/modules/vue/mixins/MediaManager'
-import SectionManager from '../../../middleware/modules/vue/mixins/UpcomingManager'
+import VideoControllerManager from '../../../middleware/modules/vue/mixins/VideoControllerManager'
+import UpcomingManager from '../../../middleware/modules/vue/mixins/UpcomingManager'
+import MediaTypes from '../../../middleware/modules/util/MediaTypes'
+import MediaTypePaths from '../../../middleware/modules/util/MediaTypePaths'
 
 export default {
   components: { EchHeaderMain, EchVideoFrameX, EchSliderMain, EchTvShowCard },
-  mixins: [MediaManager, SectionManager],
+  mixins: [VideoControllerManager, UpcomingManager],
   // eslint-disable-next-line require-await
   async asyncData({ app, params, store, route }) {
     const language = app.i18n.locale
@@ -69,6 +71,8 @@ export default {
         _total_results: 1,
         _results: []
       },
+      mediaTypePath: MediaTypePaths.tv,
+      mediaType: MediaTypes.tv,
       url:
         'https://www.youtube.com/embed/Yj0l7iGKh8g?autoplay=1&amp;showinfo=0&amp;rel=0&amp;modestbranding=1&amp;playsinline=1'
     }

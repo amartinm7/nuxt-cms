@@ -25,7 +25,7 @@
         <div class="uk-card-body">
           <nuxt-link
             class="uk-link-reset"
-            :to="getTvShowDetailURL(movie._id, movie._name)"
+            :to="getDetailPathURL(movie._id, movie._name, mediaTypePath)"
           >
             <h3 class="uk-card-title">
               {{ movie._name }}&nbsp;<span class="uk-label">{{
@@ -43,8 +43,9 @@
 /* eslint-disable camelcase, no-console */
 import { BeanContainerRegistry } from '../../middleware/BeanContainerRegistry'
 import { GetTvShowsVideosControllerRequest } from '../../middleware/modules/tvShows/getVideos/userapplication/controller/GetTvShowsVideosController'
-import * as ServiceLocator from '../../middleware/framework/modules/ServiceLocator'
-import PosterManager from '../../middleware/modules/vue/mixins/PosterManager'
+import PosterManager from '../../middleware/modules/vue/mixins/MediaManager'
+import MediaTypes from '../../middleware/modules/util/MediaTypes'
+import MediaTypesPaths from '../../locales/en'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
@@ -58,12 +59,13 @@ export default {
       }
     }
   },
+  data() {
+    return {
+      mediaTypePath: MediaTypesPaths.tv,
+      mediaType: MediaTypes.tv
+    }
+  },
   methods: {
-    getTvShowDetailURL(movie_id, movie_name) {
-      const language = this.$i18n.locale
-      const slugger = ServiceLocator.Slugger.sluggify([movie_name])
-      return `/${language}/tvshows/details/${movie_id}-${slugger}`
-    },
     currentLocale() {
       return this.$i18n.locales.find(
         (locale) => locale.code === this.$i18n.locale

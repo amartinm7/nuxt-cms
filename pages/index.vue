@@ -13,7 +13,7 @@
       <div class="uk-active">
         <ech-slider-main
           :movies="trendingResults._results"
-          :media-type="mediaType"
+          :media-type-path="mediaTypePath"
           class="ech-scroll-spy-effect"
         ></ech-slider-main>
       </div>
@@ -58,7 +58,9 @@ import { BeanContainerRegistry } from '../middleware/BeanContainerRegistry'
 import EchSliderMain from '../components/slider/EchSliderMain'
 import EchVideoFrameX from '../components/movies/EchVideoFrameX'
 import EchHeaderMain from '../layouts/header/EchHeaderMain'
-import MediaManager from '../middleware/modules/vue/mixins/MediaManager'
+import VideoControllerManager from '../middleware/modules/vue/mixins/VideoControllerManager'
+import MediaTypes from '../middleware/modules/util/MediaTypes'
+import MediaTypePaths from '../middleware/modules/util/MediaTypePaths'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
@@ -69,7 +71,7 @@ export default {
     EchTvShowCard,
     EchMoviesCard
   },
-  mixins: [MediaManager],
+  mixins: [VideoControllerManager],
   // eslint-disable-next-line require-await
   async asyncData({ app, params, store }) {
     const language = app.i18n.locale
@@ -101,7 +103,8 @@ export default {
         _total_results: 1,
         _results: []
       },
-      mediaType: 'movies',
+      mediaType: MediaTypes.movies,
+      mediaTypePath: MediaTypePaths.movies,
       trendingResults: {},
       url:
         'https://www.youtube.com/embed/Yj0l7iGKh8g?autoplay=1&amp;showinfo=0&amp;rel=0&amp;modestbranding=1&amp;playsinline=1'

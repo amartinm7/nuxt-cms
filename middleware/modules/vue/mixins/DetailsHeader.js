@@ -1,4 +1,3 @@
-// mediaType = tv or movies
 export default {
   head() {
     const vm = this

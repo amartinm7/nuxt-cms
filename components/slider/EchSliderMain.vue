@@ -9,7 +9,13 @@
         <li v-for="movie in movies" :key="movie._id" :todo="movie">
           <nuxt-link
             class="uk-link-reset"
-            :to="getMovieDetailURL(movie._id, movie._title || movie._name)"
+            :to="
+              getDetailPathURL(
+                movie._id,
+                movie._title || movie._name,
+                mediaTypePath
+              )
+            "
           >
             <img :src="getPosterURL(movie._poster_path)" alt="movie._name" />
             <div class="uk-positio  n-center uk-panel"></div>
@@ -34,11 +40,11 @@
 </template>
 <script>
 /* eslint-disable camelcase, no-console */
-import * as ServiceLocator from '../../middleware/framework/modules/ServiceLocator'
-import ValuesByDefault from '../../middleware/modules/util/ValuesByDefault'
+import PosterManager from '../../middleware/modules/vue/mixins/MediaManager'
 
 export default {
   name: 'EchSliderMain',
+  mixins: [PosterManager],
   props: {
     movies: {
       type: Array,
@@ -46,7 +52,7 @@ export default {
         return []
       }
     },
-    mediaType: {
+    mediaTypePath: {
       type: String,
       default() {
         return ''
@@ -55,18 +61,6 @@ export default {
   },
   data() {
     return {}
-  },
-  methods: {
-    getPosterURL(posterPath) {
-      console.log('posterPath...' + posterPath)
-      const sanitizedPosterPath = posterPath ?? ValuesByDefault.posterPath
-      return `https://image.tmdb.org/t/p/w185_and_h278_bestv2/${sanitizedPosterPath}`
-    },
-    getMovieDetailURL(movie_id, movie_title) {
-      const language = this.$i18n.locale
-      const slugger = ServiceLocator.Slugger.sluggify([movie_title])
-      return `/${language}/${this.mediaType}/details/${movie_id}-${slugger}`
-    }
   }
 }
 </script>

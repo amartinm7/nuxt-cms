@@ -1,4 +1,3 @@
-// mediaType = tv or movies
 export default {
   methods: {
     getSection(mediaType) {
@@ -9,7 +8,7 @@ export default {
   },
   head() {
     return {
-      title: `Estrenos Cine Hoy: ${this.getSection()}`,
+      title: `Estrenos Cine Hoy: ${this.getSection(this.mediaType)}`,
       meta: [
         {
           name: 'keywords',

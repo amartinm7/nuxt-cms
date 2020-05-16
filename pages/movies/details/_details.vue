@@ -24,14 +24,14 @@ import EchMoviesCard from '../../../components/movies/EchMoviesCard'
 import { BeanContainerRegistry } from '../../../middleware/BeanContainerRegistry'
 import { GetMovieDetailsControllerRequest } from '../../../middleware/modules/movies/getDetails/userapplication/controller/GetMovieDetailsController'
 import EchVideoFrameX from '../../../components/movies/EchVideoFrameX'
-import MediaManager from '../../../middleware/modules/vue/mixins/MediaManager'
+import VideoControllerManager from '../../../middleware/modules/vue/mixins/VideoControllerManager'
 import DetailsHeader from '../../../middleware/modules/vue/mixins/DetailsHeader'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
   scrollToTop: true,
   components: { EchVideoFrameX, EchMoviesCard },
-  mixins: [MediaManager, DetailsHeader],
+  mixins: [VideoControllerManager, DetailsHeader],
   // eslint-disable-next-line require-await
   async asyncData({ app, route, params, store }) {
     const language = app.i18n.locale

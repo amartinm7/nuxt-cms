@@ -25,7 +25,7 @@
         <div class="uk-card-body">
           <nuxt-link
             class="uk-link-reset"
-            :to="getMovieDetailURL(movie._id, movie._title)"
+            :to="getDetailPathURL(movie._id, movie._title, mediaTypePath)"
           >
             <h3 class="uk-card-title ech-basic">
               {{ movie._title }}&nbsp;<span class="uk-label">
@@ -58,14 +58,15 @@
 /* eslint-disable camelcase, no-console */
 import { BeanContainerRegistry } from '../../middleware/BeanContainerRegistry'
 import { GetMovieVideosControllerRequest } from '../../middleware/modules/movies/getVideos/userapplication/controller/GetMovieVideosController'
-import * as ServiceLocator from '../../middleware/framework/modules/ServiceLocator'
-import PosterManager from '../../middleware/modules/vue/mixins/PosterManager'
+import MediaManager from '../../middleware/modules/vue/mixins/MediaManager'
+import MediaTypesPaths from '../../middleware/modules/util/MediaTypesPaths'
+import MediaTypes from '../../middleware/modules/util/MediaTypePaths'
 
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
   name: 'EchMoviesCard',
-  mixins: [PosterManager],
+  mixins: [MediaManager],
   props: {
     movies: {
       type: Array,
@@ -74,12 +75,13 @@ export default {
       }
     }
   },
+  data() {
+    return {
+      mediaTypePath: MediaTypesPaths.movies,
+      mediaType: MediaTypes.movies
+    }
+  },
   methods: {
-    getMovieDetailURL(movie_id, movie_title) {
-      const language = this.$i18n.locale
-      const slugger = ServiceLocator.Slugger.sluggify([movie_title])
-      return `/${language}/movies/details/${movie_id}-${slugger}`
-    },
     currentLocale() {
       return this.$i18n.locales.find(
         (locale) => locale.code === this.$i18n.locale

@@ -23,11 +23,9 @@
 </template>
 <script>
 /* eslint-disable camelcase, no-console */
-import PosterManager from '../../middleware/modules/vue/mixins/PosterManager'
 
 export default {
   name: 'EchVideoFrameX',
-  mixins: [PosterManager],
   props: {
     url: {
       default() {
