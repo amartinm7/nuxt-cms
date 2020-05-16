@@ -67,6 +67,7 @@ import MediaTypePaths from '../middleware/modules/util/MediaTypePaths'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
+  name: 'EchMainIndex',
   components: {
     EchHeaderMain,
     EchVideoFrameX,

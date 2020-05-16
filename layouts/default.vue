@@ -11,6 +11,7 @@ import EchNavbarMainNew from './navbar/EchNavbarMainNew'
 import EchContactFooterMain from './footer/EchContactFooterMain'
 import EchFooterMain from './footer/EchFooterMain'
 export default {
+  name: 'EchLayoutDefault',
   components: {
     EchNavbarMainNew,
     EchContactFooterMain,
@@ -55,5 +56,34 @@ body {
   cursor: default;
   transform: rotate(360deg);
   transition: all 0.5s ease-in-out 0s;
+}
+
+.page-enter-active {
+  animation: bounce-in 0.8s;
+}
+.page-leave-active {
+  animation: bounce-out 0.5s;
+}
+
+@keyframes bounce-in {
+  0% {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes bounce-out {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.9);
+    opacity: 0;
+  }
 }
 </style>

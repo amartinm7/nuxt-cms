@@ -367,6 +367,7 @@
 </template>
 <script>
 export default {
+  name: 'EchNavbarMain',
   computed: {
     showLocales() {
       // eslint-disable-next-line no-console

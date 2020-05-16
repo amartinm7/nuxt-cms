@@ -60,7 +60,7 @@ import { BeanContainerRegistry } from '../../middleware/BeanContainerRegistry'
 import { GetMovieVideosControllerRequest } from '../../middleware/modules/movies/getVideos/userapplication/controller/GetMovieVideosController'
 import MediaManager from '../../middleware/modules/vue/mixins/MediaManager'
 import MediaTypePaths from '../../middleware/modules/util/MediaTypePaths'
-import MediaTypes from '../../middleware/modules/util/MediaTypePaths'
+import MediaTypes from '../../middleware/modules/util/MediaTypes'
 import LocateManager from '../../middleware/modules/vue/mixins/LocateManager'
 
 const beanContainer = BeanContainerRegistry.getBeanContainer()

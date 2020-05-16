@@ -29,6 +29,7 @@ import DetailsHeaderManager from '../../../middleware/modules/vue/mixins/Details
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
+  name: 'EchTvshowDetails',
   scrollToTop: true,
   components: { EchVideoFrameX, EchTvShowCard },
   mixins: [VideoControllerManager, DetailsHeaderManager],

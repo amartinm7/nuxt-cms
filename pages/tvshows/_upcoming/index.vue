@@ -47,6 +47,7 @@ import MediaTypes from '../../../middleware/modules/util/MediaTypes'
 import MediaTypePaths from '../../../middleware/modules/util/MediaTypePaths'
 
 export default {
+  name: 'EchTvshowUpcoming',
   components: { EchHeaderMain, EchVideoFrameX, EchSliderMain, EchTvShowCard },
   mixins: [VideoControllerManager, UpcomingManager],
   // eslint-disable-next-line require-await

@@ -9,3 +9,9 @@
     </div>
   </section>
 </template>
+<script>
+/* eslint-disable camelcase, no-console */
+export default {
+  name: 'EchContacts'
+}
+</script>

@@ -23,6 +23,12 @@
     </g>
   </svg>
 </template>
+<script>
+/* eslint-disable camelcase, no-console */
+export default {
+  name: 'EchLogo'
+}
+</script>
 <style>
 .NuxtLogo {
   animation: 1s appear;

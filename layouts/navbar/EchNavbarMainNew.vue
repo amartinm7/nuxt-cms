@@ -16,11 +16,11 @@
             class="uk-navbar-toggle"
             uk-toggle
             uk-navbar-toggle-icon
-            href="#offcanvas-usage"
+            href="#echOffcanvas"
           ></a>
         </div>
       </nav>
-      <div id="offcanvas-usage" uk-offcanvas="flip: true">
+      <div id="echOffcanvas" uk-offcanvas="flip: true; bg-close: true">
         <div class="uk-offcanvas-bar">
           <button
             class="uk-offcanvas-close uk-icon uk-close"
@@ -54,7 +54,11 @@
               ></line>
             </svg>
           </button>
-          <div class="uk-child-width-1-1 uk-grid uk-grid-stack" uk-grid="">
+          <div
+            class="uk-child-width-1-1 uk-grid uk-grid-stack"
+            uk-grid=""
+            @click="closeMenu()"
+          >
             <div class="uk-first-column">
               <div id="module-menu-mobile" class="uk-panel">
                 <ul class="uk-nav uk-nav-default">
@@ -350,6 +354,10 @@ export default {
       return Object.keys(this.$i18n.messages[this.$i18n.locale].pages.movies)
     }
   },
+  mounted() {
+    // eslint-disable-next-line no-console
+    console.log('EchNavbarMainNew')
+  },
   methods: {
     translateKeyMessageForTvShows(key) {
       return this.$i18n.messages[this.$i18n.locale].pages.tv[key]
@@ -372,6 +380,11 @@ export default {
       //   actionName
       // )
       return `/${language}/movies/${actionName}/`
+    },
+    closeMenu() {
+      // eslint-disable-next-line no-console
+      // console.log('closing menu')
+      // this.$uikit.offcanvas('#echOffcanvas').hide()
     }
   }
 }

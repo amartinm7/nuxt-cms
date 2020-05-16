@@ -33,6 +33,7 @@
 </template>
 <script>
 export default {
+  name: 'EchBannerMain',
   computed: {
     showLocales() {
       // eslint-disable-next-line no-console

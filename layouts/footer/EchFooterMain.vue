@@ -118,3 +118,8 @@
     </div>
   </div>
 </template>
+<script>
+export default {
+  name: 'EchFooterMain'
+}
+</script>
