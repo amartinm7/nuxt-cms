@@ -19,6 +19,9 @@
       </div>
     </section>
     <section class="uk-section uk-section-xsmall">
+      <h1 class="uk-text-center">{{ $t('pages.trending') }}</h1>
+    </section>
+    <section class="uk-section uk-section-xsmall">
       <ul id="ech-tab" uk-tab class="uk-flex uk-flex-around">
         <li class="uk-active ech-basic">
           <a href="#" uk-icon="icon: video-camera"></a

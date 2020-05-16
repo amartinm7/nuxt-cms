@@ -13,6 +13,7 @@ export default {
     comedy: 'Comedia',
     family: 'Familia',
     news: 'Noticias',
+    trending: 'Tendencia',
     tv: {
       airingToday: 'Emitidas Hoy',
       onTheAirTv: 'Emitiendo',

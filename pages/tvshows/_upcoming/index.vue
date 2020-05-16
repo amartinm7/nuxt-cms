@@ -18,7 +18,7 @@
       </ech-slider-main>
     </section>
     <section class="uk-section uk-section-xsmall">
-      <h1 class="uk-text-lead uk-text-center">{{ getSection(mediaType) }}</h1>
+      <h1 class="uk-text-center">{{ getSection(mediaType) }}</h1>
     </section>
     <section class="uk-section uk-section-xsmall">
       <div>
