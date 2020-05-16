@@ -43,14 +43,15 @@
 /* eslint-disable camelcase, no-console */
 import { BeanContainerRegistry } from '../../middleware/BeanContainerRegistry'
 import { GetTvShowsVideosControllerRequest } from '../../middleware/modules/tvShows/getVideos/userapplication/controller/GetTvShowsVideosController'
-import PosterManager from '../../middleware/modules/vue/mixins/MediaManager'
+import MediaManager from '../../middleware/modules/vue/mixins/MediaManager'
 import MediaTypes from '../../middleware/modules/util/MediaTypes'
 import MediaTypesPaths from '../../middleware/modules/util/MediaTypePaths'
+import LocateManager from '../../middleware/modules/vue/mixins/LocateManager'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
   name: 'EchTvShowCard',
-  mixins: [PosterManager],
+  mixins: [MediaManager, LocateManager],
   props: {
     movies: {
       type: Array,
@@ -66,11 +67,6 @@ export default {
     }
   },
   methods: {
-    currentLocale() {
-      return this.$i18n.locales.find(
-        (locale) => locale.code === this.$i18n.locale
-      )
-    },
     async initVideoURL(movie) {
       const vm = this
       console.log('initVideoURL...' + vm.$uikit.modal(`#openVideo${movie._id}`))

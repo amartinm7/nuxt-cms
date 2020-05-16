@@ -61,12 +61,13 @@ import { GetMovieVideosControllerRequest } from '../../middleware/modules/movies
 import MediaManager from '../../middleware/modules/vue/mixins/MediaManager'
 import MediaTypePaths from '../../middleware/modules/util/MediaTypePaths'
 import MediaTypes from '../../middleware/modules/util/MediaTypePaths'
+import LocateManager from '../../middleware/modules/vue/mixins/LocateManager'
 
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
   name: 'EchMoviesCard',
-  mixins: [MediaManager],
+  mixins: [MediaManager, LocateManager],
   props: {
     movies: {
       type: Array,
@@ -82,11 +83,6 @@ export default {
     }
   },
   methods: {
-    currentLocale() {
-      return this.$i18n.locales.find(
-        (locale) => locale.code === this.$i18n.locale
-      )
-    },
     async initVideoURL(movie) {
       const isoLangCode = this.currentLocale().iso
       const getMovieVideosControllerResponse = await beanContainer.getMovieVideosController.getFirstVideoURL(
