@@ -25,12 +25,13 @@ import EchTvShowCard from '../../../components/movies/EchTvShowCard'
 import { GetTvShowDetailsControllerRequest } from '../../../middleware/modules/tvShows/getDetails/userapplication/controller/GetTvShowDetailsController'
 import EchVideoFrameX from '../../../components/movies/EchVideoFrameX'
 import MediaManager from '../../../middleware/modules/vue/mixins/MediaManager'
+import DetailsHeader from '../../../middleware/modules/vue/mixins/DetailsHeader'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
   scrollToTop: true,
   components: { EchVideoFrameX, EchTvShowCard },
-  mixins: [MediaManager],
+  mixins: [MediaManager, DetailsHeader],
   // eslint-disable-next-line require-await
   async asyncData({ app, route, params, store }) {
     const language = app.i18n.locale
@@ -56,23 +57,6 @@ export default {
   },
   mounted() {
     console.log('details...')
-  },
-  methods: {},
-  head() {
-    const vm = this
-    return {
-      title: `Estrenos Cine Hoy: ${vm.movies[0]._name}`,
-      meta: [
-        {
-          name: 'keywords',
-          content:
-            'Estrenos de cine, peliculas tvShows hoy, programacion tvShows, Movies, TV Shows, Reviews, API, Actors, Actresses, Photos, User Ratings, Synopsis, Trailers, Teasers, Credits, Cast'
-        },
-        {
-          charset: 'utf-8'
-        }
-      ]
-    }
   }
 }
 </script>

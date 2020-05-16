@@ -42,10 +42,11 @@ import EchSliderMain from '../../../components/slider/EchSliderMain'
 import EchVideoFrameX from '../../../components/movies/EchVideoFrameX'
 import EchHeaderMain from '../../../layouts/header/EchHeaderMain'
 import MediaManager from '../../../middleware/modules/vue/mixins/MediaManager'
+import SectionManager from '../../../middleware/modules/vue/mixins/UpcomingManager'
 
 export default {
   components: { EchHeaderMain, EchVideoFrameX, EchSliderMain, EchTvShowCard },
-  mixins: [MediaManager],
+  mixins: [MediaManager, SectionManager],
   // eslint-disable-next-line require-await
   async asyncData({ app, params, store, route }) {
     const language = app.i18n.locale
@@ -70,29 +71,6 @@ export default {
       },
       url:
         'https://www.youtube.com/embed/Yj0l7iGKh8g?autoplay=1&amp;showinfo=0&amp;rel=0&amp;modestbranding=1&amp;playsinline=1'
-    }
-  },
-  created() {},
-  methods: {
-    getSection() {
-      return this.$i18n.messages[this.$i18n.locale].pages.tv[
-        this.$route.params.upcoming
-      ]
-    }
-  },
-  head() {
-    return {
-      title: `Estrenos Cine Hoy: ${this.getSection()}`,
-      meta: [
-        {
-          name: 'keywords',
-          content:
-            'Estrenos de cine, peliculas tvShows hoy, programacion tvShows, Movies, TV Shows, Reviews, API, Actors, Actresses, Photos, User Ratings, Synopsis, Trailers, Teasers, Credits, Cast'
-        },
-        {
-          charset: 'utf-8'
-        }
-      ]
     }
   }
 }
