@@ -16,7 +16,7 @@ export default {
     trending: 'Hoy En Portada',
     tv: {
       airingToday: 'Hoy en TV',
-      onTheAirTv: 'Ahora en TV',
+      onTheAirTv: 'Series en TV',
       popular: 'Popular en TV',
       topRated: 'Top Series'
     },
