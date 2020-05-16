@@ -13,18 +13,18 @@ export default {
     comedy: 'Comedy',
     family: 'Family',
     news: 'News',
-    trending: 'Trending',
+    trending: 'Trends',
     tv: {
-      airingToday: 'Airing Today',
-      onTheAirTv: 'On the Air',
-      popular: 'Popular',
-      topRated: 'Top Rated'
+      airingToday: 'Airing Today on TV',
+      onTheAirTv: 'On the Air TV',
+      popular: 'Popular on TV',
+      topRated: 'Top Rated on TV'
     },
     movies: {
-      nowPlaying: 'Now Playing',
-      popular: 'Popular',
-      topRated: 'Top Rated',
-      upcoming: 'Upcoming'
+      nowPlaying: 'Now in cinemas',
+      popular: 'Popular movies',
+      topRated: 'Top Rated Movies',
+      upcoming: 'Coming Movies'
     }
   },
   select: {
