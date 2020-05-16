@@ -8,7 +8,7 @@
         <a name="echSliderPeople"></a>
         <li v-for="credit in credits" :key="credit.credit_id" :todo="credit">
           <img :src="getPosterURL(credit.profile_path)" alt="credit.name" />
-          <div class="uk-positio  n-center uk-panel"></div>
+          <div class="uk-position-center uk-panel"></div>
         </li>
       </ul>
       <a
