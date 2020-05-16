@@ -105,7 +105,7 @@ class GetTvShowDetailsRepositoryResponse {
       this._images = new GetImageDetailsResponse(images)
     }
     if (!_isEmpty(credits) && !_isEmpty(credits.cast)) {
-      this._videos = credits.cast.map((it) => {
+      this.credits = credits.cast.map((it) => {
         // eslint-disable-next-line no-new
         return new GetCreditCastsResponse({ ...it })
       })

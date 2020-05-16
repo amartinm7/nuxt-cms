@@ -83,8 +83,9 @@ class GetMovieDetailsRepositoryResponse {
     if (!_isEmpty(images)) {
       this._images = new GetImageDetailsResponse(images)
     }
+    console.log(credits)
     if (!_isEmpty(credits) && !_isEmpty(credits.cast)) {
-      this._videos = credits.cast.map((it) => {
+      this._credits = credits.cast.map((it) => {
         // eslint-disable-next-line no-new
         return new GetCreditCastsResponse({ ...it })
       })
