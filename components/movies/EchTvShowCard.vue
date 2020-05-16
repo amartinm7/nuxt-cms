@@ -45,7 +45,7 @@ import { BeanContainerRegistry } from '../../middleware/BeanContainerRegistry'
 import { GetTvShowsVideosControllerRequest } from '../../middleware/modules/tvShows/getVideos/userapplication/controller/GetTvShowsVideosController'
 import PosterManager from '../../middleware/modules/vue/mixins/MediaManager'
 import MediaTypes from '../../middleware/modules/util/MediaTypes'
-import MediaTypesPaths from '../../locales/en'
+import MediaTypesPaths from '../../middleware/modules/util/MediaTypePaths'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
