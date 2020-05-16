@@ -85,7 +85,10 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [{ src: '~/plugins/uikit.js', ssr: false }],
+  plugins: [
+    { src: '~/plugins/uikit.js', ssr: false },
+    { src: '~/plugins/vue-moment.js', ssr: true }
+  ],
   /*
    ** Nuxt.js dev-modules
    */

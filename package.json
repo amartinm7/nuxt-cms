@@ -20,10 +20,12 @@
     "firebase": "^7.11.0",
     "firebase-admin": "^8.10.0",
     "lodash.isempty": "^4.4.0",
+    "moment": "^2.25.3",
     "nuxt": "^2.0.0",
     "nuxt-i18n": "^6.8.1",
     "uikit": "^3.4.4",
-    "vue": "latest"
+    "vue": "latest",
+    "vue-moment": "^4.1.0"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^2.0.0",

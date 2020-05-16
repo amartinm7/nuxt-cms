@@ -37,6 +37,12 @@
           <p class="uk-dropcap">
             {{ movie._overview }}
           </p>
+          <p>
+            {{ $t('releaseDate') }}
+            <span class="uk-label uk-margin-small-left">
+              {{ movie._release_date | moment('DD-MM-YYYY') }}
+            </span>
+          </p>
         </div>
         <div class="uk-flex uk-flex-right uk-width-auto">
           <div

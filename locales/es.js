@@ -33,5 +33,6 @@ export default {
   switcher: {
     trendingMovies: 'Tendencia en Cine',
     trendingTVShows: 'Tendencia en Series TV'
-  }
+  },
+  releaseDate: 'Fecha en cines'
 }

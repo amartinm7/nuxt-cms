@@ -33,5 +33,6 @@ export default {
   switcher: {
     trendingMovies: 'Trending Movies',
     trendingTVShows: 'Trending TV Shows'
-  }
+  },
+  releaseDate: 'Release Date'
 }
