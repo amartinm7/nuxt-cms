@@ -14,7 +14,23 @@
       ></ech-tv-show-card>
     </section>
     <section class="uk-section uk-section-xsmall">
-      <ech-slider-people :credits="credits"></ech-slider-people>
+      <ul id="ech-tab" uk-tab class="uk-flex uk-flex-around">
+        <li class="uk-active ech-basic">
+          <a href="#" uk-icon="icon: users"></a
+          >{{ $t('sliderSwitcher.credits') }}
+        </li>
+        <li class="ech-basic">
+          <a href="#" uk-icon="icon: tv"></a>{{ $t('sliderSwitcher.trailers') }}
+        </li>
+      </ul>
+      <div id="ech-switcher" class="uk-switcher">
+        <div class="uk-active">
+          <ech-slider-people :credits="credits"></ech-slider-people>
+        </div>
+        <div>
+          <ech-slider-people :credits="credits"></ech-slider-people>
+        </div>
+      </div>
     </section>
   </div>
 </template>

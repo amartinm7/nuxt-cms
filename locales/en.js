@@ -34,5 +34,10 @@ export default {
     trendingMovies: 'Trending Movies',
     trendingTVShows: 'Trending TV Shows'
   },
-  releaseDate: 'Release Date'
+  sliderSwitcher: {
+    credits: 'Credits',
+    trailers: 'Trailers'
+  },
+  releaseDate: 'Release Date',
+  firstAirDate: 'First Air Date'
 }

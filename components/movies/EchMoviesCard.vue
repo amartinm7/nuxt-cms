@@ -17,7 +17,7 @@
         >
           <img
             :src="getPosterURL(movie._poster_path, index)"
-            alt="poster-cover"
+            :alt="movie._title"
           />
         </a>
       </div>

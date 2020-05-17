@@ -74,6 +74,7 @@ class GetTvShowDetailsRepositoryResponse {
     name,
     vote_average,
     vote_count,
+    first_air_date,
     videos,
     images,
     credits,
@@ -95,6 +96,7 @@ class GetTvShowDetailsRepositoryResponse {
     this._name = name
     this._vote_average = vote_average
     this._vote_count = vote_count
+    this._first_air_date = first_air_date
     if (!_isEmpty(videos) && !_isEmpty(videos.results)) {
       this._videos = videos.results.map((it) => {
         // eslint-disable-next-line no-new

@@ -17,7 +17,7 @@
         >
           <img
             :src="getPosterURL(movie._poster_path, index)"
-            alt="poster-cover"
+            :alt="movie._name"
           />
         </a>
       </div>
@@ -34,6 +34,33 @@
             </h3>
           </nuxt-link>
           <p class="uk-dropcap">{{ movie._overview }}</p>
+          <div class="uk-child-width-expand@s" uk-grid>
+            <div>
+              <p>
+                {{ $t('firstAirDate') }}
+                <span class="uk-label uk-margin-small-left">
+                  {{ movie._first_air_date | moment('DD-MM-YYYY') }}
+                </span>
+              </p>
+            </div>
+            <div>
+              <p>
+                <img :src="getNetWorkURLByArray(movie._networks)" alt="" />
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="uk-flex uk-flex-right uk-width-auto">
+          <div
+            v-for="genre in movie._genres"
+            :key="genre.id"
+            :todo="genre"
+            class="uk-padding-small"
+          >
+            <span class="uk-label-warning ech-basic">
+              &nbsp;{{ genre.name }}&nbsp;
+            </span>
+          </div>
         </div>
       </div>
     </article>

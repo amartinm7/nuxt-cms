@@ -34,5 +34,10 @@ export default {
     trendingMovies: 'Tendencia en Cine',
     trendingTVShows: 'Tendencia en Series TV'
   },
-  releaseDate: 'Fecha en cines'
+  sliderSwitcher: {
+    credits: 'Reparto',
+    trailers: 'Trailers'
+  },
+  releaseDate: 'Fecha en cines',
+  firstAirDate: 'En emision desde'
 }
