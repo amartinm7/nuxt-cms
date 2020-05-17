@@ -4,10 +4,6 @@
       <ech-header-main
         @outbound-open-video-modal="playVideoURL"
       ></ech-header-main>
-      <ech-video-frame-x
-        :url="url"
-        @clear-video-url="clearVideoURL"
-      ></ech-video-frame-x>
     </section>
     <section class="uk-section uk-section-xsmall">
       <div class="uk-active">
@@ -48,6 +44,12 @@
           ></ech-tv-show-card>
         </div>
       </div>
+    </section>
+    <section class="uk-section uk-section-xsmall">
+      <ech-video-frame-x
+        :url="url"
+        @clear-video-url="clearVideoURL"
+      ></ech-video-frame-x>
     </section>
   </div>
 </template>

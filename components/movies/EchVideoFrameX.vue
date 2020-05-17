@@ -1,22 +1,16 @@
 <template>
-  <div>
-    <div id="modalcenter" class="uk-flex-top" uk-modal>
-      <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
-        <div>
-          <button
-            class="uk-modal-close-default"
-            type="button"
-            uk-close
-          ></button>
-          <iframe
-            :src="url"
-            width="1920"
-            height="1080"
-            frameborder="0"
-            uk-responsive
-            uk-video="automute: true"
-          ></iframe>
-        </div>
+  <div id="modalcenter" class="uk-flex-top" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+      <div>
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <iframe
+          :src="url"
+          width="1920"
+          height="1080"
+          frameborder="0"
+          uk-responsive
+          uk-video="automute: true"
+        ></iframe>
       </div>
     </div>
   </div>
