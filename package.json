@@ -25,6 +25,7 @@
     "nuxt-i18n": "^6.8.1",
     "uikit": "^3.4.4",
     "vue": "latest",
+    "vue-disqus": "^3.0.5",
     "vue-moment": "^4.1.0"
   },
   "devDependencies": {

@@ -87,7 +87,8 @@ export default {
    */
   plugins: [
     { src: '~/plugins/uikit.js', ssr: false },
-    { src: '~/plugins/vue-moment.js', ssr: true }
+    { src: '~/plugins/vue-moment.js', ssr: true },
+    { src: '~/plugins/disqus', ssr: true }
   ],
   /*
    ** Nuxt.js dev-modules

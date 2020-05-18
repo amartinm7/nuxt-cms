@@ -32,6 +32,9 @@
         </div>
       </div>
     </section>
+    <section class="uk-section uk-section-xsmall">
+      <ech-disqus></ech-disqus>
+    </section>
   </div>
 </template>
 <!-- eslint-disable -->
@@ -46,12 +49,13 @@ import VideoControllerManager from '../../../middleware/modules/vue/mixins/Video
 import DetailsHeaderManager from '../../../middleware/modules/vue/mixins/DetailsHeaderManager'
 import CreditsManager from '../../../middleware/modules/vue/mixins/CreditsManager'
 import EchSliderPeople from '../../../components/slider/EchSliderPeople'
+import EchDisqus from '../../../components/disqus/EchDisqus'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
   name: 'EchTvshowDetails',
   scrollToTop: true,
-  components: { EchVideoFrameX, EchTvShowCard, EchSliderPeople },
+  components: { EchDisqus, EchVideoFrameX, EchTvShowCard, EchSliderPeople },
   mixins: [VideoControllerManager, DetailsHeaderManager, CreditsManager],
   // eslint-disable-next-line require-await
   async asyncData({ app, route, params, store }) {

@@ -115,3 +115,9 @@ handleSelect(path) {
 
 //ads google analitycs
 https://nuxtjs.org/faq/google-analytics
+
+
+https://disqus.com/
+
+
+
