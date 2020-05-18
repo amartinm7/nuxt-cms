@@ -1,5 +1,7 @@
 <template>
-  <div>
+  <div
+    uk-scrollspy="cls: uk-animation-fade; target: .uk-card; delay: 300; repeat: false"
+  >
     <ech-navbar-main-new></ech-navbar-main-new>
     <nuxt :key="$route.fullPath" />
     <ech-contact-footer-main></ech-contact-footer-main>
