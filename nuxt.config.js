@@ -1,12 +1,22 @@
 import { commandActions } from './store/commandActions/commandActionsStore'
+import { MEDIA_TYPES } from './middleware/modules/trending/getTrending/adomain/TrendingTypes'
+import { GetTrendingUseCase } from './middleware/modules/trending/getTrending/GetTrendingUseCase'
 
 const dynamicRoutes = () => {
   // fetching tvs
-  const routesForTv = Object.keys(commandActions.tv).map((action) => {
-    return {
-      route: `/tvshows/${action}`,
-      payload: action
-    }
+  const routesForTv = Object.keys(commandActions.tv).map(async (action) => {
+    const trendingTvs = await new GetTrendingUseCase().getTrending(
+      MEDIA_TYPES.TV,
+      action,
+      'es'
+    )
+    console.log('trendingTvs...' + JSON.stringify(trendingTvs))
+    trendingTvs.trendingMovies._results.map((result) => {
+      return {
+        route: `/tvshows/${action}`,
+        payload: trendingTvs
+      }
+    })
   })
   // fetching movies
   const routesForMovies = Object.keys(commandActions.movies).map((action) => {
