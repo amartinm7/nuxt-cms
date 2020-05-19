@@ -8,7 +8,9 @@
       uk-grid
     >
       <div class="uk-position-relative uk-visible-toggle uk-light">
-        <span class="uk-card-badge uk-label-success ech-basic">
+        <span
+          class="uk-card-badge uk-label-success ech-basic uk-border-rounded"
+        >
           &nbsp;{{ movie._vote_average.toFixed(1) }}&nbsp;
         </span>
         <a
@@ -23,17 +25,15 @@
       </div>
       <div>
         <div class="uk-card-body">
-          <nuxt-link
-            class="uk-link-reset"
-            :to="getDetailPathURL(movie._id, movie._title, mediaTypePath)"
-          >
-            <h3 class="uk-card-title ech-basic">
-              {{ movie._title }}&nbsp;<span class="uk-label">
-                {{ movie._id }}</span
-              >
-            </h3>
-          </nuxt-link>
-          <span uk-icon="quote-left"></span>
+          <h3 class="uk-card-title ech-basic">
+            <nuxt-link
+              class="uk-link-reset"
+              :to="getDetailPathURL(movie._id, movie._title, mediaTypePath)"
+            >
+              {{ movie._title }}&nbsp;
+            </nuxt-link>
+            <span class="uk-label">{{ movie._id }}</span>
+          </h3>
           <p class="uk-dropcap">
             {{ movie._overview }}
           </p>
