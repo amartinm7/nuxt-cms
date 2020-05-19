@@ -1,5 +1,8 @@
 <template>
-  <div uk-slider="autoplay: true; sets: true;" class="uk-slider">
+  <div
+    uk-slider="autoplay: true; sets: true;"
+    class="uk-slider uk-container uk-container-large"
+  >
     <div class="uk-position-relative">
       <ul
         class="uk-slider-items"

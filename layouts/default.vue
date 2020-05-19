@@ -1,5 +1,6 @@
 <template>
   <div
+    class="uk-container uk-container-large"
     uk-scrollspy="cls: uk-animation-fade; target: .uk-card; delay: 300; repeat: false"
   >
     <ech-navbar-main-new></ech-navbar-main-new>

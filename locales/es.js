@@ -13,7 +13,7 @@ export default {
     comedy: 'Comedia',
     family: 'Familia',
     news: 'Noticias',
-    trending: 'Hoy En Portada',
+    trending: 'Actual',
     tv: {
       airingToday: 'Hoy en TV',
       onTheAirTv: 'Series en TV',
@@ -21,7 +21,7 @@ export default {
       topRated: 'Top Series'
     },
     movies: {
-      nowPlaying: 'Ahora en cines',
+      nowPlaying: 'En cines',
       popular: 'Popular en Cine',
       topRated: 'Top Cine',
       upcoming: 'Avances cine'
