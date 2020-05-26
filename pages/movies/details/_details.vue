@@ -5,8 +5,6 @@
         :url="url"
         @clear-video-url="clearVideoURL"
       ></ech-video-frame-x>
-    </section>
-    <section class="uk-section uk-section-xsmall">
       <ech-movies-card
         :movies="movies"
         class="ech-scroll-spy-effect"

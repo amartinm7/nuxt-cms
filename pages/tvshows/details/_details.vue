@@ -5,16 +5,6 @@
         :url="url"
         @clear-video-url="clearVideoURL"
       ></ech-video-frame-x>
-    </section>
-    <section class="uk-section uk-section-xsmall">
-      <ech-slider-videos
-        :videos="videos"
-        :poster-path="movies[0]._poster_path"
-        :posters="posters"
-        @outbound-open-video-modal="playVideoURL"
-      ></ech-slider-videos>
-    </section>
-    <section class="uk-section uk-section-xsmall">
       <ech-tv-show-card
         :movies="movies"
         class="ech-scroll-spy-effect"
@@ -23,6 +13,14 @@
     </section>
     <section class="uk-section uk-section-xsmall">
       <ech-slider-people :credits="credits"></ech-slider-people>
+    </section>
+    <section class="uk-section uk-section-xsmall">
+      <ech-slider-videos
+        :videos="videos"
+        :poster-path="movies[0]._poster_path"
+        :posters="posters"
+        @outbound-open-video-modal="playVideoURL"
+      ></ech-slider-videos>
     </section>
     <section class="uk-section uk-section-xsmall">
       <ech-slider-posters :posters="posters"></ech-slider-posters>
