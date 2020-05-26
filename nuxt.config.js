@@ -88,7 +88,8 @@ export default {
   plugins: [
     { src: '~/plugins/uikit.js', ssr: false },
     { src: '~/plugins/vue-moment.js', ssr: true },
-    { src: '~/plugins/disqus', ssr: true }
+    { src: '~/plugins/disqus', ssr: true },
+    { src: '~/plugins/axios', ssr: true }
   ],
   /*
    ** Nuxt.js dev-modules
@@ -105,7 +106,8 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     'nuxt-i18n',
-    '@nuxtjs/robots'
+    '@nuxtjs/robots',
+    '~modules/custom-generate.js'
   ],
   /*
    ** Axios module configuration
@@ -171,7 +173,8 @@ export default {
   },
   generate: {
     // routes: ['/es', '/en', '/es/movies', '/en/movies']
-    routes: dynamicRoutes,
-    fallback: true
+    routes: dynamicRoutes(),
+    fallback: true,
+    exclude: [/^(?=.*\bignore\b).*$/]
   }
 }

@@ -4,7 +4,7 @@
       <h1 class="title">Contact Me</h1>
       <p>
         You can follow me on Twitter:
-        <a href="https://twitter.com/allenhwkim">@allenhwkim</a>
+        <a href="https://twitter.com/estrenoscinehoy">@estrenoscinehoy</a>
       </p>
     </div>
   </section>

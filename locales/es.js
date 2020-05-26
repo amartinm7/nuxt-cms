@@ -36,6 +36,7 @@ export default {
   },
   sliderSwitcher: {
     credits: 'Reparto',
+    posters: 'Posters',
     trailers: 'Trailers'
   },
   releaseDate: 'Fecha en cines',
