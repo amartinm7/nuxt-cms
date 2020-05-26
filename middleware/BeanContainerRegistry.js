@@ -23,10 +23,12 @@ const _isEmpty = require('lodash.isempty')
 let beanContainerRegistryInstance = null
 
 export class BeanContainerRegistry {
-  constructor(token, axiosRef) {
+  constructor(theMovieDBConfigToken, axiosRef) {
     this._beanContainer = new BeanContainer()
     // TODO INJECT THIS DEPENCIES IN A NEAR FUTURE
-    const accessToken = !_isEmpty(token) ? token : theMovieDBConfigEnv
+    const accessToken = !_isEmpty(theMovieDBConfigToken)
+      ? theMovieDBConfigToken
+      : theMovieDBConfigEnv
     const axios = !_isEmpty(axiosRef) ? axiosRef : require('axios')
 
     this._beanContainer.service(
@@ -73,9 +75,12 @@ export class BeanContainerRegistry {
     new GetUpcomingMoviesProvider(this._beanContainer)
   }
 
-  static _getInstance(token, axios) {
+  static _getInstance(theMovieDBConfigToken, axios) {
     if (!beanContainerRegistryInstance) {
-      beanContainerRegistryInstance = new BeanContainerRegistry(token, axios)
+      beanContainerRegistryInstance = new BeanContainerRegistry(
+        theMovieDBConfigToken,
+        axios
+      )
     }
     return beanContainerRegistryInstance
   }
@@ -84,8 +89,13 @@ export class BeanContainerRegistry {
     return BeanContainerRegistry._getInstance()._beanContainer
   }
 
-  static getBeanContainerWith(token) {
-    return BeanContainerRegistry._getInstance(token)._beanContainer
+  static getBeanContainerWithAxios(axios) {
+    return BeanContainerRegistry._getInstance(null, axios)._beanContainer
+  }
+
+  static getBeanContainerWith(theMovieDBConfigToken) {
+    return BeanContainerRegistry._getInstance(theMovieDBConfigToken)
+      ._beanContainer
   }
 }
 

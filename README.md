@@ -119,5 +119,8 @@ https://nuxtjs.org/faq/google-analytics
 
 https://disqus.com/
 
+https://github.com/scottsweb/scott.ee/blob/master/modules/generate.js
+
+
 
 

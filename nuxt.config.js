@@ -1,22 +1,12 @@
 import { commandActions } from './store/commandActions/commandActionsStore'
-import { MEDIA_TYPES } from './middleware/modules/trending/getTrending/adomain/TrendingTypes'
-import { GetTrendingUseCase } from './middleware/modules/trending/getTrending/GetTrendingUseCase'
 
 const dynamicRoutes = () => {
   // fetching tvs
-  const routesForTv = Object.keys(commandActions.tv).map(async (action) => {
-    const trendingTvs = await new GetTrendingUseCase().getTrending(
-      MEDIA_TYPES.TV,
-      action,
-      'es'
-    )
-    console.log('trendingTvs...' + JSON.stringify(trendingTvs))
-    trendingTvs.trendingMovies._results.map((result) => {
-      return {
-        route: `/tvshows/${action}`,
-        payload: trendingTvs
-      }
-    })
+  const routesForTv = Object.keys(commandActions.tv).map((action) => {
+    return {
+      route: `/tvshows/${action}`,
+      payload: action
+    }
   })
   // fetching movies
   const routesForMovies = Object.keys(commandActions.movies).map((action) => {
@@ -98,7 +88,8 @@ export default {
   plugins: [
     { src: '~/plugins/uikit.js', ssr: false },
     { src: '~/plugins/vue-moment.js', ssr: true },
-    { src: '~/plugins/disqus', ssr: true }
+    { src: '~/plugins/disqus', ssr: true },
+    { src: '~/plugins/axios', ssr: true }
   ],
   /*
    ** Nuxt.js dev-modules
@@ -115,7 +106,8 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     'nuxt-i18n',
-    '@nuxtjs/robots'
+    '@nuxtjs/robots',
+    '~modules/custom-generate.js'
   ],
   /*
    ** Axios module configuration
@@ -181,7 +173,8 @@ export default {
   },
   generate: {
     // routes: ['/es', '/en', '/es/movies', '/en/movies']
-    routes: dynamicRoutes,
-    fallback: true
+    routes: dynamicRoutes(),
+    fallback: true,
+    exclude: [/^(?=.*\bignore\b).*$/]
   }
 }
