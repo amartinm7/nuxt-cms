@@ -26,6 +26,15 @@ export default {
     getVideoURLFrom(key) {
       const url = `https://www.youtube.com/embed/${key}?autoplay=1&amp;showinfo=0&amp;rel=0&amp;modestbranding=1&amp;playsinline=1`
       return url
+    },
+    existsCredits(credits) {
+      return !_isEmpty(credits)
+    },
+    existsPosters(posters) {
+      return !_isEmpty(posters)
+    },
+    existsVideos(videos) {
+      return !_isEmpty(videos)
     }
   }
 }
