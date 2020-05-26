@@ -20,6 +20,10 @@
           >{{ $t('sliderSwitcher.credits') }}
         </li>
         <li class="ech-basic">
+          <a href="#" uk-icon="icon: image"></a
+          >{{ $t('sliderSwitcher.posters') }}
+        </li>
+        <li class="ech-basic">
           <a href="#" uk-icon="icon: tv"></a>{{ $t('sliderSwitcher.trailers') }}
         </li>
       </ul>
@@ -28,7 +32,14 @@
           <ech-slider-people :credits="credits"></ech-slider-people>
         </div>
         <div>
-          <ech-slider-people :credits="credits"></ech-slider-people>
+          <ech-slider-posters :posters="posters"></ech-slider-posters>
+        </div>
+        <div>
+          <ech-slider-videos
+            :videos="videos"
+            :poster-path="movies[0]._poster_path"
+            @outbound-open-video-modal="playVideoURL"
+          ></ech-slider-videos>
         </div>
       </div>
     </section>
@@ -50,12 +61,21 @@ import DetailsHeaderManager from '../../../middleware/modules/vue/mixins/Details
 import EchSliderPeople from '../../../components/slider/EchSliderPeople'
 import CreditsManager from '../../../middleware/modules/vue/mixins/CreditsManager'
 import EchDisqus from '../../../components/disqus/EchDisqus'
+import EchSliderPosters from '../../../components/slider/EchSliderPosters'
+import EchSliderVideos from '../../../components/slider/EchSliderVideos'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
   name: 'EchMoviesDetails',
   scrollToTop: true,
-  components: { EchDisqus, EchVideoFrameX, EchMoviesCard, EchSliderPeople },
+  components: {
+    EchSliderVideos,
+    EchSliderPosters,
+    EchDisqus,
+    EchVideoFrameX,
+    EchMoviesCard,
+    EchSliderPeople
+  },
   mixins: [VideoControllerManager, DetailsHeaderManager, CreditsManager],
   // eslint-disable-next-line require-await
   async asyncData({ app, route, params, store }) {

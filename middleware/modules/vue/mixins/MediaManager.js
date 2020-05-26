@@ -7,7 +7,7 @@ export default {
   methods: {
     getPosterURL(posterPath) {
       const sanitizedPosterPath = posterPath ?? ValuesByDefault.posterPath
-      return `https://image.tmdb.org/t/p/w185_and_h278_bestv2/${sanitizedPosterPath}`
+      return `https://image.tmdb.org/t/p/w185_and_h278_bestv2${sanitizedPosterPath}`
     },
     getDetailPathURL(movie_id, movie_title, mediaType) {
       const language = this.$i18n.locale
@@ -19,11 +19,13 @@ export default {
       return `https://image.tmdb.org/t/p/h60/${logoPath}`
     },
     getNetWorkURLByArray(networks) {
-      if (!_isEmpty(networks) && !_isEmpty(networks[0])) {
-        return this.getNetWorkURL(networks[0]._logo_path)
-      } else {
-        return ''
-      }
+      return !_isEmpty(networks) && !_isEmpty(networks[0])
+        ? this.getNetWorkURL(networks[0]._logo_path)
+        : ''
+    },
+    getVideoURLFrom(key) {
+      const url = `https://www.youtube.com/embed/${key}?autoplay=1&amp;showinfo=0&amp;rel=0&amp;modestbranding=1&amp;playsinline=1`
+      return url
     }
   }
 }
