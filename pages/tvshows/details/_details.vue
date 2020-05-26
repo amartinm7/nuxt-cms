@@ -7,20 +7,12 @@
       ></ech-video-frame-x>
     </section>
     <section class="uk-section uk-section-xsmall">
-      <ul id="ech-tab-slider-videos" uk-tab class="uk-flex uk-flex-around">
-        <li class="uk-active ech-basic">
-          <a href="#" uk-icon="icon: tv"></a>{{ $t('sliderSwitcher.trailers') }}
-        </li>
-      </ul>
-      <div id="ech-switcher-slider-videos" class="uk-switcher">
-        <div class="uk-active">
-          <ech-slider-videos
-            :videos="videos"
-            :poster-path="movies[0]._poster_path"
-            @outbound-open-video-modal="playVideoURL"
-          ></ech-slider-videos>
-        </div>
-      </div>
+      <ech-slider-videos
+        :videos="videos"
+        :poster-path="movies[0]._poster_path"
+        :posters="posters"
+        @outbound-open-video-modal="playVideoURL"
+      ></ech-slider-videos>
     </section>
     <section class="uk-section uk-section-xsmall">
       <ech-tv-show-card
@@ -30,38 +22,11 @@
       ></ech-tv-show-card>
     </section>
     <section class="uk-section uk-section-xsmall">
-      <ul id="ech-tab" uk-tab class="uk-flex uk-flex-around">
-        <li class="uk-active ech-basic">
-          <a href="#" uk-icon="icon: users"></a
-          >{{ $t('sliderSwitcher.credits') }}
-        </li>
-        <li class="ech-basic">
-          <a href="#" uk-icon="icon: image"></a
-          >{{ $t('sliderSwitcher.posters') }}
-        </li>
-      </ul>
-      <div id="ech-switcher" class="uk-switcher">
-        <div class="uk-active">
-          <ech-slider-people :credits="credits"></ech-slider-people>
-        </div>
-        <div>
-          <ech-slider-posters :posters="posters"></ech-slider-posters>
-        </div>
-      </div>
+      <ech-slider-people :credits="credits"></ech-slider-people>
     </section>
-    <!--    <section class="uk-section uk-section-xsmall">-->
-    <!--      <ul id="ech-tab-slider-posters" uk-tab class="uk-flex uk-flex-around">-->
-    <!--        <li class="uk-active ech-basic">-->
-    <!--          <a href="#" uk-icon="icon: image"></a-->
-    <!--          >{{ $t('sliderSwitcher.posters') }}-->
-    <!--        </li>-->
-    <!--      </ul>-->
-    <!--      <div id="ech-switcher-slider-posters" class="uk-switcher">-->
-    <!--        <div class="uk-active">-->
-    <!--          <ech-slider-posters :posters="posters"></ech-slider-posters>-->
-    <!--        </div>-->
-    <!--      </div>-->
-    <!--    </section>-->
+    <section class="uk-section uk-section-xsmall">
+      <ech-slider-posters :posters="posters"></ech-slider-posters>
+    </section>
     <section class="uk-section uk-section-xsmall">
       <ech-disqus></ech-disqus>
     </section>
