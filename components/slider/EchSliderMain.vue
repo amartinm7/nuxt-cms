@@ -38,7 +38,9 @@
         uk-slider-item="next"
       ></a>
     </div>
-    <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
+    <ul
+      class="uk-slider-nav uk-dotnav uk-flex-center uk-margin uk-visible@s"
+    ></ul>
   </div>
 </template>
 <script>
