@@ -2,7 +2,7 @@
   <div
     class="uk-position-relative uk-visible-toggle uk-light"
     tabindex="-1"
-    uk-slider="clsActivated: uk-transition-active; center: true"
+    uk-slider="clsActivated: uk-transition-active; center: true; autoplay: true;"
   >
     <ul class="uk-slider-items" style="transform: translate3d(0px, 0px, 0px);">
       <a name="echSliderVideos"></a>
