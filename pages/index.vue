@@ -64,7 +64,6 @@ import EchSliderMain from '../components/slider/EchSliderMain'
 import EchVideoFrameX from '../components/movies/EchVideoFrameX'
 import EchHeaderMain from '../layouts/header/EchHeaderMain'
 import VideoControllerManager from '../middleware/modules/vue/mixins/VideoControllerManager'
-import MediaTypes from '../middleware/modules/util/MediaTypes'
 import MediaTypePaths from '../middleware/modules/util/MediaTypePaths'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
@@ -109,7 +108,6 @@ export default {
         _total_results: 1,
         _results: []
       },
-      mediaType: MediaTypes.movies,
       mediaTypePath: MediaTypePaths.movies,
       trendingResults: {},
       url:
@@ -118,13 +116,16 @@ export default {
   },
   mounted() {
     const self = this
-    self.mediaType = 'tvshows'
+    self.mediaTypePath = MediaTypePaths.tvShows
     self.trendingResults = self.trendingMovies
     self.$uikit.tab('#ech-tab').show(0)
     self.$uikit.util.on('#ech-switcher', 'show', function() {
-      self.mediaType = self.mediaType === 'movies' ? 'tvshows' : 'movies'
+      self.mediaTypePath =
+        self.mediaTypePath === 'movies' ? 'tvshows' : 'movies'
       self.trendingResults =
-        self.mediaType === 'movies' ? self.trendingMovies : self.trendingTVShows
+        self.mediaTypePath === 'movies'
+          ? self.trendingMovies
+          : self.trendingTVShows
     })
   },
   created() {},
