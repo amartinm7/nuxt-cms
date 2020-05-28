@@ -1,14 +1,10 @@
 <template>
   <div>
     <section class="uk-section uk-section-xsmall">
-      <ech-video-frame-x
-        :url="url"
-        @clear-video-url="clearVideoURL"
-      ></ech-video-frame-x>
       <ech-tv-show-card
         :movies="movies"
         class="ech-scroll-spy-effect"
-        @outbound-open-video-modal="playVideoURL"
+        @outbound-open-video-modal="playVideo"
       ></ech-tv-show-card>
     </section>
     <section class="uk-section uk-section-xsmall">
@@ -19,7 +15,7 @@
         :videos="videos"
         :poster-path="movies[0]._poster_path"
         :posters="posters"
-        @outbound-open-video-modal="playVideoURL"
+        @outbound-open-video-modal="playVideo"
       ></ech-slider-videos>
     </section>
     <section class="uk-section uk-section-xsmall">
@@ -28,6 +24,19 @@
     <section class="uk-section uk-section-xsmall">
       <ech-disqus></ech-disqus>
     </section>
+    <div>
+      <vk-modal center :show.sync="showVideo">
+        <vk-modal-close @click="closeVideo"></vk-modal-close>
+        <iframe
+          :src="url"
+          width="1920"
+          height="1080"
+          frameborder="0"
+          uk-responsive
+          uk-video="automute: true"
+        ></iframe>
+      </vk-modal>
+    </div>
   </div>
 </template>
 <!-- eslint-disable -->
@@ -37,7 +46,6 @@
 import { BeanContainerRegistry } from '../../../middleware/BeanContainerRegistry'
 import EchTvShowCard from '../../../components/movies/EchTvShowCard'
 import { GetTvShowDetailsControllerRequest } from '../../../middleware/modules/tvShows/getDetails/userapplication/controller/GetTvShowDetailsController'
-import EchVideoFrameX from '../../../components/movies/EchVideoFrameX'
 import VideoControllerManager from '../../../middleware/modules/vue/mixins/VideoControllerManager'
 import DetailsHeaderManager from '../../../middleware/modules/vue/mixins/DetailsHeaderManager'
 import CreditsManager from '../../../middleware/modules/vue/mixins/CreditsManager'
@@ -54,7 +62,6 @@ export default {
     EchSliderVideos,
     EchSliderPosters,
     EchDisqus,
-    EchVideoFrameX,
     EchTvShowCard,
     EchSliderPeople
   },
@@ -77,9 +84,7 @@ export default {
     return {
       movies: [],
       movie_name: '',
-      movie_id: 0,
-      url:
-        'https://www.youtube.com/embed/Yj0l7iGKh8g?autoplay=1&amp;showinfo=0&amp;rel=0&amp;modestbranding=1&amp;playsinline=1'
+      movie_id: 0
     }
   },
   mounted() {

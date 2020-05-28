@@ -43,19 +43,19 @@
         </div>
       </div>
     </section>
-    <!--    <section class="uk-section uk-section-xsmall">-->
-    <!--      <ech-video-frame-x-->
-    <!--        :url="url"-->
-    <!--        @clear-video-url="clearVideoURL"-->
-    <!--      ></ech-video-frame-x>-->
-    <!--    </section>-->
-    <section class="uk-section uk-section-xsmall">
-      <ech-video-frame-y
-        :url="url"
-        :show="showVideo"
-        @close-video-url="closeVideo"
-      ></ech-video-frame-y>
-    </section>
+    <div>
+      <vk-modal center :show.sync="showVideo">
+        <vk-modal-close @click="closeVideo"></vk-modal-close>
+        <iframe
+          :src="url"
+          width="1920"
+          height="1080"
+          frameborder="0"
+          uk-responsive
+          uk-video="automute: true"
+        ></iframe>
+      </vk-modal>
+    </div>
   </div>
 </template>
 <!-- eslint-disable -->
@@ -66,8 +66,6 @@ import EchTvShowCard from '../components/movies/EchTvShowCard'
 import EchMoviesCard from '../components/movies/EchMoviesCard'
 import { BeanContainerRegistry } from '../middleware/BeanContainerRegistry'
 import EchSliderMain from '../components/slider/EchSliderMain'
-// import EchVideoFrameX from '../components/movies/EchVideoFrameX'
-import EchVideoFrameY from '../components/movies/EchVideoFrameY'
 import EchHeaderMain from '../layouts/header/EchHeaderMain'
 import VideoControllerManager from '../middleware/modules/vue/mixins/VideoControllerManager'
 import MediaTypePaths from '../middleware/modules/util/MediaTypePaths'
@@ -77,8 +75,6 @@ export default {
   name: 'EchMainIndex',
   components: {
     EchHeaderMain,
-    // EchVideoFrameX,
-    EchVideoFrameY,
     EchSliderMain,
     EchTvShowCard,
     EchMoviesCard
@@ -116,10 +112,7 @@ export default {
         _results: []
       },
       mediaTypePath: MediaTypePaths.movies,
-      trendingResults: {},
-      url:
-        'https://www.youtube.com/embed/Yj0l7iGKh8g?autoplay=1&amp;showinfo=0&amp;rel=0&amp;modestbranding=1&amp;playsinline=1',
-      showVideo: false
+      trendingResults: {}
     }
   },
   mounted() {
@@ -135,16 +128,6 @@ export default {
           ? self.trendingMovies
           : self.trendingTVShows
     })
-  },
-  created() {},
-  methods: {
-    playVideo(url) {
-      this.url = url
-      this.showVideo = true
-    },
-    closeVideo() {
-      this.showVideo = false
-    }
   },
   head() {
     return {

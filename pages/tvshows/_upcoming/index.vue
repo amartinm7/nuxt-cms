@@ -1,13 +1,7 @@
 <template>
   <div>
     <section class="uk-section uk-section-xsmall">
-      <ech-header-main
-        @outbound-open-video-modal="playVideoURL"
-      ></ech-header-main>
-      <ech-video-frame-x
-        :url="url"
-        @clear-video-url="clearVideoURL"
-      ></ech-video-frame-x>
+      <ech-header-main @outbound-open-video-modal="playVideo"></ech-header-main>
     </section>
     <section class="uk-section uk-section-xsmall">
       <ech-slider-main
@@ -25,10 +19,23 @@
         <ech-tv-show-card
           :movies="trendingTVShows._results"
           class="ech-scroll-spy-effect"
-          @outbound-open-video-modal="playVideoURL"
+          @outbound-open-video-modal="playVideo"
         ></ech-tv-show-card>
       </div>
     </section>
+    <div>
+      <vk-modal center :show.sync="showVideo">
+        <vk-modal-close @click="closeVideo"></vk-modal-close>
+        <iframe
+          :src="url"
+          width="1920"
+          height="1080"
+          frameborder="0"
+          uk-responsive
+          uk-video="automute: true"
+        ></iframe>
+      </vk-modal>
+    </div>
   </div>
 </template>
 <!-- eslint-disable -->
@@ -39,7 +46,6 @@ import EchTvShowCard from '../../../components/movies/EchTvShowCard'
 import { MEDIA_TYPES } from '../../../middleware/modules/trending/getTrending/adomain/TrendingTypes'
 import ActionMapper from '../../../middleware/ActionMapper'
 import EchSliderMain from '../../../components/slider/EchSliderMain'
-import EchVideoFrameX from '../../../components/movies/EchVideoFrameX'
 import EchHeaderMain from '../../../layouts/header/EchHeaderMain'
 import VideoControllerManager from '../../../middleware/modules/vue/mixins/VideoControllerManager'
 import UpcomingManager from '../../../middleware/modules/vue/mixins/UpcomingManager'
@@ -48,7 +54,7 @@ import MediaTypePaths from '../../../middleware/modules/util/MediaTypePaths'
 
 export default {
   name: 'EchTvshowUpcoming',
-  components: { EchHeaderMain, EchVideoFrameX, EchSliderMain, EchTvShowCard },
+  components: { EchHeaderMain, EchSliderMain, EchTvShowCard },
   mixins: [VideoControllerManager, UpcomingManager],
   // eslint-disable-next-line require-await
   async asyncData({ app, params, store, route }) {
@@ -73,9 +79,7 @@ export default {
         _results: []
       },
       mediaTypePath: MediaTypePaths.tv,
-      mediaType: MediaTypes.tv,
-      url:
-        'https://www.youtube.com/embed/Yj0l7iGKh8g?autoplay=1&amp;showinfo=0&amp;rel=0&amp;modestbranding=1&amp;playsinline=1'
+      mediaType: MediaTypes.tv
     }
   }
 }
