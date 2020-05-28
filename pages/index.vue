@@ -1,9 +1,7 @@
 <template>
   <div>
     <section class="uk-section uk-section-xsmall">
-      <ech-header-main
-        @outbound-open-video-modal="playVideoURL"
-      ></ech-header-main>
+      <ech-header-main @outbound-open-video-modal="playVideo"></ech-header-main>
     </section>
     <section class="uk-section uk-section-xsmall">
       <div class="uk-active">
@@ -33,23 +31,30 @@
           <ech-movies-card
             :movies="trendingMovies._results"
             class="ech-scroll-spy-effect"
-            @outbound-open-video-modal="playVideoURL"
+            @outbound-open-video-modal="playVideo"
           ></ech-movies-card>
         </div>
         <div>
           <ech-tv-show-card
             :movies="trendingTVShows._results"
             class="ech-scroll-spy-effect"
-            @outbound-open-video-modal="playVideoURL"
+            @outbound-open-video-modal="playVideo"
           ></ech-tv-show-card>
         </div>
       </div>
     </section>
+    <!--    <section class="uk-section uk-section-xsmall">-->
+    <!--      <ech-video-frame-x-->
+    <!--        :url="url"-->
+    <!--        @clear-video-url="clearVideoURL"-->
+    <!--      ></ech-video-frame-x>-->
+    <!--    </section>-->
     <section class="uk-section uk-section-xsmall">
-      <ech-video-frame-x
+      <ech-video-frame-y
         :url="url"
-        @clear-video-url="clearVideoURL"
-      ></ech-video-frame-x>
+        :show="showVideo"
+        @close-video-url="closeVideo"
+      ></ech-video-frame-y>
     </section>
   </div>
 </template>
@@ -61,7 +66,8 @@ import EchTvShowCard from '../components/movies/EchTvShowCard'
 import EchMoviesCard from '../components/movies/EchMoviesCard'
 import { BeanContainerRegistry } from '../middleware/BeanContainerRegistry'
 import EchSliderMain from '../components/slider/EchSliderMain'
-import EchVideoFrameX from '../components/movies/EchVideoFrameX'
+// import EchVideoFrameX from '../components/movies/EchVideoFrameX'
+import EchVideoFrameY from '../components/movies/EchVideoFrameY'
 import EchHeaderMain from '../layouts/header/EchHeaderMain'
 import VideoControllerManager from '../middleware/modules/vue/mixins/VideoControllerManager'
 import MediaTypePaths from '../middleware/modules/util/MediaTypePaths'
@@ -71,7 +77,8 @@ export default {
   name: 'EchMainIndex',
   components: {
     EchHeaderMain,
-    EchVideoFrameX,
+    // EchVideoFrameX,
+    EchVideoFrameY,
     EchSliderMain,
     EchTvShowCard,
     EchMoviesCard
@@ -111,7 +118,8 @@ export default {
       mediaTypePath: MediaTypePaths.movies,
       trendingResults: {},
       url:
-        'https://www.youtube.com/embed/Yj0l7iGKh8g?autoplay=1&amp;showinfo=0&amp;rel=0&amp;modestbranding=1&amp;playsinline=1'
+        'https://www.youtube.com/embed/Yj0l7iGKh8g?autoplay=1&amp;showinfo=0&amp;rel=0&amp;modestbranding=1&amp;playsinline=1',
+      showVideo: false
     }
   },
   mounted() {
@@ -129,7 +137,15 @@ export default {
     })
   },
   created() {},
-  methods: {},
+  methods: {
+    playVideo(url) {
+      this.url = url
+      this.showVideo = true
+    },
+    closeVideo() {
+      this.showVideo = false
+    }
+  },
   head() {
     return {
       title: this.$i18n.messages[this.$i18n.locale].seo.index,

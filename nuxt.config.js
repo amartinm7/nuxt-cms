@@ -87,6 +87,7 @@ export default {
    */
   plugins: [
     { src: '~/plugins/uikit.js', ssr: false },
+    { src: '~/plugins/vuikit.js', ssr: false },
     { src: '~/plugins/vue-moment.js', ssr: true },
     { src: '~/plugins/disqus', ssr: true },
     { src: '~/plugins/axios', ssr: true }
