@@ -19,6 +19,7 @@ import GetPopularMoviesProvider from './modules/movies/getPopularMovies/GetPopul
 import GetTopRatedMoviesProvider from './modules/movies/getTopRatedMovies/GetTopRatedMoviesProvider'
 import GetUpcomingMoviesProvider from './modules/movies/getUpcomingMovies/GetUpcomingMoviesProvider'
 import SearchTvShowsProvider from './modules/tvShows/searchTvShows/SearchTvShowsProvider'
+import SearchMoviesProvider from './modules/movies/searchMovies/SearchMoviesProvider'
 
 const _isEmpty = require('lodash.isempty')
 /* eslint-disable camelcase, no-console, no-new */
@@ -59,6 +60,7 @@ export class BeanContainerRegistry {
     new GetTopRatedMoviesProvider(this._beanContainer)
     new GetUpcomingMoviesProvider(this._beanContainer)
     new SearchTvShowsProvider(this._beanContainer)
+    new SearchMoviesProvider(this._beanContainer)
   }
 
   static _getInstance(theMovieDBConfigToken, axios) {
