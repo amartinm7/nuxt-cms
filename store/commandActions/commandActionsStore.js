@@ -1,6 +1,6 @@
 export const state = () => ({
   actionForTvShows: commandActions.tv.airingToday,
-  actionForMovies: commandActions.movies.latest
+  actionForMovies: commandActions.movies.nowPlaying
 })
 
 export const getters = {
