@@ -1,4 +1,5 @@
 import GetAxiosRequest from '../../../../../framework/modules/axios/GetAxiosRequest'
+import { TIME_WINDOWS_TYPES } from '../../adomain/TrendingTypes'
 /* eslint-disable camelcase, no-console */
 class GetTrendingMoviesRepository {
   constructor({ axios, accessToken }) {
@@ -35,7 +36,7 @@ class GetTrendingMoviesRepository {
 }
 
 class GetTrendingMoviesRepositoryRequest {
-  constructor({ mediaType, timeWindow, language }) {
+  constructor({ mediaType, timeWindow = TIME_WINDOWS_TYPES.WEEK, language }) {
     this.mediaType = mediaType
     this.timeWindow = timeWindow
     this.language = language

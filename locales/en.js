@@ -1,4 +1,11 @@
+import moviesGenres from './en/genres/movies/en'
+import tvshowsGenres from './en/genres/tvshows/en'
+
 export default {
+  genres: {
+    movies: moviesGenres.genres,
+    tvshows: tvshowsGenres.genres
+  },
   hello: 'helloxxx',
   movies: 'Movies',
   seo: {
