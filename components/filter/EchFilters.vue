@@ -2,20 +2,32 @@
   <div>
     <p v-show="showTvGenres">
       <span
-        v-for="action in showActionListForTvShows"
-        :key="action.id"
-        class="uk-label uk-margin-small-left ech-basic"
+        v-for="filter in showActionListForTvShows"
+        :key="filter.id"
+        :class="{
+          'uk-label': true,
+          'uk-label-success': isFilterIncludedForTv(filter.id),
+          'uk-margin-small-left': true,
+          'ech-basic': true
+        }"
+        @click="setFilterForTV(filter.id)"
       >
-        {{ action.name }}
+        {{ filter.name }}
       </span>
     </p>
     <p v-show="showMoviesGenres">
       <span
-        v-for="action in showActionListForMovies"
-        :key="action.id"
-        class="uk-label uk-margin-small-left ech-basic"
+        v-for="filter in showActionListForMovies"
+        :key="filter.id"
+        :class="{
+          'uk-label': true,
+          'uk-label-success': isFilterIncludedForMovies(filter.id),
+          'uk-margin-small-left': true,
+          'ech-basic': true
+        }"
+        @click="setFilterForMovies(filter.id)"
       >
-        {{ action.name }}
+        {{ filter.name }}
       </span>
     </p>
   </div>
@@ -46,18 +58,35 @@ export default {
     showMoviesGenres() {
       return this.mediaTypePath === MediaTypePath.movies
     },
-    showLocales() {
-      // eslint-disable-next-line no-console
-      console.log('showLocales... ' + this.$i18n.locale)
-      return this.$i18n.locales.filter(
-        (locale) => locale.code !== this.$i18n.locale
-      )
-    },
     showActionListForTvShows() {
       return this.$i18n.messages[this.$i18n.locale].genres.tv
     },
     showActionListForMovies() {
       return this.$i18n.messages[this.$i18n.locale].genres.movies
+    }
+  },
+  methods: {
+    setFilterForTV(filterId) {
+      this.$store.dispatch(
+        'genreFilters/filtersStore/setFilterForTvShows',
+        filterId
+      )
+    },
+    isFilterIncludedForTv(filterId) {
+      return this.$store.getters[
+        'genreFilters/filtersStore/getFiltersForTvShows'
+      ].includes(filterId)
+    },
+    setFilterForMovies(filterId) {
+      this.$store.dispatch(
+        'genreFilters/filtersStore/setFilterForMovies',
+        filterId
+      )
+    },
+    isFilterIncludedForMovies(filterId) {
+      return this.$store.getters[
+        'genreFilters/filtersStore/getFiltersForMovies'
+      ].includes(filterId)
     }
   }
 }
