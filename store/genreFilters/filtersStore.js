@@ -5,11 +5,9 @@ export const state = () => ({
 
 export const getters = {
   getFiltersForTvShows: (state) => {
-    console.log('getFiltersForTvShows ' + state.filtersForTvShows)
     return state.filtersForTvShows
   },
   getFiltersForMovies: (state) => {
-    console.log('getFiltersForMovies ' + state.filtersForMovies)
     return state.filtersForMovies
   }
 }
