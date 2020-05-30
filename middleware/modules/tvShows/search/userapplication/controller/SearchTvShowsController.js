@@ -17,7 +17,8 @@ class SearchTvShowsController {
 
 /* eslint-disable camelcase */
 class SearchTvShowsControllerRequest {
-  constructor({ language }) {
+  constructor({ query, language }) {
+    this.query = query
     this.language = language
   }
 }

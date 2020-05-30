@@ -1,19 +1,19 @@
 import GetAxiosRequest from '../../../../../framework/modules/axios/GetAxiosRequest'
 /* eslint-disable camelcase, no-console */
-class SearchMoviesRepository {
+class FindTvShowsByRepository {
   constructor({ axios, accessToken }) {
     this._axios = axios
     this._accessToken = accessToken
   }
 
   /**
-   * Get searchMovies
-   * @param searchMoviesRepositoryRequest
+   * Get findBy
+   * @param findTvShowsByRepositoryRequest
    * @returns {*}
    */
-  execute(searchMoviesRepositoryRequest) {
-    const { language } = { ...searchMoviesRepositoryRequest }
-    const urlPath = `/search/movie?language=${language}&append_to_response=videos,images,credits`
+  execute(findTvShowsByRepositoryRequest) {
+    const { genres_ids, language } = { ...findTvShowsByRepositoryRequest }
+    const urlPath = `/discover/tv?language=${language}&genres_ids=${genres_ids}&append_to_response=videos,images,credits`
     return this._axios(
       new GetAxiosRequest({
         accessToken: this._accessToken,
@@ -22,32 +22,33 @@ class SearchMoviesRepository {
     )
   }
 
-  async executeAsync(searchMoviesRepositoryRequest) {
-    const axiosResponse = await this.execute(searchMoviesRepositoryRequest)
-    return new SearchMoviesRepositoryResponse({ ...axiosResponse.data })
+  async executeAsync(findTvShowsByRepositoryRequest) {
+    const axiosResponse = await this.execute(findTvShowsByRepositoryRequest)
+    return new FindTvShowsByRepositoryResponse({ ...axiosResponse.data })
   }
 }
 
-class SearchMoviesRepositoryRequest {
-  constructor({ language }) {
+class FindTvShowsByRepositoryRequest {
+  constructor({ genres_ids, language }) {
+    this.genres_ids = genres_ids
     this.language = language
   }
 }
 
 /* eslint-disable camelcase */
-class SearchMoviesRepositoryResponse {
+class FindTvShowsByRepositoryResponse {
   constructor({ page, total_pages, total_results, results }) {
     this._page = page
     this._total_pages = total_pages
     this._total_results = total_results
     this._results = results.map((it) => {
       // eslint-disable-next-line no-new
-      return new SearchMoviesRepositoryResponseResult(it)
+      return new FindTvShowsByRepositoryResponseResult(it)
     })
   }
 }
 
-class SearchMoviesRepositoryResponseResult {
+class FindTvShowsByRepositoryResponseResult {
   constructor({
     id,
     title,
@@ -80,8 +81,8 @@ class SearchMoviesRepositoryResponseResult {
 }
 
 export {
-  SearchMoviesRepository,
-  SearchMoviesRepositoryRequest,
-  SearchMoviesRepositoryResponse,
-  SearchMoviesRepositoryResponseResult
+  FindTvShowsByRepository,
+  FindTvShowsByRepositoryRequest,
+  FindTvShowsByRepositoryResponse,
+  FindTvShowsByRepositoryResponseResult
 }

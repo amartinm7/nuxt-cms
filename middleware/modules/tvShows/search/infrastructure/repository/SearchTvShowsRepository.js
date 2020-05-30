@@ -7,13 +7,13 @@ class SearchTvShowsRepository {
   }
 
   /**
-   * Get searchTvShows
+   * Get search
    * @param searchTvShowsRepositoryRequest
    * @returns {*}
    */
   execute(searchTvShowsRepositoryRequest) {
-    const { language } = { ...searchTvShowsRepositoryRequest }
-    const urlPath = `/search/tv/?language=${language}&append_to_response=videos,images,credits`
+    const { query, language } = { ...searchTvShowsRepositoryRequest }
+    const urlPath = `/search/tv/?language=${language}&query=${query}&append_to_response=videos,images,credits`
     return this._axios(
       new GetAxiosRequest({
         accessToken: this._accessToken,
@@ -29,7 +29,8 @@ class SearchTvShowsRepository {
 }
 
 class SearchTvShowsRepositoryRequest {
-  constructor({ language }) {
+  constructor({ query, language }) {
+    this.query = query
     this.language = language
   }
 }

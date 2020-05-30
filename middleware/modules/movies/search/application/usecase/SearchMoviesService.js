@@ -18,7 +18,8 @@ class SearchMoviesService {
 }
 
 class SearchMoviesServiceRequest {
-  constructor({ language }) {
+  constructor({ query, language }) {
+    this.query = query
     this.language = language
   }
 }

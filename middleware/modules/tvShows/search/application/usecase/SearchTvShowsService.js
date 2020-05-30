@@ -18,7 +18,8 @@ class SearchTvShowsService {
 }
 
 class SearchTvShowsServiceRequest {
-  constructor({ language }) {
+  constructor({ query, language }) {
+    this.query = query
     this.language = language
   }
 }

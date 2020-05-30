@@ -17,7 +17,8 @@ class SearchMoviesController {
 
 /* eslint-disable camelcase */
 class SearchMoviesControllerRequest {
-  constructor({ language }) {
+  constructor({ query, language }) {
+    this.query = query
     this.language = language
   }
 }
