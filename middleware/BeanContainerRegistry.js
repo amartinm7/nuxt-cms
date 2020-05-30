@@ -18,8 +18,10 @@ import GetNowPlayingMoviesProvider from './modules/movies/getNowPlayingMovies/Ge
 import GetPopularMoviesProvider from './modules/movies/getPopularMovies/GetPopularMoviesProvider'
 import GetTopRatedMoviesProvider from './modules/movies/getTopRatedMovies/GetTopRatedMoviesProvider'
 import GetUpcomingMoviesProvider from './modules/movies/getUpcomingMovies/GetUpcomingMoviesProvider'
+import SearchTvShowsProvider from './modules/tvShows/searchTvShows/SearchTvShowsProvider'
+
 const _isEmpty = require('lodash.isempty')
-/* eslint-disable camelcase, no-console */
+/* eslint-disable camelcase, no-console, no-new */
 let beanContainerRegistryInstance = null
 
 export class BeanContainerRegistry {
@@ -39,40 +41,24 @@ export class BeanContainerRegistry {
           axios
         })
     )
-    // eslint-disable-next-line no-new
     new GetGenresMovieListProvider(this._beanContainer)
-    // eslint-disable-next-line no-new
     new GetMovieDetailsProvider(this._beanContainer)
-    // eslint-disable-next-line no-new
     new GetGenresTvShowListProvider(this._beanContainer)
-    // eslint-disable-next-line no-new
     new GetLatestProvider(this._beanContainer)
-    // eslint-disable-next-line no-new
     new GetVideosProvider(this._beanContainer)
-    // eslint-disable-next-line no-new
     new GetTrendingProvider(this._beanContainer)
-    // eslint-disable-next-line no-new
     new GetVideosTvShowProvider(this._beanContainer)
-    // eslint-disable-next-line no-new
     new GetDetailsTvShowProvider(this._beanContainer)
-    // eslint-disable-next-line no-new
     new GetLatestTvShowProvider(this._beanContainer)
-    // eslint-disable-next-line no-new
     new GetAiringTodayTvShowProvider(this._beanContainer)
-    // eslint-disable-next-line no-new
     new GetOnTheAirTvShowProvider(this._beanContainer)
-    // eslint-disable-next-line no-new
     new GetPopularTvShowProvider(this._beanContainer)
-    // eslint-disable-next-line no-new
     new GetTopRatedTvShowProvider(this._beanContainer)
-    // eslint-disable-next-line no-new
     new GetNowPlayingMoviesProvider(this._beanContainer)
-    // eslint-disable-next-line no-new
     new GetPopularMoviesProvider(this._beanContainer)
-    // eslint-disable-next-line no-new
     new GetTopRatedMoviesProvider(this._beanContainer)
-    // eslint-disable-next-line no-new
     new GetUpcomingMoviesProvider(this._beanContainer)
+    new SearchTvShowsProvider(this._beanContainer)
   }
 
   static _getInstance(theMovieDBConfigToken, axios) {
