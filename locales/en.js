@@ -1,10 +1,10 @@
 import moviesGenres from './en/genres/movies/en'
-import tvshowsGenres from './en/genres/tvshows/en'
+import tvGenres from './en/genres/tv/en'
 
 export default {
   genres: {
     movies: moviesGenres.genres,
-    tvshows: tvshowsGenres.genres
+    tv: tvGenres.genres
   },
   hello: 'helloxxx',
   movies: 'Movies',
