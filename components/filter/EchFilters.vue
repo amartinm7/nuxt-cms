@@ -1,45 +1,36 @@
 <template>
   <div>
-    <p v-show="showTvGenres">
+    <p>
       <span
-        v-for="filter in showActionListForTvShows"
+        v-for="filter in showActionList"
         :key="filter.id"
         :class="{
           'uk-label': true,
-          'uk-label-success': isFilterIncludedForTv(filter.id),
+          'uk-label-success': isFilterIncluded(filter),
           'uk-margin-small-left': true,
           'ech-basic': true
         }"
-        @click="setFilterForTV(filter.id)"
+        @click="findBy(filter)"
       >
         {{ filter.name }}
       </span>
-    </p>
-    <p v-show="showMoviesGenres">
       <span
-        v-for="filter in showActionListForMovies"
-        :key="filter.id"
-        :class="{
-          'uk-label': true,
-          'uk-label-success': isFilterIncludedForMovies(filter.id),
-          'uk-margin-small-left': true,
-          'ech-basic': true
-        }"
-        @click="setFilterForMovies(filter.id)"
-      >
-        {{ filter.name }}
-      </span>
+        uk-icon="close"
+        class="uk-margin-small-left ech-basic uk-link-reset"
+        @click="resetFilters()"
+      ></span>
     </p>
   </div>
 </template>
 <script>
 /* eslint-disable camelcase, no-console */
-import MediaManager from '../../middleware/modules/vue/mixins/MediaManager'
-import MediaTypePath from '../../middleware/modules/util/MediaTypePaths'
+import MediaTypePaths from '../../middleware/modules/util/MediaTypePaths'
+import MediaTypes from '../../middleware/modules/util/MediaTypes'
+import * as ServiceLocator from '../../middleware/framework/modules/ServiceLocator'
+const _isEmpty = require('lodash.isempty')
 
 export default {
   name: 'EchFilters',
-  mixins: [MediaManager],
   props: {
     mediaTypePath: {
       type: String,
@@ -52,41 +43,53 @@ export default {
     return {}
   },
   computed: {
-    showTvGenres() {
-      return this.mediaTypePath === MediaTypePath.tv
-    },
-    showMoviesGenres() {
-      return this.mediaTypePath === MediaTypePath.movies
-    },
-    showActionListForTvShows() {
-      return this.$i18n.messages[this.$i18n.locale].genres.tv
-    },
-    showActionListForMovies() {
-      return this.$i18n.messages[this.$i18n.locale].genres.movies
+    showActionList() {
+      const mediaType =
+        this.mediaTypePath === MediaTypePaths.tv
+          ? MediaTypes.tv
+          : MediaTypes.movies
+      return this.$i18n.messages[this.$i18n.locale].genres[mediaType]
     }
   },
   methods: {
-    setFilterForTV(filterId) {
-      this.$store.dispatch(
-        'genreFilters/filtersStore/setFilterForTvShows',
-        filterId
-      )
+    findBy(filter) {
+      const self = this
+      const language = this.$i18n.locale
+      const pathParams = this.$route.params.genre
+      const slugger = ServiceLocator.Slugger.sluggify([filter.name])
+      if (_isEmpty(pathParams)) {
+        const slugger = ServiceLocator.Slugger.sluggify([filter.name])
+        this.$router.push({
+          path: `/${language}/${self.mediaTypePath}/bygenres/${slugger}`
+        })
+      }
+      if (pathParams.includes(slugger)) {
+        const finalPath = pathParams
+          .split('_')
+          .filter((it) => it !== slugger)
+          .join('_')
+        this.$router.push({
+          path: `/${language}/${self.mediaTypePath}/bygenres/${finalPath}`
+        })
+      } else {
+        const slugger = ServiceLocator.Slugger.sluggify([filter.name])
+        const finalPath = `${pathParams}_${slugger}`
+        this.$router.push({
+          path: `/${language}/${self.mediaTypePath}/bygenres/${finalPath}`
+        })
+      }
     },
-    isFilterIncludedForTv(filterId) {
-      return this.$store.getters[
-        'genreFilters/filtersStore/getFiltersForTvShows'
-      ].includes(filterId)
+    isFilterIncluded(filter) {
+      const pathParams = this.$route.params.genre
+      const slugger = ServiceLocator.Slugger.sluggify([filter.name])
+      return !_isEmpty(pathParams) && pathParams.includes(slugger)
     },
-    setFilterForMovies(filterId) {
-      this.$store.dispatch(
-        'genreFilters/filtersStore/setFilterForMovies',
-        filterId
-      )
-    },
-    isFilterIncludedForMovies(filterId) {
-      return this.$store.getters[
-        'genreFilters/filtersStore/getFiltersForMovies'
-      ].includes(filterId)
+    resetFilters() {
+      const self = this
+      const language = this.$i18n.locale
+      this.$router.push({
+        path: `/${language}/${self.mediaTypePath}/bygenres/`
+      })
     }
   }
 }

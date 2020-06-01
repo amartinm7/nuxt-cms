@@ -13,7 +13,8 @@ class FindTvShowsByRepository {
    */
   execute(findTvShowsByRepositoryRequest) {
     const { genres_ids, language } = { ...findTvShowsByRepositoryRequest }
-    const urlPath = `/discover/tv?language=${language}&genres_ids=${genres_ids}&append_to_response=videos,images,credits`
+    const urlPath = `/discover/tv?language=${language}&with_genres=${genres_ids}&include_null_first_air_dates=false&first_air_date.gte=2019-01-01&sort_by=popularity.desc&append_to_response=videos,images,credits`
+    console.log('urlPath... ' + urlPath)
     return this._axios(
       new GetAxiosRequest({
         accessToken: this._accessToken,
@@ -55,7 +56,7 @@ class FindTvShowsByRepositoryResponseResult {
     name,
     vote_account,
     vote_average,
-    release_date,
+    first_air_date,
     overview,
     adult,
     genre_ids,
@@ -69,7 +70,7 @@ class FindTvShowsByRepositoryResponseResult {
     this._name = name
     this._vote_account = vote_account
     this._vote_average = vote_average
-    this._release_date = release_date
+    this._first_air_date = first_air_date
     this._overview = overview
     this._adult = adult
     this._genre_ids = genre_ids

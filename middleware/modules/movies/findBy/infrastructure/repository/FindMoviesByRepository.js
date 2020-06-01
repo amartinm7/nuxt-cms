@@ -13,7 +13,8 @@ class FindMoviesByRepository {
    */
   execute(findMoviesByRepositoryRequest) {
     const { genres_ids, language } = { ...findMoviesByRepositoryRequest }
-    const urlPath = `/discover/movie?language=${language}&with_genres=${genres_ids}&append_to_response=videos,images,credits`
+    const urlPath = `/discover/movie?language=${language}&with_genres=${genres_ids}&sort_by=popularity.desc&append_to_response=videos,images,credits`
+    console.log('urlPath... ' + urlPath)
     return this._axios(
       new GetAxiosRequest({
         accessToken: this._accessToken,

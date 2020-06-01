@@ -90,7 +90,8 @@ export default {
     { src: '~/plugins/vuikit.js', ssr: false },
     { src: '~/plugins/vue-moment.js', ssr: true },
     { src: '~/plugins/disqus', ssr: true },
-    { src: '~/plugins/axios', ssr: true }
+    { src: '~/plugins/axios', ssr: true },
+    { src: '~/plugins/genreActions', ssr: true }
   ],
   /*
    ** Nuxt.js dev-modules

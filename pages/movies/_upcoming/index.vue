@@ -15,6 +15,12 @@
       <h1 class="uk-text-center">{{ getSection(mediaType) }}</h1>
     </section>
     <section class="uk-section uk-section-xsmall">
+      <ech-filters
+        :media-type-path="mediaTypePath"
+        class="ech-scroll-spy-effect"
+      ></ech-filters>
+    </section>
+    <section class="uk-section uk-section-xsmall">
       <div>
         <ech-movies-card
           :movies="trendingMovies._results"
@@ -51,10 +57,11 @@ import VideoControllerManager from '../../../middleware/modules/vue/mixins/Video
 import UpcomingManager from '../../../middleware/modules/vue/mixins/UpcomingManager'
 import MediaTypes from '../../../middleware/modules/util/MediaTypes'
 import MediaTypePaths from '../../../middleware/modules/util/MediaTypePaths'
+import EchFilters from '../../../components/filter/EchFilters'
 
 export default {
   name: 'EchMoviesUpcoming',
-  components: { EchHeaderMain, EchSliderMain, EchMoviesCard },
+  components: { EchHeaderMain, EchSliderMain, EchMoviesCard, EchFilters },
   mixins: [VideoControllerManager, UpcomingManager],
   // eslint-disable-next-line require-await
   async asyncData({ app, params, store, route }) {
