@@ -18,6 +18,7 @@
           @click="initVideoURL(movie)"
         >
           <img
+            class="ech-default-img"
             :src="getPosterURL(movie._poster_path, index)"
             :alt="movie._title"
           />
@@ -107,4 +108,29 @@ export default {
   }
 }
 </script>
-<style></style>
+<style>
+/* TODO fallback image */
+img:before {
+  content: '';
+  display: block;
+  background: #dedede;
+  top: 0;
+  bottom: 0;
+  min-height: 278px;
+  min-width: 185px;
+}
+
+/*img {*/
+/*  position: relative;*/
+/*}*/
+/*img:before {*/
+/*  content: "";*/
+/*  display: block;*/
+/*  position: absolute;*/
+/*  background: #dedede;*/
+/*  top: 0;*/
+/*  bottom: 0;*/
+/*  min-height: 300px;*/
+/*  min-width: 300px;*/
+/*}*/
+</style>

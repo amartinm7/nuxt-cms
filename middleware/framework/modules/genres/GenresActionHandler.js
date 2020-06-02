@@ -66,7 +66,7 @@ class GenresActionHandler {
     if (mediaType === MediaTypes.movies) {
       return this.getGenreNameForMoviesBy(id)
     } else {
-      return this.getGenreNameForMoviesBy(id)
+      return this.getGenreNameForTvBy(id)
     }
   }
 }

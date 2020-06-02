@@ -20,7 +20,10 @@
               )
             "
           >
-            <img :src="getPosterURL(movie._poster_path)" alt="movie._name" />
+            <img
+              :src="getPosterURL(movie._poster_path)"
+              :alt="movie._title || movie._name"
+            />
             <div class="uk-positio  n-center uk-panel"></div>
           </nuxt-link>
         </li>
@@ -68,4 +71,17 @@ export default {
     return {}
   }
 }
+// TODO http://localhost:3000/en/movies/bygenres/western_science-fiction
+// DEFAULT IMAGE
 </script>
+<style>
+img:before {
+  content: '';
+  display: block;
+  background: #dedede;
+  top: 0;
+  bottom: 0;
+  min-height: 278px;
+  min-width: 185px;
+}
+</style>

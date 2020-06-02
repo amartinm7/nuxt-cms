@@ -45,7 +45,10 @@
             </div>
             <div class="uk-align-center">
               <p>
-                <img :src="getNetWorkURLByArray(movie._networks)" alt="" />
+                <img
+                  :src="getNetWorkURLByArray(movie._networks)"
+                  :alt="movie._networks"
+                />
               </p>
             </div>
           </div>

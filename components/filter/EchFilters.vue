@@ -1,6 +1,12 @@
 <template>
   <div>
-    <p>
+    <span
+      uk-icon="plus"
+      class="ech-basic uk-align-right"
+      uk-toggle="target: #toggle-filter-list; animation: uk-animation-fade"
+    >
+    </span>
+    <p id="toggle-filter-list">
       <span
         v-for="filter in showActionList"
         :key="filter.id"
