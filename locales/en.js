@@ -21,8 +21,6 @@ export default {
     family: 'Family',
     news: 'News',
     trending: 'Trends',
-    tv_by_genre: 'Series By Genre',
-    movies_by_genre: 'Movies By Genre',
     tv: {
       airingToday: 'Airing Today on TV',
       onTheAirTv: 'On the Air TV',
