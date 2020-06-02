@@ -43,6 +43,11 @@ export default {
     return {}
   },
   computed: {
+    currentMediaType() {
+      return this.mediaTypePath === MediaTypePaths.tv
+        ? MediaTypes.tv
+        : MediaTypes.movies
+    },
     showActionList() {
       const mediaType =
         this.mediaTypePath === MediaTypePaths.tv
@@ -55,14 +60,21 @@ export default {
     findBy(filter) {
       const self = this
       const language = this.$i18n.locale
+      const filterNameEN = this.$genreActionHandler().getGenreNameFor(
+        this.currentMediaType,
+        filter.id
+      )
       const pathParams = this.$route.params.genre
-      const slugger = ServiceLocator.Slugger.sluggify([filter.name])
+      const slugger = ServiceLocator.Slugger.sluggify([filterNameEN])
+      // use case pathParams are empty, add the filterName
       if (_isEmpty(pathParams)) {
-        const slugger = ServiceLocator.Slugger.sluggify([filter.name])
+        const slugger = ServiceLocator.Slugger.sluggify([filterNameEN])
         this.$router.push({
           path: `/${language}/${self.mediaTypePath}/bygenres/${slugger}`
         })
+        return
       }
+      // use case pathParams with values and remove a filterName
       if (pathParams.includes(slugger)) {
         const finalPath = pathParams
           .split('_')
@@ -71,8 +83,11 @@ export default {
         this.$router.push({
           path: `/${language}/${self.mediaTypePath}/bygenres/${finalPath}`
         })
-      } else {
-        const slugger = ServiceLocator.Slugger.sluggify([filter.name])
+        return
+      }
+      // use case pathParams with values and add a filterName
+      if (!pathParams.includes(slugger)) {
+        const slugger = ServiceLocator.Slugger.sluggify([filterNameEN])
         const finalPath = `${pathParams}_${slugger}`
         this.$router.push({
           path: `/${language}/${self.mediaTypePath}/bygenres/${finalPath}`
@@ -80,8 +95,12 @@ export default {
       }
     },
     isFilterIncluded(filter) {
+      const filterNameEN = this.$genreActionHandler().getGenreNameFor(
+        this.currentMediaType,
+        filter.id
+      )
       const pathParams = this.$route.params.genre
-      const slugger = ServiceLocator.Slugger.sluggify([filter.name])
+      const slugger = ServiceLocator.Slugger.sluggify([filterNameEN])
       return !_isEmpty(pathParams) && pathParams.includes(slugger)
     },
     resetFilters() {

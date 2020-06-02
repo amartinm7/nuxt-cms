@@ -1,6 +1,7 @@
 import localesEs from '../../../../locales/es'
 import localesEn from '../../../../locales/en'
 import { Slugger } from '../ServiceLocator'
+import MediaTypes from '../../../modules/util/MediaTypes'
 /* eslint-disable camelcase, no-console */
 
 const locale = {
@@ -51,6 +52,22 @@ class GenresActionHandler {
 
   getGenreNameForMoviesBy(id) {
     return this._genresForMoviesUsingIdAsKey[id]
+  }
+
+  getGenreIdFor(mediaType, name) {
+    if (mediaType === MediaTypes.movies) {
+      return this.getGenreIdForMoviesBy(name)
+    } else {
+      return this.getGenreIdForTvBy(name)
+    }
+  }
+
+  getGenreNameFor(mediaType, id) {
+    if (mediaType === MediaTypes.movies) {
+      return this.getGenreNameForMoviesBy(id)
+    } else {
+      return this.getGenreNameForMoviesBy(id)
+    }
   }
 }
 

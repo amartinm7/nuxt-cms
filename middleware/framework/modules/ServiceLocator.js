@@ -2,6 +2,6 @@
 import Slugger from './slugger/Slugger'
 import GetAxiosRequest from './axios/GetAxiosRequest'
 import firestoreRef from './firestore/Firestore'
-import GenresHandler from './genres/GenresActionHandler'
+import GenresActionHandler from './genres/GenresActionHandler'
 // eslint-disable-next-line import/default
-export { Slugger, GetAxiosRequest, firestoreRef, GenresHandler }
+export { Slugger, GetAxiosRequest, firestoreRef, GenresActionHandler }
