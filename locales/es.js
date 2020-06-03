@@ -54,5 +54,7 @@ export default {
     trailers: 'Trailers'
   },
   releaseDate: 'Fecha en cines',
-  firstAirDate: 'En emision desde'
+  firstAirDate: 'En emision desde',
+  label_sortedBy: 'Por Orden',
+  label_genreBy: 'Por Género'
 }

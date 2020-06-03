@@ -12,8 +12,10 @@ class FindTvShowsByRepository {
    * @returns {*}
    */
   execute(findTvShowsByRepositoryRequest) {
-    const { genres_ids, language } = { ...findTvShowsByRepositoryRequest }
-    const urlPath = `/discover/tv?language=${language}&with_genres=${genres_ids}&include_null_first_air_dates=false&first_air_date.gte=2019-01-01&sort_by=popularity.desc&append_to_response=videos,images,credits`
+    const { genres_ids, language, sortedBy } = {
+      ...findTvShowsByRepositoryRequest
+    }
+    const urlPath = `/discover/tv?language=${language}&with_genres=${genres_ids}&include_null_first_air_dates=false&first_air_date.gte=2019-01-01&sort_by=${sortedBy}&append_to_response=videos,images,credits`
     console.log('urlPath... ' + urlPath)
     return this._axios(
       new GetAxiosRequest({
@@ -30,9 +32,11 @@ class FindTvShowsByRepository {
 }
 
 class FindTvShowsByRepositoryRequest {
-  constructor({ genres_ids, language }) {
+  sortedBy
+  constructor({ genres_ids, language, sortedBy = 'popularity.desc' }) {
     this.genres_ids = genres_ids
     this.language = language
+    this.sortedBy = sortedBy
   }
 }
 

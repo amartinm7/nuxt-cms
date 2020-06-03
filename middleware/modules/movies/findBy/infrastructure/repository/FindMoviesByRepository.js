@@ -12,8 +12,10 @@ class FindMoviesByRepository {
    * @returns {*}
    */
   execute(findMoviesByRepositoryRequest) {
-    const { genres_ids, language } = { ...findMoviesByRepositoryRequest }
-    const urlPath = `/discover/movie?language=${language}&with_genres=${genres_ids}&sort_by=popularity.desc&append_to_response=videos,images,credits`
+    const { genres_ids, language, sortedBy } = {
+      ...findMoviesByRepositoryRequest
+    }
+    const urlPath = `/discover/movie?language=${language}&with_genres=${genres_ids}&sort_by=${sortedBy}&append_to_response=videos,images,credits`
     console.log('urlPath... ' + urlPath)
     return this._axios(
       new GetAxiosRequest({
@@ -30,9 +32,10 @@ class FindMoviesByRepository {
 }
 
 class FindMoviesByRepositoryRequest {
-  constructor({ genres_ids, language }) {
+  constructor({ genres_ids, language, sortedBy = 'popularity.desc' }) {
     this.genres_ids = genres_ids
     this.language = language
+    this.sortedBy = sortedBy
   }
 }
 

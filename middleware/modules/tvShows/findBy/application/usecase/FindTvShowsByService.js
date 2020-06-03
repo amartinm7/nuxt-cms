@@ -18,9 +18,10 @@ class FindTvShowsByService {
 }
 
 class FindTvShowsByServiceRequest {
-  constructor({ genres_ids, language }) {
+  constructor({ genres_ids, language, sortedBy }) {
     this.genres_ids = genres_ids
     this.language = language
+    this.sortedBy = sortedBy
   }
 }
 

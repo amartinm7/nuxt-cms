@@ -5,14 +5,14 @@
     </section>
     <section class="uk-section uk-section-xsmall">
       <ech-slider-main
-        :movies="trendingMovies._results"
+        :movies="trendingTVShows._results"
         :media-type-path="mediaTypePath"
         class="ech-scroll-spy-effect"
       >
       </ech-slider-main>
     </section>
     <section class="uk-section uk-section-xsmall">
-      <h1 class="uk-text-center">{{ $t('pages.movies.byGenres') }}</h1>
+      <h1 class="uk-text-center">{{ $t('pages.tv.byGenres') }}</h1>
     </section>
     <section class="uk-section uk-section-xsmall">
       <ech-filters
@@ -22,11 +22,11 @@
     </section>
     <section class="uk-section uk-section-xsmall">
       <div>
-        <ech-movies-card
-          :movies="trendingMovies._results"
+        <ech-tv-show-card
+          :movies="trendingTVShows._results"
           class="ech-scroll-spy-effect"
           @outbound-open-video-modal="playVideo"
-        ></ech-movies-card>
+        ></ech-tv-show-card>
       </div>
     </section>
     <div>
@@ -48,51 +48,51 @@
 <!-- eslint-enable -->
 <script>
 /* eslint-disable camelcase, no-console */
-import { BeanContainerRegistry } from '../../../middleware/BeanContainerRegistry'
-import EchMoviesCard from '../../../components/movies/EchMoviesCard'
-import EchSliderMain from '../../../components/slider/EchSliderMain'
-import EchHeaderMain from '../../../layouts/header/EchHeaderMain'
-import VideoControllerManager from '../../../middleware/modules/vue/mixins/VideoControllerManager'
-import MediaTypes from '../../../middleware/modules/util/MediaTypes'
-import MediaTypePaths from '../../../middleware/modules/util/MediaTypePaths'
-import { FindMoviesByControllerRequest } from '../../../middleware/modules/movies/findBy/userapplication/controller/FindMoviesByController'
-import EchFilters from '../../../components/filter/EchFilters'
-import GenresHeaderManager from '../../../middleware/modules/vue/mixins/GenresHeaderManager'
-const _isEmpty = require('lodash.isempty')
+// const _isEmpty = require('lodash.isempty')
+import { BeanContainerRegistry } from '../../../../middleware/BeanContainerRegistry'
+import EchHeaderMain from '../../../../layouts/header/EchHeaderMain'
+import EchSliderMain from '../../../../components/slider/EchSliderMain'
+import EchTvShowCard from '../../../../components/movies/EchTvShowCard'
+import EchFilters from '../../../../components/filter/EchFilters'
+import VideoControllerManager from '../../../../middleware/modules/vue/mixins/VideoControllerManager'
+import GenresHeaderManager from '../../../../middleware/modules/vue/mixins/GenresHeaderManager'
+import { FindTvShowsByControllerRequest } from '../../../../middleware/modules/tvShows/findBy/userapplication/controller/FindTvShowsByController'
+import MediaTypePaths from '../../../../middleware/modules/util/MediaTypePaths'
+import MediaTypes from '../../../../middleware/modules/util/MediaTypes'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
-  name: 'EchMoviesByGenres',
-  components: { EchHeaderMain, EchSliderMain, EchMoviesCard, EchFilters },
+  name: 'EchTvShowsByGenres',
+  components: { EchHeaderMain, EchSliderMain, EchTvShowCard, EchFilters },
   mixins: [VideoControllerManager, GenresHeaderManager],
   // eslint-disable-next-line require-await
-  async asyncData({ app, params }) {
+  async asyncData({ app, params, query }) {
     const language = app.i18n.locale
-    const pathParams = _isEmpty(params.genre) ? '' : params.genre
+    const pathParams = params.genre ?? ''
+    const queryParamsSortedBy = query.sortedBy ?? ''
     const genres_ids = pathParams
       .split('_')
-      .map((name) =>
-        app.$genreActionHandler(language).getGenreIdForMoviesBy(name)
-      )
+      .map((name) => app.$genreActionHandler(language).getGenreIdForTvBy(name))
       .filter((it) => it !== undefined)
-    const trendingMovies = await beanContainer.findMoviesByController.execute(
-      new FindMoviesByControllerRequest({
+    const trendingTVShows = await beanContainer.findTvShowsByController.execute(
+      new FindTvShowsByControllerRequest({
         genres_ids,
-        language
+        language,
+        sortedBy: queryParamsSortedBy
       })
     )
-    return { trendingMovies }
+    return { trendingTVShows }
   },
   data() {
     return {
-      trendingMovies: {
+      trendingTVShows: {
         _page: 1,
         _total_pages: 1,
         _total_results: 1,
         _results: []
       },
-      mediaTypePath: MediaTypePaths.movies,
-      mediaType: MediaTypes.movies
+      mediaTypePath: MediaTypePaths.tv,
+      mediaType: MediaTypes.tv
     }
   }
 }

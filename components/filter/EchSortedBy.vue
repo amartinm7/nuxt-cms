@@ -1,0 +1,87 @@
+<template>
+  <div>
+    <p>
+      <span
+        v-for="(value, propertyName, index) in getSortedByList"
+        :key="index"
+        :class="{
+          'uk-label': true,
+          'uk-label-success': isFilterIncluded(propertyName),
+          'uk-margin-small-left': true,
+          'ech-basic': true
+        }"
+        @click="sortedBy(propertyName)"
+      >
+        {{ value }}
+      </span>
+      <span
+        uk-icon="close"
+        class="uk-margin-small-left ech-basic uk-align-right"
+        @click="resetFilters()"
+      ></span>
+    </p>
+  </div>
+</template>
+<script>
+/* eslint-disable camelcase, no-console */
+import MediaTypePaths from '../../middleware/modules/util/MediaTypePaths'
+import MediaTypes from '../../middleware/modules/util/MediaTypes'
+
+export default {
+  name: 'EchSortedBy',
+  props: {
+    mediaTypePath: {
+      type: String,
+      default() {
+        return ''
+      }
+    }
+  },
+  data() {
+    return {}
+  },
+  computed: {
+    currentMediaType() {
+      return this.mediaTypePath === MediaTypePaths.tv
+        ? MediaTypes.tv
+        : MediaTypes.movies
+    },
+    getSortedByList() {
+      const mediaType =
+        this.mediaTypePath === MediaTypePaths.tv
+          ? MediaTypes.tv
+          : MediaTypes.movies
+      return this.$i18n.messages[this.$i18n.locale].sortedBy[mediaType]
+    }
+  },
+  methods: {
+    sortedBy(propertyName) {
+      const self = this
+      const language = this.$i18n.locale
+      const pathParams = this.$route.params.genre ?? ''
+      this.$router.push({
+        path: `/${language}/${
+          self.mediaTypePath
+        }/bygenres/${Date.now()}/${pathParams}`,
+        query: {
+          sortedBy: propertyName
+        }
+      })
+    },
+    isFilterIncluded(propertyName) {
+      const sortedByqueryParam = this.$route.query.sortedBy
+      return sortedByqueryParam === propertyName
+    },
+    resetFilters() {
+      const self = this
+      const language = this.$i18n.locale
+      const pathParams = this.$route.params.genre ?? ''
+      this.$router.push({
+        path: `/${language}/${
+          self.mediaTypePath
+        }/bygenres/${Date.now()}/${pathParams}`
+      })
+    }
+  }
+}
+</script>

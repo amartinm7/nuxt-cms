@@ -54,5 +54,7 @@ export default {
     trailers: 'Trailers'
   },
   releaseDate: 'Release Date',
-  firstAirDate: 'First Air Date'
+  firstAirDate: 'First Air Date',
+  label_sortedBy: 'Sorted By',
+  label_genreBy: 'Genre By'
 }

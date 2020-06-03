@@ -17,9 +17,10 @@ class FindMoviesByController {
 
 /* eslint-disable camelcase */
 class FindMoviesByControllerRequest {
-  constructor({ genres_ids, language }) {
+  constructor({ genres_ids, language, sortedBy }) {
     this.genres_ids = genres_ids
     this.language = language
+    this.sortedBy = sortedBy
   }
 }
 
