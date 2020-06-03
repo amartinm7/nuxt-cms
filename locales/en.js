@@ -26,14 +26,14 @@ export default {
       onTheAirTv: 'On the Air TV',
       popular: 'Popular on TV',
       topRated: 'Top Rated on TV',
-      byGenres: 'Series By Genre'
+      byGenres: 'More Series'
     },
     movies: {
       nowPlaying: 'Now in cinemas',
       popular: 'Popular movies',
       topRated: 'Top Rated Movies',
       upcoming: 'Coming Movies',
-      byGenres: 'Movies By Genre'
+      byGenres: 'More Movies'
     }
   },
   select: {

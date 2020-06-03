@@ -26,14 +26,14 @@ export default {
       onTheAirTv: 'Series en TV',
       popular: 'Popular en TV',
       topRated: 'Top Series',
-      byGenres: 'Series Por Género'
+      byGenres: 'Más Series'
     },
     movies: {
       nowPlaying: 'En cines',
       popular: 'Popular en Cine',
       topRated: 'Top Cine',
       upcoming: 'Avances cine',
-      byGenres: 'Cine Por Género'
+      byGenres: 'Más Cine'
     }
   },
   select: {
