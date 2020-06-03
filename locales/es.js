@@ -1,12 +1,17 @@
-import moviesGenres from './es/genres/movies/es'
-import tvGenres from './es/genres/tv/es'
+import moviesGenres from './es/genres/movies/genres'
+import tvGenres from './es/genres/tv/genres'
+import moviesSortedBy from './es/genres/movies/sortedBy'
+import tvGenresSortedBy from './es/genres/tv/sortedBy'
 
 export default {
   genres: {
     movies: moviesGenres.genres,
     tv: tvGenres.genres
   },
-  hello: 'hellobdsdd',
+  sortedBy: {
+    movies: moviesSortedBy.sortedBy,
+    tv: tvGenresSortedBy.sortedBy
+  },
   movies: 'Cine',
   seo: {
     index: 'Estrenos cine hoy: todas las series de tv y cine a un click!'
