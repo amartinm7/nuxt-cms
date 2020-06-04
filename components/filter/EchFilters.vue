@@ -2,17 +2,13 @@
   <div>
     <ul uk-accordion="multiple: true">
       <li>
-        <a class="uk-accordion-title uk-text-small" href="#">{{
-          $t('label_genreBy')
-        }}</a>
+        <a class="uk-accordion-title uk-text-small" href="#"></a>
         <div class="uk-accordion-content">
           <ech-filters-by :media-type-path="mediaTypePath"></ech-filters-by>
         </div>
       </li>
       <li>
-        <a class="uk-accordion-title uk-text-small" href="#">{{
-          $t('label_sortedBy')
-        }}</a>
+        <a class="uk-accordion-title uk-text-small" href="#"></a>
         <div class="uk-accordion-content">
           <ech-sorted-by :media-type-path="mediaTypePath"></ech-sorted-by>
         </div>
