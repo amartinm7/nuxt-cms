@@ -7,7 +7,6 @@
       <ech-slider-main
         :movies="trendingMovies._results"
         :media-type-path="mediaTypePath"
-        class="ech-scroll-spy-effect"
       >
       </ech-slider-main>
     </section>
@@ -15,16 +14,12 @@
       <h1 class="uk-text-center">{{ getSection(mediaType) }}</h1>
     </section>
     <section class="uk-section uk-section-xsmall">
-      <ech-filters
-        :media-type-path="mediaTypePath"
-        class="ech-scroll-spy-effect"
-      ></ech-filters>
+      <ech-filters :media-type-path="mediaTypePath"></ech-filters>
     </section>
     <section class="uk-section uk-section-xsmall">
       <div>
         <ech-movies-card
           :movies="trendingMovies._results"
-          class="ech-scroll-spy-effect"
           @outbound-open-video-modal="playVideo"
         ></ech-movies-card>
       </div>

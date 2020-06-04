@@ -8,7 +8,6 @@
         <ech-slider-main
           :movies="trendingResults._results"
           :media-type-path="mediaTypePath"
-          class="ech-scroll-spy-effect"
         ></ech-slider-main>
       </div>
     </section>
@@ -16,10 +15,7 @@
       <h1 class="uk-text-center">{{ $t('pages.trending') }}</h1>
     </section>
     <section class="uk-section uk-section-xsmall">
-      <ech-filters
-        :media-type-path="mediaTypePath"
-        class="ech-scroll-spy-effect"
-      ></ech-filters>
+      <ech-filters :media-type-path="mediaTypePath"></ech-filters>
     </section>
     <section class="uk-section uk-section-xsmall">
       <ul id="ech-tab" uk-tab class="uk-flex uk-flex-around">
@@ -44,14 +40,12 @@
         <div class="uk-active">
           <ech-movies-card
             :movies="trendingMovies._results"
-            class="ech-scroll-spy-effect"
             @outbound-open-video-modal="playVideo"
           ></ech-movies-card>
         </div>
         <div>
           <ech-tv-show-card
             :movies="trendingTVShows._results"
-            class="ech-scroll-spy-effect"
             @outbound-open-video-modal="playVideo"
           ></ech-tv-show-card>
         </div>

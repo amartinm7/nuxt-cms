@@ -3,7 +3,6 @@
     <section class="uk-section uk-section-xsmall">
       <ech-tv-show-card
         :movies="movies"
-        class="ech-scroll-spy-effect"
         @outbound-open-video-modal="playVideo"
       ></ech-tv-show-card>
     </section>

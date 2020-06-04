@@ -1,5 +1,5 @@
 <template>
-  <div class="ech-scroll-spy-effect">
+  <div>
     <section class="uk-section uk-section-xsmall">
       <div class="uk-width-auto uk-text-center uk-padding-small">
         <div>S&iacute;guenos</div>
