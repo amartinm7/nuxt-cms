@@ -55,6 +55,8 @@ export default {
   },
   releaseDate: 'Fecha en cines',
   firstAirDate: 'En emision desde',
-  label_sortedBy: 'Por Orden',
-  label_genreBy: 'Por Género'
+  label_sortedBy: 'Orden',
+  label_genreBy: 'Género',
+  label_discover_movies: 'Mas Cine',
+  label_discover_tvshows: 'Mas Series'
 }

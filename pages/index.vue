@@ -15,9 +15,6 @@
       <h1 class="uk-text-center">{{ $t('pages.trending') }}</h1>
     </section>
     <section class="uk-section uk-section-xsmall">
-      <ech-filters :media-type-path="mediaTypePath"></ech-filters>
-    </section>
-    <section class="uk-section uk-section-xsmall">
       <ul id="ech-tab" uk-tab class="uk-flex uk-flex-around">
         <li class="uk-active ech-basic">
           <a
@@ -77,13 +74,11 @@ import EchSliderMain from '../components/slider/EchSliderMain'
 import EchHeaderMain from '../layouts/header/EchHeaderMain'
 import VideoControllerManager from '../middleware/modules/vue/mixins/VideoControllerManager'
 import MediaTypePaths from '../middleware/modules/util/MediaTypePaths'
-import EchFilters from '../components/filter/EchFilters'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
   name: 'EchMainIndex',
   components: {
-    EchFilters,
     EchHeaderMain,
     EchSliderMain,
     EchTvShowCard,

@@ -14,9 +14,6 @@
       <h1 class="uk-text-center">{{ $t('pages.movies.byGenres') }}</h1>
     </section>
     <section class="uk-section uk-section-xsmall">
-      <ech-filters :media-type-path="mediaTypePath"></ech-filters>
-    </section>
-    <section class="uk-section uk-section-xsmall">
       <div>
         <ech-movies-card
           :movies="trendingMovies._results"
@@ -51,14 +48,13 @@ import VideoControllerManager from '../../../../middleware/modules/vue/mixins/Vi
 import MediaTypes from '../../../../middleware/modules/util/MediaTypes'
 import MediaTypePaths from '../../../../middleware/modules/util/MediaTypePaths'
 import { FindMoviesByControllerRequest } from '../../../../middleware/modules/movies/findBy/userapplication/controller/FindMoviesByController'
-import EchFilters from '../../../../components/filter/EchFilters'
 import GenresHeaderManager from '../../../../middleware/modules/vue/mixins/GenresHeaderManager'
 // const _isEmpty = require('lodash.isempty')
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
   name: 'EchMoviesByGenres',
-  components: { EchHeaderMain, EchSliderMain, EchMoviesCard, EchFilters },
+  components: { EchHeaderMain, EchSliderMain, EchMoviesCard },
   mixins: [VideoControllerManager, GenresHeaderManager],
   // eslint-disable-next-line require-await
   async asyncData({ app, params, query }) {

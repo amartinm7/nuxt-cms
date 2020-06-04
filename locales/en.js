@@ -56,5 +56,7 @@ export default {
   releaseDate: 'Release Date',
   firstAirDate: 'First Air Date',
   label_sortedBy: 'Sorted By',
-  label_genreBy: 'Genre By'
+  label_genreBy: 'Genre',
+  label_discover_movies: 'Discover Movies',
+  label_discover_tvshows: 'Discover Series'
 }

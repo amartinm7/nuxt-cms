@@ -52,11 +52,10 @@ import VideoControllerManager from '../../../middleware/modules/vue/mixins/Video
 import UpcomingManager from '../../../middleware/modules/vue/mixins/UpcomingManager'
 import MediaTypes from '../../../middleware/modules/util/MediaTypes'
 import MediaTypePaths from '../../../middleware/modules/util/MediaTypePaths'
-import EchFilters from '../../../components/filter/EchFilters'
 
 export default {
   name: 'EchTvshowUpcoming',
-  components: { EchHeaderMain, EchSliderMain, EchTvShowCard, EchFilters },
+  components: { EchHeaderMain, EchSliderMain, EchTvShowCard },
   mixins: [VideoControllerManager, UpcomingManager],
   // eslint-disable-next-line require-await
   async asyncData({ app, params, store, route }) {

@@ -14,9 +14,6 @@
       <h1 class="uk-text-center">{{ $t('pages.tv.byGenres') }}</h1>
     </section>
     <section class="uk-section uk-section-xsmall">
-      <ech-filters :media-type-path="mediaTypePath"></ech-filters>
-    </section>
-    <section class="uk-section uk-section-xsmall">
       <div>
         <ech-tv-show-card
           :movies="trendingTVShows._results"
@@ -48,7 +45,6 @@ import { BeanContainerRegistry } from '../../../../middleware/BeanContainerRegis
 import EchHeaderMain from '../../../../layouts/header/EchHeaderMain'
 import EchSliderMain from '../../../../components/slider/EchSliderMain'
 import EchTvShowCard from '../../../../components/movies/EchTvShowCard'
-import EchFilters from '../../../../components/filter/EchFilters'
 import VideoControllerManager from '../../../../middleware/modules/vue/mixins/VideoControllerManager'
 import GenresHeaderManager from '../../../../middleware/modules/vue/mixins/GenresHeaderManager'
 import { FindTvShowsByControllerRequest } from '../../../../middleware/modules/tvShows/findBy/userapplication/controller/FindTvShowsByController'
@@ -58,7 +54,7 @@ const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
   name: 'EchTvShowsByGenres',
-  components: { EchHeaderMain, EchSliderMain, EchTvShowCard, EchFilters },
+  components: { EchHeaderMain, EchSliderMain, EchTvShowCard },
   mixins: [VideoControllerManager, GenresHeaderManager],
   // eslint-disable-next-line require-await
   async asyncData({ app, params, query }) {

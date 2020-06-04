@@ -1,9 +1,16 @@
 <template>
   <div>
-    <p>
+    <li class="uk-active">
+      {{ $t('label_sortedBy') }}
       <span
-        v-for="(value, propertyName, index) in getSortedByList"
-        :key="index"
+        uk-icon="close"
+        class="uk-margin-small-left ech-basic uk-align-right"
+        @click="resetFilters()"
+      ></span>
+    </li>
+    <li class="uk-nav-divider"></li>
+    <li v-for="(value, propertyName, index) in getSortedByList" :key="index">
+      <span
         :class="{
           'uk-label': true,
           'uk-label-success': isFilterIncluded(propertyName),
@@ -14,12 +21,7 @@
       >
         {{ value }}
       </span>
-      <span
-        uk-icon="close"
-        class="uk-margin-small-left ech-basic uk-align-right"
-        @click="resetFilters()"
-      ></span>
-    </p>
+    </li>
   </div>
 </template>
 <script>
