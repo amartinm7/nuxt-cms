@@ -186,31 +186,71 @@
                     >
                       <span
                         class="uk-margin-small-right uk-icon ech-spin-icon"
-                        uk-icon="icon: tv; "
+                        uk-icon="icon: video-camera; "
                       ></span
-                      >TV</nuxt-link
+                      >{{ $t('label_discover_movies') }}</nuxt-link
                     >
-                    <div class="uk-navbar-dropdown">
+                    <div class="uk-navbar-dropdown uk-navbar-dropdown-width-3">
                       <div
-                        class="uk-navbar-dropdown-grid uk-child-width-1-1 uk-grid uk-grid-stack"
+                        class="uk-navbar-dropdown-grid uk-child-width-1-3 uk-grid uk-grid-stack"
                         uk-grid=""
                       >
                         <div>
                           <ul class="uk-nav uk-navbar-dropdown-nav">
-                            <nuxt-link
-                              v-for="(keyMessage, i) in showMenuListForTvShows"
-                              :key="i"
-                              :to="getTvShowTopListlURL(keyMessage)"
-                              class="uk-link-reset"
-                            >
-                              <li>
-                                <span
-                                  class="uk-margin-small-right uk-icon ech-spin-icon"
-                                  uk-icon="icon: tv; "
-                                ></span
-                                >{{ translateKeyMessageForTvShows(keyMessage) }}
-                              </li>
-                            </nuxt-link>
+                            <ech-filters-by
+                              :media-type-path="mediaTypePaths.movies"
+                            ></ech-filters-by>
+                          </ul>
+                        </div>
+                        <div>
+                          <ul class="uk-nav uk-navbar-dropdown-nav">
+                            <ech-sorted-by
+                              :media-type-path="mediaTypePaths.movies"
+                            ></ech-sorted-by>
+                          </ul>
+                        </div>
+                        <div>
+                          <ul class="uk-nav uk-navbar-dropdown-nav">
+                            <li></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="uk-parent">
+                    <nuxt-link
+                      :to="localePath('/')"
+                      class=" menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"
+                      aria-expanded="false"
+                    >
+                      <span
+                        class="uk-margin-small-right uk-icon ech-spin-icon"
+                        uk-icon="icon: tv; "
+                      ></span
+                      >{{ $t('label_discover_tvshows') }}</nuxt-link
+                    >
+                    <div class="uk-navbar-dropdown uk-navbar-dropdown-width-3">
+                      <div
+                        class="uk-navbar-dropdown-grid uk-child-width-1-3 uk-grid uk-grid-stack"
+                        uk-grid=""
+                      >
+                        <div>
+                          <ul class="uk-nav uk-navbar-dropdown-nav">
+                            <ech-filters-by
+                              :media-type-path="mediaTypePaths.tv"
+                            ></ech-filters-by>
+                          </ul>
+                        </div>
+                        <div>
+                          <ul class="uk-nav uk-navbar-dropdown-nav">
+                            <ech-sorted-by
+                              :media-type-path="mediaTypePaths.tv"
+                            ></ech-sorted-by>
+                          </ul>
+                        </div>
+                        <div>
+                          <ul class="uk-nav uk-navbar-dropdown-nav">
+                            <li></li>
                           </ul>
                         </div>
                       </div>
@@ -262,64 +302,35 @@
                     >
                       <span
                         class="uk-margin-small-right uk-icon ech-spin-icon"
-                        uk-icon="icon: video-camera; "
+                        uk-icon="icon: tv; "
                       ></span
-                      >{{ $t('label_discover_movies') }}</nuxt-link
+                      >TV</nuxt-link
                     >
-                    <div class="uk-navbar-dropdown uk-navbar-dropdown-width-3">
+                    <div class="uk-navbar-dropdown">
                       <div
-                        class="uk-navbar-dropdown-grid uk-child-width-1-3 uk-grid uk-grid-stack"
+                        class="uk-navbar-dropdown-grid uk-child-width-1-1 uk-grid uk-grid-stack"
                         uk-grid=""
                       >
                         <div>
                           <ul class="uk-nav uk-navbar-dropdown-nav">
-                            <ech-filters-by
-                              media-type-path="movies"
-                            ></ech-filters-by>
-                          </ul>
-                        </div>
-                        <div>
-                          <ul class="uk-nav uk-navbar-dropdown-nav">
-                            <ech-sorted-by
-                              media-type-path="movies"
-                            ></ech-sorted-by>
-                          </ul>
-                        </div>
-                        <div>
-                          <ul class="uk-nav uk-navbar-dropdown-nav">
-                            <li></li>
+                            <nuxt-link
+                              v-for="(keyMessage, i) in showMenuListForTvShows"
+                              :key="i"
+                              :to="getTvShowTopListlURL(keyMessage)"
+                              class="uk-link-reset"
+                            >
+                              <li>
+                                <span
+                                  class="uk-margin-small-right uk-icon ech-spin-icon"
+                                  uk-icon="icon: tv; "
+                                ></span
+                                >{{ translateKeyMessageForTvShows(keyMessage) }}
+                              </li>
+                            </nuxt-link>
                           </ul>
                         </div>
                       </div>
                     </div>
-                  </li>
-                  <li>
-                    <nuxt-link
-                      :to="localePath('/')"
-                      class=" menu-item menu-item-type-post_type menu-item-object-page"
-                      >{{ $t('pages.scify') }}</nuxt-link
-                    >
-                  </li>
-                  <li>
-                    <nuxt-link
-                      :to="localePath('/')"
-                      class=" menu-item menu-item-type-post_type menu-item-object-page"
-                      >{{ $t('pages.drama') }}</nuxt-link
-                    >
-                  </li>
-                  <li>
-                    <nuxt-link
-                      :to="localePath('/')"
-                      class=" menu-item menu-item-type-post_type menu-item-object-page"
-                      >{{ $t('pages.comedy') }}</nuxt-link
-                    >
-                  </li>
-                  <li>
-                    <nuxt-link
-                      :to="localePath('/')"
-                      class=" menu-item menu-item-type-post_type menu-item-object-page"
-                      >{{ $t('pages.family') }}</nuxt-link
-                    >
                   </li>
                   <li class="uk-parent">
                     <nuxt-link
@@ -371,10 +382,14 @@
 <script>
 import EchFiltersBy from '../filter/EchFiltersBy'
 import EchSortedBy from '../filter/EchSortedBy'
+import MediaTypePaths from '../../middleware/modules/util/MediaTypePaths'
 export default {
   name: 'EchNavbarMainNew',
   components: { EchSortedBy, EchFiltersBy },
   computed: {
+    mediaTypePaths() {
+      return MediaTypePaths
+    },
     showLocales() {
       // eslint-disable-next-line no-console
       console.log('showLocales... ' + this.$i18n.locale)
