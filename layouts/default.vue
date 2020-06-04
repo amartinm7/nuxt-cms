@@ -1,10 +1,10 @@
 <template>
   <div
     class="uk-container uk-container-large"
-    uk-scrollspy="cls: uk-animation-fade; target: .uk-card; delay: 300; repeat: false"
+    uk-scrollspy="cls: uk-animation-fade; target: .ech-scrollspy-effect; delay: 300; repeat: false"
   >
     <ech-navbar-main-new></ech-navbar-main-new>
-    <nuxt :key="$route.fullPath" />
+    <nuxt :key="$route.fullPath" class="ech-scrollspy-effect" />
     <ech-contact-footer-main></ech-contact-footer-main>
     <ech-footer-main></ech-footer-main>
   </div>
@@ -31,6 +31,9 @@ div {
   margin: 1px;
 }
 **/
+
+.ech-scrollspy-effect {
+}
 
 body {
   min-width: 320px;
