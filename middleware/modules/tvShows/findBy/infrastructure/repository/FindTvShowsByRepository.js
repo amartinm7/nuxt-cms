@@ -32,7 +32,6 @@ class FindTvShowsByRepository {
 }
 
 class FindTvShowsByRepositoryRequest {
-  sortedBy
   constructor({ genres_ids, language, sortedBy = 'popularity.desc' }) {
     this.genres_ids = genres_ids
     this.language = language
