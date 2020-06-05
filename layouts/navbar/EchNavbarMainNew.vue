@@ -70,73 +70,135 @@
                   <li>
                     <hr />
                   </li>
-                  <li>
-                    <span
-                      class="uk-margin-small-right uk-icon ech-spin-icon"
-                      uk-icon="icon: tv; "
-                    ></span>
-                    TV
-                  </li>
-                  <ul class="uk-nav-sub">
-                    <nuxt-link
-                      v-for="(keyMessage, i) in showMenuListForTvShows"
-                      :key="i"
-                      :to="getTvShowTopListlURL(keyMessage)"
-                      class="uk-link-reset"
-                    >
-                      <li>
+                  <!-- -->
+                  <ul uk-tab>
+                    <li>
+                      <a href="#">
                         <span
                           class="uk-margin-small-right uk-icon ech-spin-icon"
-                          uk-icon="icon: play; "
+                          uk-icon="icon: bookmark; "
                         ></span
-                        >{{ translateKeyMessageForTvShows(keyMessage) }}
-                      </li>
-                    </nuxt-link>
+                      ></a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <span
+                          class="uk-margin-small-right uk-icon ech-spin-icon"
+                          uk-icon="icon: video-camera; "
+                        ></span
+                      ></a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <span
+                          class="uk-margin-small-right uk-icon ech-spin-icon"
+                          uk-icon="icon: tv; "
+                        ></span
+                      ></a>
+                    </li>
                   </ul>
-                  <li>
-                    <span
-                      class="uk-margin-small-right uk-icon ech-spin-icon"
-                      uk-icon="icon: video-camera; "
-                    ></span>
-                    {{ $t('movies') }}
-                  </li>
-                  <ul class="uk-nav-sub">
-                    <nuxt-link
-                      v-for="(keyMessage, i) in showMenuListForMovies"
-                      :key="i"
-                      :to="getMoviesTopListlURL(keyMessage)"
-                      class="uk-link-reset"
-                    >
+
+                  <ul class="uk-switcher uk-margin">
+                    <!-- -->
+                    <div>
                       <li>
                         <span
                           class="uk-margin-small-right uk-icon ech-spin-icon"
-                          uk-icon="icon: play; "
-                        ></span
-                        >{{ translateKeyMessageForMovies(keyMessage) }}
+                          uk-icon="icon: tv; "
+                        ></span>
+                        TV
                       </li>
-                    </nuxt-link>
-                  </ul>
-                  <li>
-                    <hr />
-                  </li>
-                  <li>
-                    {{ $t('select.language') }}
-                  </li>
-                  <ul class="uk-nav-sub">
-                    <nuxt-link
-                      v-for="(locale, i) in showLocales"
-                      :key="i"
-                      :to="switchLocalePath(locale.code)"
-                      class="uk-link-reset"
-                    >
+                      <ul class="uk-nav-sub">
+                        <nuxt-link
+                          v-for="(keyMessage, i) in showMenuListForTvShows"
+                          :key="i"
+                          :to="getTvShowTopListlURL(keyMessage)"
+                          class="uk-link-reset"
+                        >
+                          <li>
+                            <span
+                              class="uk-margin-small-right uk-icon ech-spin-icon"
+                              uk-icon="icon: play; "
+                            ></span
+                            >{{ translateKeyMessageForTvShows(keyMessage) }}
+                          </li>
+                        </nuxt-link>
+                      </ul>
                       <li>
                         <span
                           class="uk-margin-small-right uk-icon ech-spin-icon"
-                          uk-icon="icon: world; "
-                        ></span
-                        >{{ locale.name }}
+                          uk-icon="icon: video-camera; "
+                        ></span>
+                        {{ $t('movies') }}
                       </li>
-                    </nuxt-link>
+                      <ul class="uk-nav-sub">
+                        <nuxt-link
+                          v-for="(keyMessage, i) in showMenuListForMovies"
+                          :key="i"
+                          :to="getMoviesTopListlURL(keyMessage)"
+                          class="uk-link-reset"
+                        >
+                          <li>
+                            <span
+                              class="uk-margin-small-right uk-icon ech-spin-icon"
+                              uk-icon="icon: play; "
+                            ></span
+                            >{{ translateKeyMessageForMovies(keyMessage) }}
+                          </li>
+                        </nuxt-link>
+                      </ul>
+                      <li>
+                        <hr />
+                      </li>
+                      <li>
+                        {{ $t('select.language') }}
+                      </li>
+                      <ul class="uk-nav-sub">
+                        <nuxt-link
+                          v-for="(locale, i) in showLocales"
+                          :key="i"
+                          :to="switchLocalePath(locale.code)"
+                          class="uk-link-reset"
+                        >
+                          <li>
+                            <span
+                              class="uk-margin-small-right uk-icon ech-spin-icon"
+                              uk-icon="icon: world; "
+                            ></span
+                            >{{ locale.name }}
+                          </li>
+                        </nuxt-link>
+                      </ul>
+                    </div>
+                    <!-- -->
+                    <div>
+                      <!-- -->
+                      <ul class="uk-nav-sub">
+                        <ech-filters-by
+                          :media-type-path="mediaTypePaths.movies"
+                        ></ech-filters-by>
+                      </ul>
+                      <ul class="uk-nav-sub">
+                        <ech-sorted-by
+                          :media-type-path="mediaTypePaths.movies"
+                        ></ech-sorted-by>
+                      </ul>
+                      <!-- -->
+                    </div>
+                    <div>
+                      <!-- -->
+                      <ul class="uk-nav-sub">
+                        <ech-filters-by
+                          :media-type-path="mediaTypePaths.tv"
+                        ></ech-filters-by>
+                      </ul>
+                      <ul class="uk-nav-sub">
+                        <ech-sorted-by
+                          :media-type-path="mediaTypePaths.tv"
+                        ></ech-sorted-by>
+                      </ul>
+                      <!-- -->
+                    </div>
                   </ul>
                 </ul>
               </div>
