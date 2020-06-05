@@ -66,25 +66,33 @@ export default {
         this.currentMediaType,
         filter.id
       )
-      const pathParams = this.$route.params.genre
+      const pathParams = this.$route.params.genre ?? ''
+      const sanitizedPathParams = this.$route.path.includes(this.mediaTypePath)
+        ? pathParams
+        : ''
       const queryParamsSortedBy = this.$route.query.sortedBy ?? ''
+      const sanitizedqueryParamsSortedBy = this.$route.path.includes(
+        this.mediaTypePath
+      )
+        ? queryParamsSortedBy
+        : ''
       const slugger = ServiceLocator.Slugger.sluggify([filterNameEN])
       // use case pathParams are empty, add the filterName
-      if (_isEmpty(pathParams)) {
+      if (_isEmpty(sanitizedPathParams)) {
         const slugger = ServiceLocator.Slugger.sluggify([filterNameEN])
         this.$router.push({
           path: `/${language}/${
             self.mediaTypePath
           }/bygenres/${Date.now()}/${slugger}`,
           query: {
-            sortedBy: queryParamsSortedBy
+            sortedBy: sanitizedqueryParamsSortedBy
           }
         })
         return
       }
       // use case pathParams with values and remove a filterName
-      if (pathParams.includes(slugger)) {
-        const finalPath = pathParams
+      if (sanitizedPathParams.includes(slugger)) {
+        const finalPath = sanitizedPathParams
           .split('_')
           .filter((it) => it !== slugger)
           .join('_')
@@ -93,21 +101,21 @@ export default {
             self.mediaTypePath
           }/bygenres/${Date.now()}/${finalPath}`,
           query: {
-            sortedBy: queryParamsSortedBy
+            sortedBy: sanitizedqueryParamsSortedBy
           }
         })
         return
       }
       // use case pathParams with values and add a filterName
-      if (!pathParams.includes(slugger)) {
+      if (!sanitizedPathParams.includes(slugger)) {
         const slugger = ServiceLocator.Slugger.sluggify([filterNameEN])
-        const finalPath = `${pathParams}_${slugger}`
+        const finalPath = `${sanitizedPathParams}_${slugger}`
         this.$router.push({
           path: `/${language}/${
             self.mediaTypePath
           }/bygenres/${Date.now()}/${finalPath}`,
           query: {
-            sortedBy: queryParamsSortedBy
+            sortedBy: sanitizedqueryParamsSortedBy
           }
         })
       }
@@ -117,9 +125,12 @@ export default {
         this.currentMediaType,
         filter.id
       )
-      const pathParams = this.$route.params.genre
+      const pathParams = this.$route.params.genre ?? ''
       const slugger = ServiceLocator.Slugger.sluggify([filterNameEN])
-      return !_isEmpty(pathParams) && pathParams.includes(slugger)
+      return (
+        this.$route.path.includes(this.mediaTypePath) &&
+        pathParams.includes(slugger)
+      )
     },
     resetFilters() {
       const self = this

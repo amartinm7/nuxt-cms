@@ -61,18 +61,24 @@ export default {
       const self = this
       const language = this.$i18n.locale
       const pathParams = this.$route.params.genre ?? ''
+      const sanitizedPathParams = this.$route.path.includes(this.mediaTypePath)
+        ? pathParams
+        : ''
       this.$router.push({
         path: `/${language}/${
           self.mediaTypePath
-        }/bygenres/${Date.now()}/${pathParams}`,
+        }/bygenres/${Date.now()}/${sanitizedPathParams}`,
         query: {
           sortedBy: propertyName
         }
       })
     },
     isFilterIncluded(propertyName) {
-      const sortedByqueryParam = this.$route.query.sortedBy
-      return sortedByqueryParam === propertyName
+      const sortedByqueryParam = this.$route.query.sortedBy ?? ''
+      return (
+        this.$route.path.includes(this.mediaTypePath) &&
+        sortedByqueryParam === propertyName
+      )
     },
     resetFilters() {
       const self = this
