@@ -337,6 +337,11 @@
                       :to="localePath('/')"
                       class=" menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"
                       aria-expanded="false"
+                    >
+                      <span
+                        class="uk-margin-small-right uk-icon ech-spin-icon"
+                        uk-icon="icon: world; "
+                      ></span
                       >{{ $t('select.language') }}</nuxt-link
                     >
                     <div class="uk-navbar-dropdown">
