@@ -1,9 +1,13 @@
 <template>
   <div>
     <li class="uk-active">
+      <span
+        class="uk-margin-small-right uk-icon ech-spin-icon"
+        uk-icon="icon: tag; "
+      ></span>
       {{ $t('label_sortedBy') }}
       <span
-        uk-icon="close"
+        uk-icon="icon: close; ratio: 0.60;"
         class="uk-margin-small-left ech-basic uk-align-right"
         @click="resetFilters()"
       ></span>
@@ -11,12 +15,16 @@
     <li class="uk-nav-divider"></li>
     <li v-for="(value, propertyName, index) in getSortedByList" :key="index">
       <span
-        :class="{
-          'uk-label': true,
-          'uk-label-success': isFilterIncluded(propertyName),
-          'uk-margin-small-left': true,
-          'ech-basic': true
-        }"
+        v-if="isFilterIncluded(propertyName)"
+        class="uk-label uk-label-success uk-margin-small-left ech-basic"
+        uk-icon="icon: close; ratio: 0.60;"
+        @click="sortedBy(propertyName)"
+      >
+        {{ value }}
+      </span>
+      <span
+        v-if="!isFilterIncluded(propertyName)"
+        class="uk-margin-small-left ech-basic"
         @click="sortedBy(propertyName)"
       >
         {{ value }}
@@ -64,12 +72,20 @@ export default {
       const sanitizedPathParams = this.$route.path.includes(this.mediaTypePath)
         ? pathParams
         : ''
+      console.log(`${propertyName} === ${this.$route.query.sortedBy}`)
+      const queryParamsSortedBy =
+        this.$route.query.sortedBy === propertyName ? '' : propertyName
+      const sanitizedQueryParamsSortedBy = this.$route.path.includes(
+        this.mediaTypePath
+      )
+        ? queryParamsSortedBy
+        : propertyName
       this.$router.push({
         path: `/${language}/${
           self.mediaTypePath
         }/bygenres/${Date.now()}/${sanitizedPathParams}`,
         query: {
-          sortedBy: propertyName
+          sortedBy: sanitizedQueryParamsSortedBy
         }
       })
     },

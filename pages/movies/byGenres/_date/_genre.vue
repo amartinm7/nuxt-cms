@@ -11,6 +11,7 @@
       </ech-slider-main>
     </section>
     <section class="uk-section uk-section-xsmall">
+      <ech-filter :media-type-path="mediaTypePaths.movies"></ech-filter>
       <h1 class="uk-text-center">{{ $t('pages.movies.byGenres') }}</h1>
     </section>
     <section class="uk-section uk-section-xsmall">
@@ -49,12 +50,13 @@ import MediaTypes from '../../../../middleware/modules/util/MediaTypes'
 import MediaTypePaths from '../../../../middleware/modules/util/MediaTypePaths'
 import { FindMoviesByControllerRequest } from '../../../../middleware/modules/movies/findBy/userapplication/controller/FindMoviesByController'
 import GenresHeaderManager from '../../../../middleware/modules/vue/mixins/GenresHeaderManager'
+import EchFilter from '../../../../layouts/filter/EchFilter'
 // const _isEmpty = require('lodash.isempty')
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
   name: 'EchMoviesByGenres',
-  components: { EchHeaderMain, EchSliderMain, EchMoviesCard },
+  components: { EchHeaderMain, EchSliderMain, EchMoviesCard, EchFilter },
   mixins: [VideoControllerManager, GenresHeaderManager],
   // eslint-disable-next-line require-await
   async asyncData({ app, params, query }) {
@@ -87,6 +89,11 @@ export default {
       },
       mediaTypePath: MediaTypePaths.movies,
       mediaType: MediaTypes.movies
+    }
+  },
+  computed: {
+    mediaTypePaths() {
+      return MediaTypePaths
     }
   }
 }

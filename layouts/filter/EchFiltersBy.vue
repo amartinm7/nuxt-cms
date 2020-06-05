@@ -1,9 +1,13 @@
 <template>
   <div>
     <li class="uk-active">
+      <span
+        class="uk-margin-small-right uk-icon ech-spin-icon"
+        uk-icon="icon: tag; "
+      ></span>
       {{ $t('label_genreBy') }}
       <span
-        uk-icon="close"
+        uk-icon="icon: close; ratio: 0.60;"
         class="uk-margin-small-left ech-basic uk-align-right"
         @click="resetFilters()"
       ></span>
@@ -11,12 +15,16 @@
     <li class="uk-nav-divider"></li>
     <li v-for="filter in getGenresList" :key="filter.id">
       <span
-        :class="{
-          'uk-label': true,
-          'uk-label-success': isFilterIncluded(filter),
-          'uk-margin-small-left': true,
-          'ech-basic': true
-        }"
+        v-if="isFilterIncluded(filter)"
+        class="uk-label uk-label-success uk-margin-small-left ech-basic"
+        uk-icon="icon: close; ratio: 0.60;"
+        @click="findBy(filter)"
+      >
+        {{ filter.name }}
+      </span>
+      <span
+        v-if="!isFilterIncluded(filter)"
+        class="uk-margin-small-left ech-basic"
         @click="findBy(filter)"
       >
         {{ filter.name }}

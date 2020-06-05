@@ -14,9 +14,6 @@
       <h1 class="uk-text-center">{{ getSection(mediaType) }}</h1>
     </section>
     <section class="uk-section uk-section-xsmall">
-      <ech-filters :media-type-path="mediaTypePath"></ech-filters>
-    </section>
-    <section class="uk-section uk-section-xsmall">
       <div>
         <ech-tv-show-card
           :movies="trendingTVShows._results"

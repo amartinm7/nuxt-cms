@@ -11,6 +11,7 @@
       </ech-slider-main>
     </section>
     <section class="uk-section uk-section-xsmall">
+      <ech-filter :media-type-path="mediaTypePath.tv"></ech-filter>
       <h1 class="uk-text-center">{{ $t('pages.tv.byGenres') }}</h1>
     </section>
     <section class="uk-section uk-section-xsmall">
@@ -50,11 +51,12 @@ import GenresHeaderManager from '../../../../middleware/modules/vue/mixins/Genre
 import { FindTvShowsByControllerRequest } from '../../../../middleware/modules/tvShows/findBy/userapplication/controller/FindTvShowsByController'
 import MediaTypePaths from '../../../../middleware/modules/util/MediaTypePaths'
 import MediaTypes from '../../../../middleware/modules/util/MediaTypes'
+import EchFilter from '../../../../layouts/filter/EchFilter'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
   name: 'EchTvShowsByGenres',
-  components: { EchHeaderMain, EchSliderMain, EchTvShowCard },
+  components: { EchHeaderMain, EchSliderMain, EchTvShowCard, EchFilter },
   mixins: [VideoControllerManager, GenresHeaderManager],
   // eslint-disable-next-line require-await
   async asyncData({ app, params, query }) {
@@ -84,6 +86,11 @@ export default {
       },
       mediaTypePath: MediaTypePaths.tv,
       mediaType: MediaTypes.tv
+    }
+  },
+  computed: {
+    mediaTypePaths() {
+      return MediaTypePaths
     }
   }
 }
