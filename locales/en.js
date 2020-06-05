@@ -58,5 +58,7 @@ export default {
   label_sortedBy: 'Sorted By',
   label_genreBy: 'Genre',
   label_discover_movies: 'Discover Movies',
-  label_discover_tvshows: 'Discover Series'
+  label_discover_tvshows: 'Discover Series',
+  director: 'Director',
+  screenplay: 'Guion/Adaptación'
 }

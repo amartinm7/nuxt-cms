@@ -14,6 +14,17 @@ export default {
     },
     videos() {
       return this.movies[0]._videos
+    },
+    director() {
+      console.log(this.movies[0]._crew?._director?._name)
+      if (_isEmpty(this.movies[0]._crew) || this.movies[0]._crew._director)
+        return ''
+      return this.movies[0]._crew._director._name
+    },
+    screenplay() {
+      if (_isEmpty(this.movies[0]._crew) || this.movies[0]._crew._screenplay)
+        return ''
+      return this.movies[0]._crew?._screenplay?._name
     }
   }
 }

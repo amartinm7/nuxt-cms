@@ -58,5 +58,7 @@ export default {
   label_sortedBy: 'Orden',
   label_genreBy: 'Género',
   label_discover_movies: 'Mas Cine',
-  label_discover_tvshows: 'Mas Series'
+  label_discover_tvshows: 'Mas Series',
+  director: 'Director',
+  screenplay: 'Screenplay'
 }

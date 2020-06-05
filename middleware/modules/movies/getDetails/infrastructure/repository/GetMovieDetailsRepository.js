@@ -57,7 +57,11 @@ class GetMovieDetailsRepositoryResponse {
     vote_count,
     videos,
     images,
-    credits
+    credits,
+    homepage,
+    tagline,
+    budget,
+    revenue
   }) {
     this._adult = adult
     this._genres = genres
@@ -74,6 +78,10 @@ class GetMovieDetailsRepositoryResponse {
     this._title = title
     this._vote_average = vote_average
     this._vote_count = vote_count
+    this._homepage = homepage
+    this._tagline = tagline
+    this._budget = budget
+    this._revenue = revenue
     if (!_isEmpty(videos) && !_isEmpty(videos.results)) {
       this._videos = videos.results.map((it) => {
         // eslint-disable-next-line no-new
@@ -89,6 +97,16 @@ class GetMovieDetailsRepositoryResponse {
         // eslint-disable-next-line no-new
         return new GetCreditCastsResponse({ ...it })
       })
+    }
+    if (!_isEmpty(credits) && !_isEmpty(credits.crew)) {
+      this._crews = credits.crew.map((it) => {
+        // eslint-disable-next-line no-new
+        return new GetCreditCrewResponse({ ...it })
+      })
+      this._crew = {
+        _director: this._crews.find((it) => it._job === 'Director'),
+        _screenplay: this._crews.find((it) => it._job === 'Screenplay')
+      }
     }
   }
 }
@@ -143,6 +161,19 @@ class GetCreditCastsResponse {
     this.name = name
     this.order = order
     this.profile_path = profile_path
+  }
+}
+
+/* eslint-disable camelcase */
+class GetCreditCrewResponse {
+  constructor({ credit_id, department, gender, id, job, name, profile_path }) {
+    this._credit_id = credit_id
+    this._department = department
+    this._gender = gender
+    this._id = id
+    this._job = job
+    this._name = name
+    this._profile_path = profile_path
   }
 }
 

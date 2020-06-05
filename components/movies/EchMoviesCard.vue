@@ -44,6 +44,43 @@
               {{ movie._release_date | moment('DD-MM-YYYY') }}
             </span>
           </p>
+          <!--          <p>-->
+          <!--            {{ $t('director') }}-->
+          <!--            <span class="uk-label uk-margin-small-left">-->
+          <!--              {{ director }}-->
+          <!--            </span>-->
+          <!--          </p>-->
+          <!--          <p>-->
+          <!--            {{ $t('screenplay') }}-->
+          <!--            <span class="uk-label uk-margin-small-left">-->
+          <!--              {{ screenplay }}-->
+          <!--            </span>-->
+          <!--          </p>-->
+          <!--          <p>-->
+          <!--            <span class="uk-label uk-margin-small-left">-->
+          <!--              {{ movie._tagline }}-->
+          <!--            </span>-->
+          <!--          </p>-->
+          <!--          <p>-->
+          <!--            <span class="uk-label uk-margin-small-left">-->
+          <!--              {{ movie._homepage }}-->
+          <!--            </span>-->
+          <!--          </p>-->
+          <!--          <p>-->
+          <!--            <span class="uk-label uk-margin-small-left">-->
+          <!--              {{ movie._status }}-->
+          <!--            </span>-->
+          <!--          </p>-->
+          <!--          <p>-->
+          <!--            <span class="uk-label uk-margin-small-left">-->
+          <!--              {{ movie._budget }}-->
+          <!--            </span>-->
+          <!--          </p>-->
+          <!--          <p>-->
+          <!--            <span class="uk-label uk-margin-small-left">-->
+          <!--              {{ movie._revenue }}-->
+          <!--            </span>-->
+          <!--          </p>-->
         </div>
         <div class="uk-flex uk-flex-right uk-width-auto">
           <div
