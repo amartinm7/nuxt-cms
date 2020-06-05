@@ -12,7 +12,7 @@
         @click="resetFilters()"
       ></span>
     </li>
-    <li class="uk-nav-divider"></li>
+    <li class="uk-nav-divider@s"></li>
     <li v-for="filter in getGenresList" :key="filter.id">
       <span
         v-if="isFilterIncluded(filter)"

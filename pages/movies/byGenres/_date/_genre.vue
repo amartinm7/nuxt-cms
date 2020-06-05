@@ -50,13 +50,12 @@ import MediaTypes from '../../../../middleware/modules/util/MediaTypes'
 import MediaTypePaths from '../../../../middleware/modules/util/MediaTypePaths'
 import { FindMoviesByControllerRequest } from '../../../../middleware/modules/movies/findBy/userapplication/controller/FindMoviesByController'
 import GenresHeaderManager from '../../../../middleware/modules/vue/mixins/GenresHeaderManager'
-import EchFilter from '../../../../layouts/filter/EchFilter'
 // const _isEmpty = require('lodash.isempty')
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
   name: 'EchMoviesByGenres',
-  components: { EchHeaderMain, EchSliderMain, EchMoviesCard, EchFilter },
+  components: { EchHeaderMain, EchSliderMain, EchMoviesCard },
   mixins: [VideoControllerManager, GenresHeaderManager],
   // eslint-disable-next-line require-await
   async asyncData({ app, params, query }) {

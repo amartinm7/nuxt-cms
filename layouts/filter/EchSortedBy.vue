@@ -12,7 +12,7 @@
         @click="resetFilters()"
       ></span>
     </li>
-    <li class="uk-nav-divider"></li>
+    <li class="uk-nav-divider@s"></li>
     <li v-for="(value, propertyName, index) in getSortedByList" :key="index">
       <span
         v-if="isFilterIncluded(propertyName)"

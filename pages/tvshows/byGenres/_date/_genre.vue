@@ -51,12 +51,11 @@ import GenresHeaderManager from '../../../../middleware/modules/vue/mixins/Genre
 import { FindTvShowsByControllerRequest } from '../../../../middleware/modules/tvShows/findBy/userapplication/controller/FindTvShowsByController'
 import MediaTypePaths from '../../../../middleware/modules/util/MediaTypePaths'
 import MediaTypes from '../../../../middleware/modules/util/MediaTypes'
-import EchFilter from '../../../../layouts/filter/EchFilter'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
   name: 'EchTvShowsByGenres',
-  components: { EchHeaderMain, EchSliderMain, EchTvShowCard, EchFilter },
+  components: { EchHeaderMain, EchSliderMain, EchTvShowCard },
   mixins: [VideoControllerManager, GenresHeaderManager],
   // eslint-disable-next-line require-await
   async asyncData({ app, params, query }) {
