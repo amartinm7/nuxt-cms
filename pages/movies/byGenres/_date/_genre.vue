@@ -11,7 +11,6 @@
       </ech-slider-main>
     </section>
     <section class="uk-section uk-section-xsmall">
-      <ech-filter :media-type-path="mediaTypePaths.movies"></ech-filter>
       <h1 class="uk-text-center">{{ $t('pages.movies.byGenres') }}</h1>
     </section>
     <section class="uk-section uk-section-xsmall">
