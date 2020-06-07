@@ -7,21 +7,38 @@
       class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin ech-scrollspy-effect"
       uk-grid
     >
-      <div class="uk-position-relative uk-visible-toggle uk-light">
-        <span
-          class="uk-card-badge uk-label-success ech-basic uk-border-rounded"
-        >
-          &nbsp;{{ movie._vote_average.toFixed(1) }}&nbsp;
-        </span>
-        <a
-          class="uk-button uk-button-default uk-align-center"
-          @click="initVideoURL(movie)"
-        >
-          <img
-            :src="getPosterURL(movie._poster_path, index)"
-            :alt="movie._name"
-          />
-        </a>
+      <div
+        class="uk-position-relative uk-visible-toggle uk-light uk-flex uk-flex-wrap"
+      >
+        <div class="uk-width-expand">
+          <a
+            class="uk-button uk-button-default uk-align-center"
+            @click="initVideoURL(movie)"
+          >
+            <img
+              class="ech-default-img"
+              :src="getPosterURL(movie._poster_path, index)"
+              :alt="movie._name"
+            />
+          </a>
+        </div>
+        <div class="uk-width-1-6">
+          <div>
+            <span
+              class="uk-label-success ech-basic uk-border-circle uk-margin-large uk-padding-small uk-text-center"
+            >
+              {{ movie._vote_average.toFixed(1) }}
+            </span>
+          </div>
+          <div class="uk-margin-top">&nbsp;</div>
+          <div class="uk-margin-small-top">
+            <!--            <span-->
+            <!--              class="uk-label-success ech-basic uk-text-center uk-align-center uk-border-rounded uk-margin-top"-->
+            <!--            >-->
+            <!--              PEG12-->
+            <!--            </span>-->
+          </div>
+        </div>
       </div>
       <div>
         <div class="uk-card-body">

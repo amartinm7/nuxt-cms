@@ -18,7 +18,7 @@
             <img
               class="ech-default-img"
               :src="getPosterURL(movie._poster_path, index)"
-              :alt="movie._title"
+              :alt="movie._name"
             />
           </a>
         </div>
@@ -43,34 +43,59 @@
       <div>
         <div class="uk-card-body">
           <h3 class="uk-card-title ech-basic">
-            <nuxt-link
-              class="uk-link-reset"
-              :to="getDetailPathURL(movie._id, movie._title, mediaTypePath)"
+            {{ movie._title }} ({{ movie._release_date | moment('YYYY') }})
+            <span
+              :id="movie._id"
+              class="uk-label ech-basic"
+              @click.stop.prevent="toClipboard(movie._id)"
+              >{{ movie._id }}</span
             >
-              {{ movie._title }} ({{ movie._release_date | moment('YYYY') }})
-            </nuxt-link>
-            <span class="uk-label">{{ movie._id }}</span>
           </h3>
           <p class="uk-dropcap">
             {{ movie._overview }}
           </p>
-          <p>
-            {{ $t('releaseDate') }}
-            <span class="uk-label uk-margin-small-left">
-              {{ movie._release_date | moment('DD-MM-YYYY') }}
-            </span>
-          </p>
-        </div>
-        <div class="uk-flex uk-flex-right uk-width-auto">
-          <div
-            v-for="genre in movie._genres"
-            :key="genre.id"
-            :todo="genre"
-            class="uk-padding-small"
-          >
-            <span class="uk-label-warning ech-basic">
-              &nbsp;{{ genre.name }}&nbsp;
-            </span>
+          <div>
+            <p>
+              {{ movie._release_date | moment('DD-MMMM-YYYY') }} -
+              {{ movie._runtimeByHours }} -
+              <slot v-for="genre in movie._genres" :todo="genre">
+                {{ genre.name }}&nbsp;
+              </slot>
+            </p>
+          </div>
+          <div>
+            <p>_budget ${{ movie._budget | abbreviate }}&nbsp;</p>
+            <p>_revenue ${{ movie._revenue | abbreviate }}&nbsp;</p>
+          </div>
+          <div>
+            <p>
+              _production_countries
+              {{ movie._production_countries[0]._iso_3166_1 }}
+            </p>
+          </div>
+          <div>
+            <p>
+              _homepage
+              {{ movie._homepage }}
+            </p>
+          </div>
+          <div>
+            <p>
+              tagline
+              {{ movie._tagline }}
+            </p>
+          </div>
+          <div>
+            <p>
+              director
+              {{ movie._director }}
+            </p>
+          </div>
+          <div>
+            <p>
+              _screenplay
+              {{ movie._screenplay }}
+            </p>
           </div>
         </div>
       </div>
@@ -89,7 +114,7 @@ import LocateManager from '../../middleware/modules/vue/mixins/LocateManager'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
-  name: 'EchMoviesCard',
+  name: 'EchMoviesCardDetail',
   mixins: [MediaManager, LocateManager],
   props: {
     movies: {
@@ -106,6 +131,15 @@ export default {
     }
   },
   methods: {
+    toClipboard(id) {
+      console.log('toClipboardd')
+      const range = document.createRange()
+      range.selectNode(document.getElementById(id))
+      window.getSelection().removeAllRanges()
+      window.getSelection().addRange(range)
+      document.execCommand('copy')
+      window.getSelection().removeAllRanges()
+    },
     async initVideoURL(movie) {
       const isoLangCode = this.currentLocale().iso
       const getMovieVideosControllerResponse = await beanContainer.getMovieVideosController.getFirstVideoURL(

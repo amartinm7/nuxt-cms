@@ -7,7 +7,6 @@ class GetTvShowDetailsService {
   }
 
   async execute(getTvShowDetailsServiceRequest) {
-    console.log('>>>GetTvShowDetailsService.execute')
     const getTvShowDetailsRepositoryResponse = await this._getTvShowDetailsRepository.executeAsync(
       new GetTvShowDetailsRepositoryRequest({
         ...getTvShowDetailsServiceRequest

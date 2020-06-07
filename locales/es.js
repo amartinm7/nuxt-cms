@@ -53,12 +53,15 @@ export default {
     posters: 'Posters',
     trailers: 'Trailers'
   },
+  as: 'como',
   releaseDate: 'Fecha en cines',
   firstAirDate: 'En emision desde',
   label_sortedBy: 'Orden',
   label_genreBy: 'Género',
+  label_genresBy: 'Géneros',
   label_discover_movies: 'Mas Cine',
   label_discover_tvshows: 'Mas Series',
   director: 'Director',
-  screenplay: 'Screenplay'
+  screenplay: 'Screenplay',
+  runtime: 'Duración'
 }

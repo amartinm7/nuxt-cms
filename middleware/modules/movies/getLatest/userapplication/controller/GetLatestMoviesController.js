@@ -7,7 +7,6 @@ class GetLatestMoviesController {
   }
 
   async execute(getLatestTvShowControllerRequest) {
-    console.log('>>>GetLatestMoviesController.execute')
     const getLatestMoviesServiceResponse = await this._getLatestMoviesService.execute(
       new GetLatestMoviesServiceRequest({
         ...getLatestTvShowControllerRequest

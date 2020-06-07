@@ -61,7 +61,8 @@ class GetMovieDetailsRepositoryResponse {
     homepage,
     tagline,
     budget,
-    revenue
+    revenue,
+    production_countries
   }) {
     this._adult = adult
     this._genres = genres
@@ -91,7 +92,6 @@ class GetMovieDetailsRepositoryResponse {
     if (!_isEmpty(images)) {
       this._images = new GetImageDetailsResponse(images)
     }
-    console.log(credits)
     if (!_isEmpty(credits) && !_isEmpty(credits.cast)) {
       this._credits = credits.cast.map((it) => {
         // eslint-disable-next-line no-new
@@ -108,6 +108,31 @@ class GetMovieDetailsRepositoryResponse {
         _screenplay: this._crews.find((it) => it._job === 'Screenplay')
       }
     }
+    this._runtimeByHours = this._getRuntimeByHours()
+    if (!_isEmpty(production_countries) && !_isEmpty(production_countries)) {
+      this._production_countries = production_countries.map((it) => {
+        // eslint-disable-next-line no-new
+        return new GetProductionCountryResponse({ ...it })
+      })
+    }
+    this._director = this._crewDirector()
+    this._screenplay = this._crewScreenplay()
+  }
+
+  _getRuntimeByHours() {
+    const time = this._runtime ?? 0
+    const hours = Math.floor(time / 60)
+    const minutes = time % 60
+    return `${hours}h ${minutes}min`
+  }
+
+  _crewDirector() {
+    return this._crew?._director?._name ?? ''
+  }
+
+  _crewScreenplay() {
+    console.log(this._crew?._screenplay?._name ?? '')
+    return this._crew?._screenplay?._name ?? ''
   }
 }
 
@@ -195,6 +220,13 @@ class GetBackDropsPostersDetailsResponse {
     this._vote_average = vote_average
     this._vote_count = vote_count
     this._width = width
+  }
+}
+
+class GetProductionCountryResponse {
+  constructor({ iso_3166_1, name }) {
+    this._iso_3166_1 = iso_3166_1
+    this._name = name
   }
 }
 

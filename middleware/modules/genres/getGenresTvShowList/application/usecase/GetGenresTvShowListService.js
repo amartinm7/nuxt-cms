@@ -5,7 +5,6 @@ class GetGenresTvShowListService {
   }
 
   async execute() {
-    console.log('>>>GetGenresTvShowListService.execute')
     const getGenresTvShowListRepositoryResponse = await this._getGenresTvShowListRepository.executeAsync()
     return {
       ...getGenresTvShowListRepositoryResponse

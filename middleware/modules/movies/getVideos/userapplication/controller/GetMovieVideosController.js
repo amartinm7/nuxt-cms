@@ -8,7 +8,6 @@ class GetMovieVideosController {
   }
 
   async execute(getMovieVideosControllerRequest) {
-    console.log('>>>GetMovieVideosController.execute')
     const getMovieVideosServiceResponse = await this._getMovieVideosService.execute(
       new GetMovieVideosServiceRequest({ ...getMovieVideosControllerRequest })
     )

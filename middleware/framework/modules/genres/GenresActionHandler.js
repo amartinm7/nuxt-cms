@@ -11,7 +11,6 @@ const locale = {
 
 class GenresActionHandler {
   constructor(slugger, locale, language) {
-    console.log('GenresActionHandler...')
     this._genresForTvUsingNameAsKey = Object.assign(
       {},
       ...locale[language].genres.tv.map((genre) => ({

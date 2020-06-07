@@ -8,7 +8,6 @@ class GetTvShowDetailsController {
   }
 
   async execute(getTvShowDetailsControllerRequest) {
-    console.log('>>>GetTvShowDetailsController.execute')
     const getTvShowDetailsServiceResponse = await this._getTvShowDetailsService.execute(
       new GetTvShowDetailsServiceRequest({
         ...getTvShowDetailsControllerRequest

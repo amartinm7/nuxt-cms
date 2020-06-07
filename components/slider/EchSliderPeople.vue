@@ -4,7 +4,7 @@
       v-show="existsCredits(credits)"
       class="uk-text-lead uk-text-center ech-basic"
     >
-      Credits
+      {{ $t('sliderSwitcher.credits') }}
     </h3>
     <div
       class="uk-position-relative uk-visible-toggle uk-light"
@@ -23,6 +23,9 @@
               class="uk-overlay uk-overlay-primary uk-position-bottom uk-text-center uk-transition-slide-bottom"
             >
               <p class="uk-margin-remove uk-text-small">{{ credit.name }}</p>
+              <p class="uk-margin-remove uk-text-small">
+                {{ $t('as') }} {{ credit.character }}
+              </p>
             </div>
           </div>
         </li>

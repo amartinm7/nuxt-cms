@@ -91,7 +91,8 @@ export default {
     { src: '~/plugins/vue-moment.js', ssr: true },
     { src: '~/plugins/disqus', ssr: true },
     { src: '~/plugins/axios', ssr: true },
-    { src: '~/plugins/genreActions', ssr: true }
+    { src: '~/plugins/genreActions', ssr: true },
+    { src: '~/plugins/currency', ssr: true }
   ],
   /*
    ** Nuxt.js dev-modules

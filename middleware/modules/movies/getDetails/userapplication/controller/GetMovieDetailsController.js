@@ -6,7 +6,6 @@ class GetMovieDetailsController {
   }
 
   async execute(getMovieDetailsControllerRequest) {
-    console.log('>>>GetMovieDetailsController.execute')
     const getMovieDetailsServiceResponse = await this._getMovieDetailsService.execute(
       new GetMovieDetailsServiceRequest({ ...getMovieDetailsControllerRequest })
     )

@@ -5,7 +5,6 @@ class GetGenresMovieListController {
   }
 
   async execute(getGenresMovieListControllerRequest) {
-    console.log('>>>GetMovieVideosController.execute')
     const getGenresMovieListServiceResponse = await this._getGenresMovieListService.execute()
     return { ...getGenresMovieListServiceResponse }
   }

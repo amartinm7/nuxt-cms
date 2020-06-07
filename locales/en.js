@@ -49,16 +49,19 @@ export default {
     trendingTVShows: 'Trending TV Shows'
   },
   sliderSwitcher: {
-    credits: 'Credits',
+    credits: 'Cast & Characters',
     posters: 'Posters',
     trailers: 'Trailers'
   },
+  as: 'as',
   releaseDate: 'Release Date',
   firstAirDate: 'First Air Date',
   label_sortedBy: 'Sorted By',
   label_genreBy: 'Genre',
+  label_genresBy: 'Genres',
   label_discover_movies: 'Discover Movies',
   label_discover_tvshows: 'Discover Series',
   director: 'Director',
-  screenplay: 'Guion/Adaptación'
+  screenplay: 'Guion/Adaptación',
+  runtime: 'Runtime'
 }

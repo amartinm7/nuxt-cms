@@ -6,7 +6,6 @@ class GetMovieVideosService {
   }
 
   async execute(getMovieVideosServiceRequest) {
-    console.log('>>>GetMovieVideosService.execute')
     const getMovieVideosRepositoryResponse = await this._getMovieVideosRepository.executeAsync(
       new GetMovieVideosRepositoryRequest({
         ...getMovieVideosServiceRequest

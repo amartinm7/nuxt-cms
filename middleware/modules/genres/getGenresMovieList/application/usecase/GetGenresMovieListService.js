@@ -5,7 +5,6 @@ class GetGenresMovieListService {
   }
 
   async execute() {
-    console.log('>>>GetGenresMovieListService.execute')
     const getGenresMovieListRepositoryResponse = await this._getGenresMovieListRepository.executeAsync()
     return {
       ...getGenresMovieListRepositoryResponse

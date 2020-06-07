@@ -6,7 +6,6 @@ class GetLatestMoviesService {
   }
 
   async execute(getLatestFilmsServiceRequest) {
-    console.log('>>>GetLatestMoviesService.execute')
     const getLatestMoviesServiceResponse = await this._getLatestMoviesRepository.executeAsync(
       new GetLatestMoviesRepositoryRequest({ ...getLatestFilmsServiceRequest })
     )
