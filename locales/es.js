@@ -63,5 +63,7 @@ export default {
   label_discover_tvshows: 'Mas Series',
   director: 'Director',
   screenplay: 'Screenplay',
-  runtime: 'Duración'
+  runtime: 'Duración',
+  budget: 'Presupuesto',
+  revenue: 'Ingresos'
 }

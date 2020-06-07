@@ -25,7 +25,7 @@
         <div class="uk-width-1-6">
           <div>
             <span
-              class="uk-label-success ech-basic ech-spin-icon uk-border-circle uk-margin-large uk-padding-small uk-text-center"
+              class="uk-label-warning ech-basic ech-spin-icon uk-border-circle uk-margin-large uk-padding-small uk-text-center"
             >
               {{ movie._vote_average.toFixed(1) }}
             </span>

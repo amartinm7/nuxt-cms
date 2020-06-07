@@ -25,7 +25,7 @@
         <div class="uk-width-1-6">
           <div>
             <span
-              class="uk-label-success ech-basic ech-spin-icon uk-border-circle uk-margin-large uk-padding-small uk-text-center"
+              class="uk-label-warning ech-basic ech-spin-icon uk-border-circle uk-margin-large uk-padding-small uk-text-center"
             >
               {{ movie._vote_average.toFixed(1) }}
             </span>
@@ -36,7 +36,7 @@
       <div>
         <div class="uk-card-body">
           <h3 class="uk-card-title ech-basic">
-            {{ movie._title }} ({{ movie._release_date | moment('YYYY') }})
+            {{ movie._name }} ({{ movie._first_air_date | moment('YYYY') }})
             <span
               :id="movie._id"
               class="uk-label ech-basic ech-spin-icon"
@@ -44,16 +44,35 @@
               >{{ movie._id }}</span
             >
           </h3>
+          <div>
+            <p class="uk-text-italic">
+              <span
+                class="uk-label uk-label-success uk-margin-small-left ech-basic"
+                uk-icon="icon: calendar; ratio: 1;"
+              >
+                {{ movie._first_air_date | moment('DD-MMMM-YYYY') }}
+              </span>
+              <span
+                class="uk-label uk-label-success uk-margin-small-left ech-basic"
+                uk-icon="icon: clock; ratio: 1;"
+              >
+                {{ movie._runtimeByHours }}
+              </span>
+            </p>
+          </div>
           <p class="uk-dropcap">
             {{ movie._overview }}
           </p>
           <div>
             <p>
-              {{ movie._release_date | moment('DD-MMMM-YYYY') }} -
-              {{ movie._runtimeByHours }} -
-              <slot v-for="genre in movie._genres" :todo="genre">
-                {{ genre.name }}&nbsp;
-              </slot>
+              <span
+                v-for="genre in movie._genres"
+                :key="genre._id"
+                :todo="genre"
+                class="uk-label uk-label-warning uk-margin-small-left ech-basic"
+              >
+                {{ genre.name }}
+              </span>
             </p>
           </div>
           <div>
@@ -63,19 +82,12 @@
           <div>
             <p>
               _production_countries
-              {{ movie._production_countries[0]._iso_3166_1 }}
             </p>
           </div>
           <div>
             <p>
               _homepage
               {{ movie._homepage }}
-            </p>
-          </div>
-          <div>
-            <p>
-              tagline
-              {{ movie._tagline }}
             </p>
           </div>
           <div>
@@ -89,6 +101,14 @@
               _screenplay
               {{ movie._screenplay }}
             </p>
+            <p>
+              {{ $t('firstAirDate') }}
+              <span
+                class="uk-label uk-margin-small-left ech-basic ech-spin-icon"
+              >
+                {{ movie._first_air_date | moment('DD-MM-YYYY') }}
+              </span>
+            </p>
           </div>
         </div>
       </div>
@@ -98,17 +118,16 @@
 <script>
 /* eslint-disable camelcase, no-console */
 import { BeanContainerRegistry } from '../../middleware/BeanContainerRegistry'
-import { GetMovieVideosControllerRequest } from '../../middleware/modules/movies/getVideos/userapplication/controller/GetMovieVideosController'
+import { GetTvShowsVideosControllerRequest } from '../../middleware/modules/tvShows/getVideos/userapplication/controller/GetTvShowsVideosController'
 import MediaManager from '../../middleware/modules/vue/mixins/MediaManager'
-import MediaTypePaths from '../../middleware/modules/domain/MediaTypePaths'
 import MediaTypes from '../../middleware/modules/domain/MediaTypes'
+import MediaTypesPaths from '../../middleware/modules/domain/MediaTypePaths'
 import LocateManager from '../../middleware/modules/vue/mixins/LocateManager'
 import Utils from '../../middleware/modules/vue/mixins/Utils'
-
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
-  name: 'EchMoviesCardDetail',
+  name: 'EchTvShowCardDetails',
   mixins: [MediaManager, LocateManager, Utils],
   props: {
     movies: {
@@ -120,24 +139,25 @@ export default {
   },
   data() {
     return {
-      mediaTypePath: MediaTypePaths.movies,
-      mediaType: MediaTypes.movies
+      mediaTypePath: MediaTypesPaths.tv,
+      mediaType: MediaTypes.tv
     }
   },
   methods: {
     async initVideoURL(movie) {
+      const vm = this
+      console.log('initVideoURL...' + vm.$uikit.modal(`#openVideo${movie._id}`))
       const isoLangCode = this.currentLocale().iso
-      const getMovieVideosControllerResponse = await beanContainer.getMovieVideosController.getFirstVideoURL(
-        new GetMovieVideosControllerRequest({
-          movie_title: movie._title,
+      const getTvShowsVideosControllerResponse = await beanContainer.getTvShowsVideosController.getFirstVideoURL(
+        new GetTvShowsVideosControllerRequest({
+          movie_name: movie._name,
           movie_id: movie._id,
           isoLangCode
         })
       )
-      console.log('emit...' + getMovieVideosControllerResponse.url)
       this.$emit(
         'outbound-open-video-modal',
-        getMovieVideosControllerResponse.url
+        getTvShowsVideosControllerResponse.url
       )
     }
   }

@@ -51,7 +51,7 @@ import CreditsManager from '../../../middleware/modules/vue/mixins/CreditsManage
 import EchDisqus from '../../../components/disqus/EchDisqus'
 import EchSliderPosters from '../../../components/slider/EchSliderPosters'
 import EchSliderVideos from '../../../components/slider/EchSliderVideos'
-import EchMoviesCardDetail from '../../../components/movies/EchTvShowCardDetails'
+import EchMoviesCardDetail from '../../../components/movies/EchMoviesCardDetails'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {

@@ -1,10 +1,10 @@
 <template>
   <div>
     <section class="uk-section uk-section-xsmall">
-      <ech-tv-show-card
+      <ech-tv-show-card-details
         :movies="movies"
         @outbound-open-video-modal="playVideo"
-      ></ech-tv-show-card>
+      ></ech-tv-show-card-details>
     </section>
     <section class="uk-section uk-section-xsmall">
       <ech-slider-people :credits="credits"></ech-slider-people>
@@ -43,7 +43,6 @@
 <script>
 /* eslint-disable camelcase, no-console */
 import { BeanContainerRegistry } from '../../../middleware/BeanContainerRegistry'
-import EchTvShowCard from '../../../components/movies/EchTvShowCard'
 import { GetTvShowDetailsControllerRequest } from '../../../middleware/modules/tvShows/getDetails/userapplication/controller/GetTvShowDetailsController'
 import VideoControllerManager from '../../../middleware/modules/vue/mixins/VideoControllerManager'
 import DetailsHeaderManager from '../../../middleware/modules/vue/mixins/DetailsHeaderManager'
@@ -52,16 +51,17 @@ import EchSliderPeople from '../../../components/slider/EchSliderPeople'
 import EchDisqus from '../../../components/disqus/EchDisqus'
 import EchSliderVideos from '../../../components/slider/EchSliderVideos'
 import EchSliderPosters from '../../../components/slider/EchSliderPosters'
+import EchTvShowCardDetails from '../../../components/movies/EchTvShowCardDetails'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
   name: 'EchTvshowDetails',
   scrollToTop: true,
   components: {
+    EchTvShowCardDetails,
     EchSliderVideos,
     EchSliderPosters,
     EchDisqus,
-    EchTvShowCard,
     EchSliderPeople
   },
   mixins: [VideoControllerManager, DetailsHeaderManager, CreditsManager],

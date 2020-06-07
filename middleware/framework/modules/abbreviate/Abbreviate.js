@@ -1,3 +1,5 @@
+const _isEmpty = require('lodash.isempty')
+
 const SI_PREFIXES = [
   { value: 1, symbol: '' },
   { value: 1e3, symbol: 'k' },
@@ -10,6 +12,7 @@ const SI_PREFIXES = [
 
 export default class Abbreviate {
   static abbreviateNumber(number) {
+    if (_isEmpty(number)) return 0
     if (number === 0) return number
     const tier = SI_PREFIXES.filter((n) => number >= n.value).pop()
     const numberFixed = (number / tier.value).toFixed(1)

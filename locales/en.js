@@ -63,5 +63,7 @@ export default {
   label_discover_tvshows: 'Discover Series',
   director: 'Director',
   screenplay: 'Guion/Adaptación',
-  runtime: 'Runtime'
+  runtime: 'Runtime',
+  budget: 'Budget',
+  revenue: 'Revenue'
 }
