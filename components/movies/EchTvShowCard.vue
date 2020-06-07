@@ -25,7 +25,7 @@
         <div class="uk-width-1-6">
           <div>
             <span
-              class="uk-label-success ech-basic uk-border-circle uk-margin-large uk-padding-small uk-text-center"
+              class="uk-label-success ech-basic ech-spin-icon uk-border-circle uk-margin-large uk-padding-small uk-text-center"
             >
               {{ movie._vote_average.toFixed(1) }}
             </span>
@@ -50,7 +50,7 @@
             </nuxt-link>
             <span
               :id="movie._id"
-              class="uk-label ech-basic"
+              class="uk-label ech-basic ech-spin-icon"
               @click.stop.prevent="toClipboard(movie._id)"
               >{{ movie._id }}</span
             >
@@ -60,7 +60,9 @@
             <div>
               <p>
                 {{ $t('firstAirDate') }}
-                <span class="uk-label uk-margin-small-left">
+                <span
+                  class="uk-label uk-margin-small-left ech-basic ech-spin-icon"
+                >
                   {{ movie._first_air_date | moment('DD-MM-YYYY') }}
                 </span>
               </p>

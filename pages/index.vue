@@ -20,7 +20,7 @@
           <a
             href="#"
             uk-icon="icon: video-camera"
-            class="uk-margin-small-left uk-margin-small-right"
+            class="uk-margin-small-left uk-margin-small-right ech-spin-icon"
           ></a
           >{{ $t('switcher.trendingMovies') }}
         </li>
@@ -28,7 +28,7 @@
           <a
             href="#"
             uk-icon="icon: tv"
-            class="uk-margin-small-left uk-margin-small-right"
+            class="uk-margin-small-left uk-margin-small-right ech-spin-icon"
           ></a
           >{{ $t('switcher.trendingTVShows') }}
         </li>
