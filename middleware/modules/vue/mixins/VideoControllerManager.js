@@ -1,4 +1,4 @@
-import ValuesByDefault from '../../util/ValuesByDefault'
+import ValuesByDefault from '../../domain/ValuesByDefault'
 export default {
   data() {
     return {

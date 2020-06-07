@@ -31,13 +31,6 @@
             </span>
           </div>
           <div class="uk-margin-top">&nbsp;</div>
-          <div class="uk-margin-small-top">
-            <!--            <span-->
-            <!--              class="uk-label-success ech-basic uk-text-center uk-align-center uk-border-rounded uk-margin-top"-->
-            <!--            >-->
-            <!--              PEG12-->
-            <!--            </span>-->
-          </div>
         </div>
       </div>
       <div>
@@ -107,15 +100,16 @@
 import { BeanContainerRegistry } from '../../middleware/BeanContainerRegistry'
 import { GetMovieVideosControllerRequest } from '../../middleware/modules/movies/getVideos/userapplication/controller/GetMovieVideosController'
 import MediaManager from '../../middleware/modules/vue/mixins/MediaManager'
-import MediaTypePaths from '../../middleware/modules/util/MediaTypePaths'
-import MediaTypes from '../../middleware/modules/util/MediaTypes'
+import MediaTypePaths from '../../middleware/modules/domain/MediaTypePaths'
+import MediaTypes from '../../middleware/modules/domain/MediaTypes'
 import LocateManager from '../../middleware/modules/vue/mixins/LocateManager'
+import Utils from '../../middleware/modules/vue/mixins/Utils'
 
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
   name: 'EchMoviesCardDetail',
-  mixins: [MediaManager, LocateManager],
+  mixins: [MediaManager, LocateManager, Utils],
   props: {
     movies: {
       type: Array,
@@ -131,15 +125,6 @@ export default {
     }
   },
   methods: {
-    toClipboard(id) {
-      console.log('toClipboardd')
-      const range = document.createRange()
-      range.selectNode(document.getElementById(id))
-      window.getSelection().removeAllRanges()
-      window.getSelection().addRange(range)
-      document.execCommand('copy')
-      window.getSelection().removeAllRanges()
-    },
     async initVideoURL(movie) {
       const isoLangCode = this.currentLocale().iso
       const getMovieVideosControllerResponse = await beanContainer.getMovieVideosController.getFirstVideoURL(

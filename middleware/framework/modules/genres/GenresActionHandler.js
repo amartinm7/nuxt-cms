@@ -1,7 +1,7 @@
 import localesEs from '../../../../locales/es'
 import localesEn from '../../../../locales/en'
 import { Slugger } from '../ServiceLocator'
-import MediaTypes from '../../../modules/util/MediaTypes'
+import MediaTypes from '../../../modules/domain/MediaTypes'
 /* eslint-disable camelcase, no-console */
 
 const locale = {

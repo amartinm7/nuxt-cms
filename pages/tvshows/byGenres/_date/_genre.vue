@@ -48,8 +48,8 @@ import EchTvShowCard from '../../../../components/movies/EchTvShowCard'
 import VideoControllerManager from '../../../../middleware/modules/vue/mixins/VideoControllerManager'
 import GenresHeaderManager from '../../../../middleware/modules/vue/mixins/GenresHeaderManager'
 import { FindTvShowsByControllerRequest } from '../../../../middleware/modules/tvShows/findBy/userapplication/controller/FindTvShowsByController'
-import MediaTypePaths from '../../../../middleware/modules/util/MediaTypePaths'
-import MediaTypes from '../../../../middleware/modules/util/MediaTypes'
+import MediaTypePaths from '../../../../middleware/modules/domain/MediaTypePaths'
+import MediaTypes from '../../../../middleware/modules/domain/MediaTypes'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {

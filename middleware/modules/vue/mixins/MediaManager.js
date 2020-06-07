@@ -1,6 +1,6 @@
 /* eslint-disable camelcase, no-console */
 import * as ServiceLocator from '../../../framework/modules/ServiceLocator'
-import ValuesByDefault from '../../util/ValuesByDefault'
+import ValuesByDefault from '../../domain/ValuesByDefault'
 const _isEmpty = require('lodash.isempty')
 
 export default {

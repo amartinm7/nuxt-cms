@@ -449,7 +449,7 @@
 <script>
 import EchFiltersBy from '../filter/EchFiltersBy'
 import EchSortedBy from '../filter/EchSortedBy'
-import MediaTypePaths from '../../middleware/modules/util/MediaTypePaths'
+import MediaTypePaths from '../../middleware/modules/domain/MediaTypePaths'
 export default {
   name: 'EchNavbarMainNew',
   components: { EchSortedBy, EchFiltersBy },

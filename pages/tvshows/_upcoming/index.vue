@@ -47,8 +47,8 @@ import EchSliderMain from '../../../components/slider/EchSliderMain'
 import EchHeaderMain from '../../../layouts/header/EchHeaderMain'
 import VideoControllerManager from '../../../middleware/modules/vue/mixins/VideoControllerManager'
 import UpcomingManager from '../../../middleware/modules/vue/mixins/UpcomingManager'
-import MediaTypes from '../../../middleware/modules/util/MediaTypes'
-import MediaTypePaths from '../../../middleware/modules/util/MediaTypePaths'
+import MediaTypes from '../../../middleware/modules/domain/MediaTypes'
+import MediaTypePaths from '../../../middleware/modules/domain/MediaTypePaths'
 
 export default {
   name: 'EchTvshowUpcoming',

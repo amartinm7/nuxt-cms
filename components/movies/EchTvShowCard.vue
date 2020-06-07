@@ -48,7 +48,12 @@
               :to="getDetailPathURL(movie._id, movie._name, mediaTypePath)"
               >{{ movie._name }}
             </nuxt-link>
-            <span class="uk-label">{{ movie._id }}</span>
+            <span
+              :id="movie._id"
+              class="uk-label ech-basic"
+              @click.stop.prevent="toClipboard(movie._id)"
+              >{{ movie._id }}</span
+            >
           </h3>
           <p class="uk-dropcap">{{ movie._overview }}</p>
           <div class="uk-child-width-expand@s" uk-grid>
@@ -91,14 +96,15 @@
 import { BeanContainerRegistry } from '../../middleware/BeanContainerRegistry'
 import { GetTvShowsVideosControllerRequest } from '../../middleware/modules/tvShows/getVideos/userapplication/controller/GetTvShowsVideosController'
 import MediaManager from '../../middleware/modules/vue/mixins/MediaManager'
-import MediaTypes from '../../middleware/modules/util/MediaTypes'
-import MediaTypesPaths from '../../middleware/modules/util/MediaTypePaths'
+import MediaTypes from '../../middleware/modules/domain/MediaTypes'
+import MediaTypesPaths from '../../middleware/modules/domain/MediaTypePaths'
 import LocateManager from '../../middleware/modules/vue/mixins/LocateManager'
+import Utils from '../../middleware/modules/vue/mixins/Utils'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
   name: 'EchTvShowCard',
-  mixins: [MediaManager, LocateManager],
+  mixins: [MediaManager, LocateManager, Utils],
   props: {
     movies: {
       type: Array,

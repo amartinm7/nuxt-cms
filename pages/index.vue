@@ -73,7 +73,7 @@ import { BeanContainerRegistry } from '../middleware/BeanContainerRegistry'
 import EchSliderMain from '../components/slider/EchSliderMain'
 import EchHeaderMain from '../layouts/header/EchHeaderMain'
 import VideoControllerManager from '../middleware/modules/vue/mixins/VideoControllerManager'
-import MediaTypePaths from '../middleware/modules/util/MediaTypePaths'
+import MediaTypePaths from '../middleware/modules/domain/MediaTypePaths'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {

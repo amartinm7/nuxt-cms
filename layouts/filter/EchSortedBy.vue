@@ -34,8 +34,8 @@
 </template>
 <script>
 /* eslint-disable camelcase, no-console */
-import MediaTypePaths from '../../middleware/modules/util/MediaTypePaths'
-import MediaTypes from '../../middleware/modules/util/MediaTypes'
+import MediaTypePaths from '../../middleware/modules/domain/MediaTypePaths'
+import MediaTypes from '../../middleware/modules/domain/MediaTypes'
 
 export default {
   name: 'EchSortedBy',
