@@ -92,7 +92,8 @@ export default {
     { src: '~/plugins/disqus', ssr: true },
     { src: '~/plugins/axios', ssr: true },
     { src: '~/plugins/genreActions', ssr: true },
-    { src: '~/plugins/currency', ssr: true }
+    { src: '~/plugins/currency', ssr: true },
+    { src: '~/plugins/vueStars', ssr: false }
   ],
   /*
    ** Nuxt.js dev-modules

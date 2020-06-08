@@ -49,6 +49,10 @@
               >{{ movie._id }}</span
             >
           </h3>
+          <p>
+            <ech-star-rating :rating-value="movie._vote_average / 2">
+            </ech-star-rating>
+          </p>
           <p class="uk-dropcap">
             {{ movie._overview }}
           </p>
@@ -84,11 +88,13 @@ import MediaTypePaths from '../../middleware/modules/domain/MediaTypePaths'
 import MediaTypes from '../../middleware/modules/domain/MediaTypes'
 import LocateManager from '../../middleware/modules/vue/mixins/LocateManager'
 import Utils from '../../middleware/modules/vue/mixins/Utils'
+import EchStarRating from './EchStarRating'
 
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
   name: 'EchMoviesCard',
+  components: { EchStarRating },
   mixins: [MediaManager, LocateManager, Utils],
   props: {
     movies: {

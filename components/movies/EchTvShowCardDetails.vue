@@ -44,6 +44,10 @@
               >{{ movie._id }}</span
             >
           </h3>
+          <p>
+            <ech-star-rating :rating-value="movie._vote_average / 2">
+            </ech-star-rating>
+          </p>
           <div>
             <p class="uk-text-italic">
               <span
@@ -124,10 +128,12 @@ import MediaTypes from '../../middleware/modules/domain/MediaTypes'
 import MediaTypesPaths from '../../middleware/modules/domain/MediaTypePaths'
 import LocateManager from '../../middleware/modules/vue/mixins/LocateManager'
 import Utils from '../../middleware/modules/vue/mixins/Utils'
+import EchStarRating from './EchStarRating'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
   name: 'EchTvShowCardDetails',
+  components: { EchStarRating },
   mixins: [MediaManager, LocateManager, Utils],
   props: {
     movies: {

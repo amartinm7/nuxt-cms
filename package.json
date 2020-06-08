@@ -31,6 +31,7 @@
     "vue": "latest",
     "vue-disqus": "^3.0.5",
     "vue-moment": "^4.1.0",
+    "vue-star-rating": "^1.6.1",
     "vuikit": "^0.8.10"
   },
   "devDependencies": {
