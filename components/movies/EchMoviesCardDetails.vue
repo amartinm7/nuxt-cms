@@ -44,29 +44,36 @@
             </ech-star-rating>
           </p>
           <div class="uk-flex uk-flex-center">
-            <p v-if="movie._tagline" class="uk-text-italic uk-text-center">
-              "{{ movie._tagline }}"
-            </p>
-            <p class="uk-text-italic uk-align-center">
-              <span
-                class="uk-label uk-label-success uk-margin-small-left ech-basic"
-                uk-icon="icon: calendar; ratio: 0.75;"
-              >
-                {{ movie._release_date | moment('DD-MMMM-YYYY') }}
-              </span>
-              <span
-                class="uk-label uk-label-success uk-margin-small-left ech-basic"
-                uk-icon="icon: clock; ratio: 0.75;"
-              >
-                {{ movie._runtimeByHours }}
-              </span>
-              <span
-                class="uk-label uk-label-success uk-margin-small-left ech-basic"
-                uk-icon="icon: location; ratio: 0.75;"
-              >
-                {{ movie._production_countries[0]._iso_3166_1 }}
-              </span>
-            </p>
+            <div class="uk-width-1-2">
+              <p v-if="movie._tagline" class="uk-text-italic uk-text-center">
+                "{{ movie._tagline }}"
+              </p>
+            </div>
+            <div class="uk-width-1-2">
+              <p class="uk-text-italic uk-align-center">
+                <span
+                  v-if="movie._release_date"
+                  class="uk-label uk-label-success ech-basic"
+                  uk-icon="icon: calendar; ratio: 0.75;"
+                >
+                  {{ movie._release_date | moment('DD-MMMM-YYYY') }}
+                </span>
+                <span
+                  v-if="movie._runtimeByHours"
+                  class="uk-label uk-label-success ech-basic"
+                  uk-icon="icon: clock; ratio: 0.75;"
+                >
+                  {{ movie._runtimeByHours }}
+                </span>
+                <span
+                  v-if="movie._production_countries[0]"
+                  class="uk-label uk-label-success ech-basic"
+                  uk-icon="icon: location; ratio: 0.75;"
+                >
+                  {{ movie._production_countries[0]._iso_3166_1 }}
+                </span>
+              </p>
+            </div>
           </div>
           <p class="uk-dropcap uk-text-justify">
             {{ movie._overview }}

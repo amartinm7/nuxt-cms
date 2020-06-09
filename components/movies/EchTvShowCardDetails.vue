@@ -44,29 +44,37 @@
             </ech-star-rating>
           </p>
           <div class="uk-flex uk-flex-center">
-            <p class="uk-text-italic">
-              <span
-                v-if="movie._first_air_date"
-                class="uk-label uk-label-success uk-margin-small-left ech-basic"
-                uk-icon="icon: calendar; ratio: 0.75;"
-              >
-                {{ movie._first_air_date | moment('DD-MMMM-YYYY') }}
-              </span>
-              <span
-                v-if="movie._origin_countryToString"
-                class="uk-label uk-label-success uk-margin-small-left ech-basic"
-                uk-icon="icon: location; ratio: 0.75;"
-              >
-                {{ movie._origin_countryToString }}
-              </span>
-              <span
-                v-if="movie._original_language"
-                class="uk-label uk-label-success uk-margin-small-left ech-basic"
-                uk-icon="icon: world; ratio: 0.75;"
-              >
-                {{ movie._original_language }}
-              </span>
-            </p>
+            <div class="uk-width-1-4">
+              <p class="uk-text-italic uk-text-center"></p>
+            </div>
+            <div class="uk-width-2-4">
+              <p class="uk-text-italic uk-align-center">
+                <span
+                  v-if="movie._first_air_date"
+                  class="uk-label uk-label-success ech-basic"
+                  uk-icon="icon: calendar; ratio: 0.75;"
+                >
+                  {{ movie._first_air_date | moment('DD-MMMM-YYYY') }}
+                </span>
+                <span
+                  v-if="movie._origin_countryToString"
+                  class="uk-label uk-label-success ech-basic"
+                  uk-icon="icon: clock; ratio: 0.75;"
+                >
+                  {{ movie._origin_countryToString }}
+                </span>
+                <span
+                  v-if="movie._original_language[0]"
+                  class="uk-label uk-label-success ech-basic"
+                  uk-icon="icon: location; ratio: 0.75;"
+                >
+                  {{ movie._original_language }}
+                </span>
+              </p>
+            </div>
+            <div class="uk-width-1-4">
+              <p class="uk-text-italic uk-text-center"></p>
+            </div>
           </div>
           <p class="uk-dropcap uk-text-justify">
             {{ movie._overview }}
