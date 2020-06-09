@@ -64,6 +64,7 @@ class GetTvShowDetailsRepositoryResponse {
     id,
     imdb_id,
     original_language,
+    origin_country,
     original_name,
     overview,
     popularity,
@@ -88,6 +89,7 @@ class GetTvShowDetailsRepositoryResponse {
     this._genres = genres
     this._id = id
     this._original_language = original_language
+    this._origin_country = origin_country
     this._original_name = original_name
     this._overview = overview
     this._popularity = popularity
@@ -133,6 +135,11 @@ class GetTvShowDetailsRepositoryResponse {
         return new GetProductionCompaniesResponse({ ...it })
       })
     }
+    this._origin_countryToString = this.getOriginalCountryToString()
+  }
+
+  getOriginalCountryToString() {
+    return _isEmpty(this._origin_country) ? '' : this._origin_country.join(', ')
   }
 }
 

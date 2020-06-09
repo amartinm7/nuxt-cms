@@ -22,20 +22,15 @@
             />
           </a>
         </div>
-        <div class="uk-width-1-6">
-          <div>
-            <span
-              class="uk-label-warning ech-basic ech-spin-icon uk-border-circle uk-margin-large uk-padding-small uk-text-center"
-            >
-              {{ movie._vote_average.toFixed(1) }}
-            </span>
-          </div>
-          <div class="uk-margin-top">&nbsp;</div>
-        </div>
       </div>
       <div>
+        <span
+          class="uk-align-right uk-margin-small-right uk-label-warning ech-basic ech-spin-icon uk-border-circle uk-padding-small uk-text-center"
+        >
+          {{ movie._vote_average.toFixed(1) }}
+        </span>
         <div class="uk-card-body">
-          <h3 class="uk-card-title ech-basic">
+          <h3 class="uk-card-title ech-basic uk-text-center">
             {{ movie._title }} ({{ movie._release_date | moment('YYYY') }})
             <span
               :id="movie._id"
@@ -49,23 +44,23 @@
             </ech-star-rating>
           </p>
           <div>
-            <p class="uk-text-italic">"{{ movie._tagline }}"</p>
+            <p class="uk-text-italic uk-text-center">"{{ movie._tagline }}"</p>
             <p class="uk-text-italic">
               <span
                 class="uk-label uk-label-success uk-margin-small-left ech-basic"
-                uk-icon="icon: calendar; ratio: 1;"
+                uk-icon="icon: calendar; ratio: 0.75;"
               >
                 {{ movie._release_date | moment('DD-MMMM-YYYY') }}
               </span>
               <span
                 class="uk-label uk-label-success uk-margin-small-left ech-basic"
-                uk-icon="icon: clock; ratio: 1;"
+                uk-icon="icon: clock; ratio: 0.75;"
               >
                 {{ movie._runtimeByHours }}
               </span>
               <span
                 class="uk-label uk-label-success uk-margin-small-left ech-basic"
-                uk-icon="icon: location; ratio: 1;"
+                uk-icon="icon: location; ratio: 0.75;"
               >
                 {{ movie._production_countries[0]._iso_3166_1 }}
               </span>
@@ -87,35 +82,23 @@
             </p>
           </div>
           <div>
-            <p>
-              <span class="uk-margin-small-left ech-basic"
-                >{{ $t('budget') }} ${{ movie._budget | abbreviate }}</span
-              >
-            </p>
-            <p>_revenue ${{ movie._revenue | abbreviate }}&nbsp;</p>
+            <p>{{ $t('budget') }} ${{ movie._budget | abbreviate }}</p>
+            <p>{{ $t('revenue') }} ${{ movie._revenue | abbreviate }}&nbsp;</p>
           </div>
           <div>
-            <p>
-              _production_countries
-              {{ movie._production_countries[0]._iso_3166_1 }}
-            </p>
-          </div>
-          <div>
-            <p>
-              _homepage
-              {{ movie._homepage }}
-            </p>
-          </div>
-          <div>
-            <p>
+            <p v-if="movie._director !== undefined">
               director
               {{ movie._director }}
             </p>
-          </div>
-          <div>
-            <p>
+            <p v-if="movie._screenplay !== undefined">
               _screenplay
               {{ movie._screenplay }}
+            </p>
+            <p v-if="movie._homepage !== undefined">
+              Homepage:
+              <a :href="movie._homepage" :alt="movie._name">
+                {{ movie._homepage }}
+              </a>
             </p>
           </div>
         </div>

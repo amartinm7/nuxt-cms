@@ -22,20 +22,15 @@
             />
           </a>
         </div>
-        <div class="uk-width-1-6">
-          <div>
-            <span
-              class="uk-label-warning ech-basic ech-spin-icon uk-border-circle uk-margin-large uk-padding-small uk-text-center"
-            >
-              {{ movie._vote_average.toFixed(1) }}
-            </span>
-          </div>
-          <div class="uk-margin-top">&nbsp;</div>
-        </div>
       </div>
       <div>
+        <span
+          class="uk-align-right uk-margin-small-right uk-label-warning ech-basic ech-spin-icon uk-border-circle uk-padding-small uk-text-center"
+        >
+          {{ movie._vote_average.toFixed(1) }}
+        </span>
         <div class="uk-card-body">
-          <h3 class="uk-card-title ech-basic">
+          <h3 class="uk-card-title ech-basic uk-text-center">
             {{ movie._name }} ({{ movie._first_air_date | moment('YYYY') }})
             <span
               :id="movie._id"
@@ -52,15 +47,21 @@
             <p class="uk-text-italic">
               <span
                 class="uk-label uk-label-success uk-margin-small-left ech-basic"
-                uk-icon="icon: calendar; ratio: 1;"
+                uk-icon="icon: calendar; ratio: 0.75;"
               >
                 {{ movie._first_air_date | moment('DD-MMMM-YYYY') }}
               </span>
               <span
                 class="uk-label uk-label-success uk-margin-small-left ech-basic"
-                uk-icon="icon: clock; ratio: 1;"
+                uk-icon="icon: location; ratio: 0.75;"
               >
-                {{ movie._runtimeByHours }}
+                {{ movie._origin_countryToString }}
+              </span>
+              <span
+                class="uk-label uk-label-success uk-margin-small-left ech-basic"
+                uk-icon="icon: world; ratio: 0.75;"
+              >
+                {{ movie._original_language }}
               </span>
             </p>
           </div>
@@ -79,32 +80,25 @@
               </span>
             </p>
           </div>
-          <div>
-            <p>_budget ${{ movie._budget | abbreviate }}&nbsp;</p>
-            <p>_revenue ${{ movie._revenue | abbreviate }}&nbsp;</p>
-          </div>
-          <div>
+          <div class="uk-align-center">
             <p>
-              _production_countries
+              <img
+                :src="getNetWorkURLByArray(movie._networks)"
+                :alt="movie._networks"
+              />
             </p>
           </div>
           <div>
-            <p>
-              _homepage
-              {{ movie._homepage }}
-            </p>
-          </div>
-          <div>
-            <p>
+            <p v-if="movie._director !== undefined">
               director
               {{ movie._director }}
             </p>
-          </div>
-          <div>
-            <p>
+            <p v-if="movie._screenplay !== undefined">
               _screenplay
               {{ movie._screenplay }}
             </p>
+          </div>
+          <div>
             <p>
               {{ $t('firstAirDate') }}
               <span
@@ -113,6 +107,13 @@
                 {{ movie._first_air_date | moment('DD-MM-YYYY') }}
               </span>
             </p>
+            <div>
+              <p>
+                <a :href="movie._homepage" :alt="movie._name">
+                  {{ movie._homepage }}
+                </a>
+              </p>
+            </div>
           </div>
         </div>
       </div>

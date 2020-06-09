@@ -22,20 +22,15 @@
             />
           </a>
         </div>
-        <div class="uk-width-1-6">
-          <div>
-            <span
-              class="uk-label-warning ech-basic ech-spin-icon uk-border-circle uk-margin-large uk-padding-small uk-text-center"
-            >
-              {{ movie._vote_average.toFixed(1) }}
-            </span>
-          </div>
-          <div class="uk-margin-top">&nbsp;</div>
-        </div>
       </div>
       <div>
+        <span
+          class="uk-align-right uk-margin-small-right uk-label-warning ech-basic ech-spin-icon uk-border-circle uk-padding-small uk-text-center"
+        >
+          {{ movie._vote_average.toFixed(1) }}
+        </span>
         <div class="uk-card-body">
-          <h3 class="uk-card-title ech-basic">
+          <h3 class="uk-card-title ech-basic uk-text-center">
             <nuxt-link
               class="uk-link-reset"
               :to="getDetailPathURL(movie._id, movie._name, mediaTypePath)"
