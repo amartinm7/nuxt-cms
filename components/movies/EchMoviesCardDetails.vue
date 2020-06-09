@@ -44,7 +44,9 @@
             </ech-star-rating>
           </p>
           <div>
-            <p class="uk-text-italic uk-text-center">"{{ movie._tagline }}"</p>
+            <p v-if="movie._tagline" class="uk-text-italic uk-text-center">
+              "{{ movie._tagline }}"
+            </p>
             <p class="uk-text-italic">
               <span
                 class="uk-label uk-label-success uk-margin-small-left ech-basic"
@@ -66,7 +68,7 @@
               </span>
             </p>
           </div>
-          <p class="uk-dropcap">
+          <p class="uk-dropcap uk-text-justify">
             {{ movie._overview }}
           </p>
           <div>
@@ -82,21 +84,45 @@
             </p>
           </div>
           <div>
-            <p>{{ $t('budget') }} ${{ movie._budget | abbreviate }}</p>
-            <p>{{ $t('revenue') }} ${{ movie._revenue | abbreviate }}&nbsp;</p>
+            <p
+              v-if="movie._budget && movie._budget !== '0'"
+              class="uk-text-meta"
+            >
+              {{ $t('budget') }}
+              <span class="uk-text-lead uk-text-small">
+                ${{ movie._budget | abbreviate }}
+              </span>
+            </p>
+            <p
+              v-if="movie._revenue && movie._revenue !== 0"
+              class="uk-text-meta"
+            >
+              {{ $t('revenue') }}
+              <span class="uk-text-lead uk-text-small">
+                ${{ movie._revenue | abbreviate }}
+              </span>
+            </p>
           </div>
           <div>
-            <p v-if="movie._director !== undefined">
-              director
-              {{ movie._director }}
+            <p v-if="movie._director" class="uk-text-meta">
+              {{ $t('director') }}:
+              <span class="uk-text-lead uk-text-small">{{
+                movie._director
+              }}</span>
             </p>
-            <p v-if="movie._screenplay !== undefined">
-              _screenplay
-              {{ movie._screenplay }}
+            <p v-if="movie._screenplay" class="uk-text-meta">
+              {{ $t('screenplay') }}:
+              <span class="uk-text-lead uk-text-small">{{
+                movie._screenplay
+              }}</span>
             </p>
-            <p v-if="movie._homepage !== undefined">
+            <p v-if="movie._homepage" class="uk-text-meta">
               Homepage:
-              <a :href="movie._homepage" :alt="movie._name">
+              <a
+                :href="movie._homepage"
+                :alt="movie._name"
+                class="uk-text-lead uk-text-small"
+              >
                 {{ movie._homepage }}
               </a>
             </p>

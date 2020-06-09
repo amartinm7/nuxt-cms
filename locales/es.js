@@ -65,5 +65,6 @@ export default {
   screenplay: 'Screenplay',
   runtime: 'Duración',
   budget: 'Presupuesto',
-  revenue: 'Ingresos'
+  revenue: 'Ingresos',
+  networks: 'Networks'
 }

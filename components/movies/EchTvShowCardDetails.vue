@@ -46,18 +46,21 @@
           <div>
             <p class="uk-text-italic">
               <span
+                v-if="movie._first_air_date"
                 class="uk-label uk-label-success uk-margin-small-left ech-basic"
                 uk-icon="icon: calendar; ratio: 0.75;"
               >
                 {{ movie._first_air_date | moment('DD-MMMM-YYYY') }}
               </span>
               <span
+                v-if="movie._origin_countryToString"
                 class="uk-label uk-label-success uk-margin-small-left ech-basic"
                 uk-icon="icon: location; ratio: 0.75;"
               >
                 {{ movie._origin_countryToString }}
               </span>
               <span
+                v-if="movie._original_language"
                 class="uk-label uk-label-success uk-margin-small-left ech-basic"
                 uk-icon="icon: world; ratio: 0.75;"
               >
@@ -65,7 +68,7 @@
               </span>
             </p>
           </div>
-          <p class="uk-dropcap">
+          <p class="uk-dropcap uk-text-justify">
             {{ movie._overview }}
           </p>
           <div>
@@ -80,40 +83,40 @@
               </span>
             </p>
           </div>
-          <div class="uk-align-center">
-            <p>
-              <img
-                :src="getNetWorkURLByArray(movie._networks)"
-                :alt="movie._networks"
-              />
-            </p>
-          </div>
           <div>
-            <p v-if="movie._director !== undefined">
-              director
-              {{ movie._director }}
-            </p>
-            <p v-if="movie._screenplay !== undefined">
-              _screenplay
-              {{ movie._screenplay }}
-            </p>
-          </div>
-          <div>
-            <p>
-              {{ $t('firstAirDate') }}
-              <span
-                class="uk-label uk-margin-small-left ech-basic ech-spin-icon"
-              >
-                {{ movie._first_air_date | moment('DD-MM-YYYY') }}
+            <p v-if="movie._networks" class="uk-text-meta uk-margin-medium-top">
+              <span>
+                <img
+                  class="uk-align-center"
+                  :src="getNetWorkURLByArray(movie._networks)"
+                  :alt="movie._networks"
+                />
               </span>
             </p>
-            <div>
-              <p>
-                <a :href="movie._homepage" :alt="movie._name">
-                  {{ movie._homepage }}
-                </a>
-              </p>
-            </div>
+          </div>
+          <div>
+            <p v-if="movie._director" class="uk-text-meta">
+              {{ $t('director') }}:
+              <span class="uk-text-lead uk-text-small">{{
+                movie._director
+              }}</span>
+            </p>
+            <p v-if="movie._screenplay" class="uk-text-meta">
+              {{ $t('screenplay') }}:
+              <span class="uk-text-lead uk-text-small">{{
+                movie._screenplay
+              }}</span>
+            </p>
+            <p v-if="movie._homepage" class="uk-text-meta">
+              Homepage:
+              <a
+                :href="movie._homepage"
+                :alt="movie._name"
+                class="uk-text-lead uk-text-small"
+              >
+                {{ movie._homepage }}
+              </a>
+            </p>
           </div>
         </div>
       </div>

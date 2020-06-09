@@ -65,5 +65,6 @@ export default {
   screenplay: 'Guion/Adaptación',
   runtime: 'Runtime',
   budget: 'Budget',
-  revenue: 'Revenue'
+  revenue: 'Revenue',
+  networks: 'Networks'
 }

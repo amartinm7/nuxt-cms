@@ -47,7 +47,7 @@
             <ech-star-rating :rating-value="movie._vote_average / 2">
             </ech-star-rating>
           </p>
-          <p class="uk-dropcap">{{ movie._overview }}</p>
+          <p class="uk-dropcap uk-text-justify">{{ movie._overview }}</p>
           <div class="uk-child-width-expand@s" uk-grid>
             <div>
               <p>
