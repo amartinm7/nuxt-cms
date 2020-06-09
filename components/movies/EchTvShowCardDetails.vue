@@ -43,7 +43,7 @@
             <ech-star-rating :rating-value="movie._vote_average / 2">
             </ech-star-rating>
           </p>
-          <div>
+          <div class="uk-flex uk-flex-center">
             <p class="uk-text-italic">
               <span
                 v-if="movie._first_air_date"
@@ -71,7 +71,7 @@
           <p class="uk-dropcap uk-text-justify">
             {{ movie._overview }}
           </p>
-          <div>
+          <div class="uk-flex uk-flex-center">
             <p>
               <span
                 v-for="genre in movie._genres"

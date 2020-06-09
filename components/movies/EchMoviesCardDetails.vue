@@ -43,11 +43,11 @@
             <ech-star-rating :rating-value="movie._vote_average / 2">
             </ech-star-rating>
           </p>
-          <div>
+          <div class="uk-flex uk-flex-center">
             <p v-if="movie._tagline" class="uk-text-italic uk-text-center">
               "{{ movie._tagline }}"
             </p>
-            <p class="uk-text-italic">
+            <p class="uk-text-italic uk-align-center">
               <span
                 class="uk-label uk-label-success uk-margin-small-left ech-basic"
                 uk-icon="icon: calendar; ratio: 0.75;"
@@ -71,7 +71,7 @@
           <p class="uk-dropcap uk-text-justify">
             {{ movie._overview }}
           </p>
-          <div>
+          <div class="uk-flex uk-flex-center">
             <p>
               <span
                 v-for="genre in movie._genres"
