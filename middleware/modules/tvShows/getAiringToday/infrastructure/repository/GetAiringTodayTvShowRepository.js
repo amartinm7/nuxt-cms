@@ -58,6 +58,7 @@ class GetAiringTodayTvShowRepositoryResponseResult {
     vote_account,
     vote_average,
     release_date,
+    first_air_date,
     overview,
     adult,
     genre_ids,
@@ -72,6 +73,7 @@ class GetAiringTodayTvShowRepositoryResponseResult {
     this._vote_account = vote_account
     this._vote_average = vote_average
     this._release_date = release_date
+    this._first_air_date = first_air_date
     this._overview = overview
     this._adult = adult
     this._genre_ids = genre_ids

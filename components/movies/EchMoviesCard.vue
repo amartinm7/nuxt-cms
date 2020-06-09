@@ -51,7 +51,7 @@
           <p class="uk-dropcap uk-text-justify">
             {{ movie._overview }}
           </p>
-          <p>
+          <p v-if="movie._release_date">
             {{ $t('releaseDate') }}
             <span class="uk-label uk-margin-small-left ech-basic ech-spin-icon">
               {{ movie._release_date | moment('DD-MM-YYYY') }}

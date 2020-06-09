@@ -1,5 +1,7 @@
 import GetAxiosRequest from '../../../../../framework/modules/axios/GetAxiosRequest'
 import { TIME_WINDOWS_TYPES } from '../../adomain/TrendingTypes'
+const _isEmpty = require('lodash.isempty')
+
 /* eslint-disable camelcase, no-console */
 class GetTrendingMoviesRepository {
   constructor({ axios, accessToken }) {
@@ -71,7 +73,9 @@ class GetTrendingMoviesRepositoryResponseResult {
     poster_path,
     backdrop_path,
     popularity,
-    media_type
+    media_type,
+    original_language,
+    origin_country
   }) {
     this._id = id
     this._title = title
@@ -87,6 +91,13 @@ class GetTrendingMoviesRepositoryResponseResult {
     this._backdrop_path = backdrop_path
     this._popularity = popularity
     this._media_type = media_type
+    this._original_language = original_language
+    this._origin_country = origin_country
+    this._origin_countryToString = this.getOriginalCountryToString()
+  }
+
+  getOriginalCountryToString() {
+    return _isEmpty(this._origin_country) ? '' : this._origin_country.join(', ')
   }
 }
 

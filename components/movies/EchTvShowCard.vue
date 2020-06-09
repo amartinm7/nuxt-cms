@@ -48,18 +48,12 @@
             </ech-star-rating>
           </p>
           <p class="uk-dropcap uk-text-justify">{{ movie._overview }}</p>
-          <div class="uk-child-width-expand@s" uk-grid>
-            <div>
-              <p>
-                {{ $t('firstAirDate') }}
-                <span
-                  class="uk-label uk-margin-small-left ech-basic ech-spin-icon"
-                >
-                  {{ movie._first_air_date | moment('DD-MM-YYYY') }}
-                </span>
-              </p>
-            </div>
-          </div>
+          <p v-if="movie._first_air_date">
+            {{ $t('firstAirDate') }}
+            <span class="uk-label uk-margin-small-left ech-basic ech-spin-icon">
+              {{ movie._first_air_date | moment('DD-MM-YYYY') }}
+            </span>
+          </p>
         </div>
       </div>
     </article>
