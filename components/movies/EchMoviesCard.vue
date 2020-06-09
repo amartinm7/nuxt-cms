@@ -58,18 +58,6 @@
             </span>
           </p>
         </div>
-        <div class="uk-flex uk-flex-right uk-width-auto">
-          <div
-            v-for="genre in movie._genres"
-            :key="genre.id"
-            :todo="genre"
-            class="uk-padding-small"
-          >
-            <span class="uk-label-warning ech-basic">
-              &nbsp;{{ genre.name }}&nbsp;
-            </span>
-          </div>
-        </div>
       </div>
     </article>
   </div>

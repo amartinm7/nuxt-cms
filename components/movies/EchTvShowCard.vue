@@ -59,26 +59,6 @@
                 </span>
               </p>
             </div>
-            <div class="uk-align-center">
-              <p>
-                <img
-                  :src="getNetWorkURLByArray(movie._networks)"
-                  :alt="movie._networks"
-                />
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="uk-flex uk-flex-right uk-width-auto">
-          <div
-            v-for="genre in movie._genres"
-            :key="genre.id"
-            :todo="genre"
-            class="uk-padding-small"
-          >
-            <span class="uk-label-warning ech-basic">
-              &nbsp;{{ genre.name }}&nbsp;
-            </span>
           </div>
         </div>
       </div>
