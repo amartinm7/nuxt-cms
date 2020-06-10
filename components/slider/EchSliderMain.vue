@@ -24,7 +24,7 @@
               :src="getPosterURL(movie._poster_path)"
               :alt="movie._title || movie._name"
             />
-            <div class="uk-positio  n-center uk-panel"></div>
+            <div class="uk-position-center uk-panel"></div>
           </nuxt-link>
         </li>
       </ul>

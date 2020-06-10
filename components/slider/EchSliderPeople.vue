@@ -17,17 +17,22 @@
       >
         <a name="echSliderPeople"></a>
         <li v-for="credit in credits" :key="credit.credit_id" :todo="credit">
-          <div class="uk-panel">
-            <img :src="getPosterURL(credit.profile_path)" alt="credit.name" />
-            <div
-              class="uk-overlay uk-overlay-primary uk-position-bottom uk-text-center uk-transition-slide-bottom"
-            >
-              <p class="uk-margin-remove uk-text-small">{{ credit.name }}</p>
-              <p class="uk-margin-remove uk-text-small">
-                {{ $t('as') }} {{ credit.character }}
-              </p>
+          <nuxt-link
+            class="uk-link-reset"
+            :to="getPeoplePathURL(credit.id, credit.name)"
+          >
+            <div class="uk-panel">
+              <img :src="getPosterURL(credit.profile_path)" alt="credit.name" />
+              <div
+                class="uk-overlay uk-overlay-primary uk-position-bottom uk-text-center uk-transition-slide-bottom"
+              >
+                <p class="uk-margin-remove uk-text-small">{{ credit.name }}</p>
+                <p class="uk-margin-remove uk-text-small">
+                  {{ $t('as') }} {{ credit.character }}
+                </p>
+              </div>
             </div>
-          </div>
+          </nuxt-link>
         </li>
       </ul>
       <a
@@ -48,10 +53,11 @@
 <script>
 /* eslint-disable camelcase, no-console */
 import MediaManager from '../../middleware/modules/vue/mixins/MediaManager'
+import PeopleManager from '../../middleware/modules/vue/mixins/PeopleManager'
 
 export default {
   name: 'EchSliderPeople',
-  mixins: [MediaManager],
+  mixins: [MediaManager, PeopleManager],
   props: {
     credits: {
       type: Array,

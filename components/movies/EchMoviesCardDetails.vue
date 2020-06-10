@@ -75,9 +75,11 @@
               </p>
             </div>
           </div>
-          <p class="uk-dropcap uk-text-justify">
-            {{ movie._overview }}
-          </p>
+          <div>
+            <p class="uk-dropcap uk-text-justify">
+              {{ movie._overview }}
+            </p>
+          </div>
           <div class="uk-flex uk-flex-center">
             <p>
               <span

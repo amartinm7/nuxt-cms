@@ -22,6 +22,7 @@ import SearchTvShowsProvider from './modules/tvShows/search/SearchTvShowsProvide
 import SearchMoviesProvider from './modules/movies/search/SearchMoviesProvider'
 import FindMoviesByProvider from './modules/movies/findBy/FindMoviesByProvider'
 import FindTvShowsByProvider from './modules/tvShows/findBy/FindTvShowsByProvider'
+import GetPeopleDetailsProvider from './modules/people/getDetails/GetPeopleDetailsProvider'
 
 const _isEmpty = require('lodash.isempty')
 /* eslint-disable camelcase, no-console, no-new */
@@ -65,6 +66,7 @@ export class BeanContainerRegistry {
     new SearchMoviesProvider(this._beanContainer)
     new FindTvShowsByProvider(this._beanContainer)
     new FindMoviesByProvider(this._beanContainer)
+    new GetPeopleDetailsProvider(this._beanContainer)
   }
 
   static _getInstance(theMovieDBConfigToken, axios) {

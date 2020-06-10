@@ -47,7 +47,7 @@
             <div class="uk-width-1-4">
               <p class="uk-text-italic uk-text-center"></p>
             </div>
-            <div class="uk-width-2-4">
+            <div class="uk-width-2-4 uk-align-center">
               <p class="uk-text-italic uk-align-center">
                 <span
                   v-if="movie._first_air_date"
@@ -76,9 +76,11 @@
               <p class="uk-text-italic uk-text-center"></p>
             </div>
           </div>
-          <p class="uk-dropcap uk-text-justify">
-            {{ movie._overview }}
-          </p>
+          <div>
+            <p class="uk-dropcap uk-text-justify">
+              {{ movie._overview }}
+            </p>
+          </div>
           <div class="uk-flex uk-flex-center">
             <p>
               <span
