@@ -127,12 +127,11 @@ class GetMovieDetailsRepositoryResponse {
   }
 
   _crewDirector() {
-    return this._crew?._director?._name ?? ''
+    return this._crew?._director ?? ''
   }
 
   _crewScreenplay() {
-    console.log(this._crew?._screenplay?._name ?? '')
-    return this._crew?._screenplay?._name ?? ''
+    return this._crew?._screenplay ?? ''
   }
 }
 

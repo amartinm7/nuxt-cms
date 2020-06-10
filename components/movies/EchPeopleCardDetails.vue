@@ -32,7 +32,9 @@
             <ech-star-rating :rating-value="people._popularity / 2">
             </ech-star-rating>
           </p>
-          <div class="uk-flex uk-flex-center uk-width-auto uk-text-italic">
+          <div
+            class="uk-flex uk-flex-center uk-width-auto uk-text-italic uk-margin-medium"
+          >
             <div>
               <span
                 v-if="people._place_of_birth"

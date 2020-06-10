@@ -115,15 +115,32 @@
           <div>
             <p v-if="movie._director" class="uk-text-meta">
               {{ $t('director') }}:
-              <span class="uk-text-lead uk-text-small">{{
-                movie._director
-              }}</span>
+              <nuxt-link
+                class="uk-link-reset"
+                :to="
+                  getPeoplePathURL(movie._director._id, movie._director._name)
+                "
+              >
+                <span class="uk-text-lead uk-text-small">{{
+                  movie._director._name
+                }}</span>
+              </nuxt-link>
             </p>
             <p v-if="movie._screenplay" class="uk-text-meta">
               {{ $t('screenplay') }}:
-              <span class="uk-text-lead uk-text-small">{{
-                movie._screenplay
-              }}</span>
+              <nuxt-link
+                class="uk-link-reset"
+                :to="
+                  getPeoplePathURL(
+                    movie._screenplay._id,
+                    movie._screenplay._name
+                  )
+                "
+              >
+                <span class="uk-text-lead uk-text-small">{{
+                  movie._screenplay._name
+                }}</span>
+              </nuxt-link>
             </p>
             <p v-if="movie._homepage" class="uk-text-meta">
               Homepage:
@@ -150,6 +167,7 @@ import MediaTypePaths from '../../middleware/modules/domain/MediaTypePaths'
 import MediaTypes from '../../middleware/modules/domain/MediaTypes'
 import LocateManager from '../../middleware/modules/vue/mixins/LocateManager'
 import Utils from '../../middleware/modules/vue/mixins/Utils'
+import PeopleManager from '../../middleware/modules/vue/mixins/PeopleManager'
 import EchStarRating from './EchStarRating'
 
 const beanContainer = BeanContainerRegistry.getBeanContainer()
@@ -157,7 +175,7 @@ const beanContainer = BeanContainerRegistry.getBeanContainer()
 export default {
   name: 'EchMoviesCardDetail',
   components: { EchStarRating },
-  mixins: [MediaManager, LocateManager, Utils],
+  mixins: [MediaManager, LocateManager, Utils, PeopleManager],
   props: {
     movies: {
       type: Array,
