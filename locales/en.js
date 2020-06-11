@@ -66,5 +66,7 @@ export default {
   runtime: 'Runtime',
   budget: 'Budget',
   revenue: 'Revenue',
-  networks: 'Networks'
+  networks: 'Networks',
+  productionCountry: 'Production Country',
+  biography: 'Biography'
 }

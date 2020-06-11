@@ -61,10 +61,9 @@
               </span>
             </div>
           </div>
-          <div>
-            <p class="uk-dropcap uk-text-justify">
-              {{ people._biography }}
-            </p>
+          <div v-if="people._biography" class="uk-width-auto">
+            <h3 class="uk-text-center">{{ $t('biography') }}</h3>
+            <p class="uk-dropcap uk-text-justify">{{ people._biography }}</p>
           </div>
           <div class="uk-flex uk-flex-center">
             <p>

@@ -14,7 +14,7 @@ class GetMovieDetailsRepository {
    */
   execute(getMovieDetailsRepositoryRequest) {
     const { movie_id, language } = { ...getMovieDetailsRepositoryRequest }
-    const urlPath = `/movie/${movie_id}}?language=${language}&append_to_response=videos,images,credits`
+    const urlPath = `/movie/${movie_id}?language=${language}&append_to_response=videos,images,credits`
     return this._axios(
       new GetAxiosRequest({
         accessToken: this._accessToken,

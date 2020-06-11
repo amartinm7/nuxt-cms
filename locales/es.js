@@ -54,7 +54,7 @@ export default {
     trailers: 'Trailers'
   },
   as: 'como',
-  releaseDate: 'Fecha en cines',
+  releaseDate: 'Fecha',
   firstAirDate: 'En emision desde',
   label_sortedBy: 'Orden',
   label_genreBy: 'Género',
@@ -66,5 +66,7 @@ export default {
   runtime: 'Duración',
   budget: 'Presupuesto',
   revenue: 'Ingresos',
-  networks: 'Networks'
+  networks: 'Networks',
+  productionCountry: 'País de Producción',
+  biography: 'Biografía'
 }

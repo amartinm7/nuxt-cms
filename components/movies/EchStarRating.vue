@@ -9,7 +9,7 @@
       :star-size="rating['star-size']"
       :show-rating="rating['show-rating']"
       :read-only="rating['read-only']"
-      class="uk-flex uk-flex-center"
+      class="uk-flex uk-flex-center ech-basic"
       @rating-selected="setRating"
       @current-rating="setCurrentRating($event, 'dsfdsfd')"
     >

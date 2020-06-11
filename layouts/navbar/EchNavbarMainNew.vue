@@ -450,9 +450,11 @@
 import EchFiltersBy from '../filter/EchFiltersBy'
 import EchSortedBy from '../filter/EchSortedBy'
 import MediaTypePaths from '../../middleware/modules/domain/MediaTypePaths'
+import MenuActionsManager from '../../middleware/modules/vue/mixins/MenuActionsManager'
 export default {
   name: 'EchNavbarMainNew',
   components: { EchSortedBy, EchFiltersBy },
+  mixins: [MenuActionsManager],
   computed: {
     mediaTypePaths() {
       return MediaTypePaths
@@ -481,22 +483,6 @@ export default {
     },
     translateKeyMessageForMovies(key) {
       return this.$i18n.messages[this.$i18n.locale].pages.movies[key]
-    },
-    getTvShowTopListlURL(actionName) {
-      const language = this.$i18n.locale
-      // this.$store.dispatch(
-      //   'commandActions/commandActionsStore/setActionForTvShows',
-      //   actionName
-      // )
-      return `/${language}/tvshows/${actionName}/`
-    },
-    getMoviesTopListlURL(actionName) {
-      const language = this.$i18n.locale
-      // this.$store.dispatch(
-      //   'commandActions/commandActionsStore/setActionForMovies',
-      //   actionName
-      // )
-      return `/${language}/movies/${actionName}/`
     },
     closeMenu() {
       // eslint-disable-next-line no-console

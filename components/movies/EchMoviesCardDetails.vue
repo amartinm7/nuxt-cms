@@ -43,33 +43,32 @@
             <ech-star-rating :rating-value="movie._vote_average / 2">
             </ech-star-rating>
           </p>
+          <div v-if="movie._tagline" class="uk-width-auto">
+            <p class="uk-text-italic uk-text-center">"{{ movie._tagline }}"</p>
+          </div>
           <div class="uk-flex uk-flex-center">
-            <div class="uk-width-1-2">
-              <p v-if="movie._tagline" class="uk-text-italic uk-text-center">
-                "{{ movie._tagline }}"
-              </p>
-            </div>
-            <div class="uk-width-1-2">
+            <div class="uk-width-auto">
               <p class="uk-text-italic uk-align-center">
                 <span
                   v-if="movie._release_date"
                   class="uk-label uk-label-success ech-basic"
                   uk-icon="icon: calendar; ratio: 0.75;"
                 >
+                  {{ $t('releaseDate') }}:
                   {{ movie._release_date | moment('DD-MMMM-YYYY') }}
                 </span>
                 <span
                   v-if="movie._runtimeByHours"
                   class="uk-label uk-label-success ech-basic"
                   uk-icon="icon: clock; ratio: 0.75;"
-                >
+                  >{{ $t('runtime') }}:
                   {{ movie._runtimeByHours }}
                 </span>
                 <span
                   v-if="movie._production_countries[0]"
                   class="uk-label uk-label-success ech-basic"
                   uk-icon="icon: location; ratio: 0.75;"
-                >
+                  >{{ $t('productionCountry') }}:
                   {{ movie._production_countries[0]._iso_3166_1 }}
                 </span>
               </p>
@@ -88,7 +87,12 @@
                 :todo="genre"
                 class="uk-label uk-label-warning uk-margin-small-left ech-basic"
               >
+                <!--                <nuxt-link-->
+                <!--                  :to="getMoviesTopListlURL(genre.name)"-->
+                <!--                  class="uk-link-reset"-->
+                <!--                >-->
                 {{ genre.name }}
+                <!--                </nuxt-link>-->
               </span>
             </p>
           </div>
