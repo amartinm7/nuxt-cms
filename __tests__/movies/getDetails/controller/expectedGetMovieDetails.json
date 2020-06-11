@@ -25,6 +25,12 @@
   "_runtime": 129,
   "_status": "Released",
   "_title": "Jurassic World: Fallen Kingdom",
+  "_vote_average": 6.5,
+  "_vote_count": 7166,
+  "_homepage": "http://www.jurassicworld.com",
+  "_tagline": "The park is gone",
+  "_budget": 170000000,
+  "_revenue": 1303459585,
   "_videos": [
     {
       "_id": {
@@ -111,7 +117,14 @@
       }
     }
   ],
-  "_vote_average": 6.5,
-  "_vote_count": 7166,
-  "_images": {}
+  "_images": {},
+  "_runtimeByHours": "2h 9min",
+  "_production_countries": [
+    {
+      "_iso_3166_1": "US",
+      "_name": "United States of America"
+    }
+  ],
+  "_director": "",
+  "_screenplay": ""
 }
