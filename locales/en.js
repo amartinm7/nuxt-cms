@@ -62,7 +62,7 @@ export default {
   label_discover_movies: 'Discover Movies',
   label_discover_tvshows: 'Discover Series',
   director: 'Director',
-  screenplay: 'Guion/Adaptación',
+  screenplay: 'Screenplay',
   runtime: 'Runtime',
   budget: 'Budget',
   revenue: 'Revenue',

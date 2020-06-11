@@ -62,7 +62,7 @@ export default {
   label_discover_movies: 'Mas Cine',
   label_discover_tvshows: 'Mas Series',
   director: 'Director',
-  screenplay: 'Screenplay',
+  screenplay: 'Guion/Adaptación',
   runtime: 'Duración',
   budget: 'Presupuesto',
   revenue: 'Ingresos',
