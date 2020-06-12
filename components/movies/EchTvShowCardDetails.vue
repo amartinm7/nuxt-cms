@@ -139,7 +139,6 @@ import { BeanContainerRegistry } from '../../middleware/BeanContainerRegistry'
 import { GetTvShowsVideosControllerRequest } from '../../middleware/modules/tvShows/getVideos/userapplication/controller/GetTvShowsVideosController'
 import MediaManager from '../../middleware/modules/vue/mixins/MediaManager'
 import MediaTypes from '../../middleware/modules/domain/MediaTypes'
-import MediaTypesPaths from '../../middleware/modules/domain/MediaTypePaths'
 import LocateManager from '../../middleware/modules/vue/mixins/LocateManager'
 import Utils from '../../middleware/modules/vue/mixins/Utils'
 import EchStarRating from './EchStarRating'
@@ -159,7 +158,6 @@ export default {
   },
   data() {
     return {
-      mediaTypePath: MediaTypesPaths.tv,
       mediaType: MediaTypes.tv
     }
   },

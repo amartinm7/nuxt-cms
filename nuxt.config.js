@@ -4,7 +4,7 @@ const dynamicRoutes = () => {
   // fetching tvs
   const routesForTv = Object.keys(commandActions.tv).map((action) => {
     return {
-      route: `/tvshows/${action}`,
+      route: `/tv/${action}`,
       payload: action
     }
   })

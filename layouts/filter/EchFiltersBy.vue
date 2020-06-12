@@ -34,15 +34,13 @@
 </template>
 <script>
 /* eslint-disable camelcase, no-console */
-import MediaTypePaths from '../../middleware/modules/domain/MediaTypePaths'
-import MediaTypes from '../../middleware/modules/domain/MediaTypes'
 import * as ServiceLocator from '../../middleware/framework/modules/ServiceLocator'
 const _isEmpty = require('lodash.isempty')
 
 export default {
   name: 'EchFiltersBy',
   props: {
-    mediaTypePath: {
+    mediaType: {
       type: String,
       default() {
         return ''
@@ -53,17 +51,8 @@ export default {
     return {}
   },
   computed: {
-    currentMediaType() {
-      return this.mediaTypePath === MediaTypePaths.tv
-        ? MediaTypes.tv
-        : MediaTypes.movies
-    },
     getGenresList() {
-      const mediaType =
-        this.mediaTypePath === MediaTypePaths.tv
-          ? MediaTypes.tv
-          : MediaTypes.movies
-      return this.$i18n.messages[this.$i18n.locale].genres[mediaType]
+      return this.$i18n.messages[this.$i18n.locale].genres[this.mediaType]
     }
   },
   methods: {
@@ -71,16 +60,16 @@ export default {
       const self = this
       const language = this.$i18n.locale
       const filterNameEN = this.$genreActionHandler().getGenreNameFor(
-        this.currentMediaType,
+        this.mediaType,
         filter.id
       )
       const pathParams = this.$route.params.genre ?? ''
-      const sanitizedPathParams = this.$route.path.includes(this.mediaTypePath)
+      const sanitizedPathParams = this.$route.path.includes(this.mediaType)
         ? pathParams
         : ''
       const queryParamsSortedBy = this.$route.query.sortedBy ?? ''
       const sanitizedqueryParamsSortedBy = this.$route.path.includes(
-        this.mediaTypePath
+        this.mediaType
       )
         ? queryParamsSortedBy
         : ''
@@ -90,7 +79,7 @@ export default {
         const slugger = ServiceLocator.Slugger.sluggify([filterNameEN])
         this.$router.push({
           path: `/${language}/${
-            self.mediaTypePath
+            self.mediaType
           }/bygenres/${Date.now()}/${slugger}`,
           query: {
             sortedBy: sanitizedqueryParamsSortedBy
@@ -106,7 +95,7 @@ export default {
           .join('_')
         this.$router.push({
           path: `/${language}/${
-            self.mediaTypePath
+            self.mediaType
           }/bygenres/${Date.now()}/${finalPath}`,
           query: {
             sortedBy: sanitizedqueryParamsSortedBy
@@ -120,7 +109,7 @@ export default {
         const finalPath = `${sanitizedPathParams}_${slugger}`
         this.$router.push({
           path: `/${language}/${
-            self.mediaTypePath
+            self.mediaType
           }/bygenres/${Date.now()}/${finalPath}`,
           query: {
             sortedBy: sanitizedqueryParamsSortedBy
@@ -130,13 +119,13 @@ export default {
     },
     isFilterIncluded(filter) {
       const filterNameEN = this.$genreActionHandler().getGenreNameFor(
-        this.currentMediaType,
+        this.mediaType,
         filter.id
       )
       const pathParams = this.$route.params.genre ?? ''
       const slugger = ServiceLocator.Slugger.sluggify([filterNameEN])
       return (
-        this.$route.path.includes(this.mediaTypePath) &&
+        this.$route.path.includes(this.mediaType) &&
         pathParams.includes(slugger)
       )
     },
@@ -145,7 +134,7 @@ export default {
       const language = this.$i18n.locale
       const queryParamsSortedBy = this.$route.query.sortedBy ?? ''
       this.$router.push({
-        path: `/${language}/${self.mediaTypePath}/bygenres/${Date.now()}/`,
+        path: `/${language}/${self.mediaType}/bygenres/${Date.now()}/`,
         query: {
           sortedBy: queryParamsSortedBy
         }

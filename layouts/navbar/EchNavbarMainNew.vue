@@ -175,12 +175,12 @@
                       <!-- -->
                       <ul class="uk-nav-sub">
                         <ech-filters-by
-                          :media-type-path="mediaTypePaths.movies"
+                          :media-type="mediaTypes.movies"
                         ></ech-filters-by>
                       </ul>
                       <ul class="uk-nav-sub">
                         <ech-sorted-by
-                          :media-type-path="mediaTypePaths.movies"
+                          :media-type="mediaTypes.movies"
                         ></ech-sorted-by>
                       </ul>
                       <!-- -->
@@ -189,12 +189,12 @@
                       <!-- -->
                       <ul class="uk-nav-sub">
                         <ech-filters-by
-                          :media-type-path="mediaTypePaths.tv"
+                          :media-type="mediaTypes.tv"
                         ></ech-filters-by>
                       </ul>
                       <ul class="uk-nav-sub">
                         <ech-sorted-by
-                          :media-type-path="mediaTypePaths.tv"
+                          :media-type="mediaTypes.tv"
                         ></ech-sorted-by>
                       </ul>
                       <!-- -->
@@ -260,14 +260,14 @@
                         <div>
                           <ul class="uk-nav uk-navbar-dropdown-nav">
                             <ech-filters-by
-                              :media-type-path="mediaTypePaths.movies"
+                              :media-type="mediaTypes.movies"
                             ></ech-filters-by>
                           </ul>
                         </div>
                         <div>
                           <ul class="uk-nav uk-navbar-dropdown-nav">
                             <ech-sorted-by
-                              :media-type-path="mediaTypePaths.movies"
+                              :media-type="mediaTypes.movies"
                             ></ech-sorted-by>
                           </ul>
                         </div>
@@ -299,14 +299,14 @@
                         <div>
                           <ul class="uk-nav uk-navbar-dropdown-nav">
                             <ech-filters-by
-                              :media-type-path="mediaTypePaths.tv"
+                              :media-type="mediaTypes.tv"
                             ></ech-filters-by>
                           </ul>
                         </div>
                         <div>
                           <ul class="uk-nav uk-navbar-dropdown-nav">
                             <ech-sorted-by
-                              :media-type-path="mediaTypePaths.tv"
+                              :media-type="mediaTypes.tv"
                             ></ech-sorted-by>
                           </ul>
                         </div>
@@ -471,25 +471,22 @@
 <script>
 import EchFiltersBy from '../filter/EchFiltersBy'
 import EchSortedBy from '../filter/EchSortedBy'
-import MediaTypePaths from '../../middleware/modules/domain/MediaTypePaths'
-import MenuActionsManager from '../../middleware/modules/vue/mixins/MenuActionsManager'
+import MediaTypes from '../../middleware/modules/domain/MediaTypes'
 
 export default {
   name: 'EchNavbarMainNew',
   components: { EchSortedBy, EchFiltersBy },
-  mixins: [MenuActionsManager],
   data() {
     return {
       searchQuery: ''
     }
   },
   computed: {
-    mediaTypePaths() {
-      return MediaTypePaths
+    mediaTypes() {
+      return MediaTypes
     },
     showLocales() {
       // eslint-disable-next-line no-console
-      console.log('showLocales... ' + this.$i18n.locale)
       return this.$i18n.locales.filter(
         (locale) => locale.code !== this.$i18n.locale
       )
@@ -501,10 +498,6 @@ export default {
       return Object.keys(this.$i18n.messages[this.$i18n.locale].pages.movies)
     }
   },
-  mounted() {
-    // eslint-disable-next-line no-console
-    console.log('EchNavbarMainNew')
-  },
   methods: {
     translateKeyMessageForTvShows(key) {
       return this.$i18n.messages[this.$i18n.locale].pages.tv[key]
@@ -512,10 +505,13 @@ export default {
     translateKeyMessageForMovies(key) {
       return this.$i18n.messages[this.$i18n.locale].pages.movies[key]
     },
-    closeMenu() {
-      // eslint-disable-next-line no-console
-      // console.log('closing menu')
-      // this.$uikit.offcanvas('#echOffcanvas').hide()
+    getTvShowTopListlURL(actionName) {
+      const language = this.$i18n.locale
+      return `/${language}/tv/${actionName}/`
+    },
+    getMoviesTopListlURL(actionName) {
+      const language = this.$i18n.locale
+      return `/${language}/movies/${actionName}/`
     },
     doSearch() {
       const language = this.$i18n.locale

@@ -4,11 +4,7 @@
       <ech-header-main @outbound-open-video-modal="playVideo"></ech-header-main>
     </section>
     <section class="uk-section uk-section-xsmall">
-      <ech-slider-main
-        :movies="trendingMovies._results"
-        :media-type-path="mediaTypePath"
-      >
-      </ech-slider-main>
+      <ech-slider-main :movies="trendingMovies._results"> </ech-slider-main>
     </section>
     <section class="uk-section uk-section-xsmall">
       <h1 class="uk-text-center">{{ getSection(mediaType) }}</h1>
@@ -40,7 +36,6 @@
 <!-- eslint-enable -->
 <script>
 /* eslint-disable camelcase, no-console */
-import { MEDIA_TYPES } from '../../../middleware/modules/trending/getTrending/adomain/TrendingTypes'
 import ActionMapper from '../../../middleware/ActionMapper'
 import EchMoviesCard from '../../../components/movies/EchMoviesCard'
 import EchSliderMain from '../../../components/slider/EchSliderMain'
@@ -48,7 +43,6 @@ import EchHeaderMain from '../../../layouts/header/EchHeaderMain'
 import VideoControllerManager from '../../../middleware/modules/vue/mixins/VideoControllerManager'
 import UpcomingManager from '../../../middleware/modules/vue/mixins/UpcomingManager'
 import MediaTypes from '../../../middleware/modules/domain/MediaTypes'
-import MediaTypePaths from '../../../middleware/modules/domain/MediaTypePaths'
 
 export default {
   name: 'EchMoviesUpcoming',
@@ -57,7 +51,7 @@ export default {
   // eslint-disable-next-line require-await
   async asyncData({ app, params, store, route }) {
     const language = app.i18n.locale
-    const mediaType = MEDIA_TYPES.MOVIE
+    const mediaType = MediaTypes.movies
     const action = params.upcoming
     // const action =
     //   store.getters['commandActions/commandActionsStore/getActionForMovies']
@@ -76,7 +70,6 @@ export default {
         _total_results: 1,
         _results: []
       },
-      mediaTypePath: MediaTypePaths.movies,
       mediaType: MediaTypes.movies
     }
   }

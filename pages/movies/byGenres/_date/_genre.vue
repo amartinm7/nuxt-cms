@@ -4,11 +4,7 @@
       <ech-header-main @outbound-open-video-modal="playVideo"></ech-header-main>
     </section>
     <section class="uk-section uk-section-xsmall">
-      <ech-slider-main
-        :movies="trendingMovies._results"
-        :media-type-path="mediaTypePath"
-      >
-      </ech-slider-main>
+      <ech-slider-main :movies="trendingMovies._results"> </ech-slider-main>
     </section>
     <section class="uk-section uk-section-xsmall">
       <h1 class="uk-text-center">{{ $t('pages.movies.byGenres') }}</h1>
@@ -45,10 +41,9 @@ import EchMoviesCard from '../../../../components/movies/EchMoviesCard'
 import EchSliderMain from '../../../../components/slider/EchSliderMain'
 import EchHeaderMain from '../../../../layouts/header/EchHeaderMain'
 import VideoControllerManager from '../../../../middleware/modules/vue/mixins/VideoControllerManager'
-import MediaTypes from '../../../../middleware/modules/domain/MediaTypes'
-import MediaTypePaths from '../../../../middleware/modules/domain/MediaTypePaths'
 import { FindMoviesByControllerRequest } from '../../../../middleware/modules/movies/findBy/userapplication/controller/FindMoviesByController'
 import GenresHeaderManager from '../../../../middleware/modules/vue/mixins/GenresHeaderManager'
+import MediaTypes from '../../../../middleware/modules/domain/MediaTypes'
 // const _isEmpty = require('lodash.isempty')
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
@@ -59,7 +54,6 @@ export default {
   // eslint-disable-next-line require-await
   async asyncData({ app, params, query }) {
     const language = app.i18n.locale
-    // const pathParams = _isEmpty(params.genre) ? '' : params.genre
     const pathParams = params.genre ?? ''
     const queryParamsSortedBy = query.sortedBy ?? ''
     const genres_ids = pathParams
@@ -85,13 +79,7 @@ export default {
         _total_results: 1,
         _results: []
       },
-      mediaTypePath: MediaTypePaths.movies,
       mediaType: MediaTypes.movies
-    }
-  },
-  computed: {
-    mediaTypePaths() {
-      return MediaTypePaths
     }
   }
 }

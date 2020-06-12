@@ -4,11 +4,7 @@
       <ech-header-main @outbound-open-video-modal="playVideo"></ech-header-main>
     </section>
     <section class="uk-section uk-section-xsmall">
-      <ech-slider-main
-        :movies="multiSearch._results"
-        :media-type-path="mediaTypePath"
-      >
-      </ech-slider-main>
+      <ech-slider-main :movies="multiSearch._results"> </ech-slider-main>
     </section>
     <div>
       <vk-modal center :show.sync="showVideo">
@@ -34,8 +30,6 @@ import EchHeaderMain from '../../../layouts/header/EchHeaderMain'
 import EchSliderMain from '../../../components/slider/EchSliderMain'
 import VideoControllerManager from '../../../middleware/modules/vue/mixins/VideoControllerManager'
 import UpcomingManager from '../../../middleware/modules/vue/mixins/UpcomingManager'
-import MediaTypePaths from '../../../middleware/modules/domain/MediaTypePaths'
-import MediaTypes from '../../../middleware/modules/domain/MediaTypes'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
@@ -65,9 +59,7 @@ export default {
         _total_pages: 1,
         _total_results: 1,
         _results: []
-      },
-      mediaTypePath: MediaTypePaths.tv,
-      mediaType: MediaTypes.tv
+      }
     }
   }
 }

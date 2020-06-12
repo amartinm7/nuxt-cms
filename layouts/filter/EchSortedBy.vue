@@ -34,34 +34,19 @@
 </template>
 <script>
 /* eslint-disable camelcase, no-console */
-import MediaTypePaths from '../../middleware/modules/domain/MediaTypePaths'
-import MediaTypes from '../../middleware/modules/domain/MediaTypes'
-
 export default {
   name: 'EchSortedBy',
   props: {
-    mediaTypePath: {
+    mediaType: {
       type: String,
       default() {
         return ''
       }
     }
   },
-  data() {
-    return {}
-  },
   computed: {
-    currentMediaType() {
-      return this.mediaTypePath === MediaTypePaths.tv
-        ? MediaTypes.tv
-        : MediaTypes.movies
-    },
     getSortedByList() {
-      const mediaType =
-        this.mediaTypePath === MediaTypePaths.tv
-          ? MediaTypes.tv
-          : MediaTypes.movies
-      return this.$i18n.messages[this.$i18n.locale].sortedBy[mediaType]
+      return this.$i18n.messages[this.$i18n.locale].sortedBy[this.mediaType]
     }
   },
   methods: {
@@ -69,20 +54,20 @@ export default {
       const self = this
       const language = this.$i18n.locale
       const pathParams = this.$route.params.genre ?? ''
-      const sanitizedPathParams = this.$route.path.includes(this.mediaTypePath)
+      const sanitizedPathParams = this.$route.path.includes(this.mediaType)
         ? pathParams
         : ''
       console.log(`${propertyName} === ${this.$route.query.sortedBy}`)
       const queryParamsSortedBy =
         this.$route.query.sortedBy === propertyName ? '' : propertyName
       const sanitizedQueryParamsSortedBy = this.$route.path.includes(
-        this.mediaTypePath
+        this.mediaType
       )
         ? queryParamsSortedBy
         : propertyName
       this.$router.push({
         path: `/${language}/${
-          self.mediaTypePath
+          self.mediaType
         }/bygenres/${Date.now()}/${sanitizedPathParams}`,
         query: {
           sortedBy: sanitizedQueryParamsSortedBy
@@ -92,7 +77,7 @@ export default {
     isFilterIncluded(propertyName) {
       const sortedByqueryParam = this.$route.query.sortedBy ?? ''
       return (
-        this.$route.path.includes(this.mediaTypePath) &&
+        this.$route.path.includes(this.mediaType) &&
         sortedByqueryParam === propertyName
       )
     },
@@ -102,7 +87,7 @@ export default {
       const pathParams = this.$route.params.genre ?? ''
       this.$router.push({
         path: `/${language}/${
-          self.mediaTypePath
+          self.mediaType
         }/bygenres/${Date.now()}/${pathParams}`
       })
     }

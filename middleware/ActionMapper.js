@@ -13,7 +13,7 @@ const actions = {
       .getTopRatedTvShowController,
     byGenres: BeanContainerRegistry.getBeanContainer().findMoviesByController
   },
-  movie: {
+  movies: {
     nowPlaying: BeanContainerRegistry.getBeanContainer()
       .getNowPlayingMoviesController,
     popular: BeanContainerRegistry.getBeanContainer()

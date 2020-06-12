@@ -64,12 +64,6 @@ export default {
       default() {
         return []
       }
-    },
-    mediaTypePath: {
-      type: String,
-      default() {
-        return ''
-      }
     }
   },
   data() {

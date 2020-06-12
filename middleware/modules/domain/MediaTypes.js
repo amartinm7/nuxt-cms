@@ -1,4 +1,6 @@
 export default {
   tv: 'tv',
-  movies: 'movies'
+  movies: 'movies',
+  all: 'all',
+  person: 'person'
 }

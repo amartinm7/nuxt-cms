@@ -167,7 +167,6 @@
 import { BeanContainerRegistry } from '../../middleware/BeanContainerRegistry'
 import { GetMovieVideosControllerRequest } from '../../middleware/modules/movies/getVideos/userapplication/controller/GetMovieVideosController'
 import MediaManager from '../../middleware/modules/vue/mixins/MediaManager'
-import MediaTypePaths from '../../middleware/modules/domain/MediaTypePaths'
 import MediaTypes from '../../middleware/modules/domain/MediaTypes'
 import LocateManager from '../../middleware/modules/vue/mixins/LocateManager'
 import Utils from '../../middleware/modules/vue/mixins/Utils'
@@ -190,7 +189,6 @@ export default {
   },
   data() {
     return {
-      mediaTypePath: MediaTypePaths.movies,
       mediaType: MediaTypes.movies
     }
   },

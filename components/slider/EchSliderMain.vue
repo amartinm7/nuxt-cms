@@ -16,7 +16,7 @@
               getDetailPathURL(
                 movie._id,
                 movie._title || movie._name,
-                mediaTypePath
+                movie.mediaType
               )
             "
           >
@@ -58,12 +58,6 @@ export default {
       type: Array,
       default() {
         return []
-      }
-    },
-    mediaTypePath: {
-      type: String,
-      default() {
-        return ''
       }
     }
   },

@@ -5,10 +5,7 @@
     </section>
     <section class="uk-section uk-section-xsmall">
       <div class="uk-active">
-        <ech-slider-main
-          :movies="trendingResults._results"
-          :media-type-path="mediaTypePath"
-        ></ech-slider-main>
+        <ech-slider-main :movies="trendingResults._results"></ech-slider-main>
       </div>
     </section>
     <section class="uk-section uk-section-xsmall">
@@ -73,7 +70,7 @@ import { BeanContainerRegistry } from '../middleware/BeanContainerRegistry'
 import EchSliderMain from '../components/slider/EchSliderMain'
 import EchHeaderMain from '../layouts/header/EchHeaderMain'
 import VideoControllerManager from '../middleware/modules/vue/mixins/VideoControllerManager'
-import MediaTypePaths from '../middleware/modules/domain/MediaTypePaths'
+import MediaTypes from '../middleware/modules/domain/MediaTypes'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
@@ -116,13 +113,13 @@ export default {
         _total_results: 1,
         _results: []
       },
-      mediaTypePath: MediaTypePaths.movies,
+      mediaType: MediaTypes.movies,
       trendingResults: {}
     }
   },
   mounted() {
     const self = this
-    self.mediaTypePath = MediaTypePaths.tvShows
+    self.mediaTypePath = MediaTypes.tv
     self.trendingResults = self.trendingMovies
     self.$uikit.tab('#ech-tab').show(0)
     self.$uikit.util.on('#ech-switcher', 'show', function() {

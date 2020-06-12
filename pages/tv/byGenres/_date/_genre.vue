@@ -4,11 +4,7 @@
       <ech-header-main @outbound-open-video-modal="playVideo"></ech-header-main>
     </section>
     <section class="uk-section uk-section-xsmall">
-      <ech-slider-main
-        :movies="trendingTVShows._results"
-        :media-type-path="mediaTypePath"
-      >
-      </ech-slider-main>
+      <ech-slider-main :movies="trendingTVShows._results"> </ech-slider-main>
     </section>
     <section class="uk-section uk-section-xsmall">
       <h1 class="uk-text-center">{{ $t('pages.tv.byGenres') }}</h1>
@@ -48,7 +44,6 @@ import EchTvShowCard from '../../../../components/movies/EchTvShowCard'
 import VideoControllerManager from '../../../../middleware/modules/vue/mixins/VideoControllerManager'
 import GenresHeaderManager from '../../../../middleware/modules/vue/mixins/GenresHeaderManager'
 import { FindTvShowsByControllerRequest } from '../../../../middleware/modules/tvShows/findBy/userapplication/controller/FindTvShowsByController'
-import MediaTypePaths from '../../../../middleware/modules/domain/MediaTypePaths'
 import MediaTypes from '../../../../middleware/modules/domain/MediaTypes'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
@@ -82,13 +77,7 @@ export default {
         _total_results: 1,
         _results: []
       },
-      mediaTypePath: MediaTypePaths.tv,
       mediaType: MediaTypes.tv
-    }
-  },
-  computed: {
-    mediaTypePaths() {
-      return MediaTypePaths
     }
   }
 }

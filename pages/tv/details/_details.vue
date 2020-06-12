@@ -85,9 +85,6 @@ export default {
       movie_name: '',
       movie_id: 0
     }
-  },
-  mounted() {
-    console.log('details...')
   }
 }
 </script>
