@@ -238,7 +238,7 @@
               class="uk-navbar"
               uk-navbar="{'align':'left','boundary':'!.uk-navbar-container'}"
             >
-              <div class="uk-navbar-center">
+              <div class="uk-navbar-left">
                 <ul class="uk-navbar-nav">
                   <li class="uk-parent">
                     <nuxt-link
@@ -434,6 +434,28 @@
                   </li>
                 </ul>
               </div>
+              <div class="uk-navbar-right">
+                <div class="uk-navbar-item">
+                  <a class="uk-navbar-toggle" uk-search-icon href="#"></a>
+                  <div
+                    class="uk-drop"
+                    uk-drop="mode: click; pos: left-center; offset: 0"
+                  >
+                    <form
+                      class="uk-search uk-search-default uk-width-1-1"
+                      @submit.prevent="doSearch"
+                    >
+                      <input
+                        v-model="searchQuery"
+                        class="uk-search-input"
+                        type="search"
+                        placeholder="Search..."
+                        autofocus
+                      />
+                    </form>
+                  </div>
+                </div>
+              </div>
             </nav>
           </div>
         </div>
@@ -451,10 +473,16 @@ import EchFiltersBy from '../filter/EchFiltersBy'
 import EchSortedBy from '../filter/EchSortedBy'
 import MediaTypePaths from '../../middleware/modules/domain/MediaTypePaths'
 import MenuActionsManager from '../../middleware/modules/vue/mixins/MenuActionsManager'
+
 export default {
   name: 'EchNavbarMainNew',
   components: { EchSortedBy, EchFiltersBy },
   mixins: [MenuActionsManager],
+  data() {
+    return {
+      searchQuery: ''
+    }
+  },
   computed: {
     mediaTypePaths() {
       return MediaTypePaths
@@ -488,6 +516,12 @@ export default {
       // eslint-disable-next-line no-console
       // console.log('closing menu')
       // this.$uikit.offcanvas('#echOffcanvas').hide()
+    },
+    doSearch() {
+      const language = this.$i18n.locale
+      this.$router.push({
+        path: `/${language}/search/${Date.now()}/${this.searchQuery}`
+      })
     }
   }
 }
