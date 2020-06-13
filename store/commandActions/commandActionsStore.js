@@ -1,6 +1,8 @@
+import MediaTypes from '../../middleware/modules/domain/MediaTypes'
+
 export const state = () => ({
-  actionForTvShows: commandActions.tv.airingToday,
-  actionForMovies: commandActions.movies.nowPlaying
+  actionForTvShows: commandActions[MediaTypes.tv].airingToday,
+  actionForMovies: commandActions[MediaTypes.movie].nowPlaying
 })
 
 export const getters = {
@@ -35,12 +37,14 @@ export const commandActions = {
     airingToday: 'airingToday',
     onTheAirTv: 'onTheAirTv',
     popular: 'popular',
-    topRated: 'topRated'
+    topRated: 'topRated',
+    byGenres: 'More Series'
   },
-  movies: {
+  movie: {
     nowPlaying: 'nowPlaying',
     popular: 'popular',
     topRated: 'topRated',
-    upcoming: 'upcoming'
+    upcoming: 'upcoming',
+    byGenres: 'More Movies'
   }
 }

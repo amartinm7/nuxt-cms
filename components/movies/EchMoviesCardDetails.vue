@@ -189,7 +189,7 @@ export default {
   },
   data() {
     return {
-      mediaType: MediaTypes.movies
+      mediaType: MediaTypes.movie
     }
   },
   methods: {

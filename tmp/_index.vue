@@ -10,7 +10,7 @@ export default {
   async asyncData({ app, params, store, redirect }) {
     console.log('redirect...' + app.i18n.locale)
     // const languageCode = app.i18n.locale
-    // return redirect(`/${languageCode}/movies`)
+    // return redirect(`/${languageCode}/movie`)
   },
   head() {
     return {

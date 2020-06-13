@@ -1,4 +1,5 @@
 import GetAxiosRequest from '../../../../../framework/modules/axios/GetAxiosRequest'
+import MediaTypes from '../../../../domain/MediaTypes'
 /* eslint-disable camelcase, no-console */
 class GetPopularMoviesRepository {
   constructor({ axios, accessToken }) {
@@ -63,6 +64,7 @@ class GetPopularMoviesRepositoryResponseResult {
     backdrop_path,
     popularity
   }) {
+    this._media_type = MediaTypes.movie
     this._id = id
     this._title = title
     this._name = name

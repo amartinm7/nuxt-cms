@@ -7,7 +7,7 @@ class GetGenresMovieListRepository {
   }
 
   /**
-   * Get the list of official genres for movies.
+   * Get the list of official genres for movie.
    * @returns {*}
    */
   execute() {

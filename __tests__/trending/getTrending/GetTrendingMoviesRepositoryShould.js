@@ -36,7 +36,7 @@ describe('GetTrendingMoviesRepository', function() {
               'The surviving Resistance faces the First Order once again as the journey of Rey, Finn and Poe Dameron continues. With the power and knowledge of generations behind them, the final battle begins.',
             poster_path: '/db32LaOibwEliAmSL2jjDF6oDdj.jpg',
             popularity: 140.287,
-            media_type: 'movie'
+            media_type: 'movies'
           }
         ]
       }

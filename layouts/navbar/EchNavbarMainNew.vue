@@ -54,11 +54,7 @@
               ></line>
             </svg>
           </button>
-          <div
-            class="uk-child-width-1-1 uk-grid uk-grid-stack"
-            uk-grid=""
-            @click="closeMenu()"
-          >
+          <div class="uk-child-width-1-1 uk-grid uk-grid-stack" uk-grid="">
             <div class="uk-first-column">
               <div id="module-menu-mobile" class="uk-panel">
                 <ul class="uk-nav uk-nav-default">
@@ -175,12 +171,12 @@
                       <!-- -->
                       <ul class="uk-nav-sub">
                         <ech-filters-by
-                          :media-type="mediaTypes.movies"
+                          :media-type="mediaTypes.movie"
                         ></ech-filters-by>
                       </ul>
                       <ul class="uk-nav-sub">
                         <ech-sorted-by
-                          :media-type="mediaTypes.movies"
+                          :media-type="mediaTypes.movie"
                         ></ech-sorted-by>
                       </ul>
                       <!-- -->
@@ -260,14 +256,14 @@
                         <div>
                           <ul class="uk-nav uk-navbar-dropdown-nav">
                             <ech-filters-by
-                              :media-type="mediaTypes.movies"
+                              :media-type="mediaTypes.movie"
                             ></ech-filters-by>
                           </ul>
                         </div>
                         <div>
                           <ul class="uk-nav uk-navbar-dropdown-nav">
                             <ech-sorted-by
-                              :media-type="mediaTypes.movies"
+                              :media-type="mediaTypes.movie"
                             ></ech-sorted-by>
                           </ul>
                         </div>
@@ -486,37 +482,40 @@ export default {
       return MediaTypes
     },
     showLocales() {
-      // eslint-disable-next-line no-console
       return this.$i18n.locales.filter(
         (locale) => locale.code !== this.$i18n.locale
       )
     },
     showMenuListForTvShows() {
-      return Object.keys(this.$i18n.messages[this.$i18n.locale].pages.tv)
+      return Object.keys(
+        this.$i18n.messages[this.$i18n.locale].pages[MediaTypes.tv]
+      )
     },
     showMenuListForMovies() {
-      return Object.keys(this.$i18n.messages[this.$i18n.locale].pages.movies)
+      return Object.keys(
+        this.$i18n.messages[this.$i18n.locale].pages[MediaTypes.movie]
+      )
     }
   },
   methods: {
     translateKeyMessageForTvShows(key) {
-      return this.$i18n.messages[this.$i18n.locale].pages.tv[key]
+      return this.$i18n.messages[this.$i18n.locale].pages[MediaTypes.tv][key]
     },
     translateKeyMessageForMovies(key) {
-      return this.$i18n.messages[this.$i18n.locale].pages.movies[key]
+      return this.$i18n.messages[this.$i18n.locale].pages[MediaTypes.movie][key]
     },
     getTvShowTopListlURL(actionName) {
       const language = this.$i18n.locale
-      return `/${language}/tv/${actionName}/`
+      return `/${language}/${MediaTypes.tv}/${actionName}/`
     },
     getMoviesTopListlURL(actionName) {
       const language = this.$i18n.locale
-      return `/${language}/movies/${actionName}/`
+      return `/${language}/${MediaTypes.movie}/${actionName}/`
     },
     doSearch() {
       const language = this.$i18n.locale
       this.$router.push({
-        path: `/${language}/search/${Date.now()}/${this.searchQuery}`
+        path: `/${language}/${MediaTypes.all}/${Date.now()}/${this.searchQuery}`
       })
     }
   }

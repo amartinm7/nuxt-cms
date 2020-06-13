@@ -1,4 +1,5 @@
 import GetAxiosRequest from '../../../../../framework/modules/axios/GetAxiosRequest'
+import MediaTypes from '../../../../domain/MediaTypes'
 const _isEmpty = require('lodash.isempty')
 /* eslint-disable camelcase, no-console */
 class GetTvShowDetailsRepository {
@@ -15,6 +16,7 @@ class GetTvShowDetailsRepository {
   execute(getTvShowDetailsRepositoryRequest) {
     const { movie_id, language } = { ...getTvShowDetailsRepositoryRequest }
     const urlPath = `/tv/${movie_id}?language=${language}&append_to_response=videos,images,credits`
+    console.log(urlPath)
     return this._axios(
       new GetAxiosRequest({
         accessToken: this._accessToken,
@@ -86,6 +88,7 @@ class GetTvShowDetailsRepositoryResponse {
     networks,
     production_companies
   }) {
+    this._media_type = MediaTypes.tv
     this._genres = genres
     this._id = id
     this._original_language = original_language

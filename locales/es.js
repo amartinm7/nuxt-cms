@@ -1,15 +1,15 @@
-import moviesGenres from './es/genres/movies/genres'
+import moviesGenres from './es/genres/movie/genres'
 import tvGenres from './es/genres/tv/genres'
-import moviesSortedBy from './es/genres/movies/sortedBy'
+import moviesSortedBy from './es/genres/movie/sortedBy'
 import tvGenresSortedBy from './es/genres/tv/sortedBy'
 
 export default {
   genres: {
-    movies: moviesGenres.genres,
+    movie: moviesGenres.genres,
     tv: tvGenres.genres
   },
   sortedBy: {
-    movies: moviesSortedBy.sortedBy,
+    movie: moviesSortedBy.sortedBy,
     tv: tvGenresSortedBy.sortedBy
   },
   movies: 'Cine',
@@ -33,7 +33,7 @@ export default {
       topRated: 'Top Series',
       byGenres: 'Más Series'
     },
-    movies: {
+    movie: {
       nowPlaying: 'En cines',
       popular: 'Popular en Cine',
       topRated: 'Top Cine',

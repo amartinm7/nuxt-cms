@@ -29,13 +29,12 @@ import { BeanContainerRegistry } from '../../../middleware/BeanContainerRegistry
 import EchHeaderMain from '../../../layouts/header/EchHeaderMain'
 import EchSliderMain from '../../../components/slider/EchSliderMain'
 import VideoControllerManager from '../../../middleware/modules/vue/mixins/VideoControllerManager'
-import UpcomingManager from '../../../middleware/modules/vue/mixins/UpcomingManager'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
   name: 'EchSearch',
   components: { EchHeaderMain, EchSliderMain },
-  mixins: [VideoControllerManager, UpcomingManager],
+  mixins: [VideoControllerManager],
   // eslint-disable-next-line require-await
   async asyncData({ app, params, store, route }) {
     console.log('EchSearch...')
@@ -60,6 +59,21 @@ export default {
         _total_results: 1,
         _results: []
       }
+    }
+  },
+  head() {
+    return {
+      title: `Estrenos Cine Hoy:`,
+      meta: [
+        {
+          name: 'keywords',
+          content:
+            'Estrenos de cine, peliculas tvShows hoy, programacion tvShows, Movies, TV Shows, Reviews, API, Actors, Actresses, Photos, User Ratings, Synopsis, Trailers, Teasers, Credits, Cast'
+        },
+        {
+          charset: 'utf-8'
+        }
+      ]
     }
   }
 }

@@ -52,6 +52,7 @@ import EchDisqus from '../../../components/disqus/EchDisqus'
 import EchSliderPosters from '../../../components/slider/EchSliderPosters'
 import EchSliderVideos from '../../../components/slider/EchSliderVideos'
 import EchMoviesCardDetail from '../../../components/movies/EchMoviesCardDetails'
+import MediaTypes from '../../../middleware/modules/domain/MediaTypes'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
@@ -83,7 +84,8 @@ export default {
     return {
       movies: [],
       movie_title: '',
-      movie_id: 0
+      movie_id: 0,
+      mediaType: MediaTypes.movie
     }
   }
 }

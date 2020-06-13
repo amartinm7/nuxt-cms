@@ -1,4 +1,5 @@
 import GetAxiosRequest from '../../../../../framework/modules/axios/GetAxiosRequest'
+import MediaTypes from '../../../../domain/MediaTypes'
 /* eslint-disable camelcase, no-console */
 class SearchMoviesRepository {
   constructor({ axios, accessToken }) {
@@ -61,8 +62,7 @@ class SearchMoviesRepositoryResponseResult {
     genre_ids,
     poster_path,
     backdrop_path,
-    popularity,
-    media_type
+    popularity
   }) {
     this._id = id
     this._title = title
@@ -76,7 +76,7 @@ class SearchMoviesRepositoryResponseResult {
     this._poster_path = poster_path
     this._backdrop_path = backdrop_path
     this._popularity = popularity
-    this._media_type = media_type
+    this._mediaType = MediaTypes.movie
   }
 }
 

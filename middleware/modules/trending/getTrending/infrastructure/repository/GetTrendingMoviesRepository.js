@@ -33,7 +33,10 @@ class GetTrendingMoviesRepository {
 
   async executeAsync(getTrendingMoviesRepositoryRequest) {
     const axiosResponse = await this.execute(getTrendingMoviesRepositoryRequest)
-    return new GetTrendingMoviesRepositoryResponse({ ...axiosResponse.data })
+    return new GetTrendingMoviesRepositoryResponse({
+      ...axiosResponse.data,
+      media_type: getTrendingMoviesRepositoryRequest.mediaType
+    })
   }
 }
 
@@ -47,13 +50,16 @@ class GetTrendingMoviesRepositoryRequest {
 
 /* eslint-disable camelcase */
 class GetTrendingMoviesRepositoryResponse {
-  constructor({ page, total_pages, total_results, results }) {
+  constructor({ page, total_pages, total_results, results, media_type }) {
     this._page = page
     this._total_pages = total_pages
     this._total_results = total_results
     this._results = results.map((it) => {
       // eslint-disable-next-line no-new
-      return new GetTrendingMoviesRepositoryResponseResult(it)
+      return new GetTrendingMoviesRepositoryResponseResult({
+        ...it,
+        media_type
+      })
     })
   }
 }

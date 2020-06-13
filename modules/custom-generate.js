@@ -1,20 +1,25 @@
 import { commandActions } from '../store/commandActions/commandActionsStore'
+import MediaTypes from '../middleware/modules/domain/MediaTypes'
 
 const dynamicRoutes = () => {
   // fetching tvs
-  const routesForTv = Object.keys(commandActions.tv).map((action) => {
-    return {
-      route: `/tvshows/${action}`,
-      payload: action
+  const routesForTv = Object.keys(commandActions[MediaTypes.tv]).map(
+    (action) => {
+      return {
+        route: `/${MediaTypes.tv}/${action}`,
+        payload: action
+      }
     }
-  })
-  // fetching movies
-  const routesForMovies = Object.keys(commandActions.movies).map((action) => {
-    return {
-      route: `/movies/${action}`,
-      payload: action
+  )
+  // fetching movie
+  const routesForMovies = Object.keys(commandActions[MediaTypes.movie]).map(
+    (action) => {
+      return {
+        route: `/${MediaTypes.movie}/${action}`,
+        payload: action
+      }
     }
-  })
+  )
   return routesForTv.concat(routesForMovies)
 }
 

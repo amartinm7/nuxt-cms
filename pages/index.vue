@@ -113,20 +113,20 @@ export default {
         _total_results: 1,
         _results: []
       },
-      mediaType: MediaTypes.movies,
+      mediaType: MediaTypes.movie,
       trendingResults: {}
     }
   },
   mounted() {
     const self = this
-    self.mediaTypePath = MediaTypes.tv
+    self.mediaType = MediaTypes.tv
     self.trendingResults = self.trendingMovies
     self.$uikit.tab('#ech-tab').show(0)
     self.$uikit.util.on('#ech-switcher', 'show', function() {
-      self.mediaTypePath =
-        self.mediaTypePath === 'movies' ? 'tvshows' : 'movies'
+      self.mediaType =
+        self.mediaType === MediaTypes.movie ? MediaTypes.tv : MediaTypes.movie
       self.trendingResults =
-        self.mediaTypePath === 'movies'
+        self.mediaType === MediaTypes.movie
           ? self.trendingMovies
           : self.trendingTVShows
     })

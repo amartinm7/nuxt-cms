@@ -51,7 +51,7 @@ export default {
   // eslint-disable-next-line require-await
   async asyncData({ app, params, store, route }) {
     const language = app.i18n.locale
-    const mediaType = MediaTypes.movies
+    const mediaType = MediaTypes.movie
     const action = params.upcoming
     // const action =
     //   store.getters['commandActions/commandActionsStore/getActionForMovies']
@@ -70,7 +70,7 @@ export default {
         _total_results: 1,
         _results: []
       },
-      mediaType: MediaTypes.movies
+      mediaType: MediaTypes.movie
     }
   }
 }

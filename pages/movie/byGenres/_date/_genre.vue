@@ -7,7 +7,7 @@
       <ech-slider-main :movies="trendingMovies._results"> </ech-slider-main>
     </section>
     <section class="uk-section uk-section-xsmall">
-      <h1 class="uk-text-center">{{ $t('pages.movies.byGenres') }}</h1>
+      <h1 class="uk-text-center">{{ $t('pages.movie.byGenres') }}</h1>
     </section>
     <section class="uk-section uk-section-xsmall">
       <div>
@@ -79,7 +79,7 @@ export default {
         _total_results: 1,
         _results: []
       },
-      mediaType: MediaTypes.movies
+      mediaType: MediaTypes.movie
     }
   }
 }

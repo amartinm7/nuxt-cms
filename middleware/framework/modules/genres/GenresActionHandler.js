@@ -13,25 +13,25 @@ class GenresActionHandler {
   constructor(slugger, locale, language) {
     this._genresForTvUsingNameAsKey = Object.assign(
       {},
-      ...locale[language].genres.tv.map((genre) => ({
+      ...locale[language].genres[MediaTypes.tv].map((genre) => ({
         [slugger.sluggify([genre.name])]: genre.id
       }))
     )
     this._genresForTvUsingIdAsKey = Object.assign(
       {},
-      ...locale[language].genres.tv.map((genre) => ({
+      ...locale[language].genres[MediaTypes.tv].map((genre) => ({
         [genre.id]: slugger.sluggify([genre.name])
       }))
     )
     this._genresForMoviesUsingNameAsKey = Object.assign(
       {},
-      ...locale[language].genres.movies.map((genre) => ({
+      ...locale[language].genres[MediaTypes.movie].map((genre) => ({
         [slugger.sluggify([genre.name])]: genre.id
       }))
     )
     this._genresForMoviesUsingIdAsKey = Object.assign(
       {},
-      ...locale[language].genres.movies.map((genre) => ({
+      ...locale[language].genres[MediaTypes.movie].map((genre) => ({
         [genre.id]: slugger.sluggify([genre.name])
       }))
     )
@@ -54,7 +54,7 @@ class GenresActionHandler {
   }
 
   getGenreIdFor(mediaType, name) {
-    if (mediaType === MediaTypes.movies) {
+    if (mediaType === MediaTypes.movie) {
       return this.getGenreIdForMoviesBy(name)
     } else {
       return this.getGenreIdForTvBy(name)
@@ -62,7 +62,7 @@ class GenresActionHandler {
   }
 
   getGenreNameFor(mediaType, id) {
-    if (mediaType === MediaTypes.movies) {
+    if (mediaType === MediaTypes.movie) {
       return this.getGenreNameForMoviesBy(id)
     } else {
       return this.getGenreNameForTvBy(id)

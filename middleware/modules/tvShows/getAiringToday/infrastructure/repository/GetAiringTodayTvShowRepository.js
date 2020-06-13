@@ -1,4 +1,5 @@
 import GetAxiosRequest from '../../../../../framework/modules/axios/GetAxiosRequest'
+import MediaTypes from '../../../../domain/MediaTypes'
 /* eslint-disable camelcase, no-console */
 class GetAiringTodayTvShowRepository {
   constructor({ axios, accessToken }) {
@@ -64,9 +65,9 @@ class GetAiringTodayTvShowRepositoryResponseResult {
     genre_ids,
     poster_path,
     backdrop_path,
-    popularity,
-    media_type
+    popularity
   }) {
+    this._media_type = MediaTypes.tv
     this._id = id
     this._title = title
     this._name = name

@@ -16,7 +16,7 @@
               getDetailPathURL(
                 movie._id,
                 movie._title || movie._name,
-                movie.mediaType
+                movie._media_type
               )
             "
           >

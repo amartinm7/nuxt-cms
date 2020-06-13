@@ -1,6 +1,6 @@
 export default {
   tv: 'tv',
-  movies: 'movies',
-  all: 'all',
+  movie: 'movie',
+  all: 'search',
   person: 'person'
 }
