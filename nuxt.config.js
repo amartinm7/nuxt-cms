@@ -34,7 +34,10 @@ export default {
       process.env.ESTRENOSCINEHOY_FIRESTORE_CONFIG,
     ESTRENOSCINEHOY_THEMOVIEDB_CONFIG:
       process.env.ESTRENOSCINEHOY_THEMOVIEDB_CONFIG,
-    ESTRENOSCINEHOY_GA_ID: process.env.GA_ID || ''
+    ESTRENOSCINEHOY_GOOGLE_ANALITYCS_ID:
+      process.env.ESTRENOSCINEHOY_GOOGLE_ANALITYCS_ID || '',
+    ESTRENOSCINEHOY_GOOGLE_ADS_ID:
+      process.env.ESTRENOSCINEHOY_GOOGLE_ADS_ID || ''
   },
   /*
    ** Headers of the page
@@ -121,7 +124,13 @@ export default {
     [
       '@nuxtjs/google-analytics',
       {
-        id: process.env.ESTRENOSCINEHOY_GA_ID
+        id: process.env.ESTRENOSCINEHOY_GOOGLE_ANALITYCS_ID
+      }
+    ],
+    [
+      '@nuxtjs/google-adsense',
+      {
+        id: process.env.ESTRENOSCINEHOY_GOOGLE_ADS_ID
       }
     ]
   ],

@@ -115,11 +115,18 @@ handleSelect(path) {
 
 //ads google analitycs
 https://nuxtjs.org/faq/google-analytics
+https://github.com/nuxt-community/analytics-module
+@nuxtjs/google-analytics
+para ver visitas, registrar tu dominio en google analitys, asociarlo con google ads 
+instalar los plugins de nuxt y setear los ids de ambas plataformas
 
+for adssense
+npm i @nuxtjs/google-adsense
 
 https://disqus.com/
 
 https://github.com/scottsweb/scott.ee/blob/master/modules/generate.js
+
 
 
 
