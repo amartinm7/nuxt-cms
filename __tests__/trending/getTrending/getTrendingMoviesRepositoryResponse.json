@@ -5,25 +5,29 @@
     "total_results": 20000,
     "results": [
       {
-        "id": 181812,
-        "video": false,
-        "vote_count": 3231,
-        "vote_average": 6.5,
-        "title": "Star Wars: The Rise of Skywalker",
-        "release_date": "2019-12-18",
-        "original_language": "en",
-        "original_title": "Star Wars: The Rise of Skywalker",
-        "genre_ids": [
-          28,
-          12,
-          878
-        ],
-        "backdrop_path": "/jOzrELAzFxtMx2I4uDGHOotdfsS.jpg",
-        "adult": false,
-        "overview": "The surviving Resistance faces the First Order once again as the journey of Rey, Finn and Poe Dameron continues. With the power and knowledge of generations behind them, the final battle begins.",
-        "poster_path": "/db32LaOibwEliAmSL2jjDF6oDdj.jpg",
-        "popularity": 140.287,
-        "media_type": "movie"
+        "_page": 1,
+        "_total_pages": 1000,
+        "_total_results": 20000,
+        "_results": [
+          {
+            "_id": 181812,
+            "_title": "Star Wars: The Rise of Skywalker",
+            "_vote_average": 6.5,
+            "_release_date": "2019-12-18",
+            "_overview": "The surviving Resistance faces the First Order once again as the journey of Rey, Finn and Poe Dameron continues. With the power and knowledge of generations behind them, the final battle begins.",
+            "_adult": false,
+            "_genre_ids": [
+              28,
+              12,
+              878
+            ],
+            "_poster_path": "/db32LaOibwEliAmSL2jjDF6oDdj.jpg",
+            "_backdrop_path": "/jOzrELAzFxtMx2I4uDGHOotdfsS.jpg",
+            "_popularity": 140.287,
+            "_original_language": "en",
+            "_origin_countryToString": ""
+          }
+        ]
       }
     ]
   }
