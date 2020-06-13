@@ -133,14 +133,6 @@ export default {
       {
         id: process.env.ESTRENOSCINEHOY_GOOGLE_ANALITYCS_ID
       }
-    ],
-    [
-      '@nuxtjs/google-adsense',
-      {
-        id: process.env.ESTRENOSCINEHOY_GOOGLE_ADS_ID,
-        analyticsUacct: process.env.ESTRENOSCINEHOY_GOOGLE_ANALITYCS_ID,
-        analyticsDomainName: 'estrenoscinehoy.com'
-      }
     ]
   ],
   /*
