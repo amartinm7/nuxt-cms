@@ -69,6 +69,13 @@ export default {
         rel: 'stylesheet',
         href: 'https://fonts.googleapis.com/css?family=Staatliches'
       }
+    ],
+    script: [
+      {
+        src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js',
+        'data-ad-client': process.env.ESTRENOSCINEHOY_GOOGLE_ADS_ID,
+        async: true
+      }
     ]
   },
   /*
