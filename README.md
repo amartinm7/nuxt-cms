@@ -124,3 +124,16 @@ https://github.com/scottsweb/scott.ee/blob/master/modules/generate.js
 
 
 
+SETUP ENV VAR
+> printenv
+
+For permanent setting, you need to understand where to put the “export” script. Where here means Bash Shell Startup Script like /etc/profile, ~/.bash_profile, ~/.bashrc.
+
+For system-wide operations, it should be in /etc/profile,
+
+For user based operations, it should be in ~/.bash_profile,
+
+For non-login interactive shells, it should be in ~/.bashrc.
+
+
+sublime  ~/.bash_profile

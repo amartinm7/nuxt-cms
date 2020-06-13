@@ -33,7 +33,8 @@ export default {
     ESTRENOSCINEHOY_FIRESTORE_CONFIG:
       process.env.ESTRENOSCINEHOY_FIRESTORE_CONFIG,
     ESTRENOSCINEHOY_THEMOVIEDB_CONFIG:
-      process.env.ESTRENOSCINEHOY_THEMOVIEDB_CONFIG
+      process.env.ESTRENOSCINEHOY_THEMOVIEDB_CONFIG,
+    ESTRENOSCINEHOY_GA_ID: process.env.GA_ID || ''
   },
   /*
    ** Headers of the page
@@ -116,7 +117,13 @@ export default {
     '@nuxtjs/axios',
     'nuxt-i18n',
     '@nuxtjs/robots',
-    '~modules/custom-generate.js'
+    '~modules/custom-generate.js',
+    [
+      '@nuxtjs/google-analytics',
+      {
+        id: process.env.ESTRENOSCINEHOY_GA_ID
+      }
+    ]
   ],
   /*
    ** Axios module configuration
