@@ -144,3 +144,5 @@ For non-login interactive shells, it should be in ~/.bashrc.
 
 
 sublime  ~/.bash_profile
+source ~/.bash_profile
+npm run dev
