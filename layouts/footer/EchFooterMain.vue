@@ -24,7 +24,11 @@
             <ul class="uk-list uk-text-left@s uk-text-center">
               <li class="el-item">
                 <div class="el-content uk-panel">
-                  <a href="#" uk-scroll="" class="el-link uk-link-muted"
+                  <a
+                    href="#"
+                    uk-scroll=""
+                    class="el-link uk-link-muted"
+                    target="_blank"
                     ><span
                       class="uk-icon uk-margin-small-right ech-spin-icon"
                       uk-icon="instagram"
@@ -35,18 +39,26 @@
               </li>
               <li class="el-item">
                 <div class="el-content uk-panel">
-                  <a href="#" uk-scroll="" class="el-link uk-link-muted">
+                  <a
+                    href="https://twitter.com/estrenoscinehoy"
+                    class="el-link uk-link-muted"
+                    target="_blank"
+                  >
                     <span
                       class="uk-icon uk-margin-small-right ech-spin-icon"
-                      uk-icon="pinterest"
+                      uk-icon="twitter"
                     ></span
-                    >Pinterest
+                    >Twitter
                   </a>
                 </div>
               </li>
               <li class="el-item">
                 <div class="el-content uk-panel">
-                  <a href="#" uk-scroll="" class="el-link uk-link-muted">
+                  <a
+                    href="https://www.facebook.com/Estrenoscinehoycom-101707934922827/"
+                    class="el-link uk-link-muted"
+                    target="_blank"
+                  >
                     <span
                       class="uk-icon uk-margin-small-right ech-spin-icon"
                       uk-icon="facebook"
@@ -57,7 +69,12 @@
               </li>
               <li class="el-item">
                 <div class="el-content uk-panel">
-                  <a href="#" uk-scroll="" class="el-link uk-link-muted">
+                  <a
+                    href="#"
+                    uk-scroll=""
+                    class="el-link uk-link-muted"
+                    target="_blank"
+                  >
                     <span
                       class="uk-icon uk-margin-small-right ech-spin-icon"
                       uk-icon="youtube"

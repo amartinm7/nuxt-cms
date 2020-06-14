@@ -55,7 +55,7 @@ export default {
         name: 'Estrenos Cine Hoy',
         content:
           process.env.npm_package_description ||
-          'Estrenos de cine, peliculas tvShows hoy, programacion tvShows, Movies, TV Shows, Reviews, API, Actors, Actresses, Photos, User Ratings, Synopsis, Trailers, Teasers, Credits, Cast'
+          'Estrenos de cine: películas y series de hoy, toda la actualidad es un click. Videos, trailers, posters, biografia y mas. Movies, tvShows: dailybasis movie and tvshows info. Everything on a click. Reviews, trailers, videos, bio and more.'
       },
       { name: 'apple-mobile-web-app-capable', content: 'yes' }
     ],
@@ -72,6 +72,7 @@ export default {
     ],
     script: [
       {
+        // for google ads
         src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js',
         'data-ad-client': process.env.ESTRENOSCINEHOY_GOOGLE_ADS_ID,
         async: true
@@ -132,6 +133,19 @@ export default {
       '@nuxtjs/google-analytics',
       {
         id: process.env.ESTRENOSCINEHOY_GOOGLE_ANALITYCS_ID
+      }
+    ],
+    [
+      'nuxt-social-meta',
+      {
+        title: 'EstrenosCineHoy.com',
+        description:
+          'Estrenos de cine: películas y series de hoy, toda la actualidad es un click. Videos, trailers, posters, biografia y mas. Movies, tvShows: dailybasis movie and tvshows info. Everything on a click. Reviews, trailers, videos, bio and more.',
+        url: 'https://www.estrenoscinehoy.com',
+        img: '/assets/logo/profile.png',
+        locale: 'es-ES',
+        twitter: '@estrenoscinehoy',
+        themeColor: '#1B2432'
       }
     ]
   ],
