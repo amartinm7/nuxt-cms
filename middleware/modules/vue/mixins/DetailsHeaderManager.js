@@ -1,4 +1,4 @@
-import MediaHandler from '../../../framework/modules/media/MediaHandler'
+// import MediaHandler from '../../../framework/modules/media/MediaHandler'
 import StringHandler from '../../../framework/modules/string/StringHandler'
 
 export default {
@@ -35,7 +35,8 @@ export default {
         {
           hid: 'og:image',
           property: 'og:image',
-          content: MediaHandler.getPosterURL(vm.movies[0]._poster_path)
+          // content: MediaHandler.getPosterURL(vm.movies[0]._poster_path)
+          content: 'https://www.computerhope.com/jargon/j/jpg.jpg'
         },
         {
           hid: 'og:url',
@@ -45,12 +46,17 @@ export default {
         {
           hid: 'og:site_name',
           property: 'og:site_name',
-          content: `www.estrenoscinehoy.com`
+          content: `estrenoscinehoy.com`
         },
         {
           hid: 'og:locale',
           property: 'og:locale',
           content: `${vm.$i18n.locale}`
+        },
+        {
+          hid: 'og:image:type',
+          property: 'og:image:type',
+          content: 'image/jpeg'
         }
       ]
     }
