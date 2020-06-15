@@ -30,6 +30,7 @@ export default {
    * Note that Nuxt uses webpack's definePlugin to define the environmental variable. This means that the actual process or process.env from Node.js is neither available nor defined. Each of the env properties defined in nuxt.config.js is individually mapped to process.env.xxxx and converted during compilation.
    */
   env: {
+    HOST_NAME: 'https://www.estrenoscinehoy.com',
     ESTRENOSCINEHOY_FIRESTORE_CONFIG:
       process.env.ESTRENOSCINEHOY_FIRESTORE_CONFIG,
     ESTRENOSCINEHOY_THEMOVIEDB_CONFIG:
@@ -125,15 +126,6 @@ export default {
       '@nuxtjs/google-analytics',
       {
         id: process.env.ESTRENOSCINEHOY_GOOGLE_ANALITYCS_ID
-      }
-    ],
-    [
-      'nuxt-social-meta',
-      {
-        url: 'https://www.estrenoscinehoy.com',
-        locale: 'es-ES',
-        twitter: '@estrenoscinehoy',
-        themeColor: '#1B2432'
       }
     ]
   ],

@@ -11,7 +11,12 @@ export default {
           hid: 'keywords',
           name: 'keywords',
           content:
-            'Estrenos de cine, peliculas tvShows hoy, programacion tvShows, Movies, TV Shows, Reviews, API, Actors, Actresses, Photos, User Ratings, Synopsis, Trailers, Teasers, Credits, Cast'
+            'Estrenos cine hoy, peliculas, series, actores, actrices, TV Shows, movies, actor, actress, movies rating, news, tv networks'
+        },
+        {
+          hid: 'description',
+          name: 'description',
+          content: `${StringHandler.truncate(vm.movies[0]._overview, 100)}...`
         },
         {
           charset: 'utf-8'
@@ -31,6 +36,21 @@ export default {
           hid: 'og:image',
           property: 'og:image',
           content: MediaHandler.getPosterURL(vm.movies[0]._poster_path)
+        },
+        {
+          hid: 'og:url',
+          property: 'og:url',
+          content: `www.estrenoscinehoy.com/${vm.$route.path}`
+        },
+        {
+          hid: 'og:site_name',
+          property: 'og:site_name',
+          content: `www.estrenoscinehoy.com`
+        },
+        {
+          hid: 'og:locale',
+          property: 'og:locale',
+          content: `${vm.$i18n.locale}`
         }
       ]
     }
