@@ -134,7 +134,8 @@ export default {
         description:
           'Estrenos de cine: películas y series de hoy, toda la actualidad es un click. Videos, trailers, posters, biografia y mas. Movies, tvShows: dailybasis movie and tvshows info. Everything on a click. Reviews, trailers, videos, bio and more.',
         url: 'https://www.estrenoscinehoy.com',
-        img: 'https://image.tmdb.org/t/p/w185_and_h278_bestv2/w58ohFF2YeEEVYRWiiMjJZ1hk9R.jpg',
+        img:
+          'https://image.tmdb.org/t/p/w185_and_h278_bestv2/w58ohFF2YeEEVYRWiiMjJZ1hk9R.jpg',
         locale: 'es-ES',
         twitter: '@estrenoscinehoy',
         themeColor: '#1B2432'
