@@ -49,15 +49,7 @@ export default {
       { 'http-equiv': 'cache-control', content: 'no-cache' },
       { 'http-equiv': 'expires', content: '0' },
       { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      {
-        hid: 'estrenoscinehoy',
-        name: 'Estrenos Cine Hoy',
-        content:
-          process.env.npm_package_description ||
-          'Estrenos de cine: películas y series de hoy, toda la actualidad es un click. Videos, trailers, posters, biografia y mas. Movies, tvShows: dailybasis movie and tvshows info. Everything on a click. Reviews, trailers, videos, bio and more.'
-      },
-      { name: 'apple-mobile-web-app-capable', content: 'yes' }
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' }
     ],
     link: [
       {
@@ -142,7 +134,7 @@ export default {
         description:
           'Estrenos de cine: películas y series de hoy, toda la actualidad es un click. Videos, trailers, posters, biografia y mas. Movies, tvShows: dailybasis movie and tvshows info. Everything on a click. Reviews, trailers, videos, bio and more.',
         url: 'https://www.estrenoscinehoy.com',
-        img: '/assets/logo/profile.png',
+        img: 'https://image.tmdb.org/t/p/w185_and_h278_bestv2/w58ohFF2YeEEVYRWiiMjJZ1hk9R.jpg',
         locale: 'es-ES',
         twitter: '@estrenoscinehoy',
         themeColor: '#1B2432'

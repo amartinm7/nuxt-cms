@@ -11,19 +11,6 @@ export default {
         },
         {
           charset: 'utf-8'
-        },
-        {
-          name: 'og:description',
-          content: 'xxxxxx'
-        },
-        {
-          property: 'og:title',
-          content: 'title....'
-        },
-        {
-          property: 'og:image',
-          content:
-            'https://image.tmdb.org/t/p/w185_and_h278_bestv2/w58ohFF2YeEEVYRWiiMjJZ1hk9R.jpg'
         }
       ]
     }
