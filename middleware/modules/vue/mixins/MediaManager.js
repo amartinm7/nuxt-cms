@@ -1,13 +1,12 @@
 /* eslint-disable camelcase, no-console */
 import * as ServiceLocator from '../../../framework/modules/ServiceLocator'
-import ValuesByDefault from '../../domain/ValuesByDefault'
+import MediaHandler from '../../../framework/modules/media/MediaHandler'
 const _isEmpty = require('lodash.isempty')
 
 export default {
   methods: {
     getPosterURL(posterPath) {
-      const sanitizedPosterPath = posterPath ?? ValuesByDefault.posterPath
-      return `https://image.tmdb.org/t/p/w185_and_h278_bestv2${sanitizedPosterPath}`
+      return MediaHandler.getPosterURL(posterPath)
     },
     getDetailPathURL(movie_id, movie_title, mediaType) {
       const language = this.$i18n.locale
