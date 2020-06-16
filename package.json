@@ -14,7 +14,6 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.3.6",
-    "@nuxtjs/google-analytics": "^2.3.0",
     "@nuxtjs/robots": "^2.4.2",
     "@nuxtjs/sitemap": "^2.0.1",
     "@vuikit/icons": "^0.8.1",
@@ -30,6 +29,7 @@
     "nuxt-i18n": "^6.8.1",
     "uikit": "^3.4.4",
     "vue": "latest",
+    "vue-analytics": "^5.22.1",
     "vue-disqus": "^3.0.5",
     "vue-moment": "^4.1.0",
     "vue-star-rating": "^1.6.1",

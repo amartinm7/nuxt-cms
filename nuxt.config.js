@@ -103,7 +103,8 @@ export default {
     { src: '~/plugins/axios', ssr: true },
     { src: '~/plugins/genreActions', ssr: true },
     { src: '~/plugins/currency', ssr: true },
-    { src: '~/plugins/vueStarsRating', ssr: false }
+    { src: '~/plugins/vueStarsRating', ssr: false },
+    { src: './plugins/GoogleAnalytics.js', mode: 'client' }
   ],
   /*
    ** Nuxt.js dev-modules
@@ -121,13 +122,7 @@ export default {
     '@nuxtjs/axios',
     'nuxt-i18n',
     '@nuxtjs/robots',
-    '~modules/custom-generate.js',
-    [
-      '@nuxtjs/google-analytics',
-      {
-        id: process.env.ESTRENOSCINEHOY_GOOGLE_ANALITYCS_ID
-      }
-    ]
+    '~modules/custom-generate.js'
   ],
   /*
    ** Axios module configuration
