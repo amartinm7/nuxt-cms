@@ -103,8 +103,7 @@ export default {
     { src: '~/plugins/axios', ssr: true },
     { src: '~/plugins/genreActions', ssr: true },
     { src: '~/plugins/currency', ssr: true },
-    { src: '~/plugins/vueStarsRating', ssr: false },
-    { src: './plugins/GoogleAnalytics.js', mode: 'client' }
+    { src: '~/plugins/vueStarsRating', ssr: false }
   ],
   /*
    ** Nuxt.js dev-modules
@@ -112,7 +111,13 @@ export default {
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module',
-    '@nuxtjs/sitemap'
+    '@nuxtjs/sitemap',
+    [
+      '@nuxtjs/google-analytics',
+      {
+        id: process.env.ESTRENOSCINEHOY_GOOGLE_ANALITYCS_ID
+      }
+    ]
   ],
   /*
    ** Nuxt.js modules

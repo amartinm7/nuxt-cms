@@ -24,3 +24,12 @@ if (typeof getGDPR !== 'undefined' && getGDPR === 'true') {
     }
   })
 }
+
+/**
+ * npm install vue-analytics
+ *
+ * nuxt.config.js
+ * plugins: [
+    { src: './plugins/GoogleAnalytics.js', mode: 'client' }
+]
+ */
