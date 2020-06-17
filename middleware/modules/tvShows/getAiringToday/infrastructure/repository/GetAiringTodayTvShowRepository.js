@@ -1,5 +1,7 @@
 import GetAxiosRequest from '../../../../../framework/modules/axios/GetAxiosRequest'
 import MediaTypes from '../../../../domain/MediaTypes'
+const _isEmpty = require('lodash.isempty')
+
 /* eslint-disable camelcase, no-console */
 class GetAiringTodayTvShowRepository {
   constructor({ axios, accessToken }) {
@@ -44,10 +46,13 @@ class GetAiringTodayTvShowRepositoryResponse {
     this._page = page
     this._total_pages = total_pages
     this._total_results = total_results
-    this._results = results.map((it) => {
-      // eslint-disable-next-line no-new
-      return new GetAiringTodayTvShowRepositoryResponseResult(it)
-    })
+    this._results = results
+      .filter((it) => {
+        return !_isEmpty(it.poster_path)
+      })
+      .map((it) => {
+        return new GetAiringTodayTvShowRepositoryResponseResult(it)
+      })
   }
 }
 
