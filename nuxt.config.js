@@ -127,7 +127,8 @@ export default {
     '@nuxtjs/axios',
     'nuxt-i18n',
     '@nuxtjs/robots',
-    '~modules/custom-generate.js'
+    '~modules/custom-generate.js',
+    'vue-social-sharing/nuxt'
   ],
   /*
    ** Axios module configuration

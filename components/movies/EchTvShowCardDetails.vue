@@ -127,9 +127,27 @@
                 {{ movie._homepage }}
               </a>
             </p>
+            <ShareNetwork
+              network="facebook"
+              url="https://www.estrenoscinehoy.com/en/movie/details/475430-artemis-fowl"
+              :title="movie._name"
+              description="This week, I’d like to introduce you to 'Vite', which means 'Fast'. It’s a brand new development setup created by Evan You."
+              quote="The hot reload is so fast it\'s near instant. - Evan You"
+              hashtags="estrenoscinehoy"
+            >
+              Share on Facebook
+            </ShareNetwork>
           </div>
         </div>
       </div>
+      <link itemprop="thumbnailUrl" href="url_image" />
+      <span
+        itemprop="thumbnail"
+        itemscope
+        itemtype="http://schema.org/ImageObject"
+      >
+        <link itemprop="url" :href="getPosterURL(movie._poster_path, index)" />
+      </span>
     </article>
   </div>
 </template>
