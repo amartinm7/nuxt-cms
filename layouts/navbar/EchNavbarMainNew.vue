@@ -8,7 +8,7 @@
         class="uk-sticky"
       >
         <nav class="uk-navbar uk-navbar-container uk-margin">
-          <div class="uk-navbar-left">
+          <div class="nav-overlay uk-navbar-left">
             <nuxt-link class="uk-navbar-item uk-logo" :to="localePath('/')">
               <img
                 alt=""
@@ -17,14 +17,42 @@
               />
             </nuxt-link>
           </div>
-          <div class="uk-navbar-right">
+          <div class="nav-overlay uk-navbar-right">
             <a
               class="uk-navbar-toggle"
-              uk-toggle
-              uk-navbar-toggle-icon
-              href="#echOffcanvas"
+              uk-search-icon
+              uk-toggle="target: .nav-overlay; animation: uk-animation-fade"
+              href="#"
             ></a>
           </div>
+          <div class="nav-overlay uk-navbar-left uk-flex-1" hidden>
+            <div class="uk-navbar-item uk-width-expand">
+              <form
+                class="uk-search uk-search-default"
+                @submit.prevent="doSearch"
+              >
+                <input
+                  v-model="searchQuery"
+                  class="uk-search-input"
+                  type="search"
+                  placeholder="Search..."
+                  autofocus
+                />
+              </form>
+            </div>
+            <a
+              class="uk-navbar-toggle"
+              uk-close
+              uk-toggle="target: .nav-overlay; animation: uk-animation-fade"
+              href="#"
+            ></a>
+          </div>
+          <a
+            class="uk-navbar-toggle"
+            uk-toggle
+            uk-navbar-toggle-icon
+            href="#echOffcanvas"
+          ></a>
         </nav>
         <div id="echOffcanvas" uk-offcanvas="flip: true; bg-close: true">
           <div class="uk-offcanvas-bar">
@@ -65,28 +93,13 @@
                 <div id="module-menu-mobile" class="uk-panel">
                   <ul class="uk-nav uk-nav-default">
                     <li>
-                      <div class="uk-margin-small">
-                        <a class="uk-search-toggle" href="#" uk-search-icon></a>
-                        <div
-                          class="uk-drop"
-                          uk-drop="mode: click;  pos: right-center; offset: 5"
-                        >
-                          <form
-                            class="uk-search uk-search-default"
-                            @submit.prevent="doSearch"
-                          >
-                            <input
-                              v-model="searchQuery"
-                              class="uk-search-input"
-                              type="search"
-                              placeholder="Search..."
-                              autofocus
-                            />
-                          </form>
-                        </div>
-                      </div>
+                      <nuxt-link :to="localePath('/')">{{
+                        $t('pages.home')
+                      }}</nuxt-link>
                     </li>
-                    <li></li>
+                    <li>
+                      <hr />
+                    </li>
                     <!-- -->
                     <ul uk-tab>
                       <li>
