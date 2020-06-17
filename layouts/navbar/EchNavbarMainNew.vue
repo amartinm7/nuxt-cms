@@ -60,7 +60,7 @@
         <div id="echOffcanvas" uk-offcanvas="flip: true; bg-close: true">
           <div class="uk-offcanvas-bar">
             <button
-              class="uk-offcanvas-close uk-icon uk-close"
+              class="uk-offcanvas-close uk-icon uk-close ech-spin-icon"
               type="button"
               uk-close=""
             >
@@ -113,7 +113,7 @@
                           ></span
                         ></a>
                       </li>
-                      <li>
+                      <li :uk-tooltip="$t('filterMoviesByGenreTip')">
                         <a href="#">
                           <span
                             class="uk-margin-small-right uk-icon ech-spin-icon"
@@ -121,7 +121,7 @@
                           ></span
                         ></a>
                       </li>
-                      <li>
+                      <li :uk-tooltip="$t('filterTvShowsByGenreTip')">
                         <a href="#">
                           <span
                             class="uk-margin-small-right uk-icon ech-spin-icon"
@@ -134,7 +134,7 @@
                     <ul class="uk-switcher uk-margin">
                       <!-- -->
                       <div>
-                        <li>
+                        <li :uk-tooltip="$t('filterTvShowsByPopularityTip')">
                           <span
                             class="uk-margin-small-right uk-icon ech-spin-icon"
                             uk-icon="icon: tv; "
@@ -157,7 +157,7 @@
                             </li>
                           </nuxt-link>
                         </ul>
-                        <li>
+                        <li :uk-tooltip="$t('filterMoviesByPopularityTip')">
                           <span
                             class="uk-margin-small-right uk-icon ech-spin-icon"
                             uk-icon="icon: video-camera; "
@@ -183,7 +183,7 @@
                         <li>
                           <hr />
                         </li>
-                        <li>
+                        <li :uk-tooltip="$t('toogleLanguageTip')">
                           {{ $t('select.language') }}
                         </li>
                         <ul class="uk-nav-sub">
