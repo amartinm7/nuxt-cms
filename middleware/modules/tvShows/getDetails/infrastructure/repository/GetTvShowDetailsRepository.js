@@ -26,8 +26,14 @@ class GetTvShowDetailsRepository {
   }
 
   async executeAsync(getTvShowDetailsRepositoryRequest) {
-    const axiosResponse = await this.execute(getTvShowDetailsRepositoryRequest)
-    return new GetTvShowDetailsRepositoryResponse({ ...axiosResponse.data })
+    try {
+      const axiosResponse = await this.execute(
+        getTvShowDetailsRepositoryRequest
+      )
+      return new GetTvShowDetailsRepositoryResponse({ ...axiosResponse.data })
+    } catch (e) {
+      return new GetTvShowDetailsRepositoryResponse({ error: e })
+    }
   }
 }
 
@@ -61,6 +67,7 @@ class GetProductionCompaniesResponse {
 /* eslint-disable camelcase */
 class GetTvShowDetailsRepositoryResponse {
   constructor({
+    error,
     adult,
     genres,
     id,
@@ -88,6 +95,7 @@ class GetTvShowDetailsRepositoryResponse {
     networks,
     production_companies
   }) {
+    this._error = error
     this._media_type = MediaTypes.tv
     this._genres = genres
     this._id = id

@@ -26,8 +26,12 @@ class GetMovieDetailsRepository {
   }
 
   async executeAsync(getMovieDetailsRepositoryRequest) {
-    const axiosResponse = await this.execute(getMovieDetailsRepositoryRequest)
-    return new GetMovieDetailsRepositoryResponse({ ...axiosResponse.data })
+    try {
+      const axiosResponse = await this.execute(getMovieDetailsRepositoryRequest)
+      return new GetMovieDetailsRepositoryResponse({ ...axiosResponse.data })
+    } catch (e) {
+      return new GetMovieDetailsRepositoryResponse({ error: e })
+    }
   }
 }
 
@@ -42,6 +46,7 @@ class GetMovieDetailsRepositoryRequest {
 /* eslint-disable camelcase */
 class GetMovieDetailsRepositoryResponse {
   constructor({
+    error,
     adult,
     genres,
     id,
@@ -66,6 +71,7 @@ class GetMovieDetailsRepositoryResponse {
     revenue,
     production_countries
   }) {
+    this._error = error
     this._media_type = MediaTypes.movie
     this._adult = adult
     this._genres = genres

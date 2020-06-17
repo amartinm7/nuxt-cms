@@ -67,12 +67,20 @@ export default {
   },
   mixins: [VideoControllerManager, DetailsHeaderManager, CreditsManager],
   // eslint-disable-next-line require-await
-  async asyncData({ app, route, params, store }) {
+  async asyncData({ app, route, params, store, context }) {
     const language = app.i18n.locale
     const movie_id = params.details.split('-')[0]
     const getMovieDetailsControllerResponse = await beanContainer.getMovieDetailsController.execute(
       new GetMovieDetailsControllerRequest({ movie_id, language })
     )
+    if (getMovieDetailsControllerResponse._error) {
+      console.log(app)
+      console.log(route)
+      console.log(params)
+      console.log(context)
+      app.router.push('/') // fallback volver a main page
+      return
+    }
     const movie = {
       ...getMovieDetailsControllerResponse
     }
