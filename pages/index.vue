@@ -13,7 +13,10 @@
     </section>
     <section class="uk-section uk-section-xsmall">
       <ul id="ech-tab" uk-tab class="uk-flex uk-flex-around">
-        <li class="uk-active ech-basic">
+        <li
+          class="uk-active ech-basic"
+          :uk-tooltip="$t('switcher.trendingMoviesTip')"
+        >
           <a
             href="#"
             uk-icon="icon: video-camera"
@@ -21,7 +24,7 @@
           ></a
           >{{ $t('switcher.trendingMovies') }}
         </li>
-        <li class="ech-basic">
+        <li class="ech-basic" :uk-tooltip="$t('switcher.trendingTVShowsTip')">
           <a
             href="#"
             uk-icon="icon: tv"

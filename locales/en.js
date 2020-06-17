@@ -46,7 +46,9 @@ export default {
   },
   switcher: {
     trendingMovies: 'Trending Movies',
-    trendingTVShows: 'Trending TV Shows'
+    trendingMoviesTip: 'Watch Trending Movies',
+    trendingTVShows: 'Trending TV Shows',
+    trendingTVShowsTip: 'Watch Trending TV Shows'
   },
   sliderSwitcher: {
     credits: 'Cast & Characters',
@@ -68,5 +70,11 @@ export default {
   revenue: 'Revenue',
   networks: 'Networks',
   productionCountry: 'Production Country',
-  biography: 'Biography'
+  biography: 'Biography',
+  searchTip: 'Search movie/tvshow by title',
+  toogleLanguageTip: 'Choose language',
+  filterTvShowsByPopularityTip: 'Find tv shows by popularity',
+  filterMoviesByPopularityTip: 'Find movies by popularity',
+  filterTvShowsByGenreTip: 'Find tv shows by genre',
+  filterMoviesByGenreTip: 'Find movies by genre'
 }

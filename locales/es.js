@@ -46,7 +46,9 @@ export default {
   },
   switcher: {
     trendingMovies: 'Tendencia en Cine',
-    trendingTVShows: 'Tendencia en Series TV'
+    trendingMoviesTip: 'Ver Tendencias en Cine',
+    trendingTVShows: 'Tendencia en Series TV',
+    trendingTVShowsTip: 'Ver Tendencias en Series TV'
   },
   sliderSwitcher: {
     credits: 'Reparto',
@@ -68,5 +70,11 @@ export default {
   revenue: 'Ingresos',
   networks: 'Networks',
   productionCountry: 'País de Producción',
-  biography: 'Biografía'
+  biography: 'Biografía',
+  searchTip: 'Busca película o seríe por título',
+  toogleLanguageTip: 'Selecciona idioma',
+  filterTvShowsByPopularityTip: 'Busca seríes por popularidad',
+  filterMoviesByPopularityTip: 'Busca películas por popularidad',
+  filterTvShowsByGenreTip: 'Busca seríes por género',
+  filterMoviesByGenreTip: 'Busca películas por género'
 }

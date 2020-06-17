@@ -17,9 +17,12 @@
               />
             </nuxt-link>
           </div>
-          <div class="nav-overlay uk-navbar-right">
+          <div
+            class="nav-overlay uk-navbar-right"
+            :uk-tooltip="$t('searchTip')"
+          >
             <a
-              class="uk-navbar-toggle"
+              class="uk-navbar-toggle ech-spin-icon"
               uk-search-icon
               uk-toggle="target: .nav-overlay; animation: uk-animation-fade"
               href="#"
@@ -271,7 +274,10 @@
             >
               <div class="uk-navbar-left">
                 <ul class="uk-navbar-nav">
-                  <li class="uk-parent">
+                  <li
+                    class="uk-parent"
+                    :uk-tooltip="$t('filterMoviesByGenreTip')"
+                  >
                     <nuxt-link
                       :to="localePath('/')"
                       class=" menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"
@@ -310,7 +316,10 @@
                       </div>
                     </div>
                   </li>
-                  <li class="uk-parent">
+                  <li
+                    class="uk-parent"
+                    :uk-tooltip="$t('filterTvShowsByGenreTip')"
+                  >
                     <nuxt-link
                       :to="localePath('/')"
                       class=" menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"
@@ -349,7 +358,10 @@
                       </div>
                     </div>
                   </li>
-                  <li class="uk-parent">
+                  <li
+                    class="uk-parent"
+                    :uk-tooltip="$t('filterMoviesByPopularityTip')"
+                  >
                     <nuxt-link
                       :to="localePath('/')"
                       class=" menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"
@@ -387,7 +399,10 @@
                       </div>
                     </div>
                   </li>
-                  <li class="uk-parent">
+                  <li
+                    class="uk-parent"
+                    :uk-tooltip="$t('filterTvShowsByPopularityTip')"
+                  >
                     <nuxt-link
                       :to="localePath('/')"
                       class=" menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"
@@ -425,7 +440,7 @@
                       </div>
                     </div>
                   </li>
-                  <li class="uk-parent">
+                  <li class="uk-parent" :uk-tooltip="$t('toogleLanguageTip')">
                     <nuxt-link
                       :to="localePath('/')"
                       class=" menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"
@@ -465,9 +480,13 @@
                   </li>
                 </ul>
               </div>
-              <div class="uk-navbar-right">
+              <div class="uk-navbar-right" :uk-tooltip="$t('searchTip')">
                 <div class="uk-navbar-item">
-                  <a class="uk-navbar-toggle" uk-search-icon href="#"></a>
+                  <a
+                    class="uk-navbar-toggle ech-spin-icon"
+                    uk-search-icon
+                    href="#"
+                  ></a>
                   <div
                     class="uk-drop"
                     uk-drop="mode: click; pos: left-center; offset: 0"
