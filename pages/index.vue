@@ -74,6 +74,7 @@ import EchSliderMain from '../components/slider/EchSliderMain'
 import EchHeaderMain from '../layouts/header/EchHeaderMain'
 import VideoControllerManager from '../middleware/modules/vue/mixins/VideoControllerManager'
 import MediaTypes from '../middleware/modules/domain/MediaTypes'
+import StringHandler from '../middleware/framework/modules/string/StringHandler'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
@@ -135,19 +136,60 @@ export default {
     })
   },
   head() {
+    const vm = this
+    const title = vm.$i18n.messages[vm.$i18n.locale].seo.index
+    const keyword =
+      'Estrenos cine hoy, peliculas, series, actores, actrices, TV Shows, movies, actor, actress, movies rating, news, tv networks'
     return {
-      title: this.$i18n.messages[this.$i18n.locale].seo.index,
-      script: [
-        { src: 'https://cdn.jsdelivr.net/npm/uikit@3.4.6/dist/js/uikit.min.js' }
-      ],
+      title: `${StringHandler.truncate(title, 65)}`,
       meta: [
         {
-          name: 'keywords',
-          content:
-            'Estrenos de cine, peliculas tvShows hoy, programacion tvShows, Movies, TV Shows, Reviews, Actors, Actresses, Photos, User Ratings, Synopsis, Trailers, Teasers, Credits, Cast'
+          charset: 'utf-8'
         },
         {
-          charset: 'utf-8'
+          hid: 'keywords',
+          name: 'keywords',
+          content: keyword
+        },
+        {
+          hid: 'description',
+          name: 'description',
+          content: `${StringHandler.truncate(keyword, 155)}`
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: `${StringHandler.truncate(title, 35)}`
+        },
+        {
+          hid: 'og:description',
+          name: 'og:description',
+          content: `${StringHandler.truncate(keyword, 65)}`
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: 'https://www.estrenoscinehoy.com/manifest-icon-192.png'
+        },
+        {
+          hid: 'og:url',
+          property: 'og:url',
+          content: `www.estrenoscinehoy.com`
+        },
+        {
+          hid: 'og:site_name',
+          property: 'og:site_name',
+          content: `estrenoscinehoy.com`
+        },
+        {
+          hid: 'og:locale',
+          property: 'og:locale',
+          content: `${vm.$i18n.locale}`
+        },
+        {
+          hid: 'og:image:type',
+          property: 'og:image:type',
+          content: 'image/jpeg'
         }
       ]
     }
