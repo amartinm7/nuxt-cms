@@ -45,12 +45,14 @@ export default {
    */
   head: {
     title: process.env.npm_package_name || 'Estrenos Cine Hoy',
+    description:
+      'Estrenos cine hoy, peliculas, series, actores, actrices, TV Shows, movies, actor, actress, movies rating, news, tv networks',
     meta: [
       { 'http-equiv': 'pragma', content: 'no-cache' },
       { 'http-equiv': 'cache-control', content: 'no-cache' },
       { 'http-equiv': 'expires', content: '0' },
       { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' }
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
     ],
     link: [
       {
@@ -103,7 +105,8 @@ export default {
     { src: '~/plugins/axios', ssr: true },
     { src: '~/plugins/genreActions', ssr: true },
     { src: '~/plugins/currency', ssr: true },
-    { src: '~/plugins/vueStarsRating', ssr: false }
+    { src: '~/plugins/vueStarsRating', ssr: false },
+    { src: '~/plugins/http', ssr: true }
   ],
   /*
    ** Nuxt.js dev-modules
@@ -128,7 +131,9 @@ export default {
     'nuxt-i18n',
     '@nuxtjs/robots',
     '~modules/custom-generate.js',
-    'vue-social-sharing/nuxt'
+    'vue-social-sharing/nuxt',
+    '@nuxt/http',
+    'nuxt-seo'
   ],
   /*
    ** Axios module configuration
@@ -191,6 +196,13 @@ export default {
      ** You can extend webpack config here
      */
     extend(config, ctx) {}
+  },
+  seo: {
+    // Module options
+    name: '<name of site>',
+    title: '<title default>',
+    templateTitle: '%name% - %title%',
+    description: '<description default>'
   },
   generate: {
     // routes: ['/es', '/en', '/es/movie', '/en/movie']

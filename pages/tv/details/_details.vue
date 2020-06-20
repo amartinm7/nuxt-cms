@@ -45,7 +45,6 @@
 import { BeanContainerRegistry } from '../../../middleware/BeanContainerRegistry'
 import { GetTvShowDetailsControllerRequest } from '../../../middleware/modules/tvShows/getDetails/userapplication/controller/GetTvShowDetailsController'
 import VideoControllerManager from '../../../middleware/modules/vue/mixins/VideoControllerManager'
-import DetailsHeaderManager from '../../../middleware/modules/vue/mixins/DetailsHeaderManager'
 import CreditsManager from '../../../middleware/modules/vue/mixins/CreditsManager'
 import EchSliderPeople from '../../../components/slider/EchSliderPeople'
 import EchDisqus from '../../../components/disqus/EchDisqus'
@@ -53,6 +52,7 @@ import EchSliderVideos from '../../../components/slider/EchSliderVideos'
 import EchSliderPosters from '../../../components/slider/EchSliderPosters'
 import EchTvShowCardDetails from '../../../components/movies/EchTvShowCardDetails'
 import MediaTypes from '../../../middleware/modules/domain/MediaTypes'
+import MediaHandler from '../../../middleware/framework/modules/media/MediaHandler'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
@@ -65,25 +65,34 @@ export default {
     EchDisqus,
     EchSliderPeople
   },
-  mixins: [VideoControllerManager, DetailsHeaderManager, CreditsManager],
+  mixins: [VideoControllerManager, CreditsManager],
   // eslint-disable-next-line require-await
-  async asyncData({ app, route, params, store, context }) {
+  async asyncData(ctx) {
+    // eslint-disable-next-line no-unused-vars
+    const { app, route, params, store } = ctx
     const language = app.i18n.locale
     const movie_id = params.details.split('-')[0]
     const getTvShowDetailsControllerResponse = await beanContainer.getTvShowDetailsController.execute(
       new GetTvShowDetailsControllerRequest({ movie_id, language })
     )
     if (getTvShowDetailsControllerResponse._error) {
-      console.log(app)
-      console.log(route)
-      console.log(params)
-      console.log(context)
       app.router.push('/') // fallback volver a main page
       return
     }
     const movie = {
       ...getTvShowDetailsControllerResponse
     }
+    ctx.seo({
+      name: getTvShowDetailsControllerResponse._name,
+      title: getTvShowDetailsControllerResponse._name,
+      templateTitle: '%name% - %title%',
+      description: 'Hello World Page',
+      openGraph: {
+        title: getTvShowDetailsControllerResponse._name,
+        site_name: 'kkkdsfksdkf,',
+        image: MediaHandler.getPosterURL(movie._poster_path)
+      }
+    })
     return {
       movies: [movie]
     }

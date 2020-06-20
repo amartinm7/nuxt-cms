@@ -149,3 +149,5 @@ npm run dev
 
 
 https://medium.com/@mrando.via/estructura-de-c%C3%B3digo-de-una-aplicaci%C3%B3n-universal-en-nuxt-js-e6cfeeb66276
+
+https://blog.logrocket.com/how-nuxt-js-solves-the-seo-problems-in-vue-js/
