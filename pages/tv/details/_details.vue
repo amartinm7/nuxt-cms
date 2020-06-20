@@ -53,6 +53,7 @@ import EchSliderPosters from '../../../components/slider/EchSliderPosters'
 import EchTvShowCardDetails from '../../../components/movies/EchTvShowCardDetails'
 import MediaTypes from '../../../middleware/modules/domain/MediaTypes'
 import MediaHandler from '../../../middleware/framework/modules/media/MediaHandler'
+import DetailsHeaderManager from '../../../middleware/modules/vue/mixins/DetailsHeaderManager'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
@@ -65,11 +66,9 @@ export default {
     EchDisqus,
     EchSliderPeople
   },
-  mixins: [VideoControllerManager, CreditsManager],
+  mixins: [VideoControllerManager, CreditsManager, DetailsHeaderManager],
   // eslint-disable-next-line require-await
-  async asyncData(ctx) {
-    // eslint-disable-next-line no-unused-vars
-    const { app, route, params, store } = ctx
+  async asyncData({ app, route, params, store }) {
     const language = app.i18n.locale
     const movie_id = params.details.split('-')[0]
     const getTvShowDetailsControllerResponse = await beanContainer.getTvShowDetailsController.execute(
@@ -82,17 +81,6 @@ export default {
     const movie = {
       ...getTvShowDetailsControllerResponse
     }
-    ctx.seo({
-      name: getTvShowDetailsControllerResponse._name,
-      title: getTvShowDetailsControllerResponse._name,
-      templateTitle: '%name% - %title%',
-      description: 'Hello World Page',
-      openGraph: {
-        title: getTvShowDetailsControllerResponse._name,
-        site_name: 'kkkdsfksdkf,',
-        image: MediaHandler.getPosterURL(movie._poster_path)
-      }
-    })
     return {
       movies: [movie]
     }

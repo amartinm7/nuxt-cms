@@ -132,8 +132,7 @@ export default {
     '@nuxtjs/robots',
     '~modules/custom-generate.js',
     'vue-social-sharing/nuxt',
-    '@nuxt/http',
-    'nuxt-seo'
+    '@nuxt/http'
   ],
   /*
    ** Axios module configuration
@@ -196,13 +195,6 @@ export default {
      ** You can extend webpack config here
      */
     extend(config, ctx) {}
-  },
-  seo: {
-    // Module options
-    name: '<name of site>',
-    title: '<title default>',
-    templateTitle: '%name% - %title%',
-    description: '<description default>'
   },
   generate: {
     // routes: ['/es', '/en', '/es/movie', '/en/movie']
