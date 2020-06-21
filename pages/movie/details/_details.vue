@@ -45,7 +45,6 @@
 import { BeanContainerRegistry } from '../../../middleware/BeanContainerRegistry'
 import { GetMovieDetailsControllerRequest } from '../../../middleware/modules/movies/getDetails/userapplication/controller/GetMovieDetailsController'
 import VideoControllerManager from '../../../middleware/modules/vue/mixins/VideoControllerManager'
-import DetailsHeaderManager from '../../../middleware/modules/vue/mixins/DetailsHeaderManager'
 import EchSliderPeople from '../../../components/slider/EchSliderPeople'
 import CreditsManager from '../../../middleware/modules/vue/mixins/CreditsManager'
 import EchDisqus from '../../../components/disqus/EchDisqus'
