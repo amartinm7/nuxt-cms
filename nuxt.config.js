@@ -44,15 +44,12 @@ export default {
    ** Headers of the page
    */
   head: {
-    title: process.env.npm_package_name || 'Estrenos Cine Hoy',
-    description:
-      'Estrenos cine hoy, peliculas, series, actores, actrices, TV Shows, movies, actor, actress, movies rating, news, tv networks',
     meta: [
-      { 'http-equiv': 'pragma', content: 'no-cache' },
-      { 'http-equiv': 'cache-control', content: 'no-cache' },
-      { 'http-equiv': 'expires', content: '0' },
+      // { 'http-equiv': 'pragma', content: 'no-cache' },
+      // { 'http-equiv': 'cache-control', content: 'no-cache' },
+      // { 'http-equiv': 'expires', content: '0' },
       { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' }
     ],
     link: [
       {

@@ -20,11 +20,6 @@ export default {
           content: title
         },
         {
-          hid: 'keywords',
-          name: 'keywords',
-          content: keyword
-        },
-        {
           hid: 'description',
           name: 'description',
           content: `${StringHandler.truncate(vm.movies[0]._overview, 155)}`
@@ -46,12 +41,12 @@ export default {
         },
         {
           hid: 'twitter:title',
-          property: 'og:title',
+          property: 'twitter:title',
           content: `${StringHandler.truncate(title, 35)}`
         },
         {
           hid: 'twitter:description',
-          name: 'og:description',
+          name: 'twitter:description',
           content: `${StringHandler.truncate(vm.movies[0]._overview, 65)}`
         },
         {
