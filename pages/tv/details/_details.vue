@@ -52,7 +52,6 @@ import EchSliderVideos from '../../../components/slider/EchSliderVideos'
 import EchSliderPosters from '../../../components/slider/EchSliderPosters'
 import EchTvShowCardDetails from '../../../components/movies/EchTvShowCardDetails'
 import MediaTypes from '../../../middleware/modules/domain/MediaTypes'
-import MediaHandler from '../../../middleware/framework/modules/media/MediaHandler'
 import DetailsHeaderManager from '../../../middleware/modules/vue/mixins/DetailsHeaderManager'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 

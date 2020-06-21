@@ -5,11 +5,11 @@ export default {
   head() {
     const vm = this
     const title = vm.movies[0]._title || vm.movies[0]._name
-    const keyword =
+    const desc =
       'Estrenos cine hoy, peliculas, series, actores, actrices, TV Shows, movies, actor, actress, movies rating, news, tv networks'
     return {
       title: `${StringHandler.truncate(title, 65)}`,
-      description: keyword,
+      description: desc,
       meta: [
         {
           charset: 'utf-8'
@@ -26,7 +26,7 @@ export default {
         },
         {
           hid: 'og:title',
-          property: 'og:title',
+          name: 'og:title',
           content: `${StringHandler.truncate(title, 35)}`
         },
         {
@@ -36,12 +36,12 @@ export default {
         },
         {
           hid: 'og:image',
-          property: 'og:image',
+          name: 'og:image',
           content: MediaHandler.getPosterURL(vm.movies[0]._poster_path)
         },
         {
           hid: 'twitter:title',
-          property: 'twitter:title',
+          name: 'twitter:title',
           content: `${StringHandler.truncate(title, 35)}`
         },
         {
@@ -51,42 +51,42 @@ export default {
         },
         {
           hid: 'twitter:image',
-          property: 'twitter:image',
+          name: 'twitter:image',
           content: MediaHandler.getPosterURL(vm.movies[0]._poster_path)
         },
         {
           hid: 'twitter:url',
-          property: 'twitter:url',
+          name: 'twitter:url',
           content: `www.estrenoscinehoy.com/${vm.$route.path}`
         },
         {
           hid: 'twitter:card',
-          property: 'twitter:card',
+          name: 'twitter:card',
           content: MediaHandler.getPosterURL(vm.movies[0]._poster_path)
         },
         {
           hid: 'og:type',
-          property: 'og:type',
+          name: 'og:type',
           content: 'website'
         },
         {
           hid: 'og:url',
-          property: 'og:url',
+          name: 'og:url',
           content: `www.estrenoscinehoy.com/${vm.$route.path}`
         },
         {
           hid: 'og:site_name',
-          property: 'og:site_name',
+          name: 'og:site_name',
           content: `estrenoscinehoy.com`
         },
         {
           hid: 'og:locale',
-          property: 'og:locale',
+          name: 'og:locale',
           content: `${vm.$i18n.locale}`
         },
         {
           hid: 'og:image:type',
-          property: 'og:image:type',
+          name: 'og:image:type',
           content: 'image/jpeg'
         }
       ]
