@@ -53,6 +53,8 @@ import EchSliderPosters from '../../../components/slider/EchSliderPosters'
 import EchSliderVideos from '../../../components/slider/EchSliderVideos'
 import EchMoviesCardDetail from '../../../components/movies/EchMoviesCardDetails'
 import MediaTypes from '../../../middleware/modules/domain/MediaTypes'
+import StringHandler from '../../../middleware/framework/modules/string/StringHandler'
+import MediaHandler from '../../../middleware/framework/modules/media/MediaHandler'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
@@ -65,7 +67,7 @@ export default {
     EchDisqus,
     EchSliderPeople
   },
-  mixins: [VideoControllerManager, DetailsHeaderManager, CreditsManager],
+  mixins: [VideoControllerManager, CreditsManager],
   // eslint-disable-next-line require-await
   async asyncData({ app, route, params, store, context }) {
     const language = app.i18n.locale
@@ -94,6 +96,101 @@ export default {
       movie_title: '',
       movie_id: 0,
       mediaType: MediaTypes.movie
+    }
+  },
+  head() {
+    const vm = this
+    const title = vm.movies[0]._title || vm.movies[0]._name
+    const keyword =
+      'Estrenos cine hoy, peliculas, series, actores, actrices, TV Shows, movies, actor, actress, movies rating, news, tv networks'
+    return {
+      title: `${StringHandler.truncate(title, 65)}`,
+      description: keyword,
+      meta: [
+        {
+          charset: 'utf-8'
+        },
+        {
+          hid: 'title',
+          name: 'title',
+          content: title
+        },
+        {
+          hid: 'keywords',
+          name: 'keywords',
+          content: keyword
+        },
+        {
+          hid: 'description',
+          name: 'description',
+          content: `${StringHandler.truncate(vm.movies[0]._overview, 155)}`
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: `${StringHandler.truncate(title, 35)}`
+        },
+        {
+          hid: 'og:description',
+          name: 'og:description',
+          content: `${StringHandler.truncate(vm.movies[0]._overview, 65)}`
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: MediaHandler.getPosterURL(vm.movies[0]._poster_path)
+        },
+        {
+          hid: 'twitter:title',
+          property: 'og:title',
+          content: `${StringHandler.truncate(title, 35)}`
+        },
+        {
+          hid: 'twitter:description',
+          name: 'og:description',
+          content: `${StringHandler.truncate(vm.movies[0]._overview, 65)}`
+        },
+        {
+          hid: 'twitter:image',
+          property: 'twitter:image',
+          content: MediaHandler.getPosterURL(vm.movies[0]._poster_path)
+        },
+        {
+          hid: 'twitter:url',
+          property: 'twitter:url',
+          content: `www.estrenoscinehoy.com/${vm.$route.path}`
+        },
+        {
+          hid: 'twitter:card',
+          property: 'twitter:card',
+          content: MediaHandler.getPosterURL(vm.movies[0]._poster_path)
+        },
+        {
+          hid: 'og:type',
+          property: 'og:type',
+          content: 'website'
+        },
+        {
+          hid: 'og:url',
+          property: 'og:url',
+          content: `www.estrenoscinehoy.com/${vm.$route.path}`
+        },
+        {
+          hid: 'og:site_name',
+          property: 'og:site_name',
+          content: `estrenoscinehoy.com`
+        },
+        {
+          hid: 'og:locale',
+          property: 'og:locale',
+          content: `${vm.$i18n.locale}`
+        },
+        {
+          hid: 'og:image:type',
+          property: 'og:image:type',
+          content: 'image/jpeg'
+        }
+      ]
     }
   }
 }
