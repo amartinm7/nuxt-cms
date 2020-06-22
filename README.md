@@ -148,6 +148,25 @@ source ~/.bash_profile
 npm run dev
 
 
+
+https://search.google.com/structured-data/testing-tool#
+https://metatags.io
+https://developers.facebook.com/apps
+https://developers.facebook.com/tools/explorer
+https://developers.facebook.com/docs/sharing/webmasters#testing
+https://developers.facebook.com/tools/debug/
+
+animations
+https://greensock.com/get-started/
+https://www.youtube.com/watch?v=eY4sXczY5AQ
+
+Vue.js SPA SEO: Prerender & Server-Side Rendering
+https://www.youtube.com/watch?v=HWDcSRHBC9M
+
+https://awesome-nuxt.js.org/resources/official-resources.html
+https://github.com/nuxt-community/awesome-nuxt
+https://strapi.io/blog/build-a-blog-using-nuxt-strapi-and-apollo
+
 https://medium.com/@mrando.via/estructura-de-c%C3%B3digo-de-una-aplicaci%C3%B3n-universal-en-nuxt-js-e6cfeeb66276
 
 https://blog.logrocket.com/how-nuxt-js-solves-the-seo-problems-in-vue-js/

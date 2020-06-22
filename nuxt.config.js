@@ -24,7 +24,6 @@ const dynamicRoutes = () => {
 }
 
 export default {
-  mode: 'universal',
   /**
    * https://nuxtjs.org/api/configuration-env/
    * Note that Nuxt uses webpack's definePlugin to define the environmental variable. This means that the actual process or process.env from Node.js is neither available nor defined. Each of the env properties defined in nuxt.config.js is individually mapped to process.env.xxxx and converted during compilation.

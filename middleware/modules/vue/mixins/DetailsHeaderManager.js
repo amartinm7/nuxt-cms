@@ -10,6 +10,15 @@ export default {
     return {
       title: `${StringHandler.truncate(title, 65)}`,
       description: desc,
+      link: [
+        {
+          rel: 'canonical',
+          href: `www.estrenoscinehoy.com/${vm.$route.path}`
+        }
+      ],
+      htmlAttrs: {
+        lang: `${vm.$i18n.locale}`
+      },
       meta: [
         {
           charset: 'utf-8'
