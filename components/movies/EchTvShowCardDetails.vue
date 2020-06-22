@@ -1,5 +1,8 @@
 <template>
   <div>
+    <h1 class="uk-text-meta uk-text-large ech-basic uk-text-center">
+      {{ movies[0]._name }}
+    </h1>
     <article
       v-for="(movie, index) in movies"
       :key="movie._id"
@@ -30,7 +33,7 @@
           {{ movie._vote_average.toFixed(1) }}
         </span>
         <div class="uk-card-body">
-          <h3 class="uk-card-title ech-basic uk-text-center">
+          <h2 class="uk-card-title ech-basic uk-text-center">
             {{ movie._name }} ({{ movie._first_air_date | moment('YYYY') }})
             <span
               :id="movie._id"
@@ -38,7 +41,7 @@
               @click.stop.prevent="toClipboard(movie._id)"
               >{{ movie._id }}</span
             >
-          </h3>
+          </h2>
           <p>
             <ech-star-rating :rating-value="movie._vote_average / 2">
             </ech-star-rating>

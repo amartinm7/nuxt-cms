@@ -44,17 +44,23 @@ export default {
    */
   head: {
     meta: [
-      // { 'http-equiv': 'pragma', content: 'no-cache' },
-      // { 'http-equiv': 'cache-control', content: 'no-cache' },
-      // { 'http-equiv': 'expires', content: '0' },
+      { 'http-equiv': 'pragma', content: 'no-cache' },
+      { 'http-equiv': 'cache-control', content: 'no-cache' },
+      { 'http-equiv': 'expires', content: '0' },
       { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' }
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { name: 'theme-color', content: 'currentcolor' }
     ],
     link: [
       {
         rel: 'icon',
         type: 'image/x-icon',
         href: '/favicon.ico'
+      },
+      {
+        rel: 'apple-touch-icon',
+        type: 'image/x-icon',
+        href: '/manifest-icon-512.png'
       },
       {
         rel: 'stylesheet',
