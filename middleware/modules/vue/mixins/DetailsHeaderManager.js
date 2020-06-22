@@ -13,7 +13,7 @@ export default {
       link: [
         {
           rel: 'canonical',
-          href: `www.estrenoscinehoy.com/${vm.$route.path}`
+          href: `www.estrenoscinehoy.com${vm.$route.path}`
         }
       ],
       htmlAttrs: {
@@ -66,7 +66,7 @@ export default {
         {
           hid: 'twitter:url',
           name: 'twitter:url',
-          content: `www.estrenoscinehoy.com/${vm.$route.path}`
+          content: `www.estrenoscinehoy.com${vm.$route.path}`
         },
         {
           hid: 'twitter:card',
@@ -81,7 +81,7 @@ export default {
         {
           hid: 'og:url',
           name: 'og:url',
-          content: `www.estrenoscinehoy.com/${vm.$route.path}`
+          content: `www.estrenoscinehoy.com${vm.$route.path}`
         },
         {
           hid: 'og:site_name',
@@ -102,32 +102,3 @@ export default {
     }
   }
 }
-/**
-<!-- Primary Meta Tags -->
-<title>estrenoscinehoy</title>
-<meta name="title" content="estrenoscinehoy">
-  <meta name="description" content="dfdsfdfdsfdsfdsffddfdsf dsf
-
-sdfadsfdf
-sdfdsfdsf">
-
-<!-- Open Graph / Facebook -->
-<meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.estrenoscinehoy.com/es/movie/details/475430-artemis-fowl">
-  <meta property="og:title" content="estrenoscinehoy">
-  <meta property="og:description" content="dfdsfdfdsfdsfdsffddfdsf dsf
-
-sdfadsfdf
-sdfdsfdsf">
-<meta property="og:image" content="">
-
-  <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="https://www.estrenoscinehoy.com/es/movie/details/475430-artemis-fowl">
-  <meta property="twitter:title" content="estrenoscinehoy">
-  <meta property="twitter:description" content="dfdsfdfdsfdsfdsffddfdsf dsf
-
-sdfadsfdf
-sdfdsfdsf">
-<meta property="twitter:image" content="">
-**/

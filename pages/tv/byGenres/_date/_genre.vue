@@ -42,15 +42,15 @@ import EchHeaderMain from '../../../../layouts/header/EchHeaderMain'
 import EchSliderMain from '../../../../components/slider/EchSliderMain'
 import EchTvShowCard from '../../../../components/movies/EchTvShowCard'
 import VideoControllerManager from '../../../../middleware/modules/vue/mixins/VideoControllerManager'
-import GenresHeaderManager from '../../../../middleware/modules/vue/mixins/GenresHeaderManager'
 import { FindTvShowsByControllerRequest } from '../../../../middleware/modules/tvShows/findBy/userapplication/controller/FindTvShowsByController'
 import MediaTypes from '../../../../middleware/modules/domain/MediaTypes'
+import DetailsHeaderManager from '../../../../middleware/modules/vue/mixins/DetailsHeaderManager'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
   name: 'EchTvShowsByGenres',
   components: { EchHeaderMain, EchSliderMain, EchTvShowCard },
-  mixins: [VideoControllerManager, GenresHeaderManager],
+  mixins: [VideoControllerManager, DetailsHeaderManager],
   // eslint-disable-next-line require-await
   async asyncData({ app, params, query }) {
     const language = app.i18n.locale
@@ -67,7 +67,7 @@ export default {
         sortedBy: queryParamsSortedBy
       })
     )
-    return { trendingTVShows }
+    return { trendingTVShows, movies: trendingTVShows._results }
   },
   data() {
     return {
@@ -77,6 +77,7 @@ export default {
         _total_results: 1,
         _results: []
       },
+      movies: [],
       mediaType: MediaTypes.tv
     }
   }

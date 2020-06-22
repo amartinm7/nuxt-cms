@@ -43,11 +43,12 @@ import EchHeaderMain from '../../../layouts/header/EchHeaderMain'
 import VideoControllerManager from '../../../middleware/modules/vue/mixins/VideoControllerManager'
 import UpcomingManager from '../../../middleware/modules/vue/mixins/UpcomingManager'
 import MediaTypes from '../../../middleware/modules/domain/MediaTypes'
+import DetailsHeaderManager from '../../../middleware/modules/vue/mixins/DetailsHeaderManager'
 
 export default {
   name: 'EchTvshowUpcoming',
   components: { EchHeaderMain, EchSliderMain, EchTvShowCard },
-  mixins: [VideoControllerManager, UpcomingManager],
+  mixins: [VideoControllerManager, UpcomingManager, DetailsHeaderManager],
   // eslint-disable-next-line require-await
   async asyncData({ app, params, store, route }) {
     const language = app.i18n.locale
@@ -60,7 +61,7 @@ export default {
       mediaType,
       action
     }).execute({ language })
-    return { trendingTVShows }
+    return { trendingTVShows, movies: trendingTVShows._results }
   },
   data() {
     return {
@@ -70,6 +71,7 @@ export default {
         _total_results: 1,
         _results: []
       },
+      movies: [],
       mediaType: MediaTypes.tv
     }
   }

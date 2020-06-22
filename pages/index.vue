@@ -74,7 +74,7 @@ import EchSliderMain from '../components/slider/EchSliderMain'
 import EchHeaderMain from '../layouts/header/EchHeaderMain'
 import VideoControllerManager from '../middleware/modules/vue/mixins/VideoControllerManager'
 import MediaTypes from '../middleware/modules/domain/MediaTypes'
-import StringHandler from '../middleware/framework/modules/string/StringHandler'
+import DetailsHeaderManager from '../middleware/modules/vue/mixins/DetailsHeaderManager'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
@@ -85,7 +85,7 @@ export default {
     EchTvShowCard,
     EchMoviesCard
   },
-  mixins: [VideoControllerManager],
+  mixins: [VideoControllerManager, DetailsHeaderManager],
   // eslint-disable-next-line require-await
   async asyncData({ app, params, store }) {
     const language = app.i18n.locale
@@ -101,7 +101,7 @@ export default {
     const trendingTVShows = {
       ...getTrendingTVShowsResponse
     }
-    return { trendingMovies, trendingTVShows }
+    return { trendingMovies, trendingTVShows, movies: trendingMovies._results }
   },
   data() {
     return {
@@ -117,6 +117,7 @@ export default {
         _total_results: 1,
         _results: []
       },
+      movies: [],
       mediaType: MediaTypes.movie,
       trendingResults: {}
     }
@@ -134,25 +135,6 @@ export default {
           ? self.trendingMovies
           : self.trendingTVShows
     })
-  },
-  head() {
-    const vm = this
-    const title = vm.$i18n.messages[vm.$i18n.locale].seo.index
-    const keyword =
-      'Estrenos cine hoy, peliculas, series, actores, actrices, TV Shows, movies, actor, actress, movies rating, news, tv networks'
-    return {
-      title: `${StringHandler.truncate(title, 65)}`,
-      meta: [
-        {
-          charset: 'utf-8'
-        },
-        {
-          hid: 'description',
-          name: 'description',
-          content: `${StringHandler.truncate(keyword, 155)}`
-        }
-      ]
-    }
   }
 }
 </script>
