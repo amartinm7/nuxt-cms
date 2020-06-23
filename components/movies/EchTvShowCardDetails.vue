@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="uk-text-meta uk-text-large ech-basic uk-text-center uk-hidden@s">
+    <h1 class="uk-text-large ech-basic uk-text-center uk-hidden@s">
       {{ movies[0]._name }}
     </h1>
     <h1 class="ech-basic uk-text-center uk-visible@s">
