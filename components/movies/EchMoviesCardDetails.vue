@@ -1,6 +1,9 @@
 <template>
   <div>
-    <h1 class="uk-text-meta uk-text-large ech-basic uk-text-center">
+    <h1 class="uk-text-meta uk-text-large ech-basic uk-text-center uk-hidden@s">
+      {{ movies[0]._title }}
+    </h1>
+    <h1 class="ech-basic uk-text-center uk-visible@s">
       {{ movies[0]._title }}
     </h1>
     <article
