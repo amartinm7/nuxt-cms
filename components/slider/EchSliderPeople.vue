@@ -22,7 +22,12 @@
             :to="getPeoplePathURL(credit.id, credit.name)"
           >
             <div class="uk-panel">
-              <img :src="getPosterURL(credit.profile_path)" alt="credit.name" />
+              <img
+                :src="getPosterURL(credit.profile_path)"
+                :alt="credit.name"
+                :title="credit.name"
+                loading="lazy"
+              />
               <div
                 class="uk-overlay uk-overlay-primary uk-position-bottom uk-text-center uk-transition-slide-bottom"
               >

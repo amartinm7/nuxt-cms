@@ -22,6 +22,8 @@
               class="ech-default-img"
               :src="getPosterURL(movie._poster_path, index)"
               :alt="movie._name"
+              :title="movie._name"
+              loading="lazy"
             />
           </a>
         </div>

@@ -19,7 +19,12 @@
         <li v-for="video in videos" :key="video._id.id" :todo="video">
           <div class="uk-panel">
             <a @click="initVideoURL(video._id.key)">
-              <img :src="getPosterURL(posterPath)" alt="poster.name" />
+              <img
+                :src="getPosterURL(posterPath)"
+                :alt="video._id.id"
+                :title="video._id.id"
+                loading="lazy"
+              />
               <div
                 class="uk-overlay uk-overlay-primary uk-position-bottom uk-text-center uk-transition-slide-bottom"
               >

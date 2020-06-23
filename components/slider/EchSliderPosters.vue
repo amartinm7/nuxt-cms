@@ -18,7 +18,12 @@
         <a name="echSliderPosters"></a>
         <li v-for="poster in posters" :key="poster._file_path" :todo="poster">
           <div class="uk-panel">
-            <img :src="getPosterURL(poster._file_path)" alt="poster.name" />
+            <img
+              :src="getPosterURL(poster._file_path)"
+              :alt="poster._file_path"
+              :title="poster._file_path"
+              loading="lazy"
+            />
           </div>
         </li>
       </ul>
