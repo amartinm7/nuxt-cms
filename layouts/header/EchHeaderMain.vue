@@ -7,6 +7,9 @@
       >
         <img
           src="https://image.tmdb.org/t/p/w1000_and_h563_face/6ZdQTBy20HzWudZthAV7NkZWfIb.jpg"
+          alt="flash"
+          title="flash"
+          loading="lazy"
         />
       </a>
     </div>

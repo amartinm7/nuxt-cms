@@ -11,7 +11,9 @@
           <div class="nav-overlay uk-navbar-left">
             <nuxt-link class="uk-navbar-item uk-logo" :to="localePath('/')">
               <img
-                alt=""
+                alt="EstrenosCineHoy"
+                title="EstrenosCineHoy"
+                loading="lazy"
                 src="../../assets/logo/vector/default-monochrome-black.svg"
                 style="width: 200px"
               />
@@ -248,11 +250,15 @@
             <nuxt-link :to="localePath('/')" class="uk-logo">
               <img
                 alt="EstrenosCineHoy"
+                title="EstrenosCineHoy"
+                loading="lazy"
                 src="../../assets/logo/vector/default-monochrome-black.svg"
                 style="width: 400px"/>
               <img
                 class="uk-logo-inverse"
                 alt="EstrenosCineHoy"
+                title="EstrenosCineHoy"
+                loading="lazy"
                 src="../../assets/logo/vector/default-monochrome-white.svg"
                 style="width: 400px"
             /></nuxt-link>

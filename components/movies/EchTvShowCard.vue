@@ -18,6 +18,8 @@
             <img
               class="ech-default-img"
               :src="getPosterURL(movie._poster_path, index)"
+              :title="movie._name"
+              loading="lazy"
               :alt="movie._name"
             />
           </a>
@@ -30,7 +32,7 @@
           {{ movie._vote_average.toFixed(1) }}
         </span>
         <div class="uk-card-body">
-          <h3 class="uk-card-title ech-basic uk-text-center">
+          <h2 class="uk-card-title ech-basic uk-text-center">
             <nuxt-link
               class="uk-link-reset"
               :to="getDetailPathURL(movie._id, movie._name, mediaType)"
@@ -42,7 +44,7 @@
               @click.stop.prevent="toClipboard(movie._id)"
               >{{ movie._id }}</span
             >
-          </h3>
+          </h2>
           <p>
             <ech-star-rating :rating-value="movie._vote_average / 2">
             </ech-star-rating>

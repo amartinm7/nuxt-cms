@@ -8,7 +8,9 @@
               <nuxt-link class="uk-navbar-item uk-logo" :to="localePath('/')">
                 <img
                   class="el-image"
-                  alt="Ech"
+                  alt="EstrenosCineHoy"
+                  title="EstrenosCineHoy"
+                  loading="lazy"
                   uk-img=""
                   src="../../assets/logo/vector/default-monochrome-white.svg"
                   style="width: 200px;"

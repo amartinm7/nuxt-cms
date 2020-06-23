@@ -8,7 +8,9 @@
           style="cursor: default"
           ><img
             src="../../assets/logo/vector/default-monochrome-black.svg"
-            alt="logo"
+            alt="EstrenosCineHoy"
+            title="EstrenosCineHoy"
+            loading="lazy"
             style="width: 50%"
             uk-svg
         /></nuxt-link>

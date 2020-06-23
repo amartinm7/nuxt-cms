@@ -23,6 +23,8 @@
             <img
               :src="getPosterURL(movie._poster_path)"
               :alt="movie._title || movie._name"
+              :title="movie._title || movie._name"
+              loading="lazy"
             />
             <div class="uk-position-center uk-panel"></div>
           </nuxt-link>
