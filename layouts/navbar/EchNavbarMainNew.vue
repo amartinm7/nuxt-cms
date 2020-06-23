@@ -2,7 +2,7 @@
   <div>
     <div class="uk-hidden@m">
       <div
-        uk-sticky=""
+        uk-sticky="show-on-up: true; animation: uk-animation-slide-top; bottom: #bottom"
         cls-active="uk-navbar-sticky"
         sel-target=".uk-navbar-container"
         class="uk-sticky"
@@ -266,7 +266,7 @@
         </div>
       </div>
       <div
-        uk-sticky=""
+        uk-sticky="show-on-up: true; animation: uk-animation-slide-top; bottom: #bottom"
         media="@m"
         cls-active="uk-navbar-sticky"
         sel-target=".uk-navbar-container"
