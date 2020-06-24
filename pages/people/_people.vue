@@ -16,6 +16,9 @@ import EchDisqus from '../../components/disqus/EchDisqus'
 import { GetPeopleDetailsControllerRequest } from '../../middleware/modules/people/getDetails/userapplication/controller/GetPeopleDetailsController'
 import { BeanContainerRegistry } from '../../middleware/BeanContainerRegistry'
 import EchPeopleCardDetails from '../../components/movies/EchPeopleCardDetails'
+import DetailsHeaderManager from '../../middleware/modules/vue/mixins/DetailsHeaderManager'
+import RequestDetailsHeaderManager from '../../middleware/modules/vue/mixins/RequestDetailsHeaderManager'
+import DetailsPeopleManager from '../../middleware/modules/vue/mixins/DetailsPeopleManager'
 
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
@@ -26,6 +29,11 @@ export default {
     EchPeopleCardDetails,
     EchDisqus
   },
+  mixins: [
+    DetailsHeaderManager,
+    RequestDetailsHeaderManager,
+    DetailsPeopleManager
+  ],
   // eslint-disable-next-line require-await
   async asyncData({ app, route, params, store }) {
     const language = app.i18n.locale
@@ -43,8 +51,7 @@ export default {
   },
   data() {
     return {
-      people: {},
-      requestHeader: {}
+      people: {}
     }
   }
 }
