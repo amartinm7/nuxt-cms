@@ -53,6 +53,7 @@ import EchSliderPosters from '../../../components/slider/EchSliderPosters'
 import EchTvShowCardDetails from '../../../components/movies/EchTvShowCardDetails'
 import MediaTypes from '../../../middleware/modules/domain/MediaTypes'
 import DetailsHeaderManager from '../../../middleware/modules/vue/mixins/DetailsHeaderManager'
+import RequestDetailsHeaderManager from '../../../middleware/modules/vue/mixins/RequestDetailsHeaderManager'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
@@ -65,7 +66,12 @@ export default {
     EchDisqus,
     EchSliderPeople
   },
-  mixins: [VideoControllerManager, CreditsManager, DetailsHeaderManager],
+  mixins: [
+    VideoControllerManager,
+    CreditsManager,
+    DetailsHeaderManager,
+    RequestDetailsHeaderManager
+  ],
   // eslint-disable-next-line require-await
   async asyncData({ app, route, params, store }) {
     const language = app.i18n.locale

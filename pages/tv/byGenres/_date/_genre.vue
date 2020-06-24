@@ -67,7 +67,7 @@ export default {
         sortedBy: queryParamsSortedBy
       })
     )
-    return { trendingTVShows, movies: trendingTVShows._results }
+    return { trendingTVShows }
   },
   data() {
     return {
@@ -77,7 +77,6 @@ export default {
         _total_results: 1,
         _results: []
       },
-      movies: [],
       mediaType: MediaTypes.tv
     }
   }

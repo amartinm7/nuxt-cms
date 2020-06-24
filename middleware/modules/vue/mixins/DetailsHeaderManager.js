@@ -3,21 +3,30 @@ import StringHandler from '../../../framework/modules/string/StringHandler'
 
 export default {
   head() {
-    const vm = this
-    const title = vm.movies[0]._title || vm.movies[0]._name
-    const desc =
-      'Estrenos cine hoy, peliculas, series, actores, actrices, TV Shows, movies, actor, actress, movies rating, news, tv networks'
+    const { title, overview, posterPath } = {
+      ...this.requestHeader
+    }
+    console.log('head')
+    console.log(this.requestHeader)
+    const defaultDesc =
+      'Estrenos cine hoy: toda la info sobre películas, seríes, actores, actrices, TV Shows y programación. Movies, actor, actress, movies rating, news, tv networks'
+    const routePath = this.$route.path
+    const language = this.$i18n.locale
+    const defaultTitle = title || 'EstrenosCineHoy'
+    const defaultDescription = overview || defaultDesc
+    const overviewDefault = overview || defaultDesc
+    const defaultPosterPath = posterPath || '/manifest-icon-512.png'
     return {
-      title: `${StringHandler.truncate(title, 65)}`,
-      description: desc,
+      title: `${StringHandler.truncate(defaultTitle, 65)}`,
+      description: defaultDescription,
       link: [
         {
           rel: 'canonical',
-          href: `www.estrenoscinehoy.com${vm.$route.path}`
+          href: `${routePath}`
         }
       ],
       htmlAttrs: {
-        lang: `${vm.$i18n.locale}`
+        lang: `${language}`
       },
       meta: [
         {
@@ -26,52 +35,52 @@ export default {
         {
           hid: 'title',
           name: 'title',
-          content: title
+          content: defaultTitle
         },
         {
           hid: 'description',
           name: 'description',
-          content: `${StringHandler.truncate(vm.movies[0]._overview, 155)}`
+          content: `${StringHandler.truncate(overviewDefault, 155)}`
         },
         {
           hid: 'og:title',
           name: 'og:title',
-          content: `${StringHandler.truncate(title, 35)}`
+          content: `${StringHandler.truncate(defaultTitle, 35)}`
         },
         {
           hid: 'og:description',
           name: 'og:description',
-          content: `${StringHandler.truncate(vm.movies[0]._overview, 65)}`
+          content: `${StringHandler.truncate(overviewDefault, 65)}`
         },
         {
           hid: 'og:image',
           name: 'og:image',
-          content: MediaHandler.getPosterURL(vm.movies[0]._poster_path)
+          content: MediaHandler.getPosterURL(defaultPosterPath)
         },
         {
           hid: 'twitter:title',
           name: 'twitter:title',
-          content: `${StringHandler.truncate(title, 35)}`
+          content: `${StringHandler.truncate(defaultTitle, 35)}`
         },
         {
           hid: 'twitter:description',
           name: 'twitter:description',
-          content: `${StringHandler.truncate(vm.movies[0]._overview, 65)}`
+          content: `${StringHandler.truncate(overviewDefault, 65)}`
         },
         {
           hid: 'twitter:image',
           name: 'twitter:image',
-          content: MediaHandler.getPosterURL(vm.movies[0]._poster_path)
+          content: MediaHandler.getPosterURL(defaultPosterPath)
         },
         {
           hid: 'twitter:url',
           name: 'twitter:url',
-          content: `www.estrenoscinehoy.com${vm.$route.path}`
+          content: `www.estrenoscinehoy.com${routePath}`
         },
         {
           hid: 'twitter:card',
           name: 'twitter:card',
-          content: MediaHandler.getPosterURL(vm.movies[0]._poster_path)
+          content: MediaHandler.getPosterURL(defaultPosterPath)
         },
         {
           hid: 'og:type',
@@ -81,7 +90,7 @@ export default {
         {
           hid: 'og:url',
           name: 'og:url',
-          content: `www.estrenoscinehoy.com${vm.$route.path}`
+          content: `www.estrenoscinehoy.com${routePath}`
         },
         {
           hid: 'og:site_name',
@@ -91,7 +100,7 @@ export default {
         {
           hid: 'og:locale',
           name: 'og:locale',
-          content: `${vm.$i18n.locale}`
+          content: `${language}`
         },
         {
           hid: 'og:image:type',

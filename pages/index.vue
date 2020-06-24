@@ -101,7 +101,7 @@ export default {
     const trendingTVShows = {
       ...getTrendingTVShowsResponse
     }
-    return { trendingMovies, trendingTVShows, movies: trendingMovies._results }
+    return { trendingMovies, trendingTVShows }
   },
   data() {
     return {
@@ -117,9 +117,9 @@ export default {
         _total_results: 1,
         _results: []
       },
-      movies: [],
       mediaType: MediaTypes.movie,
-      trendingResults: {}
+      trendingResults: {},
+      requestHeader: {}
     }
   },
   mounted() {

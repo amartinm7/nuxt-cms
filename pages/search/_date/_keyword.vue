@@ -50,7 +50,7 @@ export default {
     const multiSearch = {
       ...getMultiSearchByTitleControllerResponse
     }
-    return { multiSearch, movies: multiSearch._results }
+    return { multiSearch }
   },
   data() {
     return {
@@ -60,7 +60,7 @@ export default {
         _total_results: 1,
         _results: []
       },
-      movies: []
+      requestHeader: {}
     }
   }
 }

@@ -1,5 +1,11 @@
 <template>
   <div>
+    <h1 class="uk-text-large ech-basic uk-text-center uk-hidden@s">
+      {{ people._name }}
+    </h1>
+    <h1 class="ech-basic uk-text-center uk-visible@s">
+      {{ people._name }}
+    </h1>
     <article
       class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin ech-scrollspy-effect"
       uk-grid
@@ -13,6 +19,8 @@
               class="ech-default-img"
               :src="getPosterURL(people._profile_path)"
               :alt="people._name"
+              :title="people._name"
+              loading="lazy"
             />
           </a>
         </div>

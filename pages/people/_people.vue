@@ -43,7 +43,8 @@ export default {
   },
   data() {
     return {
-      people: {}
+      people: {},
+      requestHeader: {}
     }
   }
 }

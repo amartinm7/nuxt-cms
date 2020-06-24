@@ -69,7 +69,7 @@ export default {
         sortedBy: queryParamsSortedBy
       })
     )
-    return { trendingMovies, movies: trendingMovies._results }
+    return { trendingMovies }
   },
   data() {
     return {
@@ -79,7 +79,6 @@ export default {
         _total_results: 1,
         _results: []
       },
-      movies: [],
       mediaType: MediaTypes.movie
     }
   }
