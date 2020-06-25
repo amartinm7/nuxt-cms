@@ -49,6 +49,7 @@
                 class="uk-label uk-label-success ech-basic"
                 uk-icon="icon: location; ratio: 0.75;"
               >
+                {{ $t('origin') }}:
                 {{ people._place_of_birth }}
               </span>
 
@@ -57,6 +58,7 @@
                 class="uk-label uk-label-success ech-basic"
                 uk-icon="icon: calendar; ratio: 0.75;"
               >
+                {{ $t('birthDay') }}:
                 {{ people._birthday | moment('DD-MMMM-YYYY') }}
               </span>
 
@@ -65,7 +67,7 @@
                 class="uk-label uk-label-success ech-basic"
                 uk-icon="icon: user; ratio: 0.75;"
               >
-                known_for: {{ people._known_for_department }}
+                {{ $t('knownFor') }}: {{ people._known_for_department }}
               </span>
             </div>
           </div>
