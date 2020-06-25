@@ -6,8 +6,6 @@ export default {
     const { title, overview, posterPath } = {
       ...this.requestHeader
     }
-    console.log('head')
-    console.log(this.requestHeader)
     const defaultDesc =
       'Estrenos cine hoy: toda la info sobre películas, seríes, actores, actrices, TV Shows y programación. Movies, actor, actress, movies rating, news, tv networks'
     const routePath = this.$route.path

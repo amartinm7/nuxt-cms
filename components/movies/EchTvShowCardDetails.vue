@@ -61,22 +61,22 @@
                   v-if="movie._first_air_date"
                   class="uk-label uk-label-success ech-basic"
                   uk-icon="icon: calendar; ratio: 0.75;"
-                >
+                  >{{ $t('firstAirDate') }}:
                   {{ movie._first_air_date | moment('DD-MMMM-YYYY') }}
                 </span>
                 <span
                   v-if="movie._origin_countryToString"
                   class="uk-label uk-label-success ech-basic"
-                  uk-icon="icon: clock; ratio: 0.75;"
-                >
-                  {{ movie._origin_countryToString }}
+                  uk-icon="icon: location; ratio: 0.75;"
+                  >{{ $t('productionCountry') }}:
+                  {{ getCountryNameFrom(movie._origin_countryToString) }}
                 </span>
                 <span
                   v-if="movie._original_language[0]"
                   class="uk-label uk-label-success ech-basic"
-                  uk-icon="icon: location; ratio: 0.75;"
-                >
-                  {{ movie._original_language }}
+                  uk-icon="icon: world; ratio: 0.75;"
+                  >{{ $t('originalLanguage') }}:
+                  {{ getLanguageNameFrom(movie._original_language) }}
                 </span>
               </p>
             </div>

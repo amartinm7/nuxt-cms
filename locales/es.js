@@ -2,8 +2,12 @@ import moviesGenres from './es/genres/movie/genres'
 import tvGenres from './es/genres/tv/genres'
 import moviesSortedBy from './es/genres/movie/sortedBy'
 import tvGenresSortedBy from './es/genres/tv/sortedBy'
+import countries from './es/countries'
+import languages from './es/languages'
 
 export default {
+  countries,
+  languages,
   genres: {
     movie: moviesGenres.genres,
     tv: tvGenres.genres
@@ -56,8 +60,9 @@ export default {
     trailers: 'Trailers'
   },
   as: 'como',
-  releaseDate: 'Fecha',
+  releaseDate: 'Fecha de estreno',
   firstAirDate: 'En emision desde',
+  originalLanguage: 'Idioma Original',
   label_sortedBy: 'Orden',
   label_genreBy: 'Género',
   label_genresBy: 'Géneros',

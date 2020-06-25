@@ -2,8 +2,12 @@ import moviesGenres from './en/genres/movie/genres'
 import tvGenres from './en/genres/tv/genres'
 import moviesSortedBy from './en/genres/movie/sortedBy'
 import tvGenresSortedBy from './en/genres/tv/sortedBy'
+import countries from './en/countries'
+import languages from './en/languages'
 
 export default {
+  countries,
+  languages,
   genres: {
     movie: moviesGenres.genres,
     tv: tvGenres.genres
@@ -58,6 +62,7 @@ export default {
   as: 'as',
   releaseDate: 'Release Date',
   firstAirDate: 'First Air Date',
+  originalLanguage: 'Original Language',
   label_sortedBy: 'Sorted By',
   label_genreBy: 'Genre',
   label_genresBy: 'Genres',

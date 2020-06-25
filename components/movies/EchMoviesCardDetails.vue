@@ -77,7 +77,11 @@
                   class="uk-label uk-label-success ech-basic"
                   uk-icon="icon: location; ratio: 0.75;"
                   >{{ $t('productionCountry') }}:
-                  {{ movie._production_countries[0]._iso_3166_1 }}
+                  {{
+                    getCountryNameFrom(
+                      movie._production_countries[0]._iso_3166_1
+                    )
+                  }}
                 </span>
               </p>
             </div>
