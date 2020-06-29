@@ -135,50 +135,10 @@
                 {{ movie._homepage }}
               </a>
             </p>
-            <div class="uk-flex uk-flex-center">
-              <ShareNetwork
-                network="facebook"
-                url="https://www.estrenoscinehoy.com/en/movie/details/475430-artemis-fowl"
-                title="Say hi to Vite! A brand new, extremely fast development setup for Vue."
-                description="This week, I’d like to introduce you to 'Vite', which means 'Fast'. It’s a brand new development setup created by Evan You."
-                quote="The hot reload is so fast it\'s near instant. - Evan You"
-                hashtags="estrenoscinehoy"
-                class="uk-link-muted"
-              >
-                <span
-                  class="uk-icon uk-margin-small-right ech-spin-icon"
-                  uk-icon="facebook"
-                ></span>
-              </ShareNetwork>
-              <ShareNetwork
-                network="twitter"
-                url="https://www.estrenoscinehoy.com/en/movie/details/475430-artemis-fowl"
-                title="Say hi to Vite! A brand new, extremely fast development setup for Vue."
-                description="This week, I’d like to introduce you to 'Vite', which means 'Fast'. It’s a brand new development setup created by Evan You."
-                quote="The hot reload is so fast it\'s near instant. - Evan You"
-                hashtags="estrenoscinehoy"
-                class="uk-link-muted"
-              >
-                <span
-                  class="uk-icon uk-margin-small-right ech-spin-icon"
-                  uk-icon="twitter"
-                ></span>
-              </ShareNetwork>
-              <ShareNetwork
-                network="whatsapp"
-                url="https://www.estrenoscinehoy.com/en/movie/details/475430-artemis-fowl"
-                title="Say hi to Vite! A brand new, extremely fast development setup for Vue."
-                description="This week, I’d like to introduce you to 'Vite', which means 'Fast'. It’s a brand new development setup created by Evan You."
-                quote="The hot reload is so fast it\'s near instant. - Evan You"
-                hashtags="estrenoscinehoy"
-                class="uk-link-muted"
-              >
-                <span
-                  class="uk-icon uk-margin-small-right ech-spin-icon"
-                  uk-icon="whatsapp"
-                ></span>
-              </ShareNetwork>
-            </div>
+            <ech-social-network-card-details
+              :title="movie._name"
+              :description="movie._overview"
+            ></ech-social-network-card-details>
           </div>
         </div>
       </div>
@@ -202,11 +162,12 @@ import MediaTypes from '../../middleware/modules/domain/MediaTypes'
 import LocateManager from '../../middleware/modules/vue/mixins/LocateManager'
 import Utils from '../../middleware/modules/vue/mixins/Utils'
 import EchStarRating from './EchStarRating'
+import EchSocialNetworkCardDetails from './EchSocialNetworkCardDetails'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
   name: 'EchTvShowCardDetails',
-  components: { EchStarRating },
+  components: { EchSocialNetworkCardDetails, EchStarRating },
   mixins: [MediaManager, LocateManager, Utils],
   props: {
     movies: {
