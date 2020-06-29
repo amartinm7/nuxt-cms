@@ -13,7 +13,8 @@ export default {
     const defaultTitle = title || 'EstrenosCineHoy'
     const defaultDescription = overview || defaultDesc
     const overviewDefault = overview || defaultDesc
-    const defaultPosterPath = posterPath || '/manifest-icon-512.png'
+    const defaultPosterPath =
+      posterPath || 'www.estrenoscinehoy.com/manifest-icon-512.png'
     return {
       title: `${StringHandler.truncate(defaultTitle, 65)}`,
       description: defaultDescription,
