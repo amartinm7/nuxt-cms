@@ -170,3 +170,17 @@ https://strapi.io/blog/build-a-blog-using-nuxt-strapi-and-apollo
 https://medium.com/@mrando.via/estructura-de-c%C3%B3digo-de-una-aplicaci%C3%B3n-universal-en-nuxt-js-e6cfeeb66276
 
 https://blog.logrocket.com/how-nuxt-js-solves-the-seo-problems-in-vue-js/
+
+https://github.com/i62navpm/Tutorial-Nuxt#que-nuxt-renderizado
+
+https://metatags.io
+
+
+https://cards-dev.twitter.com/validator
+<meta property="twitter:card" content="summary">
+<meta property="twitter:site" content="simplytestable">
+<meta property="twitter:title" content="Title Here">
+<meta property="twitter:description" content="Description Here">
+<meta property="twitter:creator" content="simplytestable">
+<meta property="twitter:image:src" content="http://placehold.it/350x150">        
+<meta property="twitter:domain" content="simplytestable.com">

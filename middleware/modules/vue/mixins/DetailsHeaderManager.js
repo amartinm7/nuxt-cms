@@ -34,7 +34,7 @@ export default {
         {
           hid: 'title',
           name: 'title',
-          content: defaultTitle
+          content: `${StringHandler.truncate(defaultTitle, 65)}`
         },
         {
           hid: 'description',
@@ -42,19 +42,54 @@ export default {
           content: `${StringHandler.truncate(overviewDefault, 155)}`
         },
         {
+          hid: 'og:type',
+          property: 'og:type',
+          content: 'website'
+        },
+        {
           hid: 'og:title',
-          name: 'og:title',
+          property: 'og:title',
           content: `${StringHandler.truncate(defaultTitle, 35)}`
         },
         {
           hid: 'og:description',
-          name: 'og:description',
+          property: 'og:description',
           content: `${StringHandler.truncate(overviewDefault, 65)}`
         },
         {
           hid: 'og:image',
-          name: 'og:image',
-          content: MediaHandler.getPosterURL(defaultPosterPath)
+          property: 'og:image',
+          content: MediaHandler.getPoster2XURL(defaultPosterPath)
+        },
+        {
+          hid: 'og:url',
+          property: 'og:url',
+          content: `www.estrenoscinehoy.com${routePath}`
+        },
+        {
+          hid: 'og:site_name',
+          property: 'og:site_name',
+          content: `estrenoscinehoy.com`
+        },
+        {
+          hid: 'og:locale',
+          property: 'og:locale',
+          content: `es`
+        },
+        {
+          hid: 'og:image:type',
+          property: 'og:image:type',
+          content: 'image/jpeg'
+        },
+        {
+          hid: 'twitter:card',
+          property: 'twitter:card',
+          content: `${StringHandler.truncate(overviewDefault, 65)}`
+        },
+        {
+          hid: 'twitter:site',
+          property: 'twitter:site',
+          content: 'estrenoscinehoy'
         },
         {
           hid: 'twitter:title',
@@ -67,6 +102,21 @@ export default {
           content: `${StringHandler.truncate(overviewDefault, 65)}`
         },
         {
+          hid: 'twitter:creator',
+          property: 'twitter:creator',
+          content: 'estrenoscinehoy'
+        },
+        {
+          hid: 'twitter:image:src',
+          property: 'twitter:image:src',
+          content: MediaHandler.getPosterURL(defaultPosterPath)
+        },
+        {
+          hid: 'twitter:domain',
+          property: 'twitter:domain',
+          content: 'estrenoscinehoy.com'
+        },
+        {
           hid: 'twitter:image',
           name: 'twitter:image',
           content: MediaHandler.getPosterURL(defaultPosterPath)
@@ -75,36 +125,6 @@ export default {
           hid: 'twitter:url',
           name: 'twitter:url',
           content: `www.estrenoscinehoy.com${routePath}`
-        },
-        {
-          hid: 'twitter:card',
-          name: 'twitter:card',
-          content: MediaHandler.getPosterURL(defaultPosterPath)
-        },
-        {
-          hid: 'og:type',
-          name: 'og:type',
-          content: 'website'
-        },
-        {
-          hid: 'og:url',
-          name: 'og:url',
-          content: `www.estrenoscinehoy.com${routePath}`
-        },
-        {
-          hid: 'og:site_name',
-          name: 'og:site_name',
-          content: `estrenoscinehoy.com`
-        },
-        {
-          hid: 'og:locale',
-          name: 'og:locale',
-          content: `${language}`
-        },
-        {
-          hid: 'og:image:type',
-          name: 'og:image:type',
-          content: 'image/jpeg'
         }
       ]
     }
