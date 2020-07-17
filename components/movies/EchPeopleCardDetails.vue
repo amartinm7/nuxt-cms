@@ -17,7 +17,7 @@
           <a class="uk-button uk-button-default uk-align-center">
             <img
               class="ech-default-img"
-              :src="getPosterURL(people._profile_path)"
+              :src="getPoster2XURL(people._profile_path)"
               :alt="people._name"
               :title="people._name"
               loading="lazy"
