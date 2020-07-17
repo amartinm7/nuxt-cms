@@ -45,6 +45,20 @@
         uk-icon="whatsapp"
       ></span>
     </ShareNetwork>
+    <ShareNetwork
+      network="email"
+      :url="currentURL"
+      :title="defaultTitleEmail"
+      :description="defaultDescriptionFacebook"
+      :quote="quote"
+      hashtags="estrenoscinehoy"
+      class="uk-link-muted"
+    >
+      <span
+        class="uk-icon uk-margin-small-right ech-spin-icon"
+        uk-icon="mail"
+      ></span>
+    </ShareNetwork>
   </div>
 </template>
 <script>
@@ -88,6 +102,9 @@ export default {
     },
     defaultDescriptionTwitter() {
       return `${StringHandler.truncate(this.title, 65)}`
+    },
+    defaultTitleEmail() {
+      return `estrenoscinehoy: ${this.title}`
     }
   }
 }
