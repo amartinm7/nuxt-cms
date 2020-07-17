@@ -8,6 +8,9 @@ export default {
     getPosterURL(posterPath) {
       return MediaHandler.getPosterURL(posterPath)
     },
+    getPoster2XURL(posterPath) {
+      return MediaHandler.getPoster2XURL(posterPath)
+    },
     getDetailPathURL(movie_id, movie_title, mediaType) {
       const language = this.$i18n.locale
       const slugger = ServiceLocator.Slugger.sluggify([movie_title])
