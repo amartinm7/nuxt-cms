@@ -109,7 +109,7 @@ export default {
         {
           hid: 'twitter:image:src',
           property: 'twitter:image:src',
-          content: MediaHandler.getPosterURL(defaultPosterPath)
+          content: MediaHandler.getPoster2XURL(defaultPosterPath)
         },
         {
           hid: 'twitter:domain',
@@ -119,7 +119,7 @@ export default {
         {
           hid: 'twitter:image',
           name: 'twitter:image',
-          content: MediaHandler.getPosterURL(defaultPosterPath)
+          content: MediaHandler.getPoster2XURL(defaultPosterPath)
         },
         {
           hid: 'twitter:url',
