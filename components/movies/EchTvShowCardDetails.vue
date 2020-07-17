@@ -17,6 +17,7 @@
         class="uk-position-relative uk-visible-toggle uk-light uk-flex uk-flex-wrap"
       >
         <div class="uk-width-expand">
+          {{ index }}
           <a
             class="uk-button uk-button-default uk-align-center"
             @click="initVideoURL(movie)"

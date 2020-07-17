@@ -14,6 +14,7 @@
         class="uk-position-relative uk-visible-toggle uk-light uk-flex uk-flex-wrap"
       >
         <div class="uk-width-expand">
+          {{ true }}
           <a class="uk-button uk-button-default uk-align-center">
             <img
               class="ech-default-img"
