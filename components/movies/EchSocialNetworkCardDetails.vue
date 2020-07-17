@@ -49,7 +49,7 @@
       network="email"
       :url="currentURL"
       :title="defaultTitleEmail"
-      :description="defaultDescriptionFacebook"
+      :description="description"
       :quote="quote"
       hashtags="estrenoscinehoy"
       class="uk-link-muted"
