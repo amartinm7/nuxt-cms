@@ -63,6 +63,11 @@ export default {
         href: '/manifest-icon-512.png'
       },
       {
+        rel: 'apple-touch-icon-precomposed',
+        type: 'image/x-icon',
+        href: '/manifest-icon-512.png'
+      },
+      {
         rel: 'stylesheet',
         href: 'https://fonts.googleapis.com/css?family=Staatliches'
       }

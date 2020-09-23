@@ -1,6 +1,12 @@
 <template>
   <div>
     <section class="uk-section uk-section-xsmall">
+      <ul class="uk-breadcrumb">
+        <li><a href="#">Item</a></li>
+        <li><a href="#">Item</a></li>
+        <li class="uk-disabled"><a>Disabled</a></li>
+        <li><span>Active</span></li>
+      </ul>
       <ech-tv-show-card-details
         :movies="movies"
         @outbound-open-video-modal="playVideo"
