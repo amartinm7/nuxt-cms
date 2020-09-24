@@ -11,7 +11,7 @@ const dynamicRoutes = () => {
       }
     }
   )
-  // fetching movie
+  // fetching movie - watch it
   const routesForMovies = Object.keys(commandActions[MediaTypes.movie]).map(
     (action) => {
       return {
