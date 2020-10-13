@@ -10,7 +10,7 @@ class GetTvShowDetailsRepository {
 
   /**
    * Gets tv show details
-   * @param getLatestFilmsRepositoryRequest
+   * @param getTvShowDetailsRepositoryRequest
    * @returns {*}
    */
   execute(getTvShowDetailsRepositoryRequest) {
@@ -139,6 +139,7 @@ class GetTvShowDetailsRepositoryResponse {
         // eslint-disable-next-line no-new
         return new GetNetworksResponse({ ...it })
       })
+      console.log('networks' + JSON.stringify(this._networks))
     }
     if (!_isEmpty(production_companies)) {
       this._production_companies = production_companies.map((it) => {

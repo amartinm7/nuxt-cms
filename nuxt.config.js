@@ -207,6 +207,7 @@ export default {
     // routes: ['/es', '/en', '/es/movie', '/en/movie']
     routes: dynamicRoutes(),
     fallback: true,
-    exclude: [/^(?=.*\bignore\b).*$/]
+    exclude: [/^(?=.*\bignore\b).*$/],
+    crawler: false
   }
 }

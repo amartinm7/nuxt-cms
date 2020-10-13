@@ -16,7 +16,7 @@ class GetAiringTodayTvShowRepository {
    */
   execute(getAiringTodayTvShowRepositoryRequest) {
     const { page, language } = { ...getAiringTodayTvShowRepositoryRequest }
-    const urlPath = `/tv/airing_today?language=${language}&page=${page}`
+    const urlPath = `/tv/airing_today?language=${language}&page=${page}&with_original_language=es|en`
     return this._axios(
       new GetAxiosRequest({
         accessToken: this._accessToken,

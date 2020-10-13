@@ -18,7 +18,11 @@ class FindMoviesByRepository {
     const { genres_ids, language, sortedBy } = {
       ...findMoviesByRepositoryRequest
     }
-    const urlPath = `/discover/movie?language=${language}&with_genres=${genres_ids}&sort_by=${sortedBy}&append_to_response=videos,images,credits`
+    console.log('findMoviesByRepositoryRequest...')
+    const genreIds = _isEmpty(genres_ids) ? '28|12' : genres_ids
+    const year = 2020
+    const originalLanguages = 'es|en'
+    const urlPath = `/discover/movie?language=${language}&with_genres=${genreIds}&sort_by=${sortedBy}&append_to_response=videos,images,credits&with_original_language=${originalLanguages}&include_video=true&primary_release_year=${year}`
     console.log('urlPath... ' + urlPath)
     return this._axios(
       new GetAxiosRequest({

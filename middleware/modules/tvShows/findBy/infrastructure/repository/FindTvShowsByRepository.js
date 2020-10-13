@@ -18,7 +18,11 @@ class FindTvShowsByRepository {
     const { genres_ids, language, sortedBy } = {
       ...findTvShowsByRepositoryRequest
     }
-    const urlPath = `/discover/tv?language=${language}&with_genres=${genres_ids}&include_null_first_air_dates=false&first_air_date.gte=2019-01-01&sort_by=${sortedBy}&append_to_response=videos,images,credits`
+    const originalLanguages = 'es|en'
+    // const genreIds = _isEmpty(genres_ids) ? '10759,9648' : genres_ids
+    const withoutGenres = genres_ids.includes(16) ? '' : '16'
+    const withNetworks = _isEmpty(genres_ids) ? '213|49' : ''
+    const urlPath = `/discover/tv?language=${language}&with_networks=${withNetworks}&without_genres=${withoutGenres}&include_null_first_air_dates=false&first_air_date.gte=2019-01-01&sort_by=${sortedBy}&append_to_response=videos,images,credits&with_original_language=${originalLanguages}`
     console.log('urlPath... ' + urlPath)
     return this._axios(
       new GetAxiosRequest({

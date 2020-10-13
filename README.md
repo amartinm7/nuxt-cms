@@ -184,3 +184,7 @@ https://cards-dev.twitter.com/validator
 <meta property="twitter:creator" content="simplytestable">
 <meta property="twitter:image:src" content="http://placehold.it/350x150">        
 <meta property="twitter:domain" content="simplytestable.com">
+
+
+share facebook
+http://www.fbrell.com/Sharing/2%20-%20FB.ui%20Dialogs
