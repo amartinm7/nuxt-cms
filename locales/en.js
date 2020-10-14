@@ -85,5 +85,7 @@ export default {
   filterMoviesByPopularityTip: 'Find movies by popularity',
   filterTvShowsByGenreTip: 'Find tv shows by genre',
   filterMoviesByGenreTip: 'Find movies by genre',
-  shareBySocialNetworkTip: 'Share this page to your friends!'
+  shareBySocialNetworkTip: 'Share this page to your friends!',
+  nextResults: 'next results',
+  previousResults: 'previous results'
 }
