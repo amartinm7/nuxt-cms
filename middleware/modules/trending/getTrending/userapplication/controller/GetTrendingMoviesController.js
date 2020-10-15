@@ -15,21 +15,41 @@ class GetTrendingMoviesController {
     return getTrendingMoviesServiceResponse
   }
 
-  getTrendingMovies({ language }) {
+  getTrendingMovies({ language, page }) {
     return this.execute({
       mediaType: MEDIA_TYPES.MOVIE,
       timeWindow: TIME_WINDOWS_TYPES.WEEK,
-      language
+      language,
+      page
     })
   }
 
-  getTrendingTVShows({ language }) {
+  getTrendingTVShows({ language, page }) {
     // eslint-disable-next-line no-return-await
     return this.execute({
       mediaType: MEDIA_TYPES.TV,
       timeWindow: TIME_WINDOWS_TYPES.WEEK,
-      language
+      language,
+      page
     })
+  }
+
+  getTrendingMoviesAndTVShows = async ({ language, page }) => {
+    const getTrendingMoviesResponse = await this.getTrendingMovies({
+      language,
+      page
+    })
+    const trendingMovies = {
+      ...getTrendingMoviesResponse
+    }
+    const getTrendingTVShowsResponse = await this.getTrendingTVShows({
+      language,
+      page
+    })
+    const trendingTVShows = {
+      ...getTrendingTVShowsResponse
+    }
+    return { trendingMovies, trendingTVShows }
   }
 }
 

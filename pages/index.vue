@@ -6,10 +6,27 @@
     <section class="uk-section uk-section-xsmall">
       <div class="uk-active">
         <ech-slider-main :movies="trendingResults._results"></ech-slider-main>
+        <div class="uk-flex uk-flex-between ech-scrollspy-effect">
+          <span
+            class="uk-margin-small-right uk-icon ech-spin-icon"
+            uk-icon="icon: arrow-left;"
+            :uk-tooltip="$t('previousResults')"
+            @click="toPrevious()"
+          ></span>
+          <span></span>
+          <span
+            class="uk-margin-small-left uk-icon ech-spin-icon"
+            uk-icon="icon: arrow-right;"
+            :uk-tooltip="$t('nextResults')"
+            @click="toNext()"
+          ></span>
+        </div>
       </div>
     </section>
     <section class="uk-section uk-section-xsmall">
-      <h1 class="uk-text-center">{{ $t('pages.trending') }}</h1>
+      <h1 class="uk-text-center ech-scrollspy-effect">
+        {{ $t('pages.trending') }}
+      </h1>
     </section>
     <section class="uk-section uk-section-xsmall">
       <ul id="ech-tab" uk-tab class="uk-flex uk-flex-around">
@@ -87,21 +104,13 @@ export default {
   },
   mixins: [VideoControllerManager, DetailsHeaderManager],
   // eslint-disable-next-line require-await
-  async asyncData({ app, params, store }) {
+  async asyncData({ app, query }) {
     const language = app.i18n.locale
-    const getTrendingMoviesResponse = await beanContainer.getTrendingMoviesController.getTrendingMovies(
-      { language }
+    const currentPage = isNaN(query.page) ? 1 : Number(query.page)
+    const getTrendingMoviesResponse = await beanContainer.getTrendingMoviesController.getTrendingMoviesAndTVShows(
+      { language, page: Number(currentPage) }
     )
-    const trendingMovies = {
-      ...getTrendingMoviesResponse
-    }
-    const getTrendingTVShowsResponse = await beanContainer.getTrendingMoviesController.getTrendingTVShows(
-      { language }
-    )
-    const trendingTVShows = {
-      ...getTrendingTVShowsResponse
-    }
-    return { trendingMovies, trendingTVShows }
+    return { ...getTrendingMoviesResponse, page: currentPage }
   },
   data() {
     return {
@@ -119,7 +128,8 @@ export default {
       },
       mediaType: MediaTypes.movie,
       trendingResults: {},
-      requestHeader: {}
+      requestHeader: {},
+      page: 1
     }
   },
   mounted() {
@@ -135,6 +145,34 @@ export default {
           ? self.trendingMovies
           : self.trendingTVShows
     })
+  },
+  methods: {
+    async toPrevious() {
+      const language = this.$i18n.locale
+      const previousPage = this.page > 1 ? this.page - 1 : 1
+      const getTrendingMoviesResponse = await beanContainer.getTrendingMoviesController.getTrendingMoviesAndTVShows(
+        { language, page: Number(previousPage) }
+      )
+      this.trendingMovies = getTrendingMoviesResponse.trendingMovies
+      this.trendingTVShows = getTrendingMoviesResponse.trendingTVShows
+      this.page = previousPage
+      this.trendingResults = this.trendingMovies
+      // await this.$router.push({ query: { page: previousPage }, path: '/' })
+    },
+    async toNext() {
+      const language = this.$i18n.locale
+      const nextPage =
+        this.page < this.trendingResults._total_pages
+          ? this.page + 1
+          : this.trendingResults._total_pages
+      const getTrendingMoviesResponse = await beanContainer.getTrendingMoviesController.getTrendingMoviesAndTVShows(
+        { language, page: Number(nextPage) }
+      )
+      this.trendingMovies = getTrendingMoviesResponse.trendingMovies
+      this.trendingTVShows = getTrendingMoviesResponse.trendingTVShows
+      this.page = nextPage
+      this.trendingResults = this.trendingMovies
+    }
   }
 }
 </script>
