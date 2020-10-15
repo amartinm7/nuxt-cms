@@ -11,7 +11,7 @@
         <a name="echSlider"></a>
         <li v-for="movie in movies" :key="movie._id" :todo="movie">
           <nuxt-link
-            class="uk-link-reset"
+            class="uk-link-reset ech-scrollspy-effect"
             :to="
               getDetailPathURL(
                 movie._id,
