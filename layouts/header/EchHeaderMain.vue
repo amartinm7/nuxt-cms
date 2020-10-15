@@ -1,18 +1,14 @@
 <template>
-  <div>
-    <div class="uk-position-relative uk-visible-toggle uk-light uk-width-auto">
-      <a
-        class="uk-button uk-button-default uk-align-center"
-        @click="initVideoURL"
-      >
-        <img
-          src="https://image.tmdb.org/t/p/w1000_and_h563_face/6ZdQTBy20HzWudZthAV7NkZWfIb.jpg"
-          alt="flash"
-          title="flash"
-          loading="lazy"
-        />
-      </a>
-    </div>
+  <div class="uk-position-relative uk-visible-toggle uk-light uk-width-auto">
+    <a @click="initVideoURL">
+      <img
+        src="https://image.tmdb.org/t/p/w1000_and_h563_face/6ZdQTBy20HzWudZthAV7NkZWfIb.jpg"
+        alt="flash"
+        title="flash"
+        loading="lazy"
+        class="uk-width-expand"
+      />
+    </a>
   </div>
 </template>
 <script>

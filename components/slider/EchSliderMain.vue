@@ -3,7 +3,7 @@
     uk-slider="autoplay: true; sets: true;"
     class="uk-slider uk-container uk-container-large"
   >
-    <div class="uk-position-relative">
+    <div class="uk-position-relative" style="height: 278px;">
       <ul
         class="uk-slider-items"
         style="transform: translate3d(0px, 0px, 0px);"

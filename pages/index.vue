@@ -6,7 +6,7 @@
     <section class="uk-section uk-section-xsmall">
       <div class="uk-active">
         <ech-slider-main :movies="trendingResults._results"></ech-slider-main>
-        <div class="uk-flex uk-flex-between">
+        <div class="uk-flex uk-flex-between ech-scrollspy-effect">
           <span
             class="uk-margin-small-right uk-icon ech-spin-icon"
             uk-icon="icon: arrow-left;"
@@ -24,7 +24,9 @@
       </div>
     </section>
     <section class="uk-section uk-section-xsmall">
-      <h1 class="uk-text-center">{{ $t('pages.trending') }}</h1>
+      <h1 class="uk-text-center ech-scrollspy-effect">
+        {{ $t('pages.trending') }}
+      </h1>
     </section>
     <section class="uk-section uk-section-xsmall">
       <ul id="ech-tab" uk-tab class="uk-flex uk-flex-around">
@@ -105,7 +107,6 @@ export default {
   async asyncData({ app, query }) {
     const language = app.i18n.locale
     const currentPage = isNaN(query.page) ? 1 : Number(query.page)
-    console.log('indexx...' + currentPage)
     const getTrendingMoviesResponse = await beanContainer.getTrendingMoviesController.getTrendingMoviesAndTVShows(
       { language, page: Number(currentPage) }
     )
@@ -171,7 +172,6 @@ export default {
       this.trendingTVShows = getTrendingMoviesResponse.trendingTVShows
       this.page = nextPage
       this.trendingResults = this.trendingMovies
-      // await this.$router.push({ query: { page: nextPage }, path: '/' })
     }
   }
 }
