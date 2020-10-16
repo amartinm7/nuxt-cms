@@ -73,7 +73,7 @@
                   {{ getCountryNameFrom(movie._origin_countryToString) }}
                 </span>
                 <span
-                  v-if="movie._original_language[0]"
+                  v-if="movie._original_language && movie._original_language[0]"
                   class="uk-label uk-label-success ech-basic"
                   uk-icon="icon: world; ratio: 0.75;"
                   >{{ $t('originalLanguage') }}:
