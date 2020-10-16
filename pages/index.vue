@@ -133,6 +133,7 @@ export default {
     }
   },
   mounted() {
+    console.log('mounted...')
     const self = this
     self.mediaType = MediaTypes.tv
     self.trendingResults = self.trendingMovies
@@ -142,8 +143,8 @@ export default {
         self.mediaType === MediaTypes.movie ? MediaTypes.tv : MediaTypes.movie
       self.trendingResults =
         self.mediaType === MediaTypes.movie
-          ? self.trendingMovies
-          : self.trendingTVShows
+          ? self.trendingTVShows
+          : self.trendingMovies
     })
   },
   methods: {
