@@ -89,7 +89,7 @@ export default {
         {
           hid: 'twitter:site',
           property: 'twitter:site',
-          content: 'estrenoscinehoy'
+          content: 'estrenoscinehoy.com'
         },
         {
           hid: 'twitter:title',
@@ -104,7 +104,7 @@ export default {
         {
           hid: 'twitter:creator',
           property: 'twitter:creator',
-          content: 'estrenoscinehoy'
+          content: 'estrenoscinehoy.com'
         },
         {
           hid: 'twitter:image:src',
