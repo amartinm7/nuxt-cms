@@ -5,6 +5,10 @@
     </section>
     <section class="uk-section uk-section-xsmall">
       <ech-slider-main :movies="trendingMovies._results"> </ech-slider-main>
+      <ech-pagination
+        @outbound-to-previous-page="toPrevious"
+        @outbound-to-next-page="toNext"
+      ></ech-pagination>
     </section>
     <section class="uk-section uk-section-xsmall">
       <h1 class="uk-text-center">{{ $t('pages.movie.byGenres') }}</h1>
@@ -44,16 +48,18 @@ import VideoControllerManager from '../../../../middleware/modules/vue/mixins/Vi
 import { FindMoviesByControllerRequest } from '../../../../middleware/modules/movies/findBy/userapplication/controller/FindMoviesByController'
 import MediaTypes from '../../../../middleware/modules/domain/MediaTypes'
 import DetailsHeaderManager from '../../../../middleware/modules/vue/mixins/DetailsHeaderManager'
+import EchPagination from '@/layouts/pagination/EchPagination'
 // const _isEmpty = require('lodash.isempty')
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
   name: 'EchMoviesByGenres',
-  components: { EchHeaderMain, EchSliderMain, EchMoviesCard },
+  components: { EchPagination, EchHeaderMain, EchSliderMain, EchMoviesCard },
   mixins: [VideoControllerManager, DetailsHeaderManager],
   // eslint-disable-next-line require-await
   async asyncData({ app, params, query }) {
     const language = app.i18n.locale
+    const currentPage = isNaN(query.page) ? 1 : Number(query.page)
     const pathParams = params.genre ?? ''
     const queryParamsSortedBy = query.sortedBy ?? ''
     const genres_ids = pathParams
@@ -66,10 +72,17 @@ export default {
       new FindMoviesByControllerRequest({
         genres_ids,
         language,
-        sortedBy: queryParamsSortedBy
+        sortedBy: queryParamsSortedBy,
+        page: currentPage
       })
     )
-    return { trendingMovies }
+    return {
+      trendingMovies,
+      pathParams,
+      queryParamsSortedBy,
+      genres_ids,
+      page: currentPage
+    }
   },
   data() {
     return {
@@ -79,7 +92,40 @@ export default {
         _total_results: 1,
         _results: []
       },
-      mediaType: MediaTypes.movie
+      mediaType: MediaTypes.movie,
+      pathParams: '',
+      queryParamsSortedBy: '',
+      genres_ids: [],
+      page: 1
+    }
+  },
+  methods: {
+    async toPrevious() {
+      const previousPage = this.page > 1 ? this.page - 1 : 1
+      this.trendingMovies = await beanContainer.findMoviesByController.execute(
+        new FindMoviesByControllerRequest({
+          genres_ids: this.genres_ids,
+          language: this.$i18n.locale,
+          sortedBy: this.queryParamsSortedBy,
+          page: previousPage
+        })
+      )
+      this.page = previousPage
+    },
+    async toNext() {
+      const nextPage =
+        this.page < this.trendingMovies._total_pages
+          ? this.page + 1
+          : this.trendingMovies._total_pages
+      this.trendingMovies = await beanContainer.findMoviesByController.execute(
+        new FindMoviesByControllerRequest({
+          genres_ids: this.genres_ids,
+          language: this.$i18n.locale,
+          sortedBy: this.queryParamsSortedBy,
+          page: nextPage
+        })
+      )
+      this.page = nextPage
     }
   }
 }

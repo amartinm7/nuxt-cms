@@ -5,6 +5,10 @@
     </section>
     <section class="uk-section uk-section-xsmall">
       <ech-slider-main :movies="trendingTVShows._results"> </ech-slider-main>
+      <ech-pagination
+        @outbound-to-previous-page="toPrevious"
+        @outbound-to-next-page="toNext"
+      ></ech-pagination>
     </section>
     <section class="uk-section uk-section-xsmall">
       <h1 class="uk-text-center">{{ $t('pages.tv.byGenres') }}</h1>
@@ -45,15 +49,17 @@ import VideoControllerManager from '../../../../middleware/modules/vue/mixins/Vi
 import { FindTvShowsByControllerRequest } from '../../../../middleware/modules/tvShows/findBy/userapplication/controller/FindTvShowsByController'
 import MediaTypes from '../../../../middleware/modules/domain/MediaTypes'
 import DetailsHeaderManager from '../../../../middleware/modules/vue/mixins/DetailsHeaderManager'
+import EchPagination from '@/layouts/pagination/EchPagination'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
   name: 'EchTvShowsByGenres',
-  components: { EchHeaderMain, EchSliderMain, EchTvShowCard },
+  components: { EchPagination, EchHeaderMain, EchSliderMain, EchTvShowCard },
   mixins: [VideoControllerManager, DetailsHeaderManager],
   // eslint-disable-next-line require-await
   async asyncData({ app, params, query }) {
     const language = app.i18n.locale
+    const currentPage = isNaN(query.page) ? 1 : Number(query.page)
     const pathParams = params.genre ?? ''
     const queryParamsSortedBy = query.sortedBy ?? ''
     const genres_ids = pathParams
@@ -64,10 +70,11 @@ export default {
       new FindTvShowsByControllerRequest({
         genres_ids,
         language,
-        sortedBy: queryParamsSortedBy
+        sortedBy: queryParamsSortedBy,
+        page: currentPage
       })
     )
-    return { trendingTVShows }
+    return { trendingTVShows, page: currentPage }
   },
   data() {
     return {
@@ -77,7 +84,40 @@ export default {
         _total_results: 1,
         _results: []
       },
-      mediaType: MediaTypes.tv
+      mediaType: MediaTypes.tv,
+      pathParams: '',
+      queryParamsSortedBy: '',
+      genres_ids: [],
+      page: 1
+    }
+  },
+  methods: {
+    async toPrevious() {
+      const previousPage = this.page > 1 ? this.page - 1 : 1
+      this.trendingTVShows = await beanContainer.findTvShowsByController.execute(
+        new FindTvShowsByControllerRequest({
+          genres_ids: this.genres_ids,
+          language: this.$i18n.locale,
+          sortedBy: this.queryParamsSortedBy,
+          page: previousPage
+        })
+      )
+      this.page = previousPage
+    },
+    async toNext() {
+      const nextPage =
+        this.page < this.trendingTVShows._total_pages
+          ? this.page + 1
+          : this.trendingTVShows._total_pages
+      this.trendingTVShows = await beanContainer.findTvShowsByController.execute(
+        new FindTvShowsByControllerRequest({
+          genres_ids: this.genres_ids,
+          language: this.$i18n.locale,
+          sortedBy: this.queryParamsSortedBy,
+          page: nextPage
+        })
+      )
+      this.page = nextPage
     }
   }
 }

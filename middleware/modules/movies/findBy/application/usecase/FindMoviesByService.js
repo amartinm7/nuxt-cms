@@ -18,10 +18,11 @@ class FindMoviesByService {
 }
 
 class FindMoviesByServiceRequest {
-  constructor({ genres_ids, language, sortedBy }) {
+  constructor({ genres_ids, language, sortedBy, page }) {
     this.genres_ids = genres_ids
     this.language = language
     this.sortedBy = sortedBy
+    this.page = page
   }
 }
 

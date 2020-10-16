@@ -15,7 +15,7 @@ class FindTvShowsByRepository {
    * @returns {*}
    */
   execute(findTvShowsByRepositoryRequest) {
-    const { genres_ids, language, sortedBy } = {
+    const { genres_ids, language, sortedBy, page } = {
       ...findTvShowsByRepositoryRequest
     }
     // logic to handle default values. Applied to remove rubbish like japanesse anime and something like that
@@ -24,7 +24,7 @@ class FindTvShowsByRepository {
     const withoutGenres = genres_ids.includes(16) ? '' : '16'
     const withNetworks = _isEmpty(genres_ids) ? '213|49' : '' // netflix and hbo, add more like showtime and movistar
     // end logic to handle default values.
-    const urlPath = `/discover/tv?language=${language}&with_networks=${withNetworks}&without_genres=${withoutGenres}&include_null_first_air_dates=false&first_air_date.gte=2019-01-01&sort_by=${sortedBy}&append_to_response=videos,images,credits&with_original_language=${originalLanguages}`
+    const urlPath = `/discover/tv?language=${language}&with_networks=${withNetworks}&without_genres=${withoutGenres}&include_null_first_air_dates=false&first_air_date.gte=2019-01-01&sort_by=${sortedBy}&append_to_response=videos,images,credits&with_original_language=${originalLanguages}&page=${page}`
     console.log('urlPath... ' + urlPath)
     return this._axios(
       new GetAxiosRequest({
@@ -41,10 +41,16 @@ class FindTvShowsByRepository {
 }
 
 class FindTvShowsByRepositoryRequest {
-  constructor({ genres_ids, language, sortedBy = 'popularity.desc' }) {
+  constructor({
+    genres_ids,
+    language,
+    sortedBy = 'popularity.desc',
+    page = 1
+  }) {
     this.genres_ids = genres_ids
     this.language = language
     this.sortedBy = sortedBy
+    this.page = page
   }
 }
 
