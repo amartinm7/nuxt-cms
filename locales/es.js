@@ -87,5 +87,6 @@ export default {
   filterMoviesByGenreTip: 'Busca películas por género',
   shareBySocialNetworkTip: 'Comparte esta página a tus amigos!',
   nextResults: 'siguientes resultados',
-  previousResults: 'resultados anteriores'
+  previousResults: 'resultados anteriores',
+  clickToSeeMoreAbout: 'pulsa para ver mas sobre este canal'
 }

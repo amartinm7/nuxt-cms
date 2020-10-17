@@ -17,11 +17,12 @@ class FindTvShowsByController {
 
 /* eslint-disable camelcase */
 class FindTvShowsByControllerRequest {
-  constructor({ genres_ids, language, sortedBy, page }) {
+  constructor({ genres_ids, language, sortedBy, page, networksIds }) {
     this.genres_ids = genres_ids
     this.language = language
     this.sortedBy = sortedBy
     this.page = page
+    this.networksIds = networksIds
   }
 }
 

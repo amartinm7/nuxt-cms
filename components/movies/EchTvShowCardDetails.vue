@@ -104,13 +104,18 @@
           </div>
           <div>
             <p v-if="movie._networks" class="uk-text-meta uk-margin-medium-top">
-              <span>
-                <img
-                  class="uk-align-center"
-                  :src="getNetWorkURLByArray(movie._networks)"
-                  :alt="movie._networks"
-                />
-              </span>
+              <nuxt-link
+                :to="getTvShowByNetworklURL(movie._networks)"
+                class="uk-link-reset"
+              >
+                <span :uk-tooltip="$t('clickToSeeMoreAbout')">
+                  <img
+                    class="uk-align-center"
+                    :src="getNetWorkURLByArray(movie._networks)"
+                    :alt="movie._networks"
+                  />
+                </span>
+              </nuxt-link>
             </p>
           </div>
           <div>
@@ -185,8 +190,8 @@ export default {
   },
   methods: {
     async initVideoURL(movie) {
-      const vm = this
-      console.log('initVideoURL...' + vm.$uikit.modal(`#openVideo${movie._id}`))
+      // const vm = this
+      // console.log('initVideoURL...' + vm.$uikit.modal(`#openVideo${movie._id}`))
       const isoLangCode = this.currentLocale().iso
       const getTvShowsVideosControllerResponse = await beanContainer.getTvShowsVideosController.getFirstVideoURL(
         new GetTvShowsVideosControllerRequest({
@@ -199,6 +204,12 @@ export default {
         'outbound-open-video-modal',
         getTvShowsVideosControllerResponse.url
       )
+    },
+    getTvShowByNetworklURL(networks) {
+      const language = this.$i18n.locale
+      const mediaTypeTV = MediaTypes.tv
+      const networkId = networks[0]._id
+      return `/${language}/${mediaTypeTV}/bygenres/${Date.now()}/?networksIds=${networkId}`
     }
   }
 }

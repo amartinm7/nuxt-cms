@@ -62,6 +62,7 @@ export default {
     const currentPage = isNaN(query.page) ? 1 : Number(query.page)
     const pathParams = params.genre ?? ''
     const queryParamsSortedBy = query.sortedBy ?? ''
+    const networksIds = query.networksIds
     const genres_ids = pathParams
       .split('_')
       .map((name) => app.$genreActionHandler(language).getGenreIdForTvBy(name))
@@ -71,7 +72,8 @@ export default {
         genres_ids,
         language,
         sortedBy: queryParamsSortedBy,
-        page: currentPage
+        page: currentPage,
+        networksIds
       })
     )
     return { trendingTVShows, page: currentPage }

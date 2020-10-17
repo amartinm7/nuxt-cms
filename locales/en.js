@@ -87,5 +87,6 @@ export default {
   filterMoviesByGenreTip: 'Find movies by genre',
   shareBySocialNetworkTip: 'Share this page to your friends!',
   nextResults: 'next results',
-  previousResults: 'previous results'
+  previousResults: 'previous results',
+  clickToSeeMoreAbout: 'click to see more about this network'
 }
