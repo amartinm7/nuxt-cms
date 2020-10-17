@@ -102,21 +102,8 @@
               </span>
             </p>
           </div>
-          <div>
-            <p v-if="movie._networks" class="uk-text-meta uk-margin-medium-top">
-              <nuxt-link
-                :to="getTvShowByNetworklURL(movie._networks)"
-                class="uk-link-reset"
-              >
-                <span :uk-tooltip="$t('clickToSeeMoreAbout')">
-                  <img
-                    class="uk-align-center"
-                    :src="getNetWorkURLByArray(movie._networks)"
-                    :alt="movie._networks"
-                  />
-                </span>
-              </nuxt-link>
-            </p>
+          <div :uk-tooltip="$t('clickToSeeMoreAbout')">
+            <ech-network-logo :networks="movie._networks"></ech-network-logo>
           </div>
           <div>
             <p v-if="movie._director" class="uk-text-meta">
@@ -161,19 +148,20 @@
 </template>
 <script>
 /* eslint-disable camelcase, no-console */
-import { BeanContainerRegistry } from '../../middleware/BeanContainerRegistry'
-import { GetTvShowsVideosControllerRequest } from '../../middleware/modules/tvShows/getVideos/userapplication/controller/GetTvShowsVideosController'
-import MediaManager from '../../middleware/modules/vue/mixins/MediaManager'
-import MediaTypes from '../../middleware/modules/domain/MediaTypes'
-import LocateManager from '../../middleware/modules/vue/mixins/LocateManager'
-import Utils from '../../middleware/modules/vue/mixins/Utils'
 import EchStarRating from './EchStarRating'
 import EchSocialNetworkCardDetails from './EchSocialNetworkCardDetails'
+import { BeanContainerRegistry } from '@/middleware/BeanContainerRegistry'
+import { GetTvShowsVideosControllerRequest } from '@/middleware/modules/tvShows/getVideos/userapplication/controller/GetTvShowsVideosController'
+import MediaManager from '@/middleware/modules/vue/mixins/MediaManager'
+import MediaTypes from '@/middleware/modules/domain/MediaTypes'
+import LocateManager from '@/middleware/modules/vue/mixins/LocateManager'
+import Utils from '@/middleware/modules/vue/mixins/Utils'
+import EchNetworkLogo from '@/components/movies/EchNetworkLogo'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
   name: 'EchTvShowCardDetails',
-  components: { EchSocialNetworkCardDetails, EchStarRating },
+  components: { EchNetworkLogo, EchSocialNetworkCardDetails, EchStarRating },
   mixins: [MediaManager, LocateManager, Utils],
   props: {
     movies: {
@@ -204,12 +192,6 @@ export default {
         'outbound-open-video-modal',
         getTvShowsVideosControllerResponse.url
       )
-    },
-    getTvShowByNetworklURL(networks) {
-      const language = this.$i18n.locale
-      const mediaTypeTV = MediaTypes.tv
-      const networkId = networks[0]._id
-      return `/${language}/${mediaTypeTV}/bygenres/${Date.now()}/?networksIds=${networkId}`
     }
   }
 }

@@ -1,6 +1,7 @@
 /* eslint-disable camelcase, no-console */
 import * as ServiceLocator from '../../../framework/modules/ServiceLocator'
 import MediaHandler from '../../../framework/modules/media/MediaHandler'
+import MediaTypes from '@/middleware/modules/domain/MediaTypes'
 const _isEmpty = require('lodash.isempty')
 
 export default {
@@ -24,6 +25,12 @@ export default {
       return !_isEmpty(networks) && !_isEmpty(networks[0])
         ? this.getNetWorkURL(networks[0]._logo_path)
         : ''
+    },
+    getTvShowByNetworkURL(networks) {
+      const language = this.$i18n.locale
+      const mediaTypeTV = MediaTypes.tv
+      const networkId = networks[0]?._id
+      return `/${language}/${mediaTypeTV}/bygenres/${Date.now()}/?networksIds=${networkId}`
     },
     getVideoURLFrom(key) {
       const url = `https://www.youtube.com/embed/${key}?autoplay=1&amp;showinfo=0&amp;rel=0&amp;modestbranding=1&amp;playsinline=1`
