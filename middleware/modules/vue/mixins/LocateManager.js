@@ -5,19 +5,21 @@ export default {
         (locale) => locale.code === this.$i18n.locale
       )
     },
+    getCountryFrom(isoCode) {
+      return this.$i18n.messages[this.$i18n.locale].countries.values.find(
+        (country) => country.code === isoCode
+      )
+    },
     getCountryNameFrom(isoCode) {
-      return (
-        this.$i18n.messages[this.$i18n.locale].countries.values.find(
-          (country) => country.code === isoCode
-        ).name ?? ''
+      return this.getCountryFrom(isoCode)?.name ?? ''
+    },
+    getLanguageFrom(isoCode) {
+      return this.$i18n.messages[this.$i18n.locale].languages.values.find(
+        (language) => language.code.toLowerCase() === isoCode
       )
     },
     getLanguageNameFrom(isoCode) {
-      return (
-        this.$i18n.messages[this.$i18n.locale].languages.values.find(
-          (language) => language.code.toLowerCase() === isoCode
-        ).name ?? ''
-      )
+      return this.getLanguageFrom(isoCode)?.name ?? ''
     }
   }
 }

@@ -76,7 +76,7 @@ export default {
         networksIds
       })
     )
-    return { trendingTVShows, page: currentPage }
+    return { trendingTVShows, page: currentPage, networksIds }
   },
   data() {
     return {
@@ -90,7 +90,8 @@ export default {
       pathParams: '',
       queryParamsSortedBy: '',
       genres_ids: [],
-      page: 1
+      page: 1,
+      networksIds: ''
     }
   },
   methods: {
@@ -101,7 +102,8 @@ export default {
           genres_ids: this.genres_ids,
           language: this.$i18n.locale,
           sortedBy: this.queryParamsSortedBy,
-          page: previousPage
+          page: previousPage,
+          networksIds: this.networksIds
         })
       )
       this.page = previousPage
@@ -116,7 +118,8 @@ export default {
           genres_ids: this.genres_ids,
           language: this.$i18n.locale,
           sortedBy: this.queryParamsSortedBy,
-          page: nextPage
+          page: nextPage,
+          networksIds: this.networksIds
         })
       )
       this.page = nextPage

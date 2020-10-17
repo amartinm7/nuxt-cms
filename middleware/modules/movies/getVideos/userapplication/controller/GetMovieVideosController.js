@@ -15,12 +15,21 @@ class GetMovieVideosController {
   }
 
   async getFirstVideoURL(getMovieVideosControllerRequest) {
-    const { movie_title, movie_id, isoLangCode } = {
-      ...getMovieVideosControllerRequest
-    }
-    const getMovieVideosServiceResponse = await this.execute(
+    const isoLangCodeFallBack = 'us-EN'
+    let getMovieVideosServiceResponse = await this.execute(
       getMovieVideosControllerRequest
     )
+    if (
+      _isEmpty(getMovieVideosServiceResponse._results) ||
+      _isEmpty(getMovieVideosServiceResponse._results[0])
+    ) {
+      const fallbackRequest = Object.assign(
+        {},
+        getMovieVideosControllerRequest,
+        { isoLangCode: isoLangCodeFallBack }
+      )
+      getMovieVideosServiceResponse = await this.execute(fallbackRequest)
+    }
     if (
       _isEmpty(getMovieVideosServiceResponse._results) ||
       _isEmpty(getMovieVideosServiceResponse._results[0])
@@ -30,10 +39,9 @@ class GetMovieVideosController {
       }
     }
     const key = getMovieVideosServiceResponse._results[0]._key
+    console.log('key...' + key)
     const url = `https://www.youtube.com/embed/${key}?autoplay=1&amp;showinfo=0&amp;rel=0&amp;modestbranding=1&amp;playsinline=1`
-    console.log(
-      `movieVideo: ${movie_id}, ${movie_title}, ${isoLangCode}, ${url}`
-    )
+    console.log(url)
     return { url }
   }
 }
