@@ -29,8 +29,9 @@ class FindTvShowsByRepository {
     // end logic to handle default values.
     const withNetworks = networksIds ?? withNetworksFallBack
     const withoutGenres = networksIds ? '' : withoutGenresFallBack
+    const withGenres = networksIds ? '' : genreIds
     console.log('urlPath...' + withNetworks)
-    const urlPath = `/discover/tv?language=${language}&with_genres=${genreIds}&with_networks=${withNetworks}&without_genres=${withoutGenres}&include_null_first_air_dates=false&first_air_date.gte=2018-01-01&sort_by=${withSortedBy}&append_to_response=videos,images,credits&with_original_language=${originalLanguages}&page=${page}`
+    const urlPath = `/discover/tv?language=${language}&with_genres=${withGenres}&with_networks=${withNetworks}&without_genres=${withoutGenres}&include_null_first_air_dates=false&first_air_date.gte=2018-01-01&sort_by=${withSortedBy}&append_to_response=videos,images,credits&with_original_language=${originalLanguages}&page=${page}`
     console.log('urlPath... ' + urlPath)
     return this._axios(
       new GetAxiosRequest({
