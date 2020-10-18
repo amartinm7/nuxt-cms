@@ -67,6 +67,8 @@ export default {
       .split('_')
       .map((name) => app.$genreActionHandler(language).getGenreIdForTvBy(name))
       .filter((it) => it !== undefined)
+    console.log('pathParams..' + pathParams)
+    console.log('genres_ids..' + genres_ids)
     const trendingTVShows = await beanContainer.findTvShowsByController.execute(
       new FindTvShowsByControllerRequest({
         genres_ids,

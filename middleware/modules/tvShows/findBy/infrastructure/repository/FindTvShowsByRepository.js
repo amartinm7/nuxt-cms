@@ -21,7 +21,7 @@ class FindTvShowsByRepository {
     // logic to handle default values. Applied to remove rubbish like japanesse anime and something like that
     const originalLanguages = 'es|en'
     const withSortedBy = sortedBy ?? 'popularity.desc'
-    // const genreIds = _isEmpty(genres_ids) ? '10759,9648' : genres_ids
+    const genreIds = _isEmpty(genres_ids) ? '10759,9648' : genres_ids
     const withoutGenresFallBack = genres_ids.includes(16) ? '' : '16'
     const withNetworksFallBack = _isEmpty(genres_ids)
       ? '213|49|20580|4343|53|1024|2552|3744|4|443|400|1346|76|84|1016|26|2149'
@@ -30,7 +30,7 @@ class FindTvShowsByRepository {
     const withNetworks = networksIds ?? withNetworksFallBack
     const withoutGenres = networksIds ? '' : withoutGenresFallBack
     console.log('urlPath...' + withNetworks)
-    const urlPath = `/discover/tv?language=${language}&with_networks=${withNetworks}&without_genres=${withoutGenres}&include_null_first_air_dates=false&first_air_date.gte=2018-01-01&sort_by=${withSortedBy}&append_to_response=videos,images,credits&with_original_language=${originalLanguages}&page=${page}`
+    const urlPath = `/discover/tv?language=${language}&with_genres=${genreIds}&with_networks=${withNetworks}&without_genres=${withoutGenres}&include_null_first_air_dates=false&first_air_date.gte=2018-01-01&sort_by=${withSortedBy}&append_to_response=videos,images,credits&with_original_language=${originalLanguages}&page=${page}`
     console.log('urlPath... ' + urlPath)
     return this._axios(
       new GetAxiosRequest({

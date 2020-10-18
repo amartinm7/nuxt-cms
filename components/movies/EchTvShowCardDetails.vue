@@ -92,14 +92,19 @@
           </div>
           <div class="uk-flex uk-flex-center">
             <p>
-              <span
+              <nuxt-link
                 v-for="genre in movie._genres"
                 :key="genre._id"
                 :todo="genre"
-                class="uk-label uk-label-warning uk-margin-small-left ech-basic"
+                :to="getTvShowByGenreURL(genre)"
+                class="uk-link-reset"
               >
-                {{ genre.name }}
-              </span>
+                <span
+                  class="uk-label uk-label-warning uk-margin-small-left ech-basic"
+                >
+                  {{ genre.name }}
+                </span>
+              </nuxt-link>
             </p>
           </div>
           <div :uk-tooltip="$t('clickToSeeMoreAbout')">

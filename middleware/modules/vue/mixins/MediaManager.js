@@ -1,7 +1,7 @@
 /* eslint-disable camelcase, no-console */
-import * as ServiceLocator from '../../../framework/modules/ServiceLocator'
-import MediaHandler from '../../../framework/modules/media/MediaHandler'
+import MediaHandler from '@/middleware/framework/modules/media/MediaHandler'
 import MediaTypes from '@/middleware/modules/domain/MediaTypes'
+import Slugger from '@/middleware/framework/modules/slugger/Slugger'
 const _isEmpty = require('lodash.isempty')
 
 export default {
@@ -14,7 +14,7 @@ export default {
     },
     getDetailPathURL(movie_id, movie_title, mediaType) {
       const language = this.$i18n.locale
-      const slugger = ServiceLocator.Slugger.sluggify([movie_title])
+      const slugger = Slugger.sluggify([movie_title])
       return `/${language}/${mediaType}/details/${movie_id}-${slugger}`
     },
     getNetWorkURL(logoPath) {
@@ -30,7 +30,13 @@ export default {
       const language = this.$i18n.locale
       const mediaTypeTV = MediaTypes.tv
       const networkId = networks[0]?._id
-      return `/${language}/${mediaTypeTV}/bygenres/${Date.now()}/?networksIds=${networkId}`
+      return `/${language}/${mediaTypeTV}/bygenres/${Date.now()}/?networksIds=${networkId}&sortedBy=popularity.desc`
+    },
+    getTvShowByGenreURL(genre) {
+      const language = this.$i18n.locale
+      const mediaTypeTV = MediaTypes.tv
+      const genreName = Slugger.sluggify([genre.name])
+      return `/${language}/${mediaTypeTV}/bygenres/${Date.now()}/${genreName}/?sortedBy=popularity.desc`
     },
     getVideoURLFrom(key) {
       const url = `https://www.youtube.com/embed/${key}?autoplay=1&amp;showinfo=0&amp;rel=0&amp;modestbranding=1&amp;playsinline=1`
