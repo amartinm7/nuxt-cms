@@ -15,14 +15,16 @@ class FindMoviesByRepository {
    * @returns {*}
    */
   execute(findMoviesByRepositoryRequest) {
-    const { genres_ids, language, sortedBy, page } = {
+    const { genreId, language, sortedBy, page } = {
       ...findMoviesByRepositoryRequest
     }
     console.log('findMoviesByRepositoryRequest...')
-    const genreIds = _isEmpty(genres_ids) ? '28|12' : genres_ids
-    const year = 2020
     const originalLanguages = 'es|en'
-    const urlPath = `/discover/movie?language=${language}&with_genres=${genreIds}&sort_by=${sortedBy}&append_to_response=videos,images,credits&with_original_language=${originalLanguages}&include_video=true&primary_release_year=${year}&page=${page}`
+    const withSortedBy = sortedBy ?? 'popularity.desc'
+    const withGenres = genreId ?? ''
+    const withoutGenres = ''
+    const year = 2020
+    const urlPath = `/discover/movie?language=${language}&with_genres=${withGenres}&without_genres=${withoutGenres}&sort_by=${withSortedBy}&append_to_response=videos,images,credits&with_original_language=${originalLanguages}&include_video=true&primary_release_year=${year}&page=${page}`
     console.log('urlPath... ' + urlPath)
     return this._axios(
       new GetAxiosRequest({
@@ -39,13 +41,8 @@ class FindMoviesByRepository {
 }
 
 class FindMoviesByRepositoryRequest {
-  constructor({
-    genres_ids,
-    language,
-    sortedBy = 'popularity.desc',
-    page = 1
-  }) {
-    this.genres_ids = genres_ids
+  constructor({ genreId, language, sortedBy = 'popularity.desc', page = 1 }) {
+    this.genreId = genreId
     this.language = language
     this.sortedBy = sortedBy
     this.page = page

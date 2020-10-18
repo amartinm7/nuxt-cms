@@ -1,7 +1,7 @@
-import localesEs from '../../../../locales/es'
-import localesEn from '../../../../locales/en'
 import { Slugger } from '../ServiceLocator'
-import MediaTypes from '../../../modules/domain/MediaTypes'
+import localesEs from '@/locales/es'
+import localesEn from '@/locales/en'
+import MediaTypes from '@/middleware/modules/domain/MediaTypes'
 /* eslint-disable camelcase, no-console */
 
 const locale = {
@@ -21,6 +21,12 @@ class GenresActionHandler {
       {},
       ...locale[language].genres[MediaTypes.tv].map((genre) => ({
         [genre.id]: slugger.sluggify([genre.name])
+      }))
+    )
+    this._genresForTvUsingIdAsKeyI18n = Object.assign(
+      {},
+      ...locale[language].genres[MediaTypes.tv].map((genre) => ({
+        [genre.id]: genre.name
       }))
     )
     this._genresForMoviesUsingNameAsKey = Object.assign(
@@ -43,6 +49,16 @@ class GenresActionHandler {
 
   getGenreNameForTvBy(id) {
     return this._genresForTvUsingIdAsKey[id]
+  }
+
+  getGenreNameBy({ genreId, language, mediaType }) {
+    const genresForTvUsingIdAsKeyI18n = Object.assign(
+      {},
+      ...locale[language].genres[mediaType].map((genre) => ({
+        [genre.id]: genre.name
+      }))
+    )
+    return genresForTvUsingIdAsKeyI18n[String(genreId)]
   }
 
   getGenreIdForMoviesBy(name) {

@@ -1,12 +1,12 @@
 <template>
   <div>
-    <p v-if="networks && networks[0]" class="uk-text-meta uk-margin-medium-top">
-      <nuxt-link :to="getTvShowByNetworkURL(networks)" class="uk-link-reset">
+    <p class="uk-text-meta uk-margin-medium-top">
+      <nuxt-link :to="getTvShowByNetworkURL(network)" class="uk-link-reset">
         <span>
           <img
-            class="uk-align-center"
-            :src="getNetWorkURLByArray(networks)"
-            :alt="networks"
+            class="uk-align-center ech-basic"
+            :src="getNetWorkURLByArray(network)"
+            :alt="network"
           />
         </span>
       </nuxt-link>
@@ -20,10 +20,10 @@ export default {
   name: 'EchNetworkLogo',
   mixins: [MediaManager],
   props: {
-    networks: {
-      type: Array,
+    network: {
+      type: Object,
       default() {
-        return []
+        return {}
       }
     }
   }

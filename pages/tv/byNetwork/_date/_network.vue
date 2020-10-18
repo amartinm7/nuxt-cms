@@ -4,26 +4,24 @@
       <ech-header-main @outbound-open-video-modal="playVideo"></ech-header-main>
     </section>
     <section class="uk-section uk-section-xsmall">
-      <ech-slider-main :movies="trendingMovies._results"> </ech-slider-main>
+      <ech-slider-main :movies="trendingTVShows._results"> </ech-slider-main>
       <ech-pagination
         @outbound-to-previous-page="toPrevious"
         @outbound-to-next-page="toNext"
       ></ech-pagination>
     </section>
     <section class="uk-section uk-section-xsmall">
-      <h1 v-if="!genreName" class="uk-text-center">
-        {{ $t('pages.movie.byGenres') }}
+      <h1 v-if="!network" class="uk-text-center">
+        {{ $t('pages.tv.byGenres') }}
       </h1>
-      <h1 v-if="genreName" class="uk-text-center">
-        {{ genreName }}
-      </h1>
+      <ech-network-logo v-if="network" :network="network"></ech-network-logo>
     </section>
     <section class="uk-section uk-section-xsmall">
       <div>
-        <ech-movies-card
-          :movies="trendingMovies._results"
+        <ech-tv-show-card
+          :movies="trendingTVShows._results"
           @outbound-open-video-modal="playVideo"
-        ></ech-movies-card>
+        ></ech-tv-show-card>
       </div>
     </section>
     <div>
@@ -45,89 +43,88 @@
 <!-- eslint-enable -->
 <script>
 /* eslint-disable camelcase, no-console */
+// const _isEmpty = require('lodash.isempty')
 import { BeanContainerRegistry } from '../../../../middleware/BeanContainerRegistry'
-import EchMoviesCard from '../../../../components/movies/EchMoviesCard'
-import EchSliderMain from '../../../../components/slider/EchSliderMain'
 import EchHeaderMain from '../../../../layouts/header/EchHeaderMain'
+import EchSliderMain from '../../../../components/slider/EchSliderMain'
+import EchTvShowCard from '../../../../components/movies/EchTvShowCard'
 import VideoControllerManager from '../../../../middleware/modules/vue/mixins/VideoControllerManager'
-import { FindMoviesByControllerRequest } from '../../../../middleware/modules/movies/findBy/userapplication/controller/FindMoviesByController'
+import { FindTvShowsByControllerRequest } from '../../../../middleware/modules/tvShows/findBy/userapplication/controller/FindTvShowsByController'
 import MediaTypes from '../../../../middleware/modules/domain/MediaTypes'
 import DetailsHeaderManager from '../../../../middleware/modules/vue/mixins/DetailsHeaderManager'
 import EchPagination from '@/layouts/pagination/EchPagination'
-// const _isEmpty = require('lodash.isempty')
+import Networks from '@/middleware/modules/domain/Networks'
+import EchNetworkLogo from '@/components/movies/EchNetworkLogo'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
-  name: 'EchMoviesByGenres',
-  components: { EchPagination, EchHeaderMain, EchSliderMain, EchMoviesCard },
+  name: 'EchTvShowsByGenres',
+  components: {
+    EchNetworkLogo,
+    EchPagination,
+    EchHeaderMain,
+    EchSliderMain,
+    EchTvShowCard
+  },
   mixins: [VideoControllerManager, DetailsHeaderManager],
   // eslint-disable-next-line require-await
   async asyncData({ app, params, query }) {
     const language = app.i18n.locale
     const page = isNaN(query.page) ? 1 : Number(query.page)
-    const genreId = isNaN(params.genre) ? '' : Number(params.genre)
-    const queryParamsSortedBy = query.sortedBy ?? ''
-    const trendingMovies = await beanContainer.findMoviesByController.execute(
-      new FindMoviesByControllerRequest({
-        genreId,
+    const networkId = params.network ?? ''
+    const sortedBy = query.sortedBy ?? ''
+    const network = Networks.getNetWorkBy(networkId)
+    console.log('FindTvShowsByRepository...' + networkId)
+    const trendingTVShows = await beanContainer.findTvShowsByController.execute(
+      new FindTvShowsByControllerRequest({
         language,
-        sortedBy: queryParamsSortedBy,
-        page
+        sortedBy,
+        page,
+        networkId
       })
     )
-    const genreName = app.$genreActionHandler(language).getGenreNameBy({
-      genreId,
-      language,
-      mediaType: MediaTypes.movie
-    })
-    return {
-      trendingMovies,
-      queryParamsSortedBy,
-      genreId,
-      genreName,
-      page
-    }
+    return { trendingTVShows, page, networkId, network }
   },
   data() {
     return {
-      trendingMovies: {
+      trendingTVShows: {
         _page: 1,
         _total_pages: 1,
         _total_results: 1,
         _results: []
       },
-      mediaType: MediaTypes.movie,
+      mediaType: MediaTypes.tv,
       pathParams: '',
-      queryParamsSortedBy: '',
-      genres_ids: [],
-      genreName: '',
-      page: 1
+      sortedBy: 'popularity.desc',
+      page: 1,
+      networkId: '',
+      network: {}
     }
   },
   methods: {
     async toPrevious() {
       const previousPage = this.page > 1 ? this.page - 1 : 1
-      this.trendingMovies = await beanContainer.findMoviesByController.execute(
-        new FindMoviesByControllerRequest({
-          genres_ids: this.genres_ids,
+      this.trendingTVShows = await beanContainer.findTvShowsByController.execute(
+        new FindTvShowsByControllerRequest({
           language: this.$i18n.locale,
-          sortedBy: this.queryParamsSortedBy,
-          page: previousPage
+          sortedBy: this.sortedBy,
+          page: previousPage,
+          networkId: this.networkId
         })
       )
       this.page = previousPage
     },
     async toNext() {
       const nextPage =
-        this.page < this.trendingMovies._total_pages
+        this.page < this.trendingTVShows._total_pages
           ? this.page + 1
-          : this.trendingMovies._total_pages
-      this.trendingMovies = await beanContainer.findMoviesByController.execute(
-        new FindMoviesByControllerRequest({
-          genres_ids: this.genres_ids,
+          : this.trendingTVShows._total_pages
+      this.trendingTVShows = await beanContainer.findTvShowsByController.execute(
+        new FindTvShowsByControllerRequest({
           language: this.$i18n.locale,
-          sortedBy: this.queryParamsSortedBy,
-          page: nextPage
+          sortedBy: this.sortedBy,
+          page: nextPage,
+          networkId: this.networkId
         })
       )
       this.page = nextPage

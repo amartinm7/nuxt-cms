@@ -2,7 +2,7 @@ export default {
   genres: [
     {
       id: 10759,
-      name: 'Action & Adventure'
+      name: 'Acción Aventura'
     },
     {
       id: 16,
@@ -10,11 +10,11 @@ export default {
     },
     {
       id: 35,
-      name: 'Comedia'
+      name: 'Comedía'
     },
     {
       id: 80,
-      name: 'Crimen'
+      name: 'Crimén'
     },
     {
       id: 99,
@@ -26,7 +26,7 @@ export default {
     },
     {
       id: 10751,
-      name: 'Familia'
+      name: 'Familía'
     },
     {
       id: 10762,
@@ -34,11 +34,11 @@ export default {
     },
     {
       id: 9648,
-      name: 'Misterio'
+      name: 'Misterío'
     },
     {
       id: 10763,
-      name: 'News'
+      name: 'Noticías'
     },
     {
       id: 10764,
@@ -46,11 +46,11 @@ export default {
     },
     {
       id: 10765,
-      name: 'Sci-Fi & Fantasy'
+      name: 'Ciencia-Ficción Fantasía'
     },
     {
       id: 10766,
-      name: 'Soap'
+      name: 'Seríe Novela'
     },
     {
       id: 10767,
@@ -58,11 +58,11 @@ export default {
     },
     {
       id: 10768,
-      name: 'War & Politics'
+      name: 'Bélico Politico '
     },
     {
       id: 37,
-      name: 'Western'
+      name: 'Oeste'
     }
   ]
 }

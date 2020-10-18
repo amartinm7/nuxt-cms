@@ -108,7 +108,7 @@
             </p>
           </div>
           <div :uk-tooltip="$t('clickToSeeMoreAbout')">
-            <ech-network-logo :networks="movie._networks"></ech-network-logo>
+            <ech-network-logo :network="movie._networks[0]"></ech-network-logo>
           </div>
           <div>
             <p v-if="movie._director" class="uk-text-meta">

@@ -34,11 +34,9 @@
 </template>
 <script>
 /* eslint-disable camelcase, no-console */
-import * as ServiceLocator from '../../middleware/framework/modules/ServiceLocator'
-const _isEmpty = require('lodash.isempty')
 
 export default {
-  name: 'EchFiltersBy',
+  name: 'EchTvFiltersBy',
   props: {
     mediaType: {
       type: String,
@@ -53,86 +51,38 @@ export default {
   computed: {
     getGenresList() {
       return this.$i18n.messages[this.$i18n.locale].genres[this.mediaType]
+    },
+    isARightMediaPath() {
+      return this.$route.path.includes(this.mediaType)
     }
   },
   methods: {
     findBy(filter) {
-      const self = this
       const language = this.$i18n.locale
-      const filterNameEN = this.$genreActionHandler().getGenreNameFor(
-        this.mediaType,
-        filter.id
-      )
-      const pathParams = this.$route.params.genre ?? ''
-      const sanitizedPathParams = this.$route.path.includes(this.mediaType)
-        ? pathParams
-        : ''
-      const queryParamsSortedBy = this.$route.query.sortedBy ?? ''
-      const sanitizedqueryParamsSortedBy = this.$route.path.includes(
-        this.mediaType
-      )
-        ? queryParamsSortedBy
-        : ''
-      const slugger = ServiceLocator.Slugger.sluggify([filterNameEN])
-      // use case pathParams are empty, add the filterName
-      if (_isEmpty(sanitizedPathParams)) {
-        const slugger = ServiceLocator.Slugger.sluggify([filterNameEN])
-        this.$router.push({
-          path: `/${language}/${
-            self.mediaType
-          }/bygenres/${Date.now()}/${slugger}`,
-          query: {
-            sortedBy: sanitizedqueryParamsSortedBy
-          }
-        })
-        return
-      }
-      // use case pathParams with values and remove a filterName
-      if (sanitizedPathParams.includes(slugger)) {
-        const finalPath = sanitizedPathParams
-          .split('_')
-          .filter((it) => it !== slugger)
-          .join('_')
-        this.$router.push({
-          path: `/${language}/${
-            self.mediaType
-          }/bygenres/${Date.now()}/${finalPath}`,
-          query: {
-            sortedBy: sanitizedqueryParamsSortedBy
-          }
-        })
-        return
-      }
-      // use case pathParams with values and add a filterName
-      if (!sanitizedPathParams.includes(slugger)) {
-        const slugger = ServiceLocator.Slugger.sluggify([filterNameEN])
-        const finalPath = `${sanitizedPathParams}_${slugger}`
-        this.$router.push({
-          path: `/${language}/${
-            self.mediaType
-          }/bygenres/${Date.now()}/${finalPath}`,
-          query: {
-            sortedBy: sanitizedqueryParamsSortedBy
-          }
-        })
-      }
+      const queryParam = this.$route.query.sortedBy
+      const sortedByQueryParam =
+        queryParam === undefined || queryParam === ''
+          ? 'popularity.desc'
+          : this.$route.query.sortedBy
+      const sortedBy = this.isARightMediaPath ? sortedByQueryParam : ''
+      this.$router.push({
+        path: `/${language}/${this.mediaType}/bygenres/${Date.now()}/${
+          filter.id
+        }`,
+        query: {
+          sortedBy
+        }
+      })
     },
     isFilterIncluded(filter) {
-      const filterNameEN = this.$genreActionHandler().getGenreNameFor(
-        this.mediaType,
-        filter.id
-      )
-      const pathParams = this.$route.params.genre ?? ''
-      const slugger = ServiceLocator.Slugger.sluggify([filterNameEN])
-      return (
-        this.$route.path.includes(this.mediaType) &&
-        pathParams.includes(slugger)
-      )
+      const genreId = this.$route.params.genre ?? ''
+      return this.isARightMediaPath && genreId === String(filter.id)
     },
     resetFilters() {
       const self = this
       const language = this.$i18n.locale
-      const queryParamsSortedBy = this.$route.query.sortedBy ?? ''
+      const queryParamsSortedBy =
+        this.$route.query.sortedBy ?? 'popularity.desc'
       this.$router.push({
         path: `/${language}/${self.mediaType}/bygenres/${Date.now()}/`,
         query: {

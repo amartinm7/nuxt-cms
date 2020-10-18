@@ -527,7 +527,7 @@
 <script>
 import EchFiltersBy from '../filter/EchFiltersBy'
 import EchSortedBy from '../filter/EchSortedBy'
-import MediaTypes from '../../middleware/modules/domain/MediaTypes'
+import MediaTypes from '@/middleware/modules/domain/MediaTypes'
 
 export default {
   name: 'EchNavbarMainNew',

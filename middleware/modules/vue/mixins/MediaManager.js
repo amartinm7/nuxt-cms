@@ -18,25 +18,27 @@ export default {
       return `/${language}/${mediaType}/details/${movie_id}-${slugger}`
     },
     getNetWorkURL(logoPath) {
+      if (!logoPath) return ''
       // const sanitizedLogoPath = logoPath ?? ValuesByDefault.logoPath
-      return `https://image.tmdb.org/t/p/h60/${logoPath}`
+      return `https://image.tmdb.org/t/p/h60${logoPath}`
     },
-    getNetWorkURLByArray(networks) {
-      return !_isEmpty(networks) && !_isEmpty(networks[0])
-        ? this.getNetWorkURL(networks[0]._logo_path)
-        : ''
+    getNetWorkURLByArray(network) {
+      return this.getNetWorkURL(network?._logo_path)
     },
-    getTvShowByNetworkURL(networks) {
+    getTvShowByNetworkURL(network) {
       const language = this.$i18n.locale
       const mediaTypeTV = MediaTypes.tv
-      const networkId = networks[0]?._id
-      return `/${language}/${mediaTypeTV}/bygenres/${Date.now()}/?networksIds=${networkId}&sortedBy=popularity.desc`
+      const networkId = network?._id
+      return `/${language}/${mediaTypeTV}/byNetwork/${Date.now()}/${networkId}/?sortedBy=popularity.desc`
     },
     getTvShowByGenreURL(genre) {
       const language = this.$i18n.locale
       const mediaTypeTV = MediaTypes.tv
-      const genreName = Slugger.sluggify([genre.name])
-      return `/${language}/${mediaTypeTV}/bygenres/${Date.now()}/${genreName}/?sortedBy=popularity.desc`
+      // const genreName = Slugger.sluggify([genre.name])
+      // return `/${language}/${mediaTypeTV}/bygenres/${Date.now()}/${genreName}/?sortedBy=popularity.desc`
+      return `/${language}/${mediaTypeTV}/bygenres/${Date.now()}/${
+        genre.id
+      }/?sortedBy=popularity.desc`
     },
     getVideoURLFrom(key) {
       const url = `https://www.youtube.com/embed/${key}?autoplay=1&amp;showinfo=0&amp;rel=0&amp;modestbranding=1&amp;playsinline=1`
