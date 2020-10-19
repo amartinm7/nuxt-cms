@@ -188,3 +188,6 @@ https://cards-dev.twitter.com/validator
 
 share facebook
 http://www.fbrell.com/Sharing/2%20-%20FB.ui%20Dialogs
+
+## setting up node version for netlify
+https://github.com/nvm-sh/nvm#nvmrc
