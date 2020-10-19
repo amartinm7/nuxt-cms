@@ -31,12 +31,9 @@ export default {
       const networkId = network?._id
       return `/${language}/${mediaTypeTV}/byNetwork/${Date.now()}/${networkId}/?sortedBy=popularity.desc`
     },
-    getTvShowByGenreURL(genre) {
+    getByGenreURL(genre, mediaType) {
       const language = this.$i18n.locale
-      const mediaTypeTV = MediaTypes.tv
-      // const genreName = Slugger.sluggify([genre.name])
-      // return `/${language}/${mediaTypeTV}/bygenres/${Date.now()}/${genreName}/?sortedBy=popularity.desc`
-      return `/${language}/${mediaTypeTV}/bygenres/${Date.now()}/${
+      return `/${language}/${mediaType}/bygenres/${Date.now()}/${
         genre.id
       }/?sortedBy=popularity.desc`
     },

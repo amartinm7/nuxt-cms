@@ -91,21 +91,7 @@
             </p>
           </div>
           <div class="uk-flex uk-flex-center">
-            <p>
-              <nuxt-link
-                v-for="genre in movie._genres"
-                :key="genre._id"
-                :todo="genre"
-                :to="getTvShowByGenreURL(genre)"
-                class="uk-link-reset"
-              >
-                <span
-                  class="uk-label uk-label-warning uk-margin-small-left ech-basic"
-                >
-                  {{ genre.name }}
-                </span>
-              </nuxt-link>
-            </p>
+            <ech-genres :movie="movie" :media-type="mediaType"></ech-genres>
           </div>
           <div :uk-tooltip="$t('clickToSeeMoreAbout')">
             <ech-network-logo :network="movie._networks[0]"></ech-network-logo>
@@ -162,11 +148,17 @@ import MediaTypes from '@/middleware/modules/domain/MediaTypes'
 import LocateManager from '@/middleware/modules/vue/mixins/LocateManager'
 import Utils from '@/middleware/modules/vue/mixins/Utils'
 import EchNetworkLogo from '@/components/movies/EchNetworkLogo'
+import EchGenres from '@/components/movies/EchGenres'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
   name: 'EchTvShowCardDetails',
-  components: { EchNetworkLogo, EchSocialNetworkCardDetails, EchStarRating },
+  components: {
+    EchGenres,
+    EchNetworkLogo,
+    EchSocialNetworkCardDetails,
+    EchStarRating
+  },
   mixins: [MediaManager, LocateManager, Utils],
   props: {
     movies: {
