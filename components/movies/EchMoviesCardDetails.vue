@@ -91,8 +91,15 @@
             </div>
           </div>
           <div>
-            <p class="uk-dropcap uk-text-justify">
+            <p :id="movie._id + 'overview'" class="uk-dropcap uk-text-justify">
               {{ movie._overview }}
+              <span
+                class="ech-basic"
+                uk-icon="icon: comment; ratio: 0.75;"
+                uk-tooltip="copy"
+                @click.stop.prevent="toClipboard(movie._id + 'overview')"
+              >
+              </span>
             </p>
           </div>
           <div class="uk-flex uk-flex-center">
