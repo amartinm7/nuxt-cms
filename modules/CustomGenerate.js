@@ -25,9 +25,11 @@ const dynamicRoutesBy = (language) => {
 
 const dynamicRoutes = () => {
   // fetching tvs
-  return ['es', 'en'].flatMap((language) => {
-    return dynamicRoutesBy(language)
-  })
+  return ['es', 'en']
+    .flatMap((language) => {
+      return dynamicRoutesBy(language)
+    })
+    .concat('/es/tv/details/76669-lite')
 }
 
 export default dynamicRoutes
