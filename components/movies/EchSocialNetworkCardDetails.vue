@@ -9,7 +9,7 @@
       :title="defaultTitleFacebook"
       :description="defaultDescriptionFacebook"
       :quote="quote"
-      hashtags="estrenoscinehoy.com"
+      hashtags="estrenoscinehoy"
       class="uk-link-muted"
     >
       <span
@@ -23,7 +23,7 @@
       :title="defaultTitleTwitter"
       :description="defaultDescriptionTwitter"
       :quote="quote"
-      hashtags="estrenoscinehoy.com"
+      hashtags="estrenoscinehoy"
       class="uk-link-muted"
     >
       <span
@@ -37,7 +37,7 @@
       :title="defaultTitleFacebook"
       :description="defaultDescriptionFacebook"
       :quote="quote"
-      hashtags="estrenoscinehoy.com"
+      hashtags="estrenoscinehoy"
       class="uk-link-muted"
     >
       <span
@@ -51,7 +51,7 @@
       :title="defaultTitleEmail"
       :description="description"
       :quote="quote"
-      hashtags="estrenoscinehoy.com"
+      hashtags="estrenoscinehoy"
       class="uk-link-muted"
     >
       <span

@@ -14,7 +14,7 @@ export default {
     },
     {
       id: 35,
-      name: 'Comedia'
+      name: 'Comedía'
     },
     {
       id: 80,

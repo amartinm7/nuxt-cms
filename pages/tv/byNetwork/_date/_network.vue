@@ -11,7 +11,7 @@
       ></ech-pagination>
     </section>
     <section class="uk-section uk-section-xsmall">
-      <h1 v-if="!network" class="uk-text-center">
+      <h1 class="uk-text-center">
         {{ $t('pages.tv.byGenres') }}
       </h1>
       <ech-network-logo v-if="network" :network="network"></ech-network-logo>
