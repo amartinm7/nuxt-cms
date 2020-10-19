@@ -58,7 +58,7 @@ export default {
     },
     {
       id: 878,
-      name: 'Science Fiction'
+      name: 'Sci-Fi'
     },
     {
       id: 10770,

@@ -58,11 +58,11 @@ export default {
     },
     {
       id: 878,
-      name: 'Ciencia ficción'
+      name: 'Ficción'
     },
     {
       id: 10770,
-      name: 'Película de TV'
+      name: 'Cine de TV'
     },
     {
       id: 53,
@@ -74,7 +74,7 @@ export default {
     },
     {
       id: 37,
-      name: 'Western'
+      name: 'Oeste'
     }
   ]
 }

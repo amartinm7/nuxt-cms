@@ -2,7 +2,7 @@ export default {
   genres: [
     {
       id: 10759,
-      name: 'Action & Adventure'
+      name: 'Action'
     },
     {
       id: 16,
@@ -46,7 +46,7 @@ export default {
     },
     {
       id: 10765,
-      name: 'Sci-Fi & Fantasy'
+      name: 'Sci-Fi Fantasy'
     },
     {
       id: 10766,
