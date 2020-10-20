@@ -191,3 +191,9 @@ http://www.fbrell.com/Sharing/2%20-%20FB.ui%20Dialogs
 
 ## setting up node version for netlify
 https://github.com/nvm-sh/nvm#nvmrc
+
+## generate package-lock.json when is needed
+````bash
+npm i --package-lock-only
+npm ci
+````
