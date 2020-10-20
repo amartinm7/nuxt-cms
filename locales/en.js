@@ -88,5 +88,7 @@ export default {
   shareBySocialNetworkTip: 'Share this page to your friends!',
   nextResults: 'next results',
   previousResults: 'previous results',
-  clickToSeeMoreAbout: 'click to see more about this network'
+  clickToSeeMoreAbout: 'click to see more about this network',
+  relatedTvShows: 'more related tv shows',
+  recomendated: 'recomendated'
 }

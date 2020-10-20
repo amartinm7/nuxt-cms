@@ -126,6 +126,14 @@
                 {{ movie._homepage }}
               </a>
             </p>
+            <p class="uk-text-meta uk-margin-medium-top">
+              <nuxt-link
+                :to="getRelatedTvShowURL(movie._id)"
+                class="uk-link-reset"
+              >
+                <span uk-icon="reply">{{ $t('moreRelatedTvShows') }}</span>
+              </nuxt-link>
+            </p>
             <ech-social-network-card-details
               :title="movie._name"
               :description="movie._overview"
@@ -196,6 +204,10 @@ export default {
         'outbound-open-video-modal',
         getTvShowsVideosControllerResponse.url
       )
+    },
+    getRelatedTvShowURL(id) {
+      const language = this.$i18n.locale
+      return `/${language}/tv/similarTvShows/${Date.now()}/${id}?page=1`
     }
   }
 }

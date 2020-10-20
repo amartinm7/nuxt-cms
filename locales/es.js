@@ -88,5 +88,7 @@ export default {
   shareBySocialNetworkTip: 'Comparte esta página a tus amigos!',
   nextResults: 'siguientes resultados',
   previousResults: 'resultados anteriores',
-  clickToSeeMoreAbout: 'pulsa para ver mas sobre este canal'
+  clickToSeeMoreAbout: 'pulsa para ver mas sobre este canal',
+  moreRelatedTvShows: 'mas series tv relacinadas',
+  recomendated: 'relacionadas'
 }
