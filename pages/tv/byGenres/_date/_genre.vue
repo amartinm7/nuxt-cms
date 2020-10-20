@@ -1,6 +1,6 @@
 <template>
   <div>
-    <section class="uk-section uk-section-xsmall">
+    <section v-if="false" class="uk-section uk-section-xsmall">
       <ech-header-main @outbound-open-video-modal="playVideo"></ech-header-main>
     </section>
     <section class="uk-section uk-section-xsmall">
