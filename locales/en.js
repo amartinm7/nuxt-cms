@@ -90,5 +90,5 @@ export default {
   previousResults: 'previous results',
   clickToSeeMoreAbout: 'click to see more about this network',
   relatedTvShows: 'more related tv shows',
-  recomendated: 'recomendated'
+  recomendated: 'more series'
 }

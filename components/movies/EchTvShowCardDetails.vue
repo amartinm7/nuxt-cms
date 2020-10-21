@@ -126,12 +126,16 @@
                 {{ movie._homepage }}
               </a>
             </p>
-            <p class="uk-text-meta uk-margin-medium-top">
+            <p class="uk-text-meta uk-margin-medium-top uk-text-center">
               <nuxt-link
                 :to="getRelatedTvShowURL(movie._id)"
                 class="uk-link-reset"
               >
-                <span uk-icon="reply">{{ $t('moreRelatedTvShows') }}</span>
+                <span
+                  class="uk-label uk-label-success ech-basic"
+                  uk-icon="icon: reply; ratio: 0.75;"
+                  >{{ $t('moreRelatedTvShows') }}
+                </span>
               </nuxt-link>
             </p>
             <ech-social-network-card-details

@@ -14,7 +14,6 @@
       <h1 class="uk-text-center">
         {{ $t('recomendated') }}
       </h1>
-      <ech-network-logo v-if="network" :network="network"></ech-network-logo>
     </section>
     <section class="uk-section uk-section-xsmall">
       <div>
@@ -52,14 +51,12 @@ import VideoControllerManager from '@/middleware/modules/vue/mixins/VideoControl
 import MediaTypes from '@/middleware/modules/domain/MediaTypes'
 import DetailsHeaderManager from '@/middleware/modules/vue/mixins/DetailsHeaderManager'
 import EchPagination from '@/layouts/pagination/EchPagination'
-import EchNetworkLogo from '@/components/movies/EchNetworkLogo'
 import { GetSimilarShowsControllerRequest } from '@/middleware/modules/tvShows/getSimilarShows/userapplication/controller/GetSimilarShowsController'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
   name: 'EchTvSimilarShows',
   components: {
-    EchNetworkLogo,
     EchPagination,
     EchHeaderMain,
     EchSliderMain,

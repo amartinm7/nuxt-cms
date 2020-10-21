@@ -90,5 +90,5 @@ export default {
   previousResults: 'resultados anteriores',
   clickToSeeMoreAbout: 'pulsa para ver mas sobre este canal',
   moreRelatedTvShows: 'mas series tv relacinadas',
-  recomendated: 'relacionadas'
+  recomendated: 'más series'
 }
