@@ -1,68 +1,71 @@
 <template>
   <div>
-    <article
-      v-for="(movie, index) in movies"
-      :key="movie._id"
-      :todo="movie"
-      class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin ech-scrollspy-effect"
-      uk-grid
-    >
-      <div
-        class="uk-position-relative uk-visible-toggle uk-light uk-flex uk-flex-wrap"
+    <slot v-for="(movie, index) in movies" :todo="movie">
+      <article
+        v-if="movie._media_type === mediaType"
+        :key="movie._id"
+        class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin ech-scrollspy-effect"
+        uk-grid
       >
-        <div class="uk-width-expand">
-          {{ index }}
-          <a
-            class="uk-button uk-button-default uk-align-center"
-            @click="initVideoURL(movie)"
-          >
-            <img
-              class="ech-default-img"
-              :src="getPosterURL(movie._poster_path, index)"
-              :title="movie._title"
-              loading="lazy"
-              :alt="movie._title"
-            />
-          </a>
-        </div>
-      </div>
-      <div>
-        <span
-          class="uk-visible@s uk-align-right uk-margin-small-right uk-label-warning ech-basic ech-spin-icon uk-border-circle uk-padding-small uk-text-center"
+        <div
+          class="uk-position-relative uk-visible-toggle uk-light uk-flex uk-flex-wrap"
         >
-          {{ movie._vote_average.toFixed(1) }}
-        </span>
-        <div class="uk-card-body">
-          <h2 class="uk-card-title ech-basic uk-text-center">
-            <nuxt-link
-              class="uk-link-reset"
-              :to="getDetailPathURL(movie._id, movie._title, mediaType)"
+          <div class="uk-width-expand">
+            {{ index }}
+            <a
+              class="uk-button uk-button-default uk-align-center"
+              @click="initVideoURL(movie)"
             >
-              {{ movie._title }} ({{ movie._release_date | moment('YYYY') }})
-            </nuxt-link>
-            <span
-              :id="movie._id"
-              class="uk-label ech-basic ech-spin-icon"
-              @click.stop.prevent="toClipboard(movie._id)"
-              >{{ movie._id }}</span
-            >
-          </h2>
-          <p>
-            <ech-star-rating :rating-value="movie._vote_average / 2">
-            </ech-star-rating>
-          </p>
-          <p class="uk-dropcap uk-text-justify">
-            {{ movie._overview }}
-          </p>
-          <p v-if="movie._release_date">
-            {{ $t('releaseDate') }}
-            <span class="uk-label uk-margin-small-left ech-basic ech-spin-icon">
-              {{ movie._release_date | moment('DD-MM-YYYY') }}
-            </span>
-          </p>
+              <img
+                class="ech-default-img"
+                :src="getPosterURL(movie._poster_path, index)"
+                :title="movie._title"
+                loading="lazy"
+                :alt="movie._title"
+              />
+            </a>
+          </div>
         </div>
-      </div>
-    </article>
+        <div>
+          <span
+            class="uk-visible@s uk-align-right uk-margin-small-right uk-label-warning ech-basic ech-spin-icon uk-border-circle uk-padding-small uk-text-center"
+          >
+            {{ movie._vote_average.toFixed(1) }}
+          </span>
+          <div class="uk-card-body">
+            <h2 class="uk-card-title ech-basic uk-text-center">
+              <nuxt-link
+                class="uk-link-reset"
+                :to="getDetailPathURL(movie._id, movie._title, mediaType)"
+              >
+                {{ movie._title }} ({{ movie._release_date | moment('YYYY') }})
+              </nuxt-link>
+              <span
+                :id="movie._id"
+                class="uk-label ech-basic ech-spin-icon"
+                @click.stop.prevent="toClipboard(movie._id)"
+                >{{ movie._id }}</span
+              >
+            </h2>
+            <p>
+              <ech-star-rating :rating-value="movie._vote_average / 2">
+              </ech-star-rating>
+            </p>
+            <p class="uk-dropcap uk-text-justify">
+              {{ movie._overview }}
+            </p>
+            <p v-if="movie._release_date">
+              {{ $t('releaseDate') }}
+              <span
+                class="uk-label uk-margin-small-left ech-basic ech-spin-icon"
+              >
+                {{ movie._release_date | moment('DD-MM-YYYY') }}
+              </span>
+            </p>
+          </div>
+        </div>
+      </article>
+    </slot>
   </div>
 </template>
 <script>

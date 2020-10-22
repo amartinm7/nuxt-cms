@@ -6,6 +6,18 @@
     <section class="uk-section uk-section-xsmall">
       <ech-slider-main :movies="multiSearch._results"> </ech-slider-main>
     </section>
+    <section class="uk-section uk-section-xsmall">
+      <div>
+        <ech-tv-show-card
+          :movies="multiSearch._results"
+          @outbound-open-video-modal="playVideo"
+        ></ech-tv-show-card>
+        <ech-movies-card
+          :movies="multiSearch._results"
+          @outbound-open-video-modal="playVideo"
+        ></ech-movies-card>
+      </div>
+    </section>
     <div>
       <vk-modal center :show.sync="showVideo">
         <vk-modal-close @click="closeVideo"></vk-modal-close>
@@ -30,11 +42,13 @@ import EchHeaderMain from '../../../layouts/header/EchHeaderMain'
 import EchSliderMain from '../../../components/slider/EchSliderMain'
 import VideoControllerManager from '../../../middleware/modules/vue/mixins/VideoControllerManager'
 import DetailsHeaderManager from '../../../middleware/modules/vue/mixins/DetailsHeaderManager'
+import EchTvShowCard from '@/components/movies/EchTvShowCard'
+import EchMoviesCard from '@/components/movies/EchMoviesCard'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
   name: 'EchSearch',
-  components: { EchHeaderMain, EchSliderMain },
+  components: { EchMoviesCard, EchTvShowCard, EchHeaderMain, EchSliderMain },
   mixins: [VideoControllerManager, DetailsHeaderManager],
   // eslint-disable-next-line require-await
   async asyncData({ app, params, store, route }) {
