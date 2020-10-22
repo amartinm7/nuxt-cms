@@ -1,6 +1,5 @@
 <template>
   <div>
-    <h1 class="uk-text-large ech-basic uk-text-center">sdfdasfdsfds</h1>
     <h1 class="uk-text-large ech-basic uk-text-center uk-hidden@s">
       {{ people._name }}
     </h1>

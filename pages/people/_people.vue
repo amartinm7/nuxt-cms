@@ -1,6 +1,6 @@
 <template>
   <div>
-    <section v-if="false" class="uk-section uk-section-xsmall">
+    <section class="uk-section uk-section-xsmall">
       <ech-people-card-details :people="people"></ech-people-card-details>
     </section>
     <section class="uk-section uk-section-xsmall">
