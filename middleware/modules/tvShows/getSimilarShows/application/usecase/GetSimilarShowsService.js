@@ -18,8 +18,8 @@ class GetSimilarShowsService {
 }
 
 class GetSimilarShowsServiceRequest {
-  constructor({ tvId, language, page }) {
-    this.tvId = tvId
+  constructor({ showId, language, page }) {
+    this.showId = showId
     this.language = language
     this.page = page
   }

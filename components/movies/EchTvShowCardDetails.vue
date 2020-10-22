@@ -128,7 +128,7 @@
             </p>
             <p class="uk-text-meta uk-margin-medium-top uk-text-center">
               <nuxt-link
-                :to="getRelatedTvShowURL(movie._id)"
+                :to="getRelatedShowsURL({ id: movie._id, mediaType })"
                 class="uk-link-reset"
               >
                 <span
@@ -168,6 +168,7 @@ import LocateManager from '@/middleware/modules/vue/mixins/LocateManager'
 import Utils from '@/middleware/modules/vue/mixins/Utils'
 import EchNetworkLogo from '@/components/movies/EchNetworkLogo'
 import EchGenres from '@/components/movies/EchGenres'
+import SimilarShowsManager from '@/middleware/modules/vue/mixins/SimilarShowsManager'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
@@ -178,7 +179,7 @@ export default {
     EchSocialNetworkCardDetails,
     EchStarRating
   },
-  mixins: [MediaManager, LocateManager, Utils],
+  mixins: [MediaManager, LocateManager, Utils, SimilarShowsManager],
   props: {
     movies: {
       type: Array,
@@ -208,10 +209,6 @@ export default {
         'outbound-open-video-modal',
         getTvShowsVideosControllerResponse.url
       )
-    },
-    getRelatedTvShowURL(id) {
-      const language = this.$i18n.locale
-      return `/${language}/tv/similarTvShows/${Date.now()}/${id}?page=1`
     }
   }
 }

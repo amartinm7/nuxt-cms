@@ -1,21 +1,22 @@
 import GetAxiosRequest from '../../../../../framework/modules/axios/GetAxiosRequest'
 import MediaTypes from '@/middleware/modules/domain/MediaTypes'
-
 /* eslint-disable camelcase, no-console */
-class GetSimilarShowsRepository {
+class GetSimilarMoviesRepository {
   constructor({ axios, accessToken }) {
     this._axios = axios
     this._accessToken = accessToken
   }
 
   /**
-   * Get getSimilarShows
-   * @param getSimilarShowsRepositoryRequest
+   * Get getSimilarMovies
+   * @param getSimilarMoviesRepositoryRequest
    * @returns {*}
    */
-  execute(getSimilarShowsRepositoryRequest) {
-    const { showId, language, page } = { ...getSimilarShowsRepositoryRequest }
-    const urlPath = `/tv/${showId}/similar?language=${language}&page=${page}&append_to_response=videos,images,credits`
+  execute(getSimilarMoviesRepositoryRequest) {
+    const { movie_id, language, page } = {
+      ...getSimilarMoviesRepositoryRequest
+    }
+    const urlPath = `/movie/${movie_id}/similar?language=${language}&append_to_response=videos,images,credits&page=${page}`
     return this._axios(
       new GetAxiosRequest({
         accessToken: this._accessToken,
@@ -24,34 +25,34 @@ class GetSimilarShowsRepository {
     )
   }
 
-  async executeAsync(getSimilarShowsRepositoryRequest) {
-    const axiosResponse = await this.execute(getSimilarShowsRepositoryRequest)
-    return new GetSimilarShowsRepositoryResponse({ ...axiosResponse.data })
+  async executeAsync(getSimilarMoviesRepositoryRequest) {
+    const axiosResponse = await this.execute(getSimilarMoviesRepositoryRequest)
+    return new GetSimilarMoviesRepositoryResponse({ ...axiosResponse.data })
   }
 }
 
-class GetSimilarShowsRepositoryRequest {
-  constructor({ showId, language, page = 1 }) {
-    this.showId = showId
+class GetSimilarMoviesRepositoryRequest {
+  constructor({ movie_id, language, page = 1 }) {
+    this.movie_id = movie_id
     this.language = language
     this.page = page
   }
 }
 
 /* eslint-disable camelcase */
-class GetSimilarShowsRepositoryResponse {
+class GetSimilarMoviesRepositoryResponse {
   constructor({ page, total_pages, total_results, results }) {
     this._page = page
     this._total_pages = total_pages
     this._total_results = total_results
     this._results = results.map((it) => {
       // eslint-disable-next-line no-new
-      return new GetSimilarShowsRepositoryResponseResult(it)
+      return new GetSimilarMoviesRepositoryResponseResult(it)
     })
   }
 }
 
-class GetSimilarShowsRepositoryResponseResult {
+class GetSimilarMoviesRepositoryResponseResult {
   constructor({
     id,
     title,
@@ -79,13 +80,13 @@ class GetSimilarShowsRepositoryResponseResult {
     this._poster_path = poster_path
     this._backdrop_path = backdrop_path
     this._popularity = popularity
-    this._media_type = MediaTypes.tv
+    this._media_type = MediaTypes.movie
   }
 }
 
 export {
-  GetSimilarShowsRepository,
-  GetSimilarShowsRepositoryRequest,
-  GetSimilarShowsRepositoryResponse,
-  GetSimilarShowsRepositoryResponseResult
+  GetSimilarMoviesRepository,
+  GetSimilarMoviesRepositoryRequest,
+  GetSimilarMoviesRepositoryResponse,
+  GetSimilarMoviesRepositoryResponseResult
 }

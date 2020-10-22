@@ -17,8 +17,8 @@ class GetSimilarShowsController {
 
 /* eslint-disable camelcase */
 class GetSimilarShowsControllerRequest {
-  constructor({ tvId, language, page }) {
-    this.tvId = tvId
+  constructor({ showId, language, page }) {
+    this.showId = showId
     this.language = language
     this.page = page
   }
