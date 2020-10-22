@@ -89,6 +89,8 @@ export default {
   nextResults: 'siguientes resultados',
   previousResults: 'resultados anteriores',
   clickToSeeMoreAbout: 'pulsa para ver mas sobre este canal',
-  moreRelatedTvShows: 'mas series tv relacinadas',
-  recomendated: 'más series'
+  moreRelatedTvShows: 'series tv similares',
+  moreRelatedMovies: 'películas similares',
+  similarTvShows: 'más series',
+  similarMovies: 'más cine'
 }

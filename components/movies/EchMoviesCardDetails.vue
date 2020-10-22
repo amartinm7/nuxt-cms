@@ -173,7 +173,7 @@
                 <span
                   class="uk-label uk-label-success ech-basic"
                   uk-icon="icon: reply; ratio: 0.75;"
-                  >{{ $t('moreRelatedTvShows') }}
+                  >{{ $t('moreRelatedMovies') }}
                 </span>
               </nuxt-link>
             </p>

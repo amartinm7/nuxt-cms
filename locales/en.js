@@ -89,6 +89,8 @@ export default {
   nextResults: 'next results',
   previousResults: 'previous results',
   clickToSeeMoreAbout: 'click to see more about this network',
-  relatedTvShows: 'more similar tv shows',
-  recomendated: 'more series'
+  relatedTvShows: 'similar tv shows',
+  moreRelatedMovies: 'similar movies',
+  similarTvShows: 'more series',
+  similarMovies: 'more movies'
 }
