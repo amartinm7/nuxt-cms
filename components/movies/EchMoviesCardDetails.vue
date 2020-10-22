@@ -165,6 +165,18 @@
                 {{ movie._homepage }}
               </a>
             </p>
+            <p class="uk-text-meta uk-margin-medium-top uk-text-center">
+              <nuxt-link
+                :to="getRelatedShowsURL({ id: movie._id, mediaType })"
+                class="uk-link-reset"
+              >
+                <span
+                  class="uk-label uk-label-success ech-basic"
+                  uk-icon="icon: reply; ratio: 0.75;"
+                  >{{ $t('moreRelatedTvShows') }}
+                </span>
+              </nuxt-link>
+            </p>
             <ech-social-network-card-details
               :title="movie._title"
               :description="movie._overview"
@@ -186,23 +198,30 @@
 </template>
 <script>
 /* eslint-disable camelcase, no-console */
-import { BeanContainerRegistry } from '../../middleware/BeanContainerRegistry'
-import { GetMovieVideosControllerRequest } from '../../middleware/modules/movies/getVideos/userapplication/controller/GetMovieVideosController'
-import MediaManager from '../../middleware/modules/vue/mixins/MediaManager'
-import MediaTypes from '../../middleware/modules/domain/MediaTypes'
-import LocateManager from '../../middleware/modules/vue/mixins/LocateManager'
-import Utils from '../../middleware/modules/vue/mixins/Utils'
-import PeopleManager from '../../middleware/modules/vue/mixins/PeopleManager'
 import EchStarRating from './EchStarRating'
 import EchSocialNetworkCardDetails from './EchSocialNetworkCardDetails'
+import { BeanContainerRegistry } from '@/middleware/BeanContainerRegistry'
+import { GetMovieVideosControllerRequest } from '@/middleware/modules/movies/getVideos/userapplication/controller/GetMovieVideosController'
+import MediaManager from '@/middleware/modules/vue/mixins/MediaManager'
+import MediaTypes from '@/middleware/modules/domain/MediaTypes'
+import LocateManager from '@/middleware/modules/vue/mixins/LocateManager'
+import Utils from '@/middleware/modules/vue/mixins/Utils'
+import PeopleManager from '@/middleware/modules/vue/mixins/PeopleManager'
 import EchGenres from '@/components/movies/EchGenres'
+import SimilarShowsManager from '@/middleware/modules/vue/mixins/SimilarShowsManager'
 
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
   name: 'EchMoviesCardDetail',
   components: { EchGenres, EchSocialNetworkCardDetails, EchStarRating },
-  mixins: [MediaManager, LocateManager, Utils, PeopleManager],
+  mixins: [
+    MediaManager,
+    LocateManager,
+    Utils,
+    PeopleManager,
+    SimilarShowsManager
+  ],
   props: {
     movies: {
       type: Array,

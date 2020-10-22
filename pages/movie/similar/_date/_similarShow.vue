@@ -17,10 +17,10 @@
     </section>
     <section class="uk-section uk-section-xsmall">
       <div>
-        <ech-tv-show-card
+        <ech-movies-card
           :movies="trendingTVShows._results"
           @outbound-open-video-modal="playVideo"
-        ></ech-tv-show-card>
+        ></ech-movies-card>
       </div>
     </section>
     <div>
@@ -46,37 +46,39 @@
 import { BeanContainerRegistry } from '@/middleware/BeanContainerRegistry'
 import EchHeaderMain from '@/layouts/header/EchHeaderMain'
 import EchSliderMain from '@/components/slider/EchSliderMain'
-import EchTvShowCard from '@/components/movies/EchTvShowCard'
 import VideoControllerManager from '@/middleware/modules/vue/mixins/VideoControllerManager'
 import MediaTypes from '@/middleware/modules/domain/MediaTypes'
 import DetailsHeaderManager from '@/middleware/modules/vue/mixins/DetailsHeaderManager'
 import EchPagination from '@/layouts/pagination/EchPagination'
-import { GetSimilarShowsControllerRequest } from '@/middleware/modules/tvShows/getSimilarShows/userapplication/controller/GetSimilarShowsController'
+import { GetSimilarMoviesControllerRequest } from '@/middleware/modules/movies/getSimilarMovies/userapplication/controller/GetSimilarMoviesController'
+import EchMoviesCard from '@/components/movies/EchMoviesCard'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
-  name: 'EchTvSimilarShows',
+  name: 'EchTvSimilarMovies',
   components: {
+    EchMoviesCard,
     EchPagination,
     EchHeaderMain,
-    EchSliderMain,
-    EchTvShowCard
+    EchSliderMain
   },
   mixins: [VideoControllerManager, DetailsHeaderManager],
   // eslint-disable-next-line require-await
   async asyncData({ app, params, query }) {
-    console.log('getSimilarShowsController')
+    console.log('getSimilarMoviesController')
     const language = app.i18n.locale
     const page = isNaN(query.page) ? 1 : Number(query.page)
-    const tvId = isNaN(params.similarShow) ? 76479 : Number(params.similarShow)
-    const trendingTVShows = await beanContainer.getSimilarShowsController.execute(
-      new GetSimilarShowsControllerRequest({
+    const movie_id = isNaN(params.similarShow)
+      ? 335984
+      : Number(params.similarShow)
+    const trendingTVShows = await beanContainer.getSimilarMoviesController.execute(
+      new GetSimilarMoviesControllerRequest({
         language,
         page,
-        tvId
+        movie_id
       })
     )
-    return { trendingTVShows, page, tvId }
+    return { trendingTVShows, page, movie_id }
   },
   data() {
     return {
@@ -86,19 +88,19 @@ export default {
         _total_results: 1,
         _results: []
       },
-      mediaType: MediaTypes.tv,
+      mediaType: MediaTypes.movie,
       page: 1,
-      tvId: 76479
+      movie_id: '335984'
     }
   },
   methods: {
     async toPrevious() {
       const previousPage = this.page > 1 ? this.page - 1 : 1
-      this.trendingTVShows = await beanContainer.getSimilarShowsController.execute(
-        new GetSimilarShowsControllerRequest({
+      this.trendingTVShows = await beanContainer.getSimilarMoviesController.execute(
+        new GetSimilarMoviesControllerRequest({
           language: this.$i18n.locale,
           page: previousPage,
-          tvId: this.tvId
+          movie_id: this.movie_id
         })
       )
       this.page = previousPage
@@ -108,11 +110,11 @@ export default {
         this.page < this.trendingTVShows._total_pages
           ? this.page + 1
           : this.trendingTVShows._total_pages
-      this.trendingTVShows = await beanContainer.getSimilarShowsController.execute(
-        new GetSimilarShowsControllerRequest({
+      this.trendingTVShows = await beanContainer.getSimilarMoviesController.execute(
+        new GetSimilarMoviesControllerRequest({
           language: this.$i18n.locale,
           page: nextPage,
-          tvId: this.tvId
+          movie_id: this.movie_id
         })
       )
       this.page = nextPage
