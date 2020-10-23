@@ -10,6 +10,15 @@
             <div id="widget-text-1" class="uk-panel widget-text">
               <div class="uk-panel textwidget">
                 <h2 class="uk-text-center">
+                  <img
+                    src="../../assets/logo/vector/isolated-monochrome-black.svg"
+                    alt="EstrenosCineHoy"
+                    title="EstrenosCineHoy"
+                    loading="lazy"
+                    style="width: 7%"
+                    class="uk-margin-small-right"
+                    uk-svg
+                  />
                   Stay Tunned
                 </h2>
                 <p
