@@ -1,6 +1,5 @@
 /* eslint-disable camelcase, no-console */
 import MediaHandler from '@/middleware/framework/modules/media/MediaHandler'
-import MediaTypes from '@/middleware/modules/domain/MediaTypes'
 import Slugger from '@/middleware/framework/modules/slugger/Slugger'
 const _isEmpty = require('lodash.isempty')
 
@@ -16,25 +15,6 @@ export default {
       const language = this.$i18n.locale
       const slugger = Slugger.sluggify([movie_title])
       return `/${language}/${mediaType}/details/${movie_id}-${slugger}`
-    },
-    getNetWorkLogoURL(network) {
-      return `https://image.tmdb.org/t/p/h60${network?._logo_path}`
-    },
-    getTvShowByNetworkURL(network) {
-      const language = this.$i18n.locale
-      const mediaTypeTV = MediaTypes.tv
-      const networkId = network?._id
-      return `/${language}/${mediaTypeTV}/byNetwork/${Date.now()}/${networkId}/?sortedBy=popularity.desc`
-    },
-    isNetworkStored(networkId) {
-      console.log(
-        'isNetworkStored...' +
-          JSON.stringify(this.$store.getters['network/networkStore/getNetwork'])
-      )
-      return (
-        this.$store.getters['network/networkStore/getNetwork']?._id ===
-        Number(networkId)
-      )
     },
     getByGenreURL(genre, mediaType) {
       const language = this.$i18n.locale

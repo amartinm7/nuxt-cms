@@ -14,11 +14,11 @@
   </div>
 </template>
 <script>
-import MediaManager from '@/middleware/modules/vue/mixins/MediaManager'
+import NetworkManager from '@/middleware/modules/vue/mixins/NetworkManager'
 
 export default {
   name: 'EchNetworkLogo',
-  mixins: [MediaManager],
+  mixins: [NetworkManager],
   props: {
     network: {
       type: Object,

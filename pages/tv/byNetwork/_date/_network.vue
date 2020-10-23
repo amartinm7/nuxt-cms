@@ -58,6 +58,7 @@ import DetailsHeaderManager from '../../../../middleware/modules/vue/mixins/Deta
 import EchPagination from '@/layouts/pagination/EchPagination'
 import EchNetworkLogo from '@/components/movies/EchNetworkLogo'
 import MediaManager from '@/middleware/modules/vue/mixins/MediaManager'
+import NetworkManager from '@/middleware/modules/vue/mixins/NetworkManager'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
@@ -69,7 +70,12 @@ export default {
     EchSliderMain,
     EchTvShowCard
   },
-  mixins: [VideoControllerManager, DetailsHeaderManager, MediaManager],
+  mixins: [
+    VideoControllerManager,
+    DetailsHeaderManager,
+    MediaManager,
+    NetworkManager
+  ],
   // eslint-disable-next-line require-await
   async asyncData({ app, params, query }) {
     const language = app.i18n.locale
