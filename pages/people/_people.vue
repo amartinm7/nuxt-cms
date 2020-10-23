@@ -7,6 +7,9 @@
       <ech-slider-main :movies="people._movie_credits._cast"> </ech-slider-main>
     </section>
     <section class="uk-section uk-section-xsmall">
+      <ech-slider-main :movies="people._tv_credits._cast"> </ech-slider-main>
+    </section>
+    <section class="uk-section uk-section-xsmall">
       <ech-disqus></ech-disqus>
     </section>
   </div>
