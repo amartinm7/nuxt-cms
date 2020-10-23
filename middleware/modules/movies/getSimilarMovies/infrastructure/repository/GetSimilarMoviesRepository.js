@@ -17,6 +17,7 @@ class GetSimilarMoviesRepository {
       ...getSimilarMoviesRepositoryRequest
     }
     const urlPath = `/movie/${movie_id}/similar?language=${language}&append_to_response=videos,images,credits&page=${page}`
+    console.log('GetSimilarMoviesRepository... ' + urlPath)
     return this._axios(
       new GetAxiosRequest({
         accessToken: this._accessToken,
@@ -27,6 +28,9 @@ class GetSimilarMoviesRepository {
 
   async executeAsync(getSimilarMoviesRepositoryRequest) {
     const axiosResponse = await this.execute(getSimilarMoviesRepositoryRequest)
+    console.log(
+      'GetSimilarMoviesRepository... ' + JSON.stringify(axiosResponse.data)
+    )
     return new GetSimilarMoviesRepositoryResponse({ ...axiosResponse.data })
   }
 }

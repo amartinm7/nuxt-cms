@@ -1,4 +1,6 @@
 import GetAxiosRequest from '../../../../../framework/modules/axios/GetAxiosRequest'
+import MediaTypes from '../../../../../../middleware/modules/domain/MediaTypes'
+
 /* eslint-disable camelcase, no-console */
 class GetPeopleDetailsRepository {
   constructor({ axios, accessToken }) {
@@ -69,19 +71,33 @@ class GetPeopleDetailsRepositoryResponse {
       return new GetBackDropsPostersDetailsResponse(img)
     })
     this._movie_credits = {
-      cast: movie_credits?.cast?.map((cst) => {
-        return new GetCreditCastsPeopleResponse(cst)
+      _cast: movie_credits?.cast?.map((cst) => {
+        return new GetCreditCastsPeopleResponse({
+          ...cst,
+          mediaType: MediaTypes.movie
+        })
       }),
-      crew: movie_credits?.crew?.map((crw) => {
-        return new GetCreditCastsPeopleResponse(crw)
+      _crew: movie_credits?.crew?.map((crw) => {
+        return new GetCreditCastsPeopleResponse({
+          ...crw,
+          mediaType: MediaTypes.movie
+        })
       })
     }
     this._tv_credits = {
-      cast: tv_credits?.cast?.map((cst) => {
-        return new GetCreditCastsPeopleResponse(cst)
+      _cast: tv_credits?.cast?.map((cst) => {
+        return new GetCreditCastsPeopleResponse({
+          ...cst,
+          mediaType: MediaTypes.tv
+        })
       }),
-      crew: tv_credits?.crew?.map((crw) => {
-        return new GetCreditCastsPeopleResponse(crw)
+      _crew: tv_credits?.crew?.map((crw) => {
+        return new GetCreditCastsPeopleResponse((crw) => {
+          return new GetCreditCastsPeopleResponse({
+            ...crw,
+            mediaType: MediaTypes.tv
+          })
+        })
       })
     }
   }
@@ -128,7 +144,8 @@ class GetCreditCastsPeopleResponse {
     character,
     vote_average,
     overview,
-    credit_id
+    credit_id,
+    mediaType
   }) {
     this._poster_path = poster_path
     this._adult = adult
@@ -146,6 +163,7 @@ class GetCreditCastsPeopleResponse {
     this._vote_average = vote_average
     this._overview = overview
     this._credit_id = credit_id
+    this._media_type = mediaType
   }
 }
 

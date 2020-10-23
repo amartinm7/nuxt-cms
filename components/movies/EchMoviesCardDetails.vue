@@ -91,7 +91,11 @@
             </div>
           </div>
           <div>
-            <p :id="movie._id + 'overview'" class="uk-dropcap uk-text-justify">
+            <p
+              v-if="movie._overview"
+              :id="movie._id + 'overview'"
+              class="uk-dropcap uk-text-justify"
+            >
               {{ movie._overview }}
               <span
                 class="ech-basic"

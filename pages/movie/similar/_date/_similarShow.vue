@@ -64,8 +64,7 @@ export default {
   },
   mixins: [VideoControllerManager, DetailsHeaderManager],
   // eslint-disable-next-line require-await
-  async asyncData({ app, params, query }) {
-    console.log('getSimilarMoviesController')
+  async asyncData({ app, params, query, route }) {
     const language = app.i18n.locale
     const page = isNaN(query.page) ? 1 : Number(query.page)
     const movie_id = isNaN(params.similarShow)
@@ -91,6 +90,17 @@ export default {
       mediaType: MediaTypes.movie,
       page: 1,
       movie_id: '335984'
+    }
+  },
+  mounted() {
+    if (this.trendingTVShows._total_results === 0) {
+      const language = this.$i18n.locale
+      const route = async () => {
+        await this.$router.push({
+          path: `/${language}`
+        })
+      }
+      route()
     }
   },
   methods: {

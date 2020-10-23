@@ -70,13 +70,13 @@
 </template>
 <script>
 /* eslint-disable camelcase, no-console */
-import { BeanContainerRegistry } from '../../middleware/BeanContainerRegistry'
-import { GetMovieVideosControllerRequest } from '../../middleware/modules/movies/getVideos/userapplication/controller/GetMovieVideosController'
-import MediaManager from '../../middleware/modules/vue/mixins/MediaManager'
-import MediaTypes from '../../middleware/modules/domain/MediaTypes'
-import LocateManager from '../../middleware/modules/vue/mixins/LocateManager'
-import Utils from '../../middleware/modules/vue/mixins/Utils'
 import EchStarRating from './EchStarRating'
+import { BeanContainerRegistry } from '@/middleware/BeanContainerRegistry'
+import { GetMovieVideosControllerRequest } from '@/middleware/modules/movies/getVideos/userapplication/controller/GetMovieVideosController'
+import MediaManager from '@/middleware/modules/vue/mixins/MediaManager'
+import MediaTypes from '@/middleware/modules/domain/MediaTypes'
+import LocateManager from '@/middleware/modules/vue/mixins/LocateManager'
+import Utils from '@/middleware/modules/vue/mixins/Utils'
 
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
