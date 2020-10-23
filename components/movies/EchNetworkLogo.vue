@@ -5,7 +5,7 @@
         <span>
           <img
             class="uk-align-center ech-basic"
-            :src="getNetWorkURLByArray(network)"
+            :src="getNetWorkLogoURL(network)"
             :alt="network"
           />
         </span>

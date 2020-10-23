@@ -1,5 +1,21 @@
-import { commandActions } from '../store/commandActions/commandActionsStore'
 import MediaTypes from '../middleware/modules/domain/MediaTypes'
+
+const commandActions = {
+  tv: {
+    airingToday: 'airingToday',
+    onTheAirTv: 'onTheAirTv',
+    popular: 'popular',
+    topRated: 'topRated',
+    byGenres: 'More Series'
+  },
+  movie: {
+    nowPlaying: 'nowPlaying',
+    popular: 'popular',
+    topRated: 'topRated',
+    upcoming: 'upcoming',
+    byGenres: 'More Movies'
+  }
+}
 
 const dynamicRoutesBy = (language) => {
   // fetching tvs

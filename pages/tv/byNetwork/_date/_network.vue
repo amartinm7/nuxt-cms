@@ -14,7 +14,10 @@
       <h1 class="uk-text-center">
         {{ $t('pages.tv.byGenres') }}
       </h1>
-      <ech-network-logo v-if="network" :network="network"></ech-network-logo>
+      <ech-network-logo
+        v-if="isNetworkStored(networkId)"
+        :network="network"
+      ></ech-network-logo>
     </section>
     <section class="uk-section uk-section-xsmall">
       <div>
@@ -53,8 +56,8 @@ import { FindTvShowsByControllerRequest } from '../../../../middleware/modules/t
 import MediaTypes from '../../../../middleware/modules/domain/MediaTypes'
 import DetailsHeaderManager from '../../../../middleware/modules/vue/mixins/DetailsHeaderManager'
 import EchPagination from '@/layouts/pagination/EchPagination'
-import Networks from '@/middleware/modules/domain/Networks'
 import EchNetworkLogo from '@/components/movies/EchNetworkLogo'
+import MediaManager from '@/middleware/modules/vue/mixins/MediaManager'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
@@ -66,14 +69,13 @@ export default {
     EchSliderMain,
     EchTvShowCard
   },
-  mixins: [VideoControllerManager, DetailsHeaderManager],
+  mixins: [VideoControllerManager, DetailsHeaderManager, MediaManager],
   // eslint-disable-next-line require-await
   async asyncData({ app, params, query }) {
     const language = app.i18n.locale
     const page = isNaN(query.page) ? 1 : Number(query.page)
     const networkId = params.network ?? ''
     const sortedBy = query.sortedBy ?? ''
-    const network = Networks.getNetWorkBy(networkId)
     console.log('FindTvShowsByRepository...' + networkId)
     const trendingTVShows = await beanContainer.findTvShowsByController.execute(
       new FindTvShowsByControllerRequest({
@@ -83,7 +85,7 @@ export default {
         networkId
       })
     )
-    return { trendingTVShows, page, networkId, network }
+    return { trendingTVShows, page, networkId }
   },
   data() {
     return {
@@ -100,6 +102,9 @@ export default {
       networkId: '',
       network: {}
     }
+  },
+  mounted() {
+    this.network = this.$store.getters['network/networkStore/getNetwork']
   },
   methods: {
     async toPrevious() {
