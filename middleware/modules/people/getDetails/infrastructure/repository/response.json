@@ -1,31 +1,248 @@
 {
-  "birthday": "1968-09-25",
+  "birthday": "1963-12-18",
   "known_for_department": "Acting",
+  "id": 287,
+  "movie_credits": {
+    "cast": [
+      {
+        "poster_path": "/4y8WH1lIpXp0qxUWkYmObhuMRIU.jpg",
+        "adult": false,
+        "backdrop_path": "/3guCfwRt3MrmO6q56I4F5xN1LYB.jpg",
+        "vote_count": 5088,
+        "video": false,
+        "id": 163,
+        "popularity": 16.992,
+        "genre_ids": [
+          80,
+          53
+        ],
+        "original_language": "en",
+        "title": "Ocean's Twelve",
+        "original_title": "Ocean's Twelve",
+        "release_date": "2004-12-09",
+        "character": "Rusty Ryan",
+        "vote_average": 6.5,
+        "overview": "Danny Ocean reunites with his old flame and the rest of his merry band of thieves in carrying out three huge heists in Rome, Paris and Amsterdam – but a Europol agent is hot on their heels.",
+        "credit_id": "52fe4221c3a36847f80062e5"
+      }
+    ],
+    "crew": [
+      {
+        "id": 402970,
+        "department": "Crew",
+        "original_language": "en",
+        "original_title": "Notes on an American Film Director at Work",
+        "job": "Thanks",
+        "overview": "Filmmaker Jonas Mekas follows his friend, film director Martin Scorsese, and his cast and crew, through various locations during the shooting of his film The Departed, released in 2006.",
+        "genre_ids": [
+          99
+        ],
+        "video": false,
+        "credit_id": "5ebdf4f1bc8abc0022c2e548",
+        "release_date": "2008-01-01",
+        "popularity": 2.428,
+        "vote_average": 0,
+        "vote_count": 0,
+        "title": "Notes on an American Film Director at Work",
+        "adult": false,
+        "backdrop_path": "/1Q0FrRbywFPjseam7mwt6MYKXe7.jpg",
+        "poster_path": "/8Ah2goGOhoR1i7jwOOaie10reoS.jpg"
+      }
+    ]
+  },
+  "homepage": null,
+  "profile_path": "/cckcYc2v0yh1tc9QjRelptcOBko.jpg",
+  "tv_credits": {
+    "cast": [
+      {
+        "poster_path": "/k64lMNJScnkeXzOmQW9JVDTseaF.jpg",
+        "original_name": "Growing Pains",
+        "id": 54,
+        "vote_count": 67,
+        "vote_average": 6.8,
+        "name": "Growing Pains",
+        "first_air_date": "1985-09-24",
+        "genre_ids": [
+          35
+        ],
+        "popularity": 11.569,
+        "character": "",
+        "episode_count": 2,
+        "original_language": "en",
+        "credit_id": "525333fb19c295794002c720",
+        "backdrop_path": "/qowDKrH3k5Ea04vg4kZimzP5jfq.jpg",
+        "overview": "Growing Pains is an American television sitcom about an affluent family, residing in Huntington, Long Island, New York, with a working mother and a stay-at-home psychiatrist father raising three children together, which aired on ABC from September 24, 1985, to April 25, 1992.",
+        "origin_country": [
+          "US"
+        ]
+      }
+    ],
+    "crew": [
+      {
+        "id": 69851,
+        "department": "Production",
+        "original_language": "en",
+        "episode_count": 8,
+        "job": "Executive Producer",
+        "overview": "Anthology series of famous feuds with the first season based on the legendary rivalry between Bette Davis and Joan Crawford which began early on their careers, climaxed on the set of \"Whatever Happened to Baby Jane?\" and evolved into an Oscar vendetta.",
+        "origin_country": [
+          "US"
+        ],
+        "original_name": "FEUD",
+        "vote_count": 106,
+        "name": "FEUD",
+        "popularity": 12.032,
+        "credit_id": "58d06d6e9251415a240011dc",
+        "backdrop_path": "/kKSSvF4nLudxX907Qm75nRUOOHn.jpg",
+        "first_air_date": "2017-03-05",
+        "vote_average": 8.1,
+        "genre_ids": [
+          18
+        ],
+        "poster_path": "/obztijEwCVkKQutVK9eARn9jyNh.jpg"
+      }
+    ],
+  },
   "deathday": null,
-  "id": 2888,
-  "name": "Will Smith",
+  "images": {
+    "profiles": [
+      {
+        "iso_639_1": null,
+        "aspect_ratio": 0.66666666666667,
+        "vote_count": 6,
+        "height": 2400,
+        "vote_average": 4.996,
+        "file_path": "/fbvQc6utpq9wHojQ7wclzEVViEF.jpg",
+        "width": 1600
+      },
+      {
+        "iso_639_1": null,
+        "aspect_ratio": 0.66603053435115,
+        "vote_count": 29,
+        "height": 1572,
+        "vote_average": 5.166,
+        "file_path": "/kU3B75TyRiCgE270EyZnHjfivoq.jpg",
+        "width": 1047
+      },
+      {
+        "iso_639_1": null,
+        "aspect_ratio": 0.66666666666667,
+        "vote_count": 14,
+        "height": 1050,
+        "vote_average": 5.164,
+        "file_path": "/7WCsMdFaHLylKiv0x4vsR4Mh2rX.jpg",
+        "width": 700
+      },
+      {
+        "iso_639_1": null,
+        "aspect_ratio": 0.6675,
+        "vote_count": 14,
+        "height": 800,
+        "vote_average": 5.164,
+        "file_path": "/jNZ9OJj8vONbImwzDEOwAiKriGv.jpg",
+        "width": 534
+      },
+      {
+        "iso_639_1": null,
+        "aspect_ratio": 0.66719492868463,
+        "vote_count": 12,
+        "height": 631,
+        "vote_average": 5.276,
+        "file_path": "/w1L55dXNi9UAmw2CURQjQI0DTf2.jpg",
+        "width": 421
+      },
+      {
+        "iso_639_1": null,
+        "aspect_ratio": 0.66712898751734,
+        "vote_count": 13,
+        "height": 721,
+        "vote_average": 5.338,
+        "file_path": "/ajNaPmXVVMJFg9GWmu6MJzTaXdV.jpg",
+        "width": 481
+      },
+      {
+        "iso_639_1": null,
+        "aspect_ratio": 0.66666666666667,
+        "vote_count": 6,
+        "height": 3000,
+        "vote_average": 4.996,
+        "file_path": "/iTzf3TBqo6lWMAit0i33SBtVVT7.jpg",
+        "width": 2000
+      },
+      {
+        "iso_639_1": null,
+        "aspect_ratio": 0.67083333333333,
+        "vote_count": 4,
+        "height": 1200,
+        "vote_average": 5.252,
+        "file_path": "/k36ZQ6RLAr49uzSTd93qoLvcRZR.jpg",
+        "width": 805
+      },
+      {
+        "iso_639_1": null,
+        "aspect_ratio": 0.66666666666667,
+        "vote_count": 2,
+        "height": 750,
+        "vote_average": 5.106,
+        "file_path": "/ekwsWyFlT9zgbZXGuC70QUNjB2V.jpg",
+        "width": 500
+      },
+      {
+        "iso_639_1": null,
+        "aspect_ratio": 0.66666666666667,
+        "vote_count": 6,
+        "height": 1920,
+        "vote_average": 5.128,
+        "file_path": "/wotDPQyhX7wJoA6HXGPzdg6EtGk.jpg",
+        "width": 1280
+      },
+      {
+        "iso_639_1": null,
+        "aspect_ratio": 0.66666666666667,
+        "vote_count": 11,
+        "height": 1377,
+        "vote_average": 5.212,
+        "file_path": "/tJiSUYst4ddIaz1zge2LqCtu9tw.jpg",
+        "width": 918
+      },
+      {
+        "iso_639_1": null,
+        "aspect_ratio": 0.66666666666667,
+        "vote_count": 3,
+        "height": 720,
+        "vote_average": 5.18,
+        "file_path": "/wrBcHV1MIac9gRga4GN0QzfMgTc.jpg",
+        "width": 480
+      },
+      {
+        "iso_639_1": null,
+        "aspect_ratio": 0.66632653061224,
+        "vote_count": 14,
+        "height": 980,
+        "vote_average": 5.398,
+        "file_path": "/cckcYc2v0yh1tc9QjRelptcOBko.jpg",
+        "width": 653
+      },
+      {
+        "iso_639_1": null,
+        "aspect_ratio": 0.66666666666667,
+        "vote_count": 7,
+        "height": 1080,
+        "vote_average": 5.198,
+        "file_path": "/kPshtQm3uxAn8FmdyR453mJoMBD.jpg",
+        "width": 720
+      }
+    ]
+  },
+  "name": "Brad Pitt",
   "also_known_as": [
-    "Уилл Смит",
-    "Вілл Сміт",
-    "The Fresh Prince",
-    "Willard Smith",
-    "ويل سميث",
-    "윌 스미스",
-    "ウィル・スミス",
-    "วิลล์ สมิธ",
-    "威爾·史密斯",
-    "וויל סמית",
-    "Γουίλ Σμιθ",
-    "Willard Christopher \"Will\" Smith, Jr.",
-    "Willard Christopher Smith, Jr.",
-    "威尔·史密斯"
+    "William Bradley \"Brad\" Pitt",
+    "William Bradley Pitt",
   ],
-  "gender": 2,
-  "biography": "Willard Christopher \"Will\" Smith, Jr. (born September 25, 1968) is an American actor, film producer and pop rapper. He has enjoyed success in music, television and film. In April 2007, Newsweek called him the most powerful actor on the planet. Smith has been nominated for four Golden Globe Awards, two Academy Awards, and has won multiple Grammy Awards.\n\nIn the late 1980s, Smith achieved modest fame as a rapper under the name The Fresh Prince. In 1990, his popularity increased dramatically when he starred in the popular television series The Fresh Prince of Bel-Air. The show ran for nearly six years (1990–1996) on NBC and has been syndicated consistently on various networks since then.\n\nIn the mid-1990s, Smith transitioned from television to film, and ultimately starred in numerous blockbuster films that received broad box office success. In fact, he is the only actor in history to have eight consecutive films gross over $100 million in the domestic box office as well as being the only actor to have eight consecutive films in which he starred open at the #1 spot in the domestic box office tally. Fourteen of the 19 fiction films he has acted in have accumulated worldwide gross earnings of over $100 million, and 4 of them took in over $500 million in global box office receipts. His most financially successful films have been Bad Boys, Bad Boys II, Independence Day, Men in Black, Men in Black II, I, Robot, The Pursuit of Happyness, I Am Legend, Hancock, Wild Wild West, Enemy of the State, Shark Tale, Hitch, and Seven Pounds. He also earned critical praise for his performances in Six Degrees of Separation, Ali, and The Pursuit of Happyness, receiving Best Actor Oscar nominations for the latter two.",
-  "popularity": 14.816,
-  "place_of_birth": "Philadelphia, Pennsylvania, U.S.A.",
-  "profile_path": "/eze9FO9VuryXLP0aF2cRqPCcibN.jpg",
+  "biography": "William Bradley Pitt is an American actor and film producer. He has received multiple awards, including two Golden Globe Awards and an Academy Award for his acting, in addition to another Academy Award and a Primetime Emmy Award as producer under his production company, Plan B Entertainment.\n\nPitt first gained recognition as a cowboy hitchhiker in the road movie Thelma & Louise (1991). His first leading roles in big-budget productions came with the drama films A River Runs Through It (1992) and Legends of the Fall (1994), and the horror film Interview with the Vampire (1994). He gave critically acclaimed performances in the crime thriller Seven (1995) and the science fiction film 12 Monkeys (1995), the latter earning him a Golden Globe Award for Best Supporting Actor and an Academy Award nomination.\n\nPitt starred in Fight Club (1999) and the heist film Ocean's Eleven (2001), as well as its sequels, Ocean's Twelve (2004) and Ocean's Thirteen (2007). His greatest commercial successes have been Ocean's Eleven (2001), Troy (2004), Mr. & Mrs. Smith (2005), World War Z (2013), and Once Upon a Time in Hollywood (2019), for which he won a second Golden Globe Award and the Academy Award for Best Supporting Actor. Pitt's other Academy Award nominated performances were in The Curious Case of Benjamin Button (2008) and Moneyball (2011). He produced The Departed (2006) and 12 Years a Slave (2013), both of which won the Academy Award for Best Picture, and also The Tree of Life (2011), Moneyball (2011), and The Big Short (2015), all of which were nominated for Best Picture.\n\nAs a public figure, Pitt has been cited as one of the most influential and powerful people in the American entertainment industry. For a number of years, he was cited as the world's most attractive man by various media outlets, and his personal life is the subject of wide publicity. From 2000 to 2005, he was married to the actress Jennifer Aniston, and from 2014 to 2019, he was married to the actress Angelina Jolie. Pitt and Jolie have six children together, three of whom were adopted internationally.",
+  "imdb_id": "nm0000093",
   "adult": false,
-  "imdb_id": "nm0000226",
-  "homepage": "http://www.willsmith.com"
+  "gender": 2,
+  "place_of_birth": "Shawnee, Oklahoma, USA",
+  "popularity": 23.275
 }
