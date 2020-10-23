@@ -93,6 +93,17 @@ export default {
       showId: 76479
     }
   },
+  mounted() {
+    if (this.trendingTVShows._total_results === 0) {
+      const language = this.$i18n.locale
+      const route = async () => {
+        await this.$router.push({
+          path: `/${language}`
+        })
+      }
+      route()
+    }
+  },
   methods: {
     async toPrevious() {
       const previousPage = this.page > 1 ? this.page - 1 : 1
