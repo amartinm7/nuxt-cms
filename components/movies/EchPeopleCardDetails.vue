@@ -45,31 +45,38 @@
             class="uk-flex uk-flex-center uk-width-auto uk-text-italic uk-margin-medium"
           >
             <div>
-              <span
-                v-if="people._place_of_birth"
-                class="uk-label uk-label-success ech-basic"
-                uk-icon="icon: location; ratio: 0.75;"
-              >
-                {{ $t('origin') }}:
-                {{ people._place_of_birth }}
-              </span>
-
-              <span
+              <div v-if="people._place_of_birth">
+                <span> {{ $t('origin') }}: {{ people._place_of_birth }}</span>
+                <span
+                  class="uk-margin-small-right"
+                  uk-icon="icon: location; ratio: 0.75;"
+                ></span>
+              </div>
+              <div
                 v-if="people._birthday"
                 class="uk-label uk-label-success ech-basic"
-                uk-icon="icon: calendar; ratio: 0.75;"
               >
-                {{ $t('birthDay') }}:
-                {{ people._birthday | moment('DD-MMMM-YYYY') }}
-              </span>
-
-              <span
+                <span>
+                  {{ $t('birthDay') }}:
+                  {{ people._birthday | moment('DD-MMMM-YYYY') }}
+                </span>
+                <span
+                  class="uk-margin-small-right"
+                  uk-icon="icon: calendar; ratio: 0.75;"
+                ></span>
+              </div>
+              <div
                 v-if="people._known_for_department"
                 class="uk-label uk-label-success ech-basic"
-                uk-icon="icon: user; ratio: 0.75;"
               >
-                {{ $t('knownFor') }}: {{ people._known_for_department }}
-              </span>
+                <span v-if="people._known_for_department">
+                  {{ $t('knownFor') }}: {{ people._known_for_department }}
+                </span>
+                <span
+                  class="uk-margin-small-right"
+                  uk-icon="icon: user; ratio: 0.75;"
+                ></span>
+              </div>
             </div>
           </div>
           <div v-if="people._biography" class="uk-width-auto">
