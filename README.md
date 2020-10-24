@@ -113,15 +113,25 @@ handleSelect(path) {
       });
     }
 
-//ads google analitycs
+## npm ci
+borrar package-lock y regenerar
+npm install --package-lock
+
+
+## printenv para ver variables de entorno bash o zsh
+
+## google analitycs
+para ver visitas, registrar tu dominio en google analitys, asociarlo con google ads
 https://nuxtjs.org/faq/google-analytics
 https://github.com/nuxt-community/analytics-module
 @nuxtjs/google-analytics
-para ver visitas, registrar tu dominio en google analitys, asociarlo con google ads 
-instalar los plugins de nuxt y setear los ids de ambas plataformas
 
-for adssense
-npm i @nuxtjs/google-adsense
+## google adsense
+https://www.npmjs.com/package/@nuxtjs/google-adsense
+@nuxtjs/google-adsense
+https://www.google.com/adsense
+
+instalar los plugins de nuxt y setear los ids de ambas plataformas
 
 https://disqus.com/
 
