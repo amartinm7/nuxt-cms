@@ -9,7 +9,11 @@
         style="transform: translate3d(0px, 0px, 0px);"
       >
         <a name="echSlider"></a>
-        <li v-for="movie in movies" :key="movie._id" :todo="movie">
+        <li
+          v-for="movie in movies"
+          :key="Number(movie._id) + Math.random()"
+          :todo="movie"
+        >
           <nuxt-link
             class="uk-link-reset ech-scrollspy-effect"
             :to="
@@ -60,6 +64,12 @@ export default {
       type: Array,
       default() {
         return []
+      }
+    },
+    mediaType: {
+      type: String,
+      default() {
+        return 'movie'
       }
     }
   },

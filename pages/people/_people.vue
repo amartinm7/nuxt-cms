@@ -4,10 +4,22 @@
       <ech-people-card-details :people="people"></ech-people-card-details>
     </section>
     <section class="uk-section uk-section-xsmall">
-      <ech-slider-main :movies="people._movie_credits._cast"> </ech-slider-main>
-    </section>
-    <section class="uk-section uk-section-xsmall">
-      <ech-slider-main :movies="people._tv_credits._cast"> </ech-slider-main>
+      <h2 class="uk-text-center">{{ $t('appearOnMovies') }}</h2>
+      <ech-slider-main
+        v-if="people._movie_credits._cast"
+        :movies="people._movie_credits._cast"
+        :media-type="mediaTypeMovie"
+      >
+      </ech-slider-main>
+      <section class="uk-section uk-section-xsmall">
+        <h2 class="uk-text-center">{{ $t('appearOnTvShows') }}</h2>
+        <ech-slider-main
+          v-if="people._tv_credits._cast"
+          :movies="people._tv_credits._cast"
+          :media-type="mediaTypeTvShow"
+        >
+        </ech-slider-main>
+      </section>
     </section>
     <section class="uk-section uk-section-xsmall">
       <ech-disqus></ech-disqus>
@@ -18,6 +30,7 @@
 <!-- eslint-enable -->
 <script>
 /* eslint-disable camelcase, no-console */
+import MediaTypes from '@/middleware/modules/domain/MediaTypes'
 import EchDisqus from '@/components/disqus/EchDisqus'
 import { GetPeopleDetailsControllerRequest } from '@/middleware/modules/people/getDetails/userapplication/controller/GetPeopleDetailsController'
 import { BeanContainerRegistry } from '@/middleware/BeanContainerRegistry'
@@ -26,7 +39,6 @@ import DetailsHeaderManager from '@/middleware/modules/vue/mixins/DetailsHeaderM
 import RequestDetailsHeaderManager from '@/middleware/modules/vue/mixins/RequestDetailsHeaderManager'
 import DetailsPeopleManager from '@/middleware/modules/vue/mixins/DetailsPeopleManager'
 import EchSliderMain from '@/components/slider/EchSliderMain'
-
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
@@ -55,7 +67,9 @@ export default {
   },
   data() {
     return {
-      people: {}
+      people: {},
+      mediaTypeMovie: MediaTypes.movie,
+      mediaTypeTvShow: MediaTypes.tv
     }
   }
 }
