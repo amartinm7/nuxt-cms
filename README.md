@@ -131,7 +131,8 @@ https://www.npmjs.com/package/@nuxtjs/google-adsense
 @nuxtjs/google-adsense
 https://www.google.com/adsense
 
-instalar los plugins de nuxt y setear los ids de ambas plataformas
+## google admobs 
+ads for ios and android
 
 https://disqus.com/
 
