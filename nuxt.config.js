@@ -48,14 +48,6 @@ export default {
         rel: 'stylesheet',
         href: 'https://fonts.googleapis.com/css?family=Staatliches'
       }
-    ],
-    script: [
-      {
-        // for google ads
-        src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js',
-        'data-ad-client': process.env.ESTRENOSCINEHOY_GOOGLE_ADS_ID,
-        async: true
-      }
     ]
   },
   /*
@@ -116,8 +108,12 @@ export default {
     '@nuxtjs/robots',
     '~modules/CustomGenerate.js',
     'vue-social-sharing/nuxt',
-    '@nuxt/http'
+    '@nuxt/http',
+    '@nuxtjs/google-adsense'
   ],
+  'google-adsense': {
+    id: process.env.ESTRENOSCINEHOY_GOOGLE_ADS_ID
+  },
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
