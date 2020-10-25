@@ -1,12 +1,15 @@
 <template>
   <div>
     <section class="uk-section uk-section-xsmall">
-      <!--      <ul class="uk-breadcrumb">-->
-      <!--        <li><a href="#">Item</a></li>-->
-      <!--        <li><a href="#">Item</a></li>-->
-      <!--        <li class="uk-disabled"><a>Disabled</a></li>-->
-      <!--        <li><span>Active</span></li>-->
-      <!--      </ul>-->
+      <div class="uk-flex uk-flex-center uk-flex-around">
+        <ech-network-logo
+          v-for="network in getPopularNetworks()"
+          :key="network._id"
+          :todo="network"
+          :network="network"
+          style="width: 15%"
+        ></ech-network-logo>
+      </div>
       <ech-tv-show-card-details
         :movies="movies"
         @outbound-open-video-modal="playVideo"
@@ -48,24 +51,27 @@
 <!-- eslint-enable -->
 <script>
 /* eslint-disable camelcase, no-console */
-import { BeanContainerRegistry } from '../../../middleware/BeanContainerRegistry'
-import { GetTvShowDetailsControllerRequest } from '../../../middleware/modules/tvShows/getDetails/userapplication/controller/GetTvShowDetailsController'
-import VideoControllerManager from '../../../middleware/modules/vue/mixins/VideoControllerManager'
-import CreditsManager from '../../../middleware/modules/vue/mixins/CreditsManager'
-import EchSliderPeople from '../../../components/slider/EchSliderPeople'
-import EchDisqus from '../../../components/disqus/EchDisqus'
-import EchSliderVideos from '../../../components/slider/EchSliderVideos'
-import EchSliderPosters from '../../../components/slider/EchSliderPosters'
-import EchTvShowCardDetails from '../../../components/movies/EchTvShowCardDetails'
-import MediaTypes from '../../../middleware/modules/domain/MediaTypes'
-import DetailsHeaderManager from '../../../middleware/modules/vue/mixins/DetailsHeaderManager'
-import RequestDetailsHeaderManager from '../../../middleware/modules/vue/mixins/RequestDetailsHeaderManager'
+import { BeanContainerRegistry } from '@/middleware/BeanContainerRegistry'
+import { GetTvShowDetailsControllerRequest } from '@/middleware/modules/tvShows/getDetails/userapplication/controller/GetTvShowDetailsController'
+import VideoControllerManager from '@/middleware/modules/vue/mixins/VideoControllerManager'
+import CreditsManager from '@/middleware/modules/vue/mixins/CreditsManager'
+import EchSliderPeople from '@/components/slider/EchSliderPeople'
+import EchDisqus from '@/components/disqus/EchDisqus'
+import EchSliderVideos from '@/components/slider/EchSliderVideos'
+import EchSliderPosters from '@/components/slider/EchSliderPosters'
+import EchTvShowCardDetails from '@/components/movies/EchTvShowCardDetails'
+import MediaTypes from '@/middleware/modules/domain/MediaTypes'
+import DetailsHeaderManager from '@/middleware/modules/vue/mixins/DetailsHeaderManager'
+import RequestDetailsHeaderManager from '@/middleware/modules/vue/mixins/RequestDetailsHeaderManager'
+import NetworkManager from '@/middleware/modules/vue/mixins/NetworkManager'
+import EchNetworkLogo from '@/components/movies/EchNetworkLogo'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
   name: 'EchTvshowDetails',
   scrollToTop: true,
   components: {
+    EchNetworkLogo,
     EchTvShowCardDetails,
     EchSliderVideos,
     EchSliderPosters,
@@ -76,7 +82,8 @@ export default {
     VideoControllerManager,
     CreditsManager,
     DetailsHeaderManager,
-    RequestDetailsHeaderManager
+    RequestDetailsHeaderManager,
+    NetworkManager
   ],
   // eslint-disable-next-line require-await
   async asyncData({ app, route, params, store }) {

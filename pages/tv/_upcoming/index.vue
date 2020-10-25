@@ -4,6 +4,15 @@
       <ech-header-main @outbound-open-video-modal="playVideo"></ech-header-main>
     </section>
     <section class="uk-section uk-section-xsmall">
+      <div class="uk-flex uk-flex-center uk-flex-around">
+        <ech-network-logo
+          v-for="network in getPopularNetworks()"
+          :key="network._id"
+          :todo="network"
+          :network="network"
+          style="width: 15%"
+        ></ech-network-logo>
+      </div>
       <ech-slider-main :movies="trendingShows._results"> </ech-slider-main>
       <ech-pagination
         @outbound-to-previous-page="toPrevious"
@@ -40,20 +49,29 @@
 <!-- eslint-enable -->
 <script>
 /* eslint-disable camelcase, no-console */
-import EchTvShowCard from '../../../components/movies/EchTvShowCard'
-import EchSliderMain from '../../../components/slider/EchSliderMain'
-import EchHeaderMain from '../../../layouts/header/EchHeaderMain'
-import VideoControllerManager from '../../../middleware/modules/vue/mixins/VideoControllerManager'
-import UpcomingManager from '../../../middleware/modules/vue/mixins/UpcomingManager'
-import MediaTypes from '../../../middleware/modules/domain/MediaTypes'
-import DetailsHeaderManager from '../../../middleware/modules/vue/mixins/DetailsHeaderManager'
+import EchTvShowCard from '@/components/movies/EchTvShowCard'
+import EchSliderMain from '@/components/slider/EchSliderMain'
+import EchHeaderMain from '@/layouts/header/EchHeaderMain'
+import VideoControllerManager from '@/middleware/modules/vue/mixins/VideoControllerManager'
+import UpcomingManager from '@/middleware/modules/vue/mixins/UpcomingManager'
+import MediaTypes from '@/middleware/modules/domain/MediaTypes'
+import DetailsHeaderManager from '@/middleware/modules/vue/mixins/DetailsHeaderManager'
 import PaginationForTrendingManager from '@/middleware/modules/vue/mixins/PaginationForTrendingManager'
 import EchPagination from '@/layouts/pagination/EchPagination'
+import EchNetworkLogo from '@/components/movies/EchNetworkLogo'
+import NetworkManager from '@/middleware/modules/vue/mixins/NetworkManager'
 
 export default {
   name: 'EchTvshowUpcoming',
-  components: { EchPagination, EchHeaderMain, EchSliderMain, EchTvShowCard },
+  components: {
+    EchNetworkLogo,
+    EchPagination,
+    EchHeaderMain,
+    EchSliderMain,
+    EchTvShowCard
+  },
   mixins: [
+    NetworkManager,
     VideoControllerManager,
     UpcomingManager,
     DetailsHeaderManager,

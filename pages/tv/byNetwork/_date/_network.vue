@@ -4,6 +4,15 @@
       <ech-header-main @outbound-open-video-modal="playVideo"></ech-header-main>
     </section>
     <section class="uk-section uk-section-xsmall">
+      <div class="uk-flex uk-flex-center uk-flex-around">
+        <ech-network-logo
+          v-for="network in getPopularNetworks()"
+          :key="network._id"
+          :todo="network"
+          :network="network"
+          style="width: 15%"
+        ></ech-network-logo>
+      </div>
       <ech-slider-main :movies="trendingTVShows._results"> </ech-slider-main>
       <ech-pagination
         @outbound-to-previous-page="toPrevious"
@@ -47,14 +56,14 @@
 <script>
 /* eslint-disable camelcase, no-console */
 // const _isEmpty = require('lodash.isempty')
-import { BeanContainerRegistry } from '../../../../middleware/BeanContainerRegistry'
-import EchHeaderMain from '../../../../layouts/header/EchHeaderMain'
-import EchSliderMain from '../../../../components/slider/EchSliderMain'
-import EchTvShowCard from '../../../../components/movies/EchTvShowCard'
-import VideoControllerManager from '../../../../middleware/modules/vue/mixins/VideoControllerManager'
-import { FindTvShowsByControllerRequest } from '../../../../middleware/modules/tvShows/findBy/userapplication/controller/FindTvShowsByController'
-import MediaTypes from '../../../../middleware/modules/domain/MediaTypes'
-import DetailsHeaderManager from '../../../../middleware/modules/vue/mixins/DetailsHeaderManager'
+import { BeanContainerRegistry } from '@/middleware/BeanContainerRegistry'
+import EchHeaderMain from '@/layouts/header/EchHeaderMain'
+import EchSliderMain from '@/components/slider/EchSliderMain'
+import EchTvShowCard from '@/components/movies/EchTvShowCard'
+import VideoControllerManager from '@/middleware/modules/vue/mixins/VideoControllerManager'
+import { FindTvShowsByControllerRequest } from '@/middleware/modules/tvShows/findBy/userapplication/controller/FindTvShowsByController'
+import MediaTypes from '@/middleware/modules/domain/MediaTypes'
+import DetailsHeaderManager from '@/middleware/modules/vue/mixins/DetailsHeaderManager'
 import EchPagination from '@/layouts/pagination/EchPagination'
 import EchNetworkLogo from '@/components/movies/EchNetworkLogo'
 import MediaManager from '@/middleware/modules/vue/mixins/MediaManager'
