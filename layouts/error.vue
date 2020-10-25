@@ -19,7 +19,7 @@ import EchHeaderMain from '@/layouts/header/EchHeaderMain'
 import VideoControllerManager from '@/middleware/modules/vue/mixins/VideoControllerManager'
 import DetailsHeaderManager from '@/middleware/modules/vue/mixins/DetailsHeaderManager'
 export default {
-  name: 'ErrorVue',
+  name: 'EchErrorVue',
   components: { EchHeaderMain },
   mixins: [VideoControllerManager, DetailsHeaderManager],
   methods: {

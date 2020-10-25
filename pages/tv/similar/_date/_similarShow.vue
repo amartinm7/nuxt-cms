@@ -4,15 +4,7 @@
       <ech-header-main @outbound-open-video-modal="playVideo"></ech-header-main>
     </section>
     <section class="uk-section uk-section-xsmall">
-      <div class="uk-flex uk-flex-center uk-flex-around">
-        <ech-network-logo
-          v-for="network in getPopularNetworks()"
-          :key="network._id"
-          :todo="network"
-          :network="network"
-          style="width: 15%"
-        ></ech-network-logo>
-      </div>
+      <ech-networks-nav-bar></ech-networks-nav-bar>
       <ech-slider-main :movies="trendingTVShows._results"> </ech-slider-main>
       <ech-pagination
         @outbound-to-previous-page="toPrevious"
@@ -61,20 +53,19 @@ import MediaTypes from '@/middleware/modules/domain/MediaTypes'
 import DetailsHeaderManager from '@/middleware/modules/vue/mixins/DetailsHeaderManager'
 import EchPagination from '@/layouts/pagination/EchPagination'
 import { GetSimilarShowsControllerRequest } from '@/middleware/modules/tvShows/getSimilarShows/userapplication/controller/GetSimilarShowsController'
-import EchNetworkLogo from '@/components/movies/EchNetworkLogo'
-import NetworkManager from '@/middleware/modules/vue/mixins/NetworkManager'
+import EchNetworksNavBar from '@/layouts/networksbar/EchNetworksNavBar'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
   name: 'EchTvSimilarTvShows',
   components: {
-    EchNetworkLogo,
+    EchNetworksNavBar,
     EchPagination,
     EchHeaderMain,
     EchSliderMain,
     EchTvShowCard
   },
-  mixins: [VideoControllerManager, DetailsHeaderManager, NetworkManager],
+  mixins: [VideoControllerManager, DetailsHeaderManager],
   // eslint-disable-next-line require-await
   async asyncData({ app, params, query }) {
     console.log('getSimilarShowsController')

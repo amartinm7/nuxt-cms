@@ -1,15 +1,7 @@
 <template>
   <div>
     <section class="uk-section uk-section-xsmall">
-      <div class="uk-flex uk-flex-center uk-flex-around">
-        <ech-network-logo
-          v-for="network in getPopularNetworks()"
-          :key="network._id"
-          :todo="network"
-          :network="network"
-          style="width: 15%"
-        ></ech-network-logo>
-      </div>
+      <ech-networks-nav-bar></ech-networks-nav-bar>
       <ech-tv-show-card-details
         :movies="movies"
         @outbound-open-video-modal="playVideo"
@@ -63,15 +55,12 @@ import EchTvShowCardDetails from '@/components/movies/EchTvShowCardDetails'
 import MediaTypes from '@/middleware/modules/domain/MediaTypes'
 import DetailsHeaderManager from '@/middleware/modules/vue/mixins/DetailsHeaderManager'
 import RequestDetailsHeaderManager from '@/middleware/modules/vue/mixins/RequestDetailsHeaderManager'
-import NetworkManager from '@/middleware/modules/vue/mixins/NetworkManager'
-import EchNetworkLogo from '@/components/movies/EchNetworkLogo'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
   name: 'EchTvshowDetails',
   scrollToTop: true,
   components: {
-    EchNetworkLogo,
     EchTvShowCardDetails,
     EchSliderVideos,
     EchSliderPosters,
@@ -82,8 +71,7 @@ export default {
     VideoControllerManager,
     CreditsManager,
     DetailsHeaderManager,
-    RequestDetailsHeaderManager,
-    NetworkManager
+    RequestDetailsHeaderManager
   ],
   // eslint-disable-next-line require-await
   async asyncData({ app, route, params, store }) {
