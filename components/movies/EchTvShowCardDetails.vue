@@ -104,8 +104,15 @@
           <div class="uk-flex uk-flex-center">
             <ech-genres :movie="movie" :media-type="mediaType"></ech-genres>
           </div>
-          <div :uk-tooltip="$t('clickToSeeMoreAbout')">
-            <ech-network-logo :network="movie._networks[0]"></ech-network-logo>
+          <div
+            v-if="movie._networks && movie._networks[0]"
+            :uk-tooltip="$t('clickToSeeMoreAbout')"
+          >
+            <p class="uk-text-meta uk-margin-medium-top">
+              <ech-network-logo
+                :network="movie._networks[0]"
+              ></ech-network-logo>
+            </p>
           </div>
           <div>
             <p v-if="movie._director" class="uk-text-meta">
@@ -199,8 +206,8 @@ export default {
   },
   mounted() {
     const networkToStore = {
-      _id: this.movies[0]?._networks[0]?._id,
-      _logo_path: this.movies[0]?._networks[0]?._logo_path
+      _id: this.movies?.[0]?._networks?.[0]?._id,
+      _logo_path: this.movies?.[0]?._networks?.[0]?._logo_path
     }
     this.$store.commit('network/networkStore/SET_NETWORK', networkToStore)
   },

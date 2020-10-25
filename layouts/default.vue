@@ -1,7 +1,7 @@
 <template>
   <div
     class="uk-container uk-container-large"
-    uk-scrollspy="cls: uk-animation-fade; target: .ech-scrollspy-effect; delay: 150; repeat: false"
+    uk-scrollspy="cls: uk-animation-fade; target: .ech-scrollspy-effect; delay: 100; repeat: false"
   >
     <ech-navbar-main-new></ech-navbar-main-new>
     <nuxt :key="$route.fullPath" class="ech-scrollspy-effect" />

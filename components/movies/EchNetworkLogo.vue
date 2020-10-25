@@ -1,16 +1,14 @@
 <template>
   <div>
-    <p class="uk-text-meta uk-margin-medium-top">
-      <nuxt-link :to="getTvShowByNetworkURL(network)" class="uk-link-reset">
-        <span>
-          <img
-            class="uk-align-center ech-basic"
-            :src="getNetWorkLogoURL(network)"
-            :alt="network"
-          />
-        </span>
-      </nuxt-link>
-    </p>
+    <nuxt-link :to="getTvShowByNetworkURL(network)" class="uk-link-reset">
+      <span>
+        <img
+          class="uk-align-center ech-basic"
+          :src="getNetWorkLogoURL(network)"
+          :alt="network"
+        />
+      </span>
+    </nuxt-link>
   </div>
 </template>
 <script>

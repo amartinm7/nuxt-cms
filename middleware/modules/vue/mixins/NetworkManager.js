@@ -1,5 +1,6 @@
 /* eslint-disable camelcase, no-console */
 import MediaTypes from '@/middleware/modules/domain/MediaTypes'
+import Networks from '@/middleware/modules/domain/Networks'
 
 export default {
   methods: {
@@ -17,6 +18,9 @@ export default {
         this.$store.getters['network/networkStore/getNetwork']?._id ===
         Number(networkId)
       )
+    },
+    getPopularNetworks() {
+      return Networks.getMostPopularNetworks()
     }
   }
 }

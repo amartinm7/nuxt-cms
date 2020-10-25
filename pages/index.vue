@@ -4,6 +4,15 @@
       <ech-header-main @outbound-open-video-modal="playVideo"></ech-header-main>
     </section>
     <section class="uk-section uk-section-xsmall">
+      <div class="uk-flex uk-flex-center uk-flex-around">
+        <ech-network-logo
+          v-for="network in getPopularNetworks()"
+          :key="network._id"
+          :todo="network"
+          :network="network"
+          style="width: 15%"
+        ></ech-network-logo>
+      </div>
       <div class="uk-active">
         <ech-slider-main :movies="trendingResults._results"></ech-slider-main>
         <ech-pagination
@@ -82,18 +91,21 @@ import VideoControllerManager from '../middleware/modules/vue/mixins/VideoContro
 import MediaTypes from '../middleware/modules/domain/MediaTypes'
 import DetailsHeaderManager from '../middleware/modules/vue/mixins/DetailsHeaderManager'
 import EchPagination from '@/layouts/pagination/EchPagination'
+import NetworkManager from '~/middleware/modules/vue/mixins/NetworkManager'
+import EchNetworkLogo from '~/components/movies/EchNetworkLogo'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
   name: 'EchMainIndex',
   components: {
+    EchNetworkLogo,
     EchPagination,
     EchHeaderMain,
     EchSliderMain,
     EchTvShowCard,
     EchMoviesCard
   },
-  mixins: [VideoControllerManager, DetailsHeaderManager],
+  mixins: [VideoControllerManager, DetailsHeaderManager, NetworkManager],
   // eslint-disable-next-line require-await
   async asyncData({ app, query }) {
     const language = app.i18n.locale
@@ -124,7 +136,6 @@ export default {
     }
   },
   mounted() {
-    console.log('mounted...')
     const self = this
     self.mediaType = MediaTypes.tv
     self.trendingResults = self.trendingMovies
