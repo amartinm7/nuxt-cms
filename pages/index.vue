@@ -74,20 +74,22 @@
 <!-- eslint-enable -->
 <script>
 /* eslint-disable camelcase, no-console */
-import EchTvShowCard from '../components/movies/EchTvShowCard'
-import EchMoviesCard from '../components/movies/EchMoviesCard'
-import { BeanContainerRegistry } from '../middleware/BeanContainerRegistry'
-import EchSliderMain from '../components/slider/EchSliderMain'
-import EchHeaderMain from '../layouts/header/EchHeaderMain'
-import VideoControllerManager from '../middleware/modules/vue/mixins/VideoControllerManager'
-import MediaTypes from '../middleware/modules/domain/MediaTypes'
-import DetailsHeaderManager from '../middleware/modules/vue/mixins/DetailsHeaderManager'
+import EchTvShowCard from '@/components/movies/EchTvShowCard'
+import EchMoviesCard from '@/components/movies/EchMoviesCard'
+import { BeanContainerRegistry } from '@/middleware/BeanContainerRegistry'
+import EchSliderMain from '@/components/slider/EchSliderMain'
+import EchHeaderMain from '@/layouts/header/EchHeaderMain'
+import VideoControllerManager from '@/middleware/modules/vue/mixins/VideoControllerManager'
+import MediaTypes from '@/middleware/modules/domain/MediaTypes'
+import DetailsHeaderManager from '@/middleware/modules/vue/mixins/DetailsHeaderManager'
 import EchPagination from '@/layouts/pagination/EchPagination'
+import EchNetworksNavBar from '@/layouts/networksbar/EchNetworksNavBar'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
   name: 'EchMainIndex',
   components: {
+    EchNetworksNavBar,
     EchPagination,
     EchHeaderMain,
     EchSliderMain,
