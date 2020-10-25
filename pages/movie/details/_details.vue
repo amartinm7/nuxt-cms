@@ -1,6 +1,7 @@
 <template>
   <div>
     <section class="uk-section uk-section-xsmall">
+      <ech-networks-nav-bar></ech-networks-nav-bar>
       <ech-movies-card-detail
         :movies="movies"
         @outbound-open-video-modal="playVideo"
@@ -54,12 +55,14 @@ import EchMoviesCardDetail from '../../../components/movies/EchMoviesCardDetails
 import MediaTypes from '../../../middleware/modules/domain/MediaTypes'
 import DetailsHeaderManager from '../../../middleware/modules/vue/mixins/DetailsHeaderManager'
 import RequestDetailsHeaderManager from '../../../middleware/modules/vue/mixins/RequestDetailsHeaderManager'
+import EchNetworksNavBar from '~/layouts/networksbar/EchNetworksNavBar'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
   name: 'EchMoviesDetails',
   scrollToTop: true,
   components: {
+    EchNetworksNavBar,
     EchMoviesCardDetail,
     EchSliderVideos,
     EchSliderPosters,

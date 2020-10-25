@@ -4,6 +4,7 @@
       <ech-header-main @outbound-open-video-modal="playVideo"></ech-header-main>
     </section>
     <section class="uk-section uk-section-xsmall">
+      <ech-networks-nav-bar></ech-networks-nav-bar>
       <ech-slider-main :movies="trendingShows._results"> </ech-slider-main>
       <ech-pagination
         @outbound-to-previous-page="toPrevious"
@@ -49,10 +50,17 @@ import MediaTypes from '@/middleware/modules/domain/MediaTypes'
 import DetailsHeaderManager from '@/middleware/modules/vue/mixins/DetailsHeaderManager'
 import EchPagination from '@/layouts/pagination/EchPagination'
 import PaginationForTrendingManager from '@/middleware/modules/vue/mixins/PaginationForTrendingManager'
+import EchNetworksNavBar from '~/layouts/networksbar/EchNetworksNavBar'
 
 export default {
   name: 'EchMoviesUpcoming',
-  components: { EchPagination, EchHeaderMain, EchSliderMain, EchMoviesCard },
+  components: {
+    EchNetworksNavBar,
+    EchPagination,
+    EchHeaderMain,
+    EchSliderMain,
+    EchMoviesCard
+  },
   mixins: [
     VideoControllerManager,
     UpcomingManager,

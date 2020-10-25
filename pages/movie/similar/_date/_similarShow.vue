@@ -4,6 +4,7 @@
       <ech-header-main @outbound-open-video-modal="playVideo"></ech-header-main>
     </section>
     <section class="uk-section uk-section-xsmall">
+      <ech-networks-nav-bar></ech-networks-nav-bar>
       <ech-slider-main :movies="trendingTVShows._results"> </ech-slider-main>
       <ech-pagination
         @outbound-to-previous-page="toPrevious"
@@ -52,11 +53,13 @@ import DetailsHeaderManager from '@/middleware/modules/vue/mixins/DetailsHeaderM
 import EchPagination from '@/layouts/pagination/EchPagination'
 import { GetSimilarMoviesControllerRequest } from '@/middleware/modules/movies/getSimilarMovies/userapplication/controller/GetSimilarMoviesController'
 import EchMoviesCard from '@/components/movies/EchMoviesCard'
+import EchNetworksNavBar from '~/layouts/networksbar/EchNetworksNavBar'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
   name: 'EchTvSimilarMovies',
   components: {
+    EchNetworksNavBar,
     EchMoviesCard,
     EchPagination,
     EchHeaderMain,

@@ -4,6 +4,7 @@
       <ech-header-main @outbound-open-video-modal="playVideo"></ech-header-main>
     </section>
     <section class="uk-section uk-section-xsmall">
+      <ech-networks-nav-bar></ech-networks-nav-bar>
       <ech-slider-main :movies="trendingMovies._results"> </ech-slider-main>
       <ech-pagination
         @outbound-to-previous-page="toPrevious"
@@ -54,12 +55,19 @@ import { FindMoviesByControllerRequest } from '../../../../middleware/modules/mo
 import MediaTypes from '../../../../middleware/modules/domain/MediaTypes'
 import DetailsHeaderManager from '../../../../middleware/modules/vue/mixins/DetailsHeaderManager'
 import EchPagination from '@/layouts/pagination/EchPagination'
+import EchNetworksNavBar from '~/layouts/networksbar/EchNetworksNavBar'
 // const _isEmpty = require('lodash.isempty')
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
   name: 'EchMoviesByGenres',
-  components: { EchPagination, EchHeaderMain, EchSliderMain, EchMoviesCard },
+  components: {
+    EchNetworksNavBar,
+    EchPagination,
+    EchHeaderMain,
+    EchSliderMain,
+    EchMoviesCard
+  },
   mixins: [VideoControllerManager, DetailsHeaderManager],
   // eslint-disable-next-line require-await
   async asyncData({ app, params, query }) {
