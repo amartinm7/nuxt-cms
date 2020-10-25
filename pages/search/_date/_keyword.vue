@@ -4,6 +4,7 @@
       <ech-header-main @outbound-open-video-modal="playVideo"></ech-header-main>
     </section>
     <section class="uk-section uk-section-xsmall">
+      <ech-networks-nav-bar></ech-networks-nav-bar>
       <ech-slider-main :movies="multiSearch._results"> </ech-slider-main>
     </section>
     <section class="uk-section uk-section-xsmall">
@@ -44,11 +45,18 @@ import VideoControllerManager from '../../../middleware/modules/vue/mixins/Video
 import DetailsHeaderManager from '../../../middleware/modules/vue/mixins/DetailsHeaderManager'
 import EchTvShowCard from '@/components/movies/EchTvShowCard'
 import EchMoviesCard from '@/components/movies/EchMoviesCard'
+import EchNetworksNavBar from '~/layouts/networksbar/EchNetworksNavBar'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
   name: 'EchSearch',
-  components: { EchMoviesCard, EchTvShowCard, EchHeaderMain, EchSliderMain },
+  components: {
+    EchNetworksNavBar,
+    EchMoviesCard,
+    EchTvShowCard,
+    EchHeaderMain,
+    EchSliderMain
+  },
   mixins: [VideoControllerManager, DetailsHeaderManager],
   // eslint-disable-next-line require-await
   async asyncData({ app, params, store, route }) {

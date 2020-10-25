@@ -1,6 +1,7 @@
 <template>
   <div>
     <section class="uk-section uk-section-xsmall">
+      <ech-networks-nav-bar></ech-networks-nav-bar>
       <ech-people-card-details :people="people"></ech-people-card-details>
     </section>
     <section class="uk-section uk-section-xsmall">
@@ -39,12 +40,14 @@ import DetailsHeaderManager from '@/middleware/modules/vue/mixins/DetailsHeaderM
 import RequestDetailsHeaderManager from '@/middleware/modules/vue/mixins/RequestDetailsHeaderManager'
 import DetailsPeopleManager from '@/middleware/modules/vue/mixins/DetailsPeopleManager'
 import EchSliderMain from '@/components/slider/EchSliderMain'
+import EchNetworksNavBar from '~/layouts/networksbar/EchNetworksNavBar'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
   name: 'EchPeopleDetails',
   scrollToTop: true,
   components: {
+    EchNetworksNavBar,
     EchSliderMain,
     EchPeopleCardDetails,
     EchDisqus
