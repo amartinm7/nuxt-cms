@@ -55,7 +55,7 @@ import EchTvShowCardDetails from '@/components/movies/EchTvShowCardDetails'
 import MediaTypes from '@/middleware/modules/domain/MediaTypes'
 import DetailsHeaderManager from '@/middleware/modules/vue/mixins/DetailsHeaderManager'
 import RequestDetailsHeaderManager from '@/middleware/modules/vue/mixins/RequestDetailsHeaderManager'
-import EchNetworksNavBar from "~/layouts/networksbar/EchNetworksNavBar";
+import EchNetworksNavBar from '@/layouts/networksbar/EchNetworksNavBar'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
