@@ -1,4 +1,5 @@
 import MediaTypes from '../middleware/modules/domain/MediaTypes'
+const staticRoutes = require('./staticRoutes.json')
 
 const commandActions = {
   tv: {
@@ -45,7 +46,7 @@ const dynamicRoutes = () => {
     .flatMap((language) => {
       return dynamicRoutesBy(language)
     })
-    .concat('/es/tv/details/76669-lite')
+    .concat(staticRoutes)
 }
 
 export default dynamicRoutes
