@@ -14,7 +14,7 @@ export default {
     getDetailPathURL(movie_id, movie_title, mediaType) {
       const language = this.$i18n.locale
       const slugger = Slugger.sluggify([movie_title])
-      return `/${language}/${mediaType}/details/${movie_id}-${slugger}`
+      return `/${language}/${mediaType}/${movie_id}-${slugger}`
     },
     getByGenreURL(genre, mediaType) {
       const language = this.$i18n.locale

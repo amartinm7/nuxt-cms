@@ -43,19 +43,19 @@
 <!-- eslint-enable -->
 <script>
 /* eslint-disable camelcase, no-console */
-import { BeanContainerRegistry } from '../../../middleware/BeanContainerRegistry'
-import { GetMovieDetailsControllerRequest } from '../../../middleware/modules/movies/getDetails/userapplication/controller/GetMovieDetailsController'
-import VideoControllerManager from '../../../middleware/modules/vue/mixins/VideoControllerManager'
-import EchSliderPeople from '../../../components/slider/EchSliderPeople'
-import CreditsManager from '../../../middleware/modules/vue/mixins/CreditsManager'
-import EchDisqus from '../../../components/disqus/EchDisqus'
-import EchSliderPosters from '../../../components/slider/EchSliderPosters'
-import EchSliderVideos from '../../../components/slider/EchSliderVideos'
-import EchMoviesCardDetail from '../../../components/movies/EchMoviesCardDetails'
-import MediaTypes from '../../../middleware/modules/domain/MediaTypes'
-import DetailsHeaderManager from '../../../middleware/modules/vue/mixins/DetailsHeaderManager'
-import RequestDetailsHeaderManager from '../../../middleware/modules/vue/mixins/RequestDetailsHeaderManager'
-import EchNetworksNavBar from '~/layouts/networksbar/EchNetworksNavBar'
+import { BeanContainerRegistry } from '@/middleware/BeanContainerRegistry'
+import { GetMovieDetailsControllerRequest } from '@/middleware/modules/movies/getDetails/userapplication/controller/GetMovieDetailsController'
+import VideoControllerManager from '@/middleware/modules/vue/mixins/VideoControllerManager'
+import EchSliderPeople from '@/components/slider/EchSliderPeople'
+import CreditsManager from '@/middleware/modules/vue/mixins/CreditsManager'
+import EchDisqus from '@/components/disqus/EchDisqus'
+import EchSliderPosters from '@/components/slider/EchSliderPosters'
+import EchSliderVideos from '@/components/slider/EchSliderVideos'
+import EchMoviesCardDetail from '@/components/movies/EchMoviesCardDetails'
+import MediaTypes from '@/middleware/modules/domain/MediaTypes'
+import DetailsHeaderManager from '@/middleware/modules/vue/mixins/DetailsHeaderManager'
+import RequestDetailsHeaderManager from '@/middleware/modules/vue/mixins/RequestDetailsHeaderManager'
+import EchNetworksNavBar from '@/layouts/networksbar/EchNetworksNavBar'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
@@ -78,7 +78,7 @@ export default {
   // eslint-disable-next-line require-await
   async asyncData({ app, route, params, store, context }) {
     const language = app.i18n.locale
-    const movie_id = params.details.split('-')[0]
+    const movie_id = params.index.split('-')[0]
     const getMovieDetailsControllerResponse = await beanContainer.getMovieDetailsController.execute(
       new GetMovieDetailsControllerRequest({ movie_id, language })
     )

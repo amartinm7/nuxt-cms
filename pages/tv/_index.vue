@@ -78,7 +78,7 @@ export default {
   // eslint-disable-next-line require-await
   async asyncData({ app, route, params, store }) {
     const language = app.i18n.locale
-    const movie_id = params.details.split('-')[0]
+    const movie_id = params.index.split('-')[0]
     const getTvShowDetailsControllerResponse = await beanContainer.getTvShowDetailsController.execute(
       new GetTvShowDetailsControllerRequest({ movie_id, language })
     )
