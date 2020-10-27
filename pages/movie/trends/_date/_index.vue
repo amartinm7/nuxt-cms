@@ -50,7 +50,7 @@ import MediaTypes from '@/middleware/modules/domain/MediaTypes'
 import DetailsHeaderManager from '@/middleware/modules/vue/mixins/DetailsHeaderManager'
 import EchPagination from '@/layouts/pagination/EchPagination'
 import PaginationForTrendingManager from '@/middleware/modules/vue/mixins/PaginationForTrendingManager'
-import EchNetworksNavBar from '~/layouts/networksbar/EchNetworksNavBar'
+import EchNetworksNavBar from '@/layouts/networksbar/EchNetworksNavBar'
 
 export default {
   name: 'EchMoviesUpcoming',

@@ -566,11 +566,13 @@ export default {
     },
     getTvShowTopListlURL(actionName) {
       const language = this.$i18n.locale
-      return `/${language}/${MediaTypes.tv}/upcoming/${actionName}/`
+      return `/${language}/${MediaTypes.tv}/trends/${Date.now()}/${actionName}/`
     },
     getMoviesTopListlURL(actionName) {
       const language = this.$i18n.locale
-      return `/${language}/${MediaTypes.movie}/upcoming/${actionName}/`
+      return `/${language}/${
+        MediaTypes.movie
+      }/trends/${Date.now()}/${actionName}/`
     },
     doSearch() {
       const language = this.$i18n.locale
