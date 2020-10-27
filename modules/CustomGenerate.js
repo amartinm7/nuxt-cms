@@ -1,4 +1,4 @@
-import MediaTypes from '../middleware/modules/domain/MediaTypes'
+import MediaTypes from '../middleware/modules/vue/mixins/MediaTypes'
 const staticRoutes = require('./staticRoutes.json')
 
 const commandActions = {
