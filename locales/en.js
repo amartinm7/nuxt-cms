@@ -34,15 +34,13 @@ export default {
       airingToday: 'Airing Today on TV',
       onTheAirTv: 'On the Air TV',
       popular: 'TV Mania',
-      topRated: 'Top Rated on TV',
-      byGenres: 'More Series'
+      topRated: 'Top Rated on TV'
     },
     movie: {
       nowPlaying: 'Now in cinemas',
       popular: 'Movie Mania',
       topRated: 'Top Rated Movies',
-      upcoming: 'Coming Movies',
-      byGenres: 'More Movies'
+      upcoming: 'Coming Movies'
     }
   },
   select: {

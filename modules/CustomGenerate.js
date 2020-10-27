@@ -6,15 +6,13 @@ const commandActions = {
     airingToday: 'airingToday',
     onTheAirTv: 'onTheAirTv',
     popular: 'popular',
-    topRated: 'topRated',
-    byGenres: 'More Series'
+    topRated: 'topRated'
   },
   movie: {
     nowPlaying: 'nowPlaying',
     popular: 'popular',
     topRated: 'topRated',
-    upcoming: 'upcoming',
-    byGenres: 'More Movies'
+    upcoming: 'upcoming'
   }
 }
 
