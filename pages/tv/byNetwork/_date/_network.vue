@@ -13,7 +13,7 @@
     </section>
     <section class="uk-section uk-section-xsmall">
       <h1 class="uk-text-center">
-        {{ $t('pages.tv.byGenres') }}
+        {{ $t('similarTvShows') }}
       </h1>
     </section>
     <section class="uk-section uk-section-xsmall">
