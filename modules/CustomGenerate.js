@@ -40,13 +40,17 @@ const dynamicRoutesBy = (language) => {
   return routesForTv.concat(routesForMovies)
 }
 
+// const dynamicRoutes = () => {
+//   // fetching tvs
+//   return ['es', 'en']
+//     .flatMap((language) => {
+//       return dynamicRoutesBy(language)
+//     })
+//     .concat(staticRoutes)
+// }
+
 const dynamicRoutes = () => {
-  // fetching tvs
-  return ['es', 'en']
-    .flatMap((language) => {
-      return dynamicRoutesBy(language)
-    })
-    .concat(staticRoutes)
+  return staticRoutes
 }
 
 export default dynamicRoutes
