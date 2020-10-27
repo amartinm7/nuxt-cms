@@ -1,4 +1,4 @@
-import MediaTypes from '../middleware/modules/vue/mixins/MediaTypes'
+import MediaTypes from '../middleware/modules/domain/MediaTypes'
 const staticRoutes = require('./staticRoutes.json')
 
 const commandActions = {
@@ -18,6 +18,7 @@ const commandActions = {
   }
 }
 
+// eslint-disable-next-line no-unused-vars
 const dynamicRoutesBy = (language) => {
   // fetching tvs
   const routesForTv = Object.keys(commandActions[MediaTypes.tv]).map(
