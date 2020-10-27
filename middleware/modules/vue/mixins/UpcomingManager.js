@@ -4,7 +4,7 @@ export default {
   methods: {
     getSection(mediaType) {
       return this.$i18n.messages[this.$i18n.locale].pages[mediaType][
-        this.$route.params.upcoming
+        this.$route.params.index
       ]
     }
   },
