@@ -3,7 +3,7 @@ import StringHandler from '../../../framework/modules/string/StringHandler'
 
 export default {
   head() {
-    const { title, overview, posterPath } = {
+    const { title, overview, posterPath, jsonLD } = {
       ...this.requestHeader
     }
     const defaultDesc =
@@ -15,7 +15,9 @@ export default {
     const overviewDefault = overview || defaultDesc
     const defaultPosterPath =
       posterPath || 'www.estrenoscinehoy.com/manifest-icon-512.png'
+    console.log('>>>head....' + JSON.stringify(jsonLD))
     return {
+      script: [{ type: 'application/ld+json', json: jsonLD }],
       title: `${StringHandler.truncate(defaultTitle, 65)}`,
       description: defaultDescription,
       link: [
