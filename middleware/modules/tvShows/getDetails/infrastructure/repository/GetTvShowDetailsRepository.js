@@ -99,6 +99,7 @@ class GetTvShowDetailsRepositoryResponse {
     this._media_type = MediaTypes.tv
     this._genres = genres
     this._id = id
+    this._imdb_id = ''
     this._original_language = original_language
     this._origin_country = origin_country
     this._original_name = original_name
@@ -110,6 +111,7 @@ class GetTvShowDetailsRepositoryResponse {
     this._vote_average = vote_average
     this._vote_count = vote_count
     this._first_air_date = first_air_date
+    this._release_date = first_air_date
     if (!_isEmpty(videos) && !_isEmpty(videos.results)) {
       this._videos = videos.results.map((it) => {
         // eslint-disable-next-line no-new

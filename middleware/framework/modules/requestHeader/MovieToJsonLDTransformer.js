@@ -32,6 +32,7 @@ class MovieToJsonLDTransformer {
     this.image = MediaHandler.getPoster2XURL(movieResponse._poster_path)
     this.url = `https://www.estrenoscinehoy.com${url}`
     this.inLanguage = language
+    this.dateCreated = movieResponse._release_date
   }
 }
 
