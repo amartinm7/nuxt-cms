@@ -10,7 +10,9 @@ export default {
       'Estrenos cine hoy: toda la info sobre películas, seríes, actores, actrices, TV Shows y programación. Movies, actor, actress, movies rating, news, tv networks'
     const routePath = this.$route.path
     const language = this.$i18n.locale
-    const defaultTitle = title || 'EstrenosCineHoy'
+    const defaultTitle =
+      title ||
+      'EstrenosCineHoy: novedades en cine y series netflix, hbo, appletv+... !'
     const defaultDescription = overview || defaultDesc
     const overviewDefault = overview || defaultDesc
     const defaultPosterPath =
