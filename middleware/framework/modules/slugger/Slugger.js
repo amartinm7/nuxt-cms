@@ -32,8 +32,9 @@ export default class Slugger {
   }
 
   static _sanitize(word) {
+    const text = word || ''
     const map = { á: 'a', é: 'e', í: 'i', ó: 'o', ú: 'u' }
-    const result = word.replace(/./g, function(character) {
+    const result = text.replace(/./g, function(character) {
       return map[character] ?? character
     })
     return result
