@@ -2,6 +2,8 @@
   <div>
     <section class="uk-section uk-section-xsmall">
       <ech-networks-nav-bar></ech-networks-nav-bar>
+    </section>
+    <section class="uk-section uk-section-xsmall">
       <ech-people-card-details :people="people"></ech-people-card-details>
     </section>
     <section class="uk-section uk-section-xsmall">

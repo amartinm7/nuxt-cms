@@ -5,6 +5,8 @@
     </section>
     <section class="uk-section uk-section-xsmall">
       <ech-networks-nav-bar></ech-networks-nav-bar>
+    </section>
+    <section class="uk-section uk-section-xsmall">
       <ech-slider-main :movies="multiSearch._results"> </ech-slider-main>
     </section>
     <section class="uk-section uk-section-xsmall">

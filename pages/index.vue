@@ -5,6 +5,8 @@
     </section>
     <section class="uk-section uk-section-xsmall">
       <ech-networks-nav-bar></ech-networks-nav-bar>
+    </section>
+    <section class="uk-section uk-section-xsmall">
       <div class="uk-active">
         <ech-slider-main :movies="trendingResults._results"></ech-slider-main>
         <ech-pagination

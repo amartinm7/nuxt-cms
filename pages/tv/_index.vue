@@ -2,6 +2,8 @@
   <div>
     <section class="uk-section uk-section-xsmall">
       <ech-networks-nav-bar></ech-networks-nav-bar>
+    </section>
+    <section class="uk-section uk-section-xsmall">
       <ech-tv-show-card-details
         :movies="movies"
         @outbound-open-video-modal="playVideo"
