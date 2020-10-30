@@ -6,6 +6,7 @@
           class="uk-align-center ech-basic"
           :src="getNetWorkLogoURL(network)"
           :alt="network._name"
+          :uk-tooltip="network._name"
         />
       </span>
     </nuxt-link>
