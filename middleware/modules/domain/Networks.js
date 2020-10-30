@@ -27,12 +27,12 @@ export default {
     },
     {
       _id: 1024,
-      _name: 'amazon',
+      _name: 'primevideo',
       _logo_path: '/ifhbNuuVnlwYy5oXA5VIb2YR8AZ.png'
     },
     {
       _id: 2552,
-      _name: 'apple',
+      _name: 'appletv+',
       _logo_path: '/4KAy34EHvRM25Ih8wb82AuGU7zJ.png'
     },
     {
@@ -89,6 +89,11 @@ export default {
       _id: 6,
       _name: 'NBC',
       _logo_path: '/o3OedEP0f9mfZr33jz2BfXOUK5.png'
+    },
+    {
+      _id: 2739,
+      _name: 'Disney+',
+      _logo_path: '/gJ8VX6JSu3ciXHuC2dDGAo2lvwM.png'
     }
   ],
   getNetWorkBy(id) {
@@ -99,7 +104,7 @@ export default {
     }
   },
   getMostPopularNetworks() {
-    const popularNetworks = [49, 1024, 213, 2552, 2140].map((networkId) => {
+    const popularNetworks = [49, 1024, 213, 2739, 2552].map((networkId) => {
       return this.values.find((network) => network._id === networkId)
     })
     return popularNetworks
