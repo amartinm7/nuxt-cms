@@ -14,14 +14,12 @@ export default {
       title ||
       'EstrenosCineHoy: novedades en cine y series netflix, hbo, appletv+... !'
     const defaultDescription = overview || defaultDesc
-    const overviewDefault = overview || defaultDesc
     const defaultPosterPath =
       posterPath || 'www.estrenoscinehoy.com/manifest-icon-512.png'
-    console.log('>>>head....' + JSON.stringify(jsonLD))
     return {
       script: [{ type: 'application/ld+json', json: jsonLD }],
       title: `${StringHandler.truncate(defaultTitle, 65)}`,
-      description: defaultDescription,
+      description: `${StringHandler.truncate(defaultDescription, 155)}`,
       link: [
         {
           rel: 'canonical',
@@ -43,7 +41,7 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: `${StringHandler.truncate(overviewDefault, 155)}`
+          content: `${StringHandler.truncate(defaultDescription, 155)}`
         },
         {
           hid: 'og:type',
@@ -58,7 +56,7 @@ export default {
         {
           hid: 'og:description',
           property: 'og:description',
-          content: `${StringHandler.truncate(overviewDefault, 65)}`
+          content: `${StringHandler.truncate(defaultDescription, 65)}`
         },
         {
           hid: 'og:image',
@@ -88,7 +86,7 @@ export default {
         {
           hid: 'twitter:card',
           property: 'twitter:card',
-          content: `${StringHandler.truncate(overviewDefault, 65)}`
+          content: `${StringHandler.truncate(defaultDescription, 65)}`
         },
         {
           hid: 'twitter:site',
@@ -103,7 +101,7 @@ export default {
         {
           hid: 'twitter:description',
           name: 'twitter:description',
-          content: `${StringHandler.truncate(overviewDefault, 65)}`
+          content: `${StringHandler.truncate(defaultDescription, 65)}`
         },
         {
           hid: 'twitter:creator',
