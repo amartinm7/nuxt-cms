@@ -17,10 +17,7 @@ describe('SluggerShould', function() {
       const expectedSlug = '12341234-star-wars-the-rice-of-skywalker'
       const movie_id = 12341234
       const movie_title = 'Star Wars The Rice of SkyWalker'
-      const actualSlug = Slugger.sluggify([
-        movie_id,
-        movie_title
-      ])
+      const actualSlug = Slugger.sluggify([movie_id, movie_title])
       expect(actualSlug).toEqual(expectedSlug)
     })
   })

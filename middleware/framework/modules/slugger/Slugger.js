@@ -1,6 +1,7 @@
 // https://github.com/HenrikJoreteg/slugger/blob/master/slugger.js
 //
 /* eslint-disable camelcase, no-console */
+
 export default class Slugger {
   // replaces all whitespace with '-' and removes
   static _slugger(string, opts) {
@@ -32,9 +33,10 @@ export default class Slugger {
   }
 
   static _sanitize(word) {
-    const text = word || ''
+    const text = word ?? ''
+    const sanitizedText = String(text)
     const map = { á: 'a', é: 'e', í: 'i', ó: 'o', ú: 'u' }
-    const result = text.replace(/./g, function(character) {
+    const result = sanitizedText.replace(/./g, function(character) {
       return map[character] ?? character
     })
     return result
