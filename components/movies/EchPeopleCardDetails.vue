@@ -31,7 +31,12 @@
       <div>
         <div class="uk-card-body">
           <h2 class="uk-card-title ech-basic uk-text-center">
-            {{ people._name }} ({{ people._birthday | moment('YYYY') }})
+            <span v-if="people._birthday"
+              >{{ people._name }} ({{
+                people._birthday | moment('YYYY')
+              }})</span
+            >
+            <span v-if="!people._birthday">{{ people._name }}</span>
             <span
               :id="people._id"
               class="uk-label ech-basic ech-spin-icon"
