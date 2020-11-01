@@ -77,7 +77,6 @@ export default {
   // eslint-disable-next-line require-await
   async asyncData({ app, params, query }) {
     const language = app.i18n.locale
-    console.log('query...' + JSON.stringify(query))
     const page = isNaN(query.page) ? 1 : Number(query.page)
     const networkParam = params.network?.split('-')?.[0] ?? ''
     const networkId = isNaN(networkParam) ? '' : Number(networkParam)
