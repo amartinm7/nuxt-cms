@@ -17,7 +17,7 @@
     </section>
     <section class="uk-section uk-section-xsmall">
       <h1
-        class="ech-basic uk-text-center uk-heading-medium uk-text-bolder uk-text-emphasis uk-hidden@s"
+        class="ech-basic uk-text-center uk-text-capitalize uk-heading-large uk-text-bolder uk-text-emphasis uk-hidden@s"
       >
         {{ $t('pages.trending') }}
       </h1>
