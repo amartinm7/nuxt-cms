@@ -18,8 +18,8 @@ class MovieToJsonLDTransformer {
 
   _translateJobtitle(_known_for_department) {
     const jobTitles = {
-      acting: 'actor',
-      directing: 'director'
+      Acting: 'actor',
+      Directing: 'director'
     }
     return jobTitles[_known_for_department] ?? _known_for_department
   }
