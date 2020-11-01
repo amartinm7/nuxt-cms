@@ -14,10 +14,22 @@
       ></ech-pagination>
     </section>
     <section class="uk-section uk-section-xsmall">
-      <h1 v-if="!genreName" class="uk-text-center">
+      <h1
+        v-if="!genreName"
+        class="ech-basic uk-text-center uk-heading-medium uk-text-bolder uk-text-emphasis uk-hidden@s"
+      >
         {{ $t('similarTvShows') }}
       </h1>
-      <h1 v-if="genreName" class="uk-text-center">
+      <h1
+        v-if="genreName"
+        class="ech-basic uk-text-center uk-heading-medium uk-text-bolder uk-text-emphasis uk-hidden@s"
+      >
+        {{ genreName }}
+      </h1>
+      <h1 v-if="!genreName" class="ech-basic uk-text-center uk-visible@s">
+        {{ $t('similarTvShows') }}
+      </h1>
+      <h1 v-if="genreName" class="ech-basic uk-text-center uk-visible@s">
         {{ genreName }}
       </h1>
     </section>
@@ -75,7 +87,8 @@ export default {
   async asyncData({ app, params, query }) {
     const language = app.i18n.locale
     const page = isNaN(query.page) ? 1 : Number(query.page)
-    const genreId = isNaN(params.genre) ? '' : Number(params.genre)
+    const genreParam = params.genre?.split('-')?.[0] ?? ''
+    const genreId = isNaN(genreParam) ? '' : Number(genreParam)
     const sortedBy = query.sortedBy ?? ''
     // const genres_ids = pathParams
     //   .split('_')

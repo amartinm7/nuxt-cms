@@ -1,6 +1,7 @@
 /* eslint-disable camelcase, no-console */
 import MediaTypes from '@/middleware/modules/domain/MediaTypes'
 import Networks from '@/middleware/modules/domain/Networks'
+import Slugger from '@/middleware/framework/modules/slugger/Slugger'
 
 export default {
   methods: {
@@ -11,7 +12,12 @@ export default {
       const language = this.$i18n.locale
       const mediaTypeTV = MediaTypes.tv
       const networkId = network?._id
-      return `/${language}/${mediaTypeTV}/byNetwork/${Date.now()}/${networkId}/?sortedBy=popularity.desc`
+      if (!networkId) {
+        return `/${language}/`
+      }
+      return `/${language}/${mediaTypeTV}/byNetwork/${Date.now()}/${Slugger.sluggify(
+        [networkId, network._name]
+      )}/?sortedBy=popularity.desc`
     },
     isNetworkStored(networkId) {
       return (

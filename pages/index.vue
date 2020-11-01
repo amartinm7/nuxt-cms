@@ -16,7 +16,12 @@
       </div>
     </section>
     <section class="uk-section uk-section-xsmall">
-      <h1 class="uk-text-center ech-scrollspy-effect">
+      <h1
+        class="ech-basic uk-text-center uk-heading-medium uk-text-bolder uk-text-emphasis uk-hidden@s"
+      >
+        {{ $t('pages.trending') }}
+      </h1>
+      <h1 class="ech-basic uk-text-center uk-visible@s">
         {{ $t('pages.trending') }}
       </h1>
     </section>

@@ -14,7 +14,14 @@
       ></ech-pagination>
     </section>
     <section class="uk-section uk-section-xsmall">
-      <h1 class="uk-text-center">{{ getSection(mediaType) }}</h1>
+      <h1
+        class="ech-basic uk-text-center uk-heading-medium uk-text-bolder uk-text-emphasis uk-hidden@s"
+      >
+        {{ getSection(mediaType) }}
+      </h1>
+      <h1 class="ech-basic uk-text-center uk-visible@s">
+        {{ getSection(mediaType) }}
+      </h1>
     </section>
     <section class="uk-section uk-section-xsmall">
       <div>

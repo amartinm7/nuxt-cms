@@ -8,7 +8,8 @@ export default {
     },
     posters() {
       if (_isEmpty(this.movies[0]._images)) return []
-      return this.movies[0]._images._posters
+      const posters = this.movies[0]._images._posters ?? []
+      return posters
         .filter((poster) => !!poster._file_path)
         .filter((poster) => poster._vote_count > 1)
     },

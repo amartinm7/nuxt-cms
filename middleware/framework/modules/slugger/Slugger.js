@@ -7,7 +7,7 @@ export default class Slugger {
   static _slugger(string, opts) {
     const whitespace = /\s+/g
     opts || (opts = {})
-    let allowedCharacters = 'A-Za-z0-9_ -'
+    let allowedCharacters = 'A-Za-z0-9_ -+'
     if (opts.alsoAllow) allowedCharacters = opts.alsoAllow + allowedCharacters
     const re = new RegExp('[^' + allowedCharacters + ']', 'g')
     const maintainCase = opts.maintainCase || false

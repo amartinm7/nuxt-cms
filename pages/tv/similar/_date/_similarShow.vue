@@ -14,7 +14,12 @@
       ></ech-pagination>
     </section>
     <section class="uk-section uk-section-xsmall">
-      <h1 class="uk-text-center">
+      <h1
+        class="ech-basic uk-text-center uk-heading-medium uk-text-bolder uk-text-emphasis uk-hidden@s"
+      >
+        {{ $t('similarTvShows') }}
+      </h1>
+      <h1 class="ech-basic uk-text-center uk-visible@s">
         {{ $t('similarTvShows') }}
       </h1>
     </section>

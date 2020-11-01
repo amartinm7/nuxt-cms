@@ -14,10 +14,22 @@
       ></ech-pagination>
     </section>
     <section class="uk-section uk-section-xsmall">
-      <h1 v-if="!genreName" class="uk-text-center">
+      <h1
+        v-if="!genreName"
+        class="ech-basic uk-text-center uk-heading-medium uk-text-bolder uk-text-emphasis uk-hidden@s"
+      >
         {{ $t('pages.movie.byGenres') }}
       </h1>
-      <h1 v-if="genreName" class="uk-text-center">
+      <h1
+        v-if="genreName"
+        class="ech-basic uk-text-center uk-heading-medium uk-text-bolder uk-text-emphasis uk-hidden@s"
+      >
+        {{ genreName }}
+      </h1>
+      <h1 v-if="!genreName" class="ech-basic uk-text-center uk-visible@s">
+        {{ $t('pages.movie.byGenres') }}
+      </h1>
+      <h1 v-if="genreName" class="ech-basic uk-text-center uk-visible@s">
         {{ genreName }}
       </h1>
     </section>

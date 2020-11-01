@@ -14,7 +14,12 @@
       ></ech-pagination>
     </section>
     <section class="uk-section uk-section-xsmall">
-      <h1 class="uk-text-center">
+      <h1
+        class="ech-basic uk-text-center uk-heading-medium uk-text-bolder uk-text-emphasis uk-hidden@s"
+      >
+        {{ $t('similarTvShows') }}
+      </h1>
+      <h1 class="ech-basic uk-text-center uk-visible@s">
         {{ $t('similarTvShows') }}
       </h1>
     </section>
@@ -72,8 +77,10 @@ export default {
   // eslint-disable-next-line require-await
   async asyncData({ app, params, query }) {
     const language = app.i18n.locale
+    console.log('query...' + JSON.stringify(query))
     const page = isNaN(query.page) ? 1 : Number(query.page)
-    const networkId = params.network ?? ''
+    const networkParam = params.network?.split('-')?.[0] ?? ''
+    const networkId = isNaN(networkParam) ? '' : Number(networkParam)
     const sortedBy = query.sortedBy ?? ''
     console.log('FindTvShowsByRepository...' + networkId)
     const trendingTVShows = await beanContainer.findTvShowsByController.execute(
