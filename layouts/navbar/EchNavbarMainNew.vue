@@ -12,7 +12,7 @@
             <nuxt-link class="uk-navbar-item uk-logo" :to="localePath('/')">
               <img
                 :alt="$t('seo.index')"
-                title="EstrenosCineHoy"
+                :title="$t('seo.index')"
                 loading="lazy"
                 src="../../assets/logo/vector/default-monochrome-black.svg"
                 style="width: 200px"
@@ -252,14 +252,14 @@
               <img
                 :alt="$t('seo.index')"
                 :uk-tooltip="$t('seo.index')"
-                title="EstrenosCineHoy"
+                :title="$t('seo.index')"
                 loading="lazy"
                 src="../../assets/logo/vector/default-monochrome-black.svg"
                 style="width: 400px"/>
               <img
                 class="uk-logo-inverse"
                 :alt="$t('seo.index')"
-                title="EstrenosCineHoy"
+                :title="$t('seo.index')"
                 loading="lazy"
                 src="../../assets/logo/vector/default-monochrome-white.svg"
                 style="width: 400px"
