@@ -16,7 +16,7 @@ export default {
       _logo_path: '/ifhbNuuVnlwYy5oXA5VIb2YR8AZ.png'
     },
     {
-      _id: 4343,
+      _id: 67,
       _name: 'showtime',
       _logo_path: '/Allse9kbjiP6ExaQrnSpIhkurEi.png'
     },
