@@ -92,5 +92,7 @@ export default {
   similarTvShows: 'more series',
   similarMovies: 'more movies',
   appearOnMovies: `{name} movies`,
-  appearOnTvShows: '{name} series & tv shows'
+  appearOnTvShows: '{name} series & tv shows',
+  male: 'male',
+  female: 'female'
 }

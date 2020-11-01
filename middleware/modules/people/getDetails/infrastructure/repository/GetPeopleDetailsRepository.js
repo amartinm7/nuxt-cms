@@ -54,7 +54,8 @@ class GetPeopleDetailsRepositoryResponse {
     homepage,
     images,
     movie_credits,
-    tv_credits
+    tv_credits,
+    imdb_id
   }) {
     this._id = id
     this._birthday = birthday
@@ -67,6 +68,7 @@ class GetPeopleDetailsRepositoryResponse {
     this._place_of_birth = place_of_birth
     this._profile_path = profile_path
     this._homepage = homepage
+    this._imdb_id = imdb_id
     this._images = images.profiles.map((img) => {
       return new GetBackDropsPostersDetailsResponse(img)
     })
