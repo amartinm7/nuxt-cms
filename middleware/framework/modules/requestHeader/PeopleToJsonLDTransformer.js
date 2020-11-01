@@ -6,7 +6,7 @@ class MovieToJsonLDTransformer {
     this['@type'] = 'Person'
     this.description = people._overview
     this.identifier = people._imdb_id
-    this.image = MediaHandler.getPoster2XURL(people._poster_path)
+    this.image = MediaHandler.getPoster2XURL(people._profile_path)
     this.url = `https://www.estrenoscinehoy.com${url}`
     this.inLanguage = language
     this.jobTitle = people._known_for_department
