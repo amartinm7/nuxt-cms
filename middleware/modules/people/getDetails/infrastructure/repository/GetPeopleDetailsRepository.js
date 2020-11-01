@@ -1,5 +1,6 @@
 import GetAxiosRequest from '../../../../../framework/modules/axios/GetAxiosRequest'
 import MediaTypes from '../../../../../../middleware/modules/domain/MediaTypes'
+import GenderTypes from '@/middleware/modules/domain/GenderTypes'
 
 /* eslint-disable camelcase, no-console */
 class GetPeopleDetailsRepository {
@@ -62,7 +63,7 @@ class GetPeopleDetailsRepositoryResponse {
     this._known_for_department = known_for_department
     this._deathday = deathday
     this._name = name
-    this._gender = gender
+    this._gender = gender ? GenderTypes[gender] : GenderTypes['1']
     this._biography = biography
     this._popularity = popularity
     this._place_of_birth = place_of_birth

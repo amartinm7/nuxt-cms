@@ -1,5 +1,4 @@
 import MediaHandler from '@/middleware/framework/modules/media/MediaHandler'
-import GenderTypes from '@/middleware/modules/domain/GenderTypes'
 
 class MovieToJsonLDTransformer {
   constructor(people, url, language) {
@@ -13,7 +12,7 @@ class MovieToJsonLDTransformer {
     this.jobTitle = people._known_for_department
     this.birthDate = people._birthday
     this.birthPlace = people._place_of_birth
-    this.gender = GenderTypes[people._gender]
+    this.gender = people._gender
   }
 }
 export default MovieToJsonLDTransformer
