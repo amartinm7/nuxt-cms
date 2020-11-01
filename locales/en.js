@@ -91,6 +91,6 @@ export default {
   moreRelatedMovies: 'similar movies',
   similarTvShows: 'more series',
   similarMovies: 'more movies',
-  appearOnMovies: 'related movies',
-  appearOnTvShows: 'related tv'
+  appearOnMovies: `{name} movies`,
+  appearOnTvShows: '{name} series & tv shows'
 }

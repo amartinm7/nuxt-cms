@@ -6,18 +6,26 @@
     <section class="uk-section uk-section-xsmall">
       <ech-people-card-details :people="people"></ech-people-card-details>
     </section>
-    <section class="uk-section uk-section-xsmall">
-      <h2 class="uk-text-center">{{ $t('appearOnMovies') }}</h2>
+    <section
+      v-if="people._movie_credits._cast"
+      class="uk-section uk-section-xsmall"
+    >
+      <h2 class="uk-text-center">
+        {{ $t('appearOnMovies', { name: people._name }) }}
+      </h2>
       <ech-slider-main
-        v-if="people._movie_credits._cast"
         :movies="people._movie_credits._cast"
         :media-type="mediaTypeMovie"
       >
       </ech-slider-main>
-      <section class="uk-section uk-section-xsmall">
-        <h2 class="uk-text-center">{{ $t('appearOnTvShows') }}</h2>
+      <section
+        v-if="people._tv_credits._cast"
+        class="uk-section uk-section-xsmall"
+      >
+        <h2 class="uk-text-center">
+          {{ $t('appearOnTvShows', { name: people._name }) }}
+        </h2>
         <ech-slider-main
-          v-if="people._tv_credits._cast"
           :movies="people._tv_credits._cast"
           :media-type="mediaTypeTvShow"
         >

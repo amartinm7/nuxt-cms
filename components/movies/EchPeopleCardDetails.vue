@@ -28,7 +28,7 @@
       </div>
       <div>
         <div class="uk-card-body">
-          <h3 class="uk-card-title ech-basic uk-text-center">
+          <h2 class="uk-card-title ech-basic uk-text-center">
             {{ people._name }} ({{ people._birthday | moment('YYYY') }})
             <span
               :id="people._id"
@@ -36,7 +36,7 @@
               @click.stop.prevent="toClipboard(people._id)"
               >{{ people._id }}</span
             >
-          </h3>
+          </h2>
           <p>
             <ech-star-rating :rating-value="people._popularity / 2">
             </ech-star-rating>
@@ -80,7 +80,7 @@
             </div>
           </div>
           <div v-if="people._biography" class="uk-width-auto">
-            <h3 class="uk-text-center">{{ $t('biography') }}</h3>
+            <h2 class="uk-text-center">{{ $t('biography') }}</h2>
             <p class="uk-dropcap uk-text-justify">{{ people._biography }}</p>
           </div>
           <div class="uk-flex uk-flex-center">
