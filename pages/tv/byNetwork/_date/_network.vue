@@ -25,7 +25,7 @@
       <div class="uk-flex uk-flex-center uk-flex-around">
         <ech-network-logo
           :network="network"
-          style="width: 15%"
+          style="width: 50%"
         ></ech-network-logo>
       </div>
     </section>
