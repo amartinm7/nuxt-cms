@@ -89,10 +89,12 @@ export default {
   clickToSeeMoreAbout: 'pulsa para ver mas sobre este canal',
   moreRelatedTvShows: 'series tv similares',
   moreRelatedMovies: 'películas similares',
-  similarTvShows: 'más series',
-  similarMovies: 'más cine',
-  appearOnMovies: `Películas de {name}`,
+  similarTvShows: 'series similares',
+  similarMovies: 'peliculas similares',
+  appearOnMovies: `películas de {name}`,
   appearOnTvShows: 'Tv & Series de {name}',
   male: 'hombre',
-  female: 'mujer'
+  female: 'mujer',
+  premiere: `Estrenos`,
+  premiereWithNetwork: `Estrenos {name}`
 }

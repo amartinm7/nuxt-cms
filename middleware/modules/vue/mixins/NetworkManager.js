@@ -15,8 +15,9 @@ export default {
       if (!networkId) {
         return `/${language}/`
       }
+      const premiereSlug = this.$i18n.messages[this.$i18n.locale].premiere
       return `/${language}/${mediaTypeTV}/byNetwork/${Date.now()}/${Slugger.sluggify(
-        [networkId, network._name]
+        [networkId, premiereSlug, network._name]
       )}/?sortedBy=popularity.desc`
     },
     isNetworkStored(networkId) {
@@ -27,6 +28,16 @@ export default {
     },
     getPopularNetworks() {
       return Networks.getMostPopularNetworks()
+    },
+    routeToDefaultNetwork() {
+      if (this.trendingTVShows._total_results > 0) {
+        return
+      }
+      const defaultPageTo = {
+        path: this.getTvShowByNetworkURL(Networks.getDefaultNetWork()),
+        query: { sortedBy: this.sortedBy }
+      }
+      this.$router.push({ ...defaultPageTo })
     }
   }
 }

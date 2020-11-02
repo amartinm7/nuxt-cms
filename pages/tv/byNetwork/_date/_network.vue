@@ -17,11 +17,17 @@
       <h1
         class="ech-basic uk-text-center uk-text-capitalize uk-heading-large uk-text-bolder uk-text-emphasis uk-hidden@s"
       >
-        {{ $t('similarTvShows') }}
+        {{ $t('premiereWithNetwork', { name: network._name }) }}
       </h1>
       <h1 class="ech-basic uk-text-center uk-visible@s">
-        {{ $t('similarTvShows') }}
+        {{ $t('premiereWithNetwork', { name: network._name }) }}
       </h1>
+      <div class="uk-flex uk-flex-center uk-flex-around">
+        <ech-network-logo
+          :network="network"
+          style="width: 15%"
+        ></ech-network-logo>
+      </div>
     </section>
     <section class="uk-section uk-section-xsmall">
       <div>
@@ -62,20 +68,29 @@ import DetailsHeaderManager from '@/middleware/modules/vue/mixins/DetailsHeaderM
 import EchPagination from '@/layouts/pagination/EchPagination'
 import MediaManager from '@/middleware/modules/vue/mixins/MediaManager'
 import EchNetworksNavBar from '@/layouts/networksbar/EchNetworksNavBar'
+import Networks from '@/middleware/modules/domain/Networks'
+import NetworkManager from '@/middleware/modules/vue/mixins/NetworkManager'
+import EchNetworkLogo from '@/components/movies/EchNetworkLogo'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
   name: 'EchTvShowsByGenres',
   components: {
+    EchNetworkLogo,
     EchNetworksNavBar,
     EchPagination,
     EchHeaderMain,
     EchSliderMain,
     EchTvShowCard
   },
-  mixins: [VideoControllerManager, DetailsHeaderManager, MediaManager],
+  mixins: [
+    VideoControllerManager,
+    DetailsHeaderManager,
+    MediaManager,
+    NetworkManager
+  ],
   // eslint-disable-next-line require-await
-  async asyncData({ app, params, query }) {
+  async asyncData({ app, params, query, store }) {
     const language = app.i18n.locale
     const page = isNaN(query.page) ? 1 : Number(query.page)
     const networkParam = params.network?.split('-')?.[0] ?? ''
@@ -90,7 +105,11 @@ export default {
         networkId
       })
     )
-    return { trendingTVShows, page, networkId }
+    const networkStore = store.getters['network/networkStore/getNetwork']
+    const networkStatic = Networks.getNetWorkBy(networkId)
+    const network = networkStatic?._id ? networkStatic : networkStore
+    console.log('network...' + JSON.stringify(network))
+    return { trendingTVShows, page, networkId, network }
   },
   data() {
     return {
@@ -109,7 +128,7 @@ export default {
     }
   },
   mounted() {
-    this.network = this.$store.getters['network/networkStore/getNetwork']
+    this.routeToDefaultNetwork()
   },
   methods: {
     async toPrevious() {
@@ -141,5 +160,6 @@ export default {
     }
   }
 }
+//     this.network = this.$store.getters['network/networkStore/getNetwork']
 </script>
 <style></style>

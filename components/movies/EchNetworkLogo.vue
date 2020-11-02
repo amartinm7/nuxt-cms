@@ -5,8 +5,8 @@
         <img
           class="uk-align-center ech-basic"
           :src="getNetWorkLogoURL(network)"
-          :alt="network._name"
-          :uk-tooltip="network._name"
+          :alt="$t('premiereWithNetwork', { name: network._name })"
+          :uk-tooltip="$t('premiereWithNetwork', { name: network._name })"
         />
       </span>
     </nuxt-link>

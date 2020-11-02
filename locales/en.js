@@ -89,10 +89,12 @@ export default {
   clickToSeeMoreAbout: 'click to see more about this network',
   moreRelatedTvShows: 'similar tv shows',
   moreRelatedMovies: 'similar movies',
-  similarTvShows: 'more series',
-  similarMovies: 'more movies',
+  similarTvShows: 'similar series',
+  similarMovies: 'similar movies',
   appearOnMovies: `{name} movies`,
   appearOnTvShows: '{name} series & tv shows',
   male: 'male',
-  female: 'female'
+  female: 'female',
+  premiere: `Premier`,
+  premiereWithNetwork: `Premier {name}`
 }

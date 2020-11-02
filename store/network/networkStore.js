@@ -1,6 +1,7 @@
 export const state = () => ({
   network: {
     _id: '',
+    _name: '',
     _logo_path: 0
   }
 })

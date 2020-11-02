@@ -209,6 +209,7 @@ export default {
   mounted() {
     const networkToStore = {
       _id: this.movies?.[0]?._networks?.[0]?._id,
+      _name: this.movies?.[0]?._networks?.[0]?._name,
       _logo_path: this.movies?.[0]?._networks?.[0]?._logo_path
     }
     this.$store.commit('network/networkStore/SET_NETWORK', networkToStore)

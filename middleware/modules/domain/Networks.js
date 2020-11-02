@@ -108,5 +108,8 @@ export default {
       return this.values.find((network) => network._id === networkId)
     })
     return popularNetworks
+  },
+  getDefaultNetWork() {
+    return this.getNetWorkBy(213)
   }
 }
