@@ -7,12 +7,12 @@ export default {
       ...this.requestHeader
     }
     const defaultDesc =
-      'Estrenos cine hoy: toda la info sobre películas, seríes, actores, actrices, TV Shows y programación. Movies, actor, actress, movies rating, news, tv networks'
+      'EstrenosCineHoy estrenos netflix, estrenos hbo, estrenos appletv+, estrenos disney+, estrenos amazon-prime, series netflix, series hbo, series appletv+,... !'
     const routePath = this.$route.path
     const language = this.$i18n.locale
     const defaultTitle =
       title ||
-      'EstrenosCineHoy: novedades en cine y series netflix, hbo, appletv+... !'
+      'Estrenos netflix, estrenos hbo, estrenos appletv+, estreno disney+, estrenos amazon-prime, series netflix, , ... !'
     const defaultDescription = overview || defaultDesc
     const defaultPosterPath =
       posterPath || 'www.estrenoscinehoy.com/manifest-icon-512.png'

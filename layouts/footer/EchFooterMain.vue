@@ -27,8 +27,7 @@
               <li class="el-item">
                 <div class="el-content uk-panel">
                   <a
-                    href="#"
-                    uk-scroll=""
+                    href="https://www.instagram.com/estrenoscinehoy/?hl=en"
                     class="el-link uk-link-muted"
                     target="_blank"
                     ><span
@@ -57,7 +56,7 @@
               <li class="el-item">
                 <div class="el-content uk-panel">
                   <a
-                    href="https://www.facebook.com/Estrenoscinehoycom-101707934922827/"
+                    href="https://www.facebook.com/estrenoscinehoy/"
                     class="el-link uk-link-muted"
                     target="_blank"
                   >
