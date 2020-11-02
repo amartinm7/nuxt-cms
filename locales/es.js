@@ -29,17 +29,17 @@ export default {
     comedy: 'Comedia',
     family: 'Familia',
     news: 'Noticias',
-    trending: 'Actual',
+    trending: 'Peliculas de Actualidad',
     tv: {
       airingToday: 'Hoy en TV',
       onTheAirTv: 'Series en TV',
       popular: 'TV Manía',
-      topRated: 'Top Series'
+      topRated: 'Mejores Series'
     },
     movie: {
-      nowPlaying: 'En cines',
-      popular: 'Cine Manía',
-      topRated: 'Top Cine',
+      nowPlaying: 'Cartelera cine',
+      popular: 'Cinemania',
+      topRated: 'Top Cine: mejores peliculas',
       upcoming: 'Avances cine'
     }
   },
