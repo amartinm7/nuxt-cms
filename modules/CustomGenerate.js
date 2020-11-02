@@ -5,12 +5,12 @@ const commandActions = {
   tv: {
     airingToday: 'airingToday',
     onTheAirTv: 'onTheAirTv',
-    popular: 'popular',
+    tvmania: 'tvmania',
     topRated: 'topRated'
   },
   movie: {
     nowPlaying: 'nowPlaying',
-    popular: 'popular',
+    cinemania: 'cinemania',
     topRated: 'topRated',
     upcoming: 'upcoming'
   }

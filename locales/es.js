@@ -33,12 +33,12 @@ export default {
     tv: {
       airingToday: 'Hoy en TV',
       onTheAirTv: 'Series en TV',
-      popular: 'TV Manía',
+      tvmania: 'TVManía',
       topRated: 'Mejores Series'
     },
     movie: {
       nowPlaying: 'Cartelera cine',
-      popular: 'Cinemania',
+      cinemania: 'Cinemania',
       topRated: 'Top Cine: mejores peliculas',
       upcoming: 'Avances cine'
     }
@@ -96,5 +96,5 @@ export default {
   male: 'hombre',
   female: 'mujer',
   premiere: `Estrenos`,
-  premiereWithNetwork: `Estrenos {name}`
+  premiereWithNetwork: `Series {name}`
 }

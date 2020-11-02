@@ -33,12 +33,12 @@ export default {
     tv: {
       airingToday: 'Airing Today on TV',
       onTheAirTv: 'On the Air TV',
-      popular: 'TVMania',
+      tvmania: 'TVMania',
       topRated: 'Top Rated on TV'
     },
     movie: {
       nowPlaying: 'Now in cinemas',
-      popular: 'Moviemania',
+      cinemania: 'Cinemania',
       topRated: 'Top Rated Movies',
       upcoming: 'Upcoming Movies'
     }
