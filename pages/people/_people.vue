@@ -7,7 +7,9 @@
       <ech-people-card-details :people="people"></ech-people-card-details>
     </section>
     <section
-      v-if="people._movie_credits._cast"
+      v-if="
+        people._movie_credits._cast && people._movie_credits._cast.length > 0
+      "
       class="uk-section uk-section-xsmall"
     >
       <h2 class="uk-text-center">
@@ -18,19 +20,19 @@
         :media-type="mediaTypeMovie"
       >
       </ech-slider-main>
-      <section
-        v-if="people._tv_credits._cast"
-        class="uk-section uk-section-xsmall"
+    </section>
+    <section
+      v-if="people._tv_credits._cast && people._tv_credits._cast.length > 0"
+      class="uk-section uk-section-xsmall"
+    >
+      <h2 class="uk-text-center">
+        {{ $t('appearOnTvShows', { name: people._name }) }}
+      </h2>
+      <ech-slider-main
+        :movies="people._tv_credits._cast"
+        :media-type="mediaTypeTvShow"
       >
-        <h2 class="uk-text-center">
-          {{ $t('appearOnTvShows', { name: people._name }) }}
-        </h2>
-        <ech-slider-main
-          :movies="people._tv_credits._cast"
-          :media-type="mediaTypeTvShow"
-        >
-        </ech-slider-main>
-      </section>
+      </ech-slider-main>
     </section>
     <section class="uk-section uk-section-xsmall">
       <ech-disqus></ech-disqus>
