@@ -7,25 +7,12 @@
         class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin ech-scrollspy-effect"
         uk-grid
       >
-        <div
-          class="uk-position-relative uk-visible-toggle uk-light uk-flex uk-flex-wrap"
-        >
-          <div class="uk-width-expand">
-            {{ index }}
-            <a
-              class="uk-button uk-button-default uk-align-center"
-              @click="initVideoURL(movie)"
-            >
-              <img
-                class="ech-default-img"
-                :src="getPosterURL(movie._poster_path, index)"
-                :title="movie._title"
-                loading="lazy"
-                :alt="movie._title"
-              />
-            </a>
-          </div>
-        </div>
+        <ech-movies-card-picture
+          :movie="movie"
+          :image-url="getPosterURL(movie._poster_path)"
+          :index="index"
+          @outbound-open-video-modal="emitMessagePlayVideo"
+        ></ech-movies-card-picture>
         <div>
           <span
             class="uk-visible@s uk-align-right uk-margin-small-right uk-label-warning ech-basic ech-spin-icon uk-border-circle uk-padding-small uk-text-center"
@@ -71,18 +58,15 @@
 <script>
 /* eslint-disable camelcase, no-console */
 import EchStarRating from './EchStarRating'
-import { BeanContainerRegistry } from '@/middleware/BeanContainerRegistry'
-import { GetMovieVideosControllerRequest } from '@/middleware/modules/movies/getVideos/userapplication/controller/GetMovieVideosController'
 import MediaManager from '@/middleware/modules/vue/mixins/MediaManager'
 import MediaTypes from '@/middleware/modules/domain/MediaTypes'
 import LocateManager from '@/middleware/modules/vue/mixins/LocateManager'
 import Utils from '@/middleware/modules/vue/mixins/Utils'
-
-const beanContainer = BeanContainerRegistry.getBeanContainer()
+import EchMoviesCardPicture from '@/components/movies/EchMoviesCardPicture'
 
 export default {
   name: 'EchMoviesCard',
-  components: { EchStarRating },
+  components: { EchMoviesCardPicture, EchStarRating },
   mixins: [MediaManager, LocateManager, Utils],
   props: {
     movies: {
@@ -95,23 +79,6 @@ export default {
   data() {
     return {
       mediaType: MediaTypes.movie
-    }
-  },
-  methods: {
-    async initVideoURL(movie) {
-      const isoLangCode = this.currentLocale().iso
-      const getMovieVideosControllerResponse = await beanContainer.getMovieVideosController.getFirstVideoURL(
-        new GetMovieVideosControllerRequest({
-          movie_title: movie._title,
-          movie_id: movie._id,
-          isoLangCode
-        })
-      )
-      console.log('emit...' + getMovieVideosControllerResponse.url)
-      this.$emit(
-        'outbound-open-video-modal',
-        getMovieVideosControllerResponse.url
-      )
     }
   }
 }

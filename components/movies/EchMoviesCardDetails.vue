@@ -15,25 +15,12 @@
       class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin ech-scrollspy-effect"
       uk-grid
     >
-      <div
-        class="uk-position-relative uk-visible-toggle uk-light uk-flex uk-flex-wrap"
-      >
-        <div class="uk-width-expand">
-          {{ index }}
-          <a
-            class="uk-button uk-button-default uk-align-center"
-            @click="initVideoURL(movie)"
-          >
-            <img
-              class="ech-default-img"
-              :src="getPoster2XURL(movie._poster_path, index)"
-              :alt="movie._title"
-              :title="movie._title"
-              loading="lazy"
-            />
-          </a>
-        </div>
-      </div>
+      <ech-movies-card-picture
+        :movie="movie"
+        :image-url="getPoster2XURL(movie._poster_path)"
+        :index="index"
+        @outbound-open-video-modal="emitMessagePlayVideo"
+      ></ech-movies-card-picture>
       <div>
         <span
           class="uk-visible@s uk-align-right uk-margin-small-right uk-label-warning ech-basic ech-spin-icon uk-border-circle uk-padding-small uk-text-center"
@@ -215,12 +202,18 @@ import Utils from '@/middleware/modules/vue/mixins/Utils'
 import PeopleManager from '@/middleware/modules/vue/mixins/PeopleManager'
 import EchGenres from '@/components/movies/EchGenres'
 import SimilarShowsManager from '@/middleware/modules/vue/mixins/SimilarShowsManager'
+import EchMoviesCardPicture from '@/components/movies/EchMoviesCardPicture'
 
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
   name: 'EchMoviesCardDetail',
-  components: { EchGenres, EchSocialNetworkCardDetails, EchStarRating },
+  components: {
+    EchMoviesCardPicture,
+    EchGenres,
+    EchSocialNetworkCardDetails,
+    EchStarRating
+  },
   mixins: [
     MediaManager,
     LocateManager,

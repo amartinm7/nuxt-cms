@@ -34,6 +34,10 @@ export default {
     },
     existsVideos(videos) {
       return !_isEmpty(videos)
+    },
+    emitMessagePlayVideo(url) {
+      this.url = url ?? ''
+      this.$emit('outbound-open-video-modal', url)
     }
   }
 }
