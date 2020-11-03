@@ -7,25 +7,13 @@
         class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin ech-scrollspy-effect"
         uk-grid
       >
-        <div
-          class="uk-position-relative uk-visible-toggle uk-light uk-flex uk-flex-wrap"
-        >
-          <div class="uk-width-expand">
-            {{ index }}
-            <a
-              class="uk-button uk-button-default uk-align-center"
-              @click="initVideoURL(movie)"
-            >
-              <img
-                class="ech-default-img"
-                :src="getPosterURL(movie._poster_path, index)"
-                :title="movie._name"
-                loading="lazy"
-                :alt="movie._name"
-              />
-            </a>
-          </div>
-        </div>
+        <ech-media-card-picture
+          :movie="movie"
+          :image-url="getPosterURL(movie._poster_path)"
+          :index="index"
+          :media-type="mediaType"
+          @outbound-open-video-modal="emitMessagePlayVideo"
+        ></ech-media-card-picture>
         <div>
           <span
             class="uk-visible@s uk-align-right uk-margin-small-right uk-label-warning ech-basic ech-spin-icon uk-border-circle uk-padding-small uk-text-center"
@@ -67,18 +55,16 @@
 </template>
 <script>
 /* eslint-disable camelcase, no-console */
-import { BeanContainerRegistry } from '../../middleware/BeanContainerRegistry'
-import { GetTvShowsVideosControllerRequest } from '../../middleware/modules/tvShows/getVideos/userapplication/controller/GetTvShowsVideosController'
-import MediaManager from '../../middleware/modules/vue/mixins/MediaManager'
-import MediaTypes from '../../middleware/modules/domain/MediaTypes'
-import LocateManager from '../../middleware/modules/vue/mixins/LocateManager'
-import Utils from '../../middleware/modules/vue/mixins/Utils'
 import EchStarRating from './EchStarRating'
-const beanContainer = BeanContainerRegistry.getBeanContainer()
+import MediaManager from '@/middleware/modules/vue/mixins/MediaManager'
+import MediaTypes from '@/middleware/modules/domain/MediaTypes'
+import LocateManager from '@/middleware/modules/vue/mixins/LocateManager'
+import Utils from '@/middleware/modules/vue/mixins/Utils'
+import EchMediaCardPicture from '@/components/movies/EchMediaCardPicture'
 
 export default {
   name: 'EchTvShowCard',
-  components: { EchStarRating },
+  components: { EchMediaCardPicture, EchStarRating },
   mixins: [MediaManager, LocateManager, Utils],
   props: {
     movies: {
@@ -91,24 +77,6 @@ export default {
   data() {
     return {
       mediaType: MediaTypes.tv
-    }
-  },
-  methods: {
-    async initVideoURL(movie) {
-      const vm = this
-      console.log('initVideoURL...' + vm.$uikit.modal(`#openVideo${movie._id}`))
-      const isoLangCode = this.currentLocale().iso
-      const getTvShowsVideosControllerResponse = await beanContainer.getTvShowsVideosController.getFirstVideoURL(
-        new GetTvShowsVideosControllerRequest({
-          movie_name: movie._name,
-          movie_id: movie._id,
-          isoLangCode
-        })
-      )
-      this.$emit(
-        'outbound-open-video-modal',
-        getTvShowsVideosControllerResponse.url
-      )
     }
   }
 }

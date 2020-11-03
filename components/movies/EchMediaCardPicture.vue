@@ -35,11 +35,12 @@ import { GetMovieVideosControllerRequest } from '@/middleware/modules/movies/get
 import MediaTypes from '@/middleware/modules/domain/MediaTypes'
 import LocateManager from '@/middleware/modules/vue/mixins/LocateManager'
 import MediaManager from '@/middleware/modules/vue/mixins/MediaManager'
+import { GetTvShowsVideosControllerRequest } from '@/middleware/modules/tvShows/getVideos/userapplication/controller/GetTvShowsVideosController'
 
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
-  name: 'EchMoviesCardPicture',
+  name: 'EchMediaCardPicture',
   mixins: [MediaManager, LocateManager],
   props: {
     movie: {
@@ -59,15 +60,24 @@ export default {
       default() {
         return 'https://www.estrenoscinehoy.com/_nuxt/img/isolated-monochrome-black.9dc380f.svg'
       }
-    }
-  },
-  data() {
-    return {
-      mediaType: MediaTypes.movie
+    },
+    mediaType: {
+      type: String,
+      default() {
+        return MediaTypes.movie
+      }
     }
   },
   methods: {
     async initVideoURL(movie) {
+      if (this.mediaType === MediaTypes.movie) {
+        await this.initMovieVideoVideoURL(movie)
+      }
+      if (this.mediaType === MediaTypes.tv) {
+        await this.initTvShowVideoURL(movie)
+      }
+    },
+    async initMovieVideoVideoURL(movie) {
       const isoLangCode = this.currentLocale().iso
       const getMovieVideosControllerResponse = await beanContainer.getMovieVideosController.getFirstVideoURL(
         new GetMovieVideosControllerRequest({
@@ -78,33 +88,20 @@ export default {
       )
       console.log('emit...' + getMovieVideosControllerResponse.url)
       this.emitMessagePlayVideo(getMovieVideosControllerResponse.url)
+    },
+    async initTvShowVideoURL(movie) {
+      const isoLangCode = this.currentLocale().iso
+      const getTvShowsVideosControllerResponse = await beanContainer.getTvShowsVideosController.getFirstVideoURL(
+        new GetTvShowsVideosControllerRequest({
+          movie_name: movie._name,
+          movie_id: movie._id,
+          isoLangCode
+        })
+      )
+      console.log('emit...' + getTvShowsVideosControllerResponse.url)
+      this.emitMessagePlayVideo(getTvShowsVideosControllerResponse.url)
     }
   }
 }
 </script>
-<style>
-/* TODO fallback image */
-img:before {
-  content: '';
-  display: block;
-  background: #dedede;
-  top: 0;
-  bottom: 0;
-  min-height: 278px;
-  min-width: 185px;
-}
-
-/*img {*/
-/*  position: relative;*/
-/*}*/
-/*img:before {*/
-/*  content: "";*/
-/*  display: block;*/
-/*  position: absolute;*/
-/*  background: #dedede;*/
-/*  top: 0;*/
-/*  bottom: 0;*/
-/*  min-height: 300px;*/
-/*  min-width: 300px;*/
-/*}*/
-</style>
+<style></style>

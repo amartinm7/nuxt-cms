@@ -7,12 +7,13 @@
         class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin ech-scrollspy-effect"
         uk-grid
       >
-        <ech-movies-card-picture
+        <ech-media-card-picture
           :movie="movie"
           :image-url="getPosterURL(movie._poster_path)"
           :index="index"
+          :media-type="mediaType"
           @outbound-open-video-modal="emitMessagePlayVideo"
-        ></ech-movies-card-picture>
+        ></ech-media-card-picture>
         <div>
           <span
             class="uk-visible@s uk-align-right uk-margin-small-right uk-label-warning ech-basic ech-spin-icon uk-border-circle uk-padding-small uk-text-center"
@@ -62,11 +63,11 @@ import MediaManager from '@/middleware/modules/vue/mixins/MediaManager'
 import MediaTypes from '@/middleware/modules/domain/MediaTypes'
 import LocateManager from '@/middleware/modules/vue/mixins/LocateManager'
 import Utils from '@/middleware/modules/vue/mixins/Utils'
-import EchMoviesCardPicture from '@/components/movies/EchMoviesCardPicture'
+import EchMediaCardPicture from '@/components/movies/EchMediaCardPicture'
 
 export default {
   name: 'EchMoviesCard',
-  components: { EchMoviesCardPicture, EchStarRating },
+  components: { EchMediaCardPicture, EchStarRating },
   mixins: [MediaManager, LocateManager, Utils],
   props: {
     movies: {
@@ -83,29 +84,4 @@ export default {
   }
 }
 </script>
-<style>
-/* TODO fallback image */
-img:before {
-  content: '';
-  display: block;
-  background: #dedede;
-  top: 0;
-  bottom: 0;
-  min-height: 278px;
-  min-width: 185px;
-}
-
-/*img {*/
-/*  position: relative;*/
-/*}*/
-/*img:before {*/
-/*  content: "";*/
-/*  display: block;*/
-/*  position: absolute;*/
-/*  background: #dedede;*/
-/*  top: 0;*/
-/*  bottom: 0;*/
-/*  min-height: 300px;*/
-/*  min-width: 300px;*/
-/*}*/
-</style>
+<style></style>

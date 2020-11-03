@@ -15,12 +15,13 @@
       class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin ech-scrollspy-effect"
       uk-grid
     >
-      <ech-movies-card-picture
+      <ech-media-card-picture
         :movie="movie"
         :image-url="getPoster2XURL(movie._poster_path)"
         :index="index"
+        :media-type="mediaType"
         @outbound-open-video-modal="emitMessagePlayVideo"
-      ></ech-movies-card-picture>
+      ></ech-media-card-picture>
       <div>
         <span
           class="uk-visible@s uk-align-right uk-margin-small-right uk-label-warning ech-basic ech-spin-icon uk-border-circle uk-padding-small uk-text-center"
@@ -193,8 +194,6 @@
 /* eslint-disable camelcase, no-console */
 import EchStarRating from './EchStarRating'
 import EchSocialNetworkCardDetails from './EchSocialNetworkCardDetails'
-import { BeanContainerRegistry } from '@/middleware/BeanContainerRegistry'
-import { GetMovieVideosControllerRequest } from '@/middleware/modules/movies/getVideos/userapplication/controller/GetMovieVideosController'
 import MediaManager from '@/middleware/modules/vue/mixins/MediaManager'
 import MediaTypes from '@/middleware/modules/domain/MediaTypes'
 import LocateManager from '@/middleware/modules/vue/mixins/LocateManager'
@@ -202,14 +201,12 @@ import Utils from '@/middleware/modules/vue/mixins/Utils'
 import PeopleManager from '@/middleware/modules/vue/mixins/PeopleManager'
 import EchGenres from '@/components/movies/EchGenres'
 import SimilarShowsManager from '@/middleware/modules/vue/mixins/SimilarShowsManager'
-import EchMoviesCardPicture from '@/components/movies/EchMoviesCardPicture'
-
-const beanContainer = BeanContainerRegistry.getBeanContainer()
+import EchMediaCardPicture from '@/components/movies/EchMediaCardPicture'
 
 export default {
   name: 'EchMoviesCardDetail',
   components: {
-    EchMoviesCardPicture,
+    EchMediaCardPicture,
     EchGenres,
     EchSocialNetworkCardDetails,
     EchStarRating
@@ -233,49 +230,7 @@ export default {
     return {
       mediaType: MediaTypes.movie
     }
-  },
-  methods: {
-    async initVideoURL(movie) {
-      const isoLangCode = this.currentLocale().iso
-      const getMovieVideosControllerResponse = await beanContainer.getMovieVideosController.getFirstVideoURL(
-        new GetMovieVideosControllerRequest({
-          movie_title: movie._title,
-          movie_id: movie._id,
-          isoLangCode
-        })
-      )
-      console.log('emit...' + getMovieVideosControllerResponse.url)
-      this.$emit(
-        'outbound-open-video-modal',
-        getMovieVideosControllerResponse.url
-      )
-    }
   }
 }
 </script>
-<style>
-/* TODO fallback image */
-img:before {
-  content: '';
-  display: block;
-  background: #dedede;
-  top: 0;
-  bottom: 0;
-  min-height: 278px;
-  min-width: 185px;
-}
-
-/*img {*/
-/*  position: relative;*/
-/*}*/
-/*img:before {*/
-/*  content: "";*/
-/*  display: block;*/
-/*  position: absolute;*/
-/*  background: #dedede;*/
-/*  top: 0;*/
-/*  bottom: 0;*/
-/*  min-height: 300px;*/
-/*  min-width: 300px;*/
-/*}*/
-</style>
+<style></style>
