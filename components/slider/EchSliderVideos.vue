@@ -25,6 +25,12 @@
                 :title="video._id.id"
                 loading="lazy"
               />
+              <div class="uk-position-center ech-basic" uk-tooltip="play">
+                <span
+                  class="uk-icon ech-spin-icon"
+                  uk-icon="icon: play-circle; ratio: 2"
+                ></span>
+              </div>
               <div
                 class="uk-overlay uk-overlay-primary uk-position-bottom uk-text-center uk-transition-slide-bottom"
               >
@@ -75,7 +81,7 @@ export default {
   methods: {
     initVideoURL(key) {
       console.log('emit...' + key)
-      this.$emit('outbound-open-video-modal', this.getVideoURLFrom(key))
+      this.emitMessagePlayVideo(this.getVideoURLFrom(key))
     }
   }
 }
