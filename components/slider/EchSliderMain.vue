@@ -11,24 +11,22 @@
         <a name="echSlider"></a>
         <li
           v-for="movie in movies"
-          :key="Number(movie._id) + Math.random()"
-          :todo="movie"
+          :key="movie._id + Math.random()"
+          :todo="movie._id"
         >
           <nuxt-link
             class="uk-link-reset ech-scrollspy-effect"
             :to="
-              getDetailPathURL(
-                movie._id,
-                movie._title || movie._name,
-                movie._media_type
-              )
+              getDetailPathURL(movie._id, getTitle(movie), movie._media_type)
             "
           >
             <img
+              :title="getTitle(movie)"
+              class="ech-default-img"
               :src="getPosterURL(movie._poster_path)"
-              :alt="movie._title || movie._name"
-              :title="movie._title || movie._name"
               loading="lazy"
+              :uk-tooltip="getTitle(movie)"
+              :alt="getTitle(movie)"
             />
             <div class="uk-position-center uk-panel"></div>
           </nuxt-link>
@@ -75,6 +73,12 @@ export default {
   },
   data() {
     return {}
+  },
+  computed: {
+    title() {
+      console.log('title ' + this.movie?._title || this.movie?._name)
+      return this.movie?._title || this.movie?._name
+    }
   }
 }
 // TODO http://localhost:3000/en/movies/bygenres/western_science-fiction

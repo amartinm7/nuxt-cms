@@ -6,6 +6,7 @@
         alt="flash"
         title="flash"
         loading="lazy"
+        uk-tooltip="flash"
         class="uk-width-expand"
       />
     </a>

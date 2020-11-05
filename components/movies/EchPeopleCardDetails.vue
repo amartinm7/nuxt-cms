@@ -23,6 +23,7 @@
               :src="getPoster2XURL(people._profile_path)"
               :alt="people._name"
               :title="people._name"
+              :uk-tooltip="people._name"
               loading="lazy"
             />
           </a>

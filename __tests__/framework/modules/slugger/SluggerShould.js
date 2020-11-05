@@ -20,6 +20,13 @@ describe('SluggerShould', function() {
       const actualSlug = Slugger.sluggify([movie_id, movie_title])
       expect(actualSlug).toEqual(expectedSlug)
     })
+    it('should slugger two params and &', function() {
+      const expectedSlug = '88396-falcon-&-el-soldado-de-invierno'
+      const movie_id = 88396
+      const movie_title = 'Falcon & El Soldado de Invierno'
+      const actualSlug = Slugger.sluggify([movie_id, movie_title])
+      expect(actualSlug).toEqual(expectedSlug)
+    })
   })
 })
 

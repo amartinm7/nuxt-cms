@@ -16,7 +16,11 @@
         style="transform: translate3d(0px, 0px, 0px);"
       >
         <a name="echSliderPeople"></a>
-        <li v-for="credit in credits" :key="credit.credit_id" :todo="credit">
+        <li
+          v-for="credit in credits"
+          :key="credit.credit_id + Math.random()"
+          :todo="credit"
+        >
           <nuxt-link
             class="uk-link-reset"
             :to="getPeoplePathURL(credit.id, credit.name)"
@@ -26,6 +30,7 @@
                 :src="getPosterURL(credit.profile_path)"
                 :alt="credit.name"
                 :title="credit.name"
+                :uk-tooltip="credit.name"
                 loading="lazy"
               />
               <div

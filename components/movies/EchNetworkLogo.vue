@@ -7,6 +7,7 @@
           :src="getNetWorkLogoURL(network)"
           :alt="$t('premiereWithNetwork', { name: network._name })"
           :uk-tooltip="$t('premiereWithNetwork', { name: network._name })"
+          loading="lazy"
         />
       </span>
     </nuxt-link>

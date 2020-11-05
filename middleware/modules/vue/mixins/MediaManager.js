@@ -38,6 +38,9 @@ export default {
     emitMessagePlayVideo(url) {
       this.url = url ?? ''
       this.$emit('outbound-open-video-modal', url)
+    },
+    getTitle(movie) {
+      return movie?._title || movie?._name
     }
   }
 }

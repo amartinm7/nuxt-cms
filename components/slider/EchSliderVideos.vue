@@ -16,13 +16,18 @@
         style="transform: translate3d(0px, 0px, 0px);"
       >
         <a name="echSliderVideos"></a>
-        <li v-for="video in videos" :key="video._id.id" :todo="video">
+        <li
+          v-for="video in videos"
+          :key="video._id.id + Math.random()"
+          :todo="video"
+        >
           <div class="uk-panel">
             <a @click="initVideoURL(video._id.key)">
               <img
                 :src="getPosterURL(posterPath)"
                 :alt="video._id.id"
                 :title="video._id.id"
+                :uk-tooltip="video._id.id"
                 loading="lazy"
               />
               <div class="uk-position-center ech-basic" uk-tooltip="play">

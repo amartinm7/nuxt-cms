@@ -12,9 +12,10 @@
             <img
               class="ech-default-img"
               :src="imageUrl"
-              :title="movie._title"
               loading="lazy"
-              :alt="movie._title"
+              :uk-tooltip="getTitle(movie)"
+              :alt="getTitle(movie)"
+              :title="getTitle(movie)"
             />
             <div class="uk-position-center ech-basic" uk-tooltip="play">
               <span
