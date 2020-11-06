@@ -1,10 +1,18 @@
 import RequestHeader from '../../../framework/modules/requestHeader/RequestHeader'
+import ActionMapper from '@/middleware/ActionMapper'
 
 export default {
   methods: {
     getSection(mediaType) {
-      return this.$i18n.messages[this.$i18n.locale].pages[mediaType][
-        this.$route.params.index
+      const actionNameKey = this.$route.params.index?.split('-')[0]
+      return this.translateKeyMessage(actionNameKey, mediaType)
+    },
+    translateKeyMessage(actionNameKey, mediaType) {
+      const actionName = ActionMapper.getActionCodes()?.[mediaType]?.[
+        actionNameKey
+      ]
+      return this.$i18n.messages[this.$i18n.locale].pages?.[mediaType]?.[
+        actionName
       ]
     }
   },

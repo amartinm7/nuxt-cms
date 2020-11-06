@@ -3,26 +3,34 @@ import { BeanContainerRegistry } from './BeanContainerRegistry'
 
 const actions = {
   tv: {
-    airingToday: BeanContainerRegistry.getBeanContainer()
+    tv1: BeanContainerRegistry.getBeanContainer()
       .getAiringTodayTvShowController,
-    onTheAirTv: BeanContainerRegistry.getBeanContainer()
-      .getOnTheAirTvShowController,
-    tvmania: BeanContainerRegistry.getBeanContainer()
-      .getPopularTvShowController,
-    topRated: BeanContainerRegistry.getBeanContainer()
-      .getTopRatedTvShowController,
-    byGenres: BeanContainerRegistry.getBeanContainer().findMoviesByController
+    tv2: BeanContainerRegistry.getBeanContainer().getOnTheAirTvShowController,
+    tv3: BeanContainerRegistry.getBeanContainer().getPopularTvShowController,
+    tv4: BeanContainerRegistry.getBeanContainer().getTopRatedTvShowController,
+    tv5: BeanContainerRegistry.getBeanContainer().findMoviesByController
   },
   movie: {
-    nowPlaying: BeanContainerRegistry.getBeanContainer()
-      .getNowPlayingMoviesController,
-    cinemania: BeanContainerRegistry.getBeanContainer()
-      .getPopularMoviesController,
-    topRated: BeanContainerRegistry.getBeanContainer()
-      .getTopRatedMoviesController,
-    upcoming: BeanContainerRegistry.getBeanContainer()
-      .getUpcomingMoviesController,
-    byGenres: BeanContainerRegistry.getBeanContainer().findMoviesByController
+    mv1: BeanContainerRegistry.getBeanContainer().getNowPlayingMoviesController,
+    mv2: BeanContainerRegistry.getBeanContainer().getPopularMoviesController,
+    mv3: BeanContainerRegistry.getBeanContainer().getTopRatedMoviesController,
+    mv4: BeanContainerRegistry.getBeanContainer().getUpcomingMoviesController,
+    mv5: BeanContainerRegistry.getBeanContainer().findMoviesByController
+  }
+}
+
+const actionCodes = {
+  tv: {
+    tv1: 'airingToday',
+    tv2: 'onTheAirTv',
+    tv3: 'tvmania',
+    tv4: 'topRated'
+  },
+  movie: {
+    mv1: 'nowPlaying',
+    mv2: 'cinemania',
+    mv3: 'topRated',
+    mv4: 'upcoming'
   }
 }
 
@@ -36,5 +44,9 @@ export default class ActionMapper {
       mediaType,
       action
     }).execute({ language, page })
+  }
+
+  static getActionCodes() {
+    return actionCodes
   }
 }

@@ -148,7 +148,7 @@
                           <nuxt-link
                             v-for="(keyMessage, i) in showMenuListForTvShows"
                             :key="i"
-                            :to="getTvShowTopListlURL(keyMessage)"
+                            :to="getTopListlURL(keyMessage, mediaTypes.tv)"
                             class="uk-link-reset"
                           >
                             <li>
@@ -156,7 +156,9 @@
                                 class="uk-margin-small-right uk-icon ech-spin-icon"
                                 uk-icon="icon: play; "
                               ></span
-                              >{{ translateKeyMessageForTvShows(keyMessage) }}
+                              >{{
+                                translateKeyMessage(keyMessage, mediaTypes.tv)
+                              }}
                             </li>
                           </nuxt-link>
                         </ul>
@@ -171,7 +173,7 @@
                           <nuxt-link
                             v-for="(keyMessage, i) in showMenuListForMovies"
                             :key="i"
-                            :to="getMoviesTopListlURL(keyMessage)"
+                            :to="getTopListlURL(keyMessage, mediaTypes.movie)"
                             class="uk-link-reset"
                           >
                             <li>
@@ -179,7 +181,12 @@
                                 class="uk-margin-small-right uk-icon ech-spin-icon"
                                 uk-icon="icon: play; "
                               ></span
-                              >{{ translateKeyMessageForMovies(keyMessage) }}
+                              >{{
+                                translateKeyMessage(
+                                  keyMessage,
+                                  mediaTypes.movie
+                                )
+                              }}
                             </li>
                           </nuxt-link>
                         </ul>
@@ -392,7 +399,7 @@
                             <nuxt-link
                               v-for="(keyMessage, i) in showMenuListForMovies"
                               :key="i"
-                              :to="getMoviesTopListlURL(keyMessage)"
+                              :to="getTopListlURL(keyMessage, mediaTypes.movie)"
                               class="uk-link-reset"
                             >
                               <li>
@@ -400,7 +407,12 @@
                                   class="uk-margin-small-right uk-icon ech-spin-icon"
                                   uk-icon="icon: video-camera; "
                                 ></span
-                                >{{ translateKeyMessageForMovies(keyMessage) }}
+                                >{{
+                                  translateKeyMessage(
+                                    keyMessage,
+                                    mediaTypes.movie
+                                  )
+                                }}
                               </li>
                             </nuxt-link>
                           </ul>
@@ -433,7 +445,7 @@
                             <nuxt-link
                               v-for="(keyMessage, i) in showMenuListForTvShows"
                               :key="i"
-                              :to="getTvShowTopListlURL(keyMessage)"
+                              :to="getTopListlURL(keyMessage, mediaTypes.tv)"
                               class="uk-link-reset"
                             >
                               <li>
@@ -441,7 +453,9 @@
                                   class="uk-margin-small-right uk-icon ech-spin-icon"
                                   uk-icon="icon: tv; "
                                 ></span
-                                >{{ translateKeyMessageForTvShows(keyMessage) }}
+                                >{{
+                                  translateKeyMessage(keyMessage, mediaTypes.tv)
+                                }}
                               </li>
                             </nuxt-link>
                           </ul>
@@ -531,10 +545,14 @@
 import EchFiltersBy from '../filter/EchFiltersBy'
 import EchSortedBy from '../filter/EchSortedBy'
 import MediaTypes from '@/middleware/modules/domain/MediaTypes'
+import ActionMapper from '@/middleware/ActionMapper'
+import Slugger from '@/middleware/framework/modules/slugger/Slugger'
+import UpcomingManager from '@/middleware/modules/vue/mixins/UpcomingManager'
 
 export default {
   name: 'EchNavbarMainNew',
   components: { EchSortedBy, EchFiltersBy },
+  mixins: [UpcomingManager],
   data() {
     return {
       searchQuery: ''
@@ -550,32 +568,18 @@ export default {
       )
     },
     showMenuListForTvShows() {
-      return Object.keys(
-        this.$i18n.messages[this.$i18n.locale].pages[MediaTypes.tv]
-      )
+      return Object.keys(ActionMapper.getActionCodes()?.[MediaTypes.tv])
     },
     showMenuListForMovies() {
-      return Object.keys(
-        this.$i18n.messages[this.$i18n.locale].pages[MediaTypes.movie]
-      )
+      return Object.keys(ActionMapper.getActionCodes()?.[MediaTypes.movie])
     }
   },
   methods: {
-    translateKeyMessageForTvShows(key) {
-      return this.$i18n.messages[this.$i18n.locale].pages[MediaTypes.tv][key]
-    },
-    translateKeyMessageForMovies(key) {
-      return this.$i18n.messages[this.$i18n.locale].pages[MediaTypes.movie][key]
-    },
-    getTvShowTopListlURL(actionName) {
+    getTopListlURL(actionNameIndex, mediaType) {
+      const actionName = this.translateKeyMessage(actionNameIndex, mediaType)
+      const sluggifyActionName = Slugger.sluggify([actionNameIndex, actionName])
       const language = this.$i18n.locale
-      return `/${language}/${MediaTypes.tv}/trends/${Date.now()}/${actionName}/`
-    },
-    getMoviesTopListlURL(actionName) {
-      const language = this.$i18n.locale
-      return `/${language}/${
-        MediaTypes.movie
-      }/trends/${Date.now()}/${actionName}/`
+      return `/${language}/${mediaType}/trends/${Date.now()}/${sluggifyActionName}/`
     },
     doSearch() {
       const language = this.$i18n.locale
