@@ -1,9 +1,6 @@
 <template>
-  <div>
-    <h3
-      v-show="existsPosters(posters)"
-      class="uk-text-lead uk-text-center ech-basic"
-    >
+  <div v-if="existsPosters(posters)">
+    <h3 class="uk-text-lead uk-text-center ech-basic">
       Posters
     </h3>
     <div

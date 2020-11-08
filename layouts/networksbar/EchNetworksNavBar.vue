@@ -6,6 +6,7 @@
         :key="network._id"
         :todo="network"
         :network="network"
+        class="ech-basic"
         style="width: 15%"
       ></ech-network-logo>
     </div>

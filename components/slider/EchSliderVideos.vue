@@ -1,9 +1,6 @@
 <template>
-  <div>
-    <h3
-      v-show="existsVideos(videos)"
-      class="uk-text-lead uk-text-center ech-basic"
-    >
+  <div v-if="existsVideos(videos)">
+    <h3 class="uk-text-lead uk-text-center ech-basic">
       Videos
     </h3>
     <div

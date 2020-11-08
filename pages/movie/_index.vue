@@ -10,21 +10,35 @@
       ></ech-movies-card-detail>
     </section>
     <section class="uk-section uk-section-xsmall">
-      <ech-slider-people :credits="credits"></ech-slider-people>
+      <article
+        class="uk-card uk-card-default uk-grid-collapse uk-margin ech-scrollspy-effect"
+        uk-grid
+      >
+        <ech-slider-people
+          :credits="sanitizedCredits"
+          :type="crewTypes.credits"
+          class="uk-margin-small-top"
+        ></ech-slider-people>
+        <ech-slider-people
+          :credits="sanitizedCrews"
+          :type="crewTypes.crew"
+          class="uk-margin-medium-top"
+        ></ech-slider-people>
+        <ech-slider-videos
+          :videos="videos"
+          :poster-path="movies[0]._poster_path"
+          :posters="posters"
+          class="uk-margin-medium-top"
+          @outbound-open-video-modal="playVideo"
+        ></ech-slider-videos>
+        <ech-slider-posters
+          :posters="posters"
+          class="uk-margin-medium-top"
+        ></ech-slider-posters>
+      </article>
     </section>
     <section class="uk-section uk-section-xsmall">
-      <ech-slider-videos
-        :videos="videos"
-        :poster-path="movies[0]._poster_path"
-        :posters="posters"
-        @outbound-open-video-modal="playVideo"
-      ></ech-slider-videos>
-    </section>
-    <section class="uk-section uk-section-xsmall">
-      <ech-slider-posters :posters="posters"></ech-slider-posters>
-    </section>
-    <section class="uk-section uk-section-xsmall">
-      <ech-disqus></ech-disqus>
+      <ech-disqus class="uk-margin-medium-top"></ech-disqus>
     </section>
     <div>
       <vk-modal center :show.sync="showVideo">

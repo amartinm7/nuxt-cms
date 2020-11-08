@@ -113,8 +113,9 @@ class GetMovieDetailsRepositoryResponse {
         return new GetCreditCrewResponse({ ...it })
       })
       this._crew = {
-        _director: this._crews.find((it) => it._job === 'Director'),
-        _screenplay: this._crews.find((it) => it._job === 'Screenplay')
+        _director: this._crews.filter((it) => it._job === 'Director'),
+        _screenplay: this._crews.filter((it) => it._job === 'Screenplay'),
+        _producer: this._crews.filter((it) => it._job === 'Producer')
       }
     }
     this._runtimeByHours = this._getRuntimeByHours()
@@ -126,6 +127,7 @@ class GetMovieDetailsRepositoryResponse {
     }
     this._director = this._crewDirector()
     this._screenplay = this._crewScreenplay()
+    this._producer = this._crewProducer()
   }
 
   _getRuntimeByHours() {
@@ -141,6 +143,10 @@ class GetMovieDetailsRepositoryResponse {
 
   _crewScreenplay() {
     return this._crew?._screenplay ?? ''
+  }
+
+  _crewProducer() {
+    return this._crew?._producer ?? ''
   }
 }
 
@@ -186,14 +192,14 @@ class GetCreditCastsResponse {
     order,
     profile_path
   }) {
-    this.cast_id = cast_id
-    this.character = character
-    this.credit_id = credit_id
-    this.gender = gender
-    this.id = id
-    this.name = name
-    this.order = order
-    this.profile_path = profile_path
+    this._cast_id = cast_id
+    this._character = character
+    this._credit_id = credit_id
+    this._gender = gender
+    this._id = id
+    this._name = name
+    this._order = order
+    this._profile_path = profile_path
   }
 }
 
