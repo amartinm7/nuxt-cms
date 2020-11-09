@@ -5,15 +5,12 @@
     </section>
     <section class="uk-section uk-section-xsmall">
       <ech-networks-nav-bar></ech-networks-nav-bar>
-    </section>
-    <section class="uk-section uk-section-xsmall">
       <ech-slider-main :movies="trendingShows._results"> </ech-slider-main>
       <ech-pagination
         @outbound-to-previous-page="toPrevious"
         @outbound-to-next-page="toNext"
       ></ech-pagination>
-    </section>
-    <section class="uk-section uk-section-xsmall">
+      <ech-friend-networks-nav-bar></ech-friend-networks-nav-bar>
       <h1
         class="ech-basic uk-text-center uk-text-capitalize uk-heading-large uk-text-bolder uk-text-emphasis uk-hidden@s"
       >
@@ -71,11 +68,13 @@ import EchNetworksNavBar from '@/layouts/networksbar/EchNetworksNavBar'
 import Networks from '@/middleware/modules/domain/Networks'
 import NetworkManager from '@/middleware/modules/vue/mixins/NetworkManager'
 import EchNetworkLogo from '@/components/movies/EchNetworkLogo'
+import EchFriendNetworksNavBar from '@/layouts/friendNetworks/EchFriendNetworksNavBar'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
   name: 'EchTvShowsByGenres',
   components: {
+    EchFriendNetworksNavBar,
     EchNetworkLogo,
     EchNetworksNavBar,
     EchPagination,

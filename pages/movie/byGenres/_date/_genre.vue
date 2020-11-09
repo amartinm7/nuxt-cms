@@ -5,15 +5,12 @@
     </section>
     <section class="uk-section uk-section-xsmall">
       <ech-networks-nav-bar></ech-networks-nav-bar>
-    </section>
-    <section class="uk-section uk-section-xsmall">
       <ech-slider-main :movies="trendingShows._results"> </ech-slider-main>
       <ech-pagination
         @outbound-to-previous-page="toPrevious"
         @outbound-to-next-page="toNext"
       ></ech-pagination>
-    </section>
-    <section class="uk-section uk-section-xsmall">
+      <ech-friend-networks-nav-bar></ech-friend-networks-nav-bar>
       <h1
         v-if="!genreName"
         class="ech-basic uk-text-center uk-text-capitalize uk-heading-large uk-text-bolder uk-text-emphasis uk-hidden@s"
@@ -71,12 +68,14 @@ import DetailsHeaderManager from '@/middleware/modules/vue/mixins/DetailsHeaderM
 import EchPagination from '@/layouts/pagination/EchPagination'
 import EchNetworksNavBar from '~/layouts/networksbar/EchNetworksNavBar'
 import RedirectHomeManager from '@/middleware/modules/vue/mixins/RedirectHomeManager'
+import EchFriendNetworksNavBar from '@/layouts/friendNetworks/EchFriendNetworksNavBar'
 // const _isEmpty = require('lodash.isempty')
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
   name: 'EchMoviesByGenres',
   components: {
+    EchFriendNetworksNavBar,
     EchNetworksNavBar,
     EchPagination,
     EchHeaderMain,

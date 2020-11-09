@@ -5,8 +5,6 @@
     </section>
     <section class="uk-section uk-section-xsmall">
       <ech-networks-nav-bar></ech-networks-nav-bar>
-    </section>
-    <section class="uk-section uk-section-xsmall">
       <div class="uk-active">
         <ech-slider-main :movies="trendingResults._results"></ech-slider-main>
         <ech-pagination
@@ -14,8 +12,7 @@
           @outbound-to-next-page="toNext"
         ></ech-pagination>
       </div>
-    </section>
-    <section class="uk-section uk-section-xsmall">
+      <ech-friend-networks-nav-bar></ech-friend-networks-nav-bar>
       <h1
         class="ech-basic uk-text-center uk-text-capitalize uk-heading-large uk-text-bolder uk-text-emphasis uk-hidden@s"
       >
@@ -91,11 +88,13 @@ import MediaTypes from '@/middleware/modules/domain/MediaTypes'
 import DetailsHeaderManager from '@/middleware/modules/vue/mixins/DetailsHeaderManager'
 import EchPagination from '@/layouts/pagination/EchPagination'
 import EchNetworksNavBar from '@/layouts/networksbar/EchNetworksNavBar'
+import EchFriendNetworksNavBar from '@/layouts/friendNetworks/EchFriendNetworksNavBar'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
   name: 'EchMainIndex',
   components: {
+    EchFriendNetworksNavBar,
     EchNetworksNavBar,
     EchPagination,
     EchHeaderMain,

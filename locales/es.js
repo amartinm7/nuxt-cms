@@ -108,5 +108,8 @@ export default {
   technicalDetails: 'Ficha Técnica',
   createdBy: 'Creado por',
   numOfSeasons: 'Número de temporadas',
-  numOfEpisodes: 'Número de episodios'
+  numOfEpisodes: 'Número de episodios',
+  friendNetworkCastellana100:
+    'Web amiga, visitanos aqui: www.castellana100bicishop.com',
+  friendNetwork: 'Web amiga'
 }

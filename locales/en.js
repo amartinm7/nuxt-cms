@@ -108,5 +108,8 @@ export default {
   technicalDetails: 'Technical Details',
   createdBy: 'Created by',
   numOfSeasons: 'Number of seasons',
-  numOfEpisodes: 'Number of episodes'
+  numOfEpisodes: 'Number of episodes',
+  friendNetworkCastellana100:
+    'Friend Network, visit us here: www.castellana100bicishop.com',
+  friendNetwork: 'Friend Network'
 }

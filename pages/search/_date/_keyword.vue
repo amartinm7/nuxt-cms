@@ -5,11 +5,8 @@
     </section>
     <section class="uk-section uk-section-xsmall">
       <ech-networks-nav-bar></ech-networks-nav-bar>
-    </section>
-    <section class="uk-section uk-section-xsmall">
       <ech-slider-main :movies="multiSearch._results"> </ech-slider-main>
-    </section>
-    <section class="uk-section uk-section-xsmall">
+      <ech-friend-networks-nav-bar></ech-friend-networks-nav-bar>
       <div>
         <ech-tv-show-card
           :movies="multiSearch._results"
@@ -49,11 +46,13 @@ import EchTvShowCard from '@/components/movies/EchTvShowCard'
 import EchMoviesCard from '@/components/movies/EchMoviesCard'
 import EchNetworksNavBar from '~/layouts/networksbar/EchNetworksNavBar'
 import RedirectHomeManager from '@/middleware/modules/vue/mixins/RedirectHomeManager'
+import EchFriendNetworksNavBar from '@/layouts/friendNetworks/EchFriendNetworksNavBar'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
   name: 'EchSearch',
   components: {
+    EchFriendNetworksNavBar,
     EchNetworksNavBar,
     EchMoviesCard,
     EchTvShowCard,
