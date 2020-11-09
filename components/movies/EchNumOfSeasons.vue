@@ -1,17 +1,17 @@
 <template>
-  <div v-if="revenue && revenue !== 0">
-    <span class="uk-text-meta"> {{ $t('revenue') }}: </span>
+  <div v-if="numOfSeasons && numOfSeasons !== 0">
+    <span class="uk-text-meta"> {{ $t('numOfSeasons') }}: </span>
     <span class="uk-text-lead uk-text-small">
-      ${{ revenue | abbreviate }}
+      {{ numOfSeasons }}
     </span>
   </div>
 </template>
 <script>
 /* eslint-disable camelcase, no-console */
 export default {
-  name: 'EchRevenue',
+  name: 'EchNumOfSeasons',
   props: {
-    revenue: {
+    numOfSeasons: {
       type: Number,
       default() {
         return 0

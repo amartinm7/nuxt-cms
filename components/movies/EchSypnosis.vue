@@ -32,7 +32,7 @@ export default {
     movieId: {
       type: Number,
       default() {
-        return ''
+        return 0
       }
     }
   }

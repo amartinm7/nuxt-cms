@@ -10,7 +10,16 @@
       ></ech-tv-show-card-details>
     </section>
     <section class="uk-section uk-section-xsmall">
-      <ech-slider-people :credits="credits"></ech-slider-people>
+      <ech-slider-people
+        :credits="sanitizedCredits"
+        :type="crewTypes.credits"
+        class="uk-margin-small-top"
+      ></ech-slider-people>
+      <ech-slider-people
+        :credits="sanitizedCrews"
+        :type="crewTypes.crew"
+        class="uk-margin-medium-top"
+      ></ech-slider-people>
     </section>
     <section class="uk-section uk-section-xsmall">
       <ech-slider-videos
@@ -75,7 +84,8 @@ export default {
     VideoControllerManager,
     CreditsManager,
     DetailsHeaderManager,
-    RequestDetailsHeaderManager
+    RequestDetailsHeaderManager,
+    CreditsManager
   ],
   // eslint-disable-next-line require-await
   async asyncData({ app, route, params, store }) {

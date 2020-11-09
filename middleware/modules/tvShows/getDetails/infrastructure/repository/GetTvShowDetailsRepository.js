@@ -1,5 +1,9 @@
-import GetAxiosRequest from '../../../../../framework/modules/axios/GetAxiosRequest'
-import MediaTypes from '../../../../domain/MediaTypes'
+import GetAxiosRequest from '@/middleware/framework/modules/axios/GetAxiosRequest'
+import MediaTypes from '@/middleware/modules/domain/MediaTypes'
+import GetCreditCrewResponse from '@/middleware/modules/domain/responses/GetCreditCrewResponse'
+import GetCreditCastsResponse from '@/middleware/modules/domain/responses/GetCreditCastsResponse'
+import GetImageDetailsResponse from '@/middleware/modules/domain/responses/GetImageDetailsResponse'
+import GetVideoDetailsResponse from '@/middleware/modules/domain/responses/GetVideoDetailsResponse'
 const _isEmpty = require('lodash.isempty')
 /* eslint-disable camelcase, no-console */
 class GetTvShowDetailsRepository {
@@ -103,7 +107,8 @@ class GetTvShowDetailsRepositoryResponse {
     homepage,
     seasons,
     networks,
-    production_companies
+    production_companies,
+    created_by
   }) {
     this._error = error
     this._media_type = MediaTypes.tv
@@ -111,7 +116,6 @@ class GetTvShowDetailsRepositoryResponse {
     this._id = id
     this._imdb_id = ''
     this._original_language = original_language
-    this._origin_country = origin_country
     this._original_name = original_name
     this._overview = overview
     this._popularity = popularity
@@ -137,6 +141,30 @@ class GetTvShowDetailsRepositoryResponse {
         return new GetCreditCastsResponse({ ...it })
       })
     }
+    if (!_isEmpty(credits) && !_isEmpty(created_by)) {
+      this._created_by = created_by.map((it) => {
+        // eslint-disable-next-line no-new
+        return new GetCreditCrewResponse({ ...it })
+      })
+    }
+    if (!_isEmpty(credits) && !_isEmpty(credits.crew)) {
+      this._crews = credits.crew.map((it) => {
+        // eslint-disable-next-line no-new
+        return new GetCreditCrewResponse({ ...it })
+      })
+      this._crew = {
+        _director: this._crews.filter((it) => it._job === 'Director'),
+        _screenplay: this._crews.filter(
+          (it) => it._job === 'Screenplay' || it._job === 'Novel'
+        ),
+        _producer: this._crews.filter(
+          (it) => it._job === 'Producer' || it._job === 'Executive Producer'
+        )
+      }
+    }
+    this._director = this._crewDirector()
+    this._screenplay = this._crewScreenplay()
+    this._producer = this._crewProducer()
     this._number_of_episodes = number_of_episodes
     this._number_of_seasons = number_of_seasons
     this._homepage = homepage
@@ -159,85 +187,21 @@ class GetTvShowDetailsRepositoryResponse {
         return new GetProductionCompaniesResponse({ ...it })
       })
     }
-    this._origin_countryToString = this.getOriginalCountryToString()
+    this._origin_country = origin_country.map((countryCode) => {
+      return { _iso_3166_1: countryCode }
+    })
   }
 
-  getOriginalCountryToString() {
-    return _isEmpty(this._origin_country) ? '' : this._origin_country.join(', ')
+  _crewDirector() {
+    return this._crew?._director ?? ''
   }
-}
 
-/* eslint-disable camelcase */
-class GetVideoDetailsResponse {
-  constructor(id, iso_639_1, iso_3166_1, key, name, site, size, type) {
-    this._id = id
-    this._iso_639_1 = iso_639_1
-    this._iso_3166_1 = iso_3166_1
-    this._key = key
-    this._name = name
-    this._site = site
-    this._size = size
-    this._type = type
+  _crewScreenplay() {
+    return this._crew?._screenplay ?? ''
   }
-}
 
-/* eslint-disable camelcase */
-class GetImageDetailsResponse {
-  constructor(images) {
-    if (!_isEmpty(images) && !_isEmpty(images.backdrops)) {
-      this._backdrops = images.backdrops.map((it) => {
-        return new GetBackDropsPostersDetailsResponse(it)
-      })
-    }
-    if (!_isEmpty(images) && !_isEmpty(images.posters)) {
-      this._posters = images.posters.map((it) => {
-        return new GetBackDropsPostersDetailsResponse(it)
-      })
-    }
-  }
-}
-
-/* eslint-disable camelcase */
-class GetCreditCastsResponse {
-  constructor({
-    cast_id,
-    character,
-    credit_id,
-    gender,
-    id,
-    name,
-    order,
-    profile_path
-  }) {
-    this.cast_id = cast_id
-    this.character = character
-    this.credit_id = credit_id
-    this.gender = gender
-    this.id = id
-    this.name = name
-    this.order = order
-    this.profile_path = profile_path
-  }
-}
-
-/* eslint-disable camelcase */
-class GetBackDropsPostersDetailsResponse {
-  constructor({
-    aspect_ratio,
-    file_path,
-    height,
-    iso_639_1,
-    vote_average,
-    vote_count,
-    width
-  }) {
-    this._aspect_ratio = aspect_ratio
-    this._file_path = file_path
-    this._height = height
-    this._iso_639_1 = iso_639_1
-    this._vote_average = vote_average
-    this._vote_count = vote_count
-    this._width = width
+  _crewProducer() {
+    return this._crew?._producer ?? ''
   }
 }
 

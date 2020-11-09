@@ -105,5 +105,8 @@ export default {
   premiereWithNetwork: `Premier {name}`,
   genresLabel: 'Genres',
   moreAbout: 'More about {name}',
-  technicalDetails: 'Technical Details'
+  technicalDetails: 'Technical Details',
+  createdBy: 'Created by',
+  numOfSeasons: 'Number of seasons',
+  numOfEpisodes: 'Number of episodes'
 }

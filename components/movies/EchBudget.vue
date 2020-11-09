@@ -12,7 +12,7 @@ export default {
     budget: {
       type: Number,
       default() {
-        return ''
+        return 0
       }
     }
   }

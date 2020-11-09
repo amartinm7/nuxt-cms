@@ -3,13 +3,13 @@
     <nuxt-link
       :to="getRelatedShowsURL({ id: movieId, mediaType })"
       class="uk-link-reset"
-      :alt="$t('moreRelatedMovies')"
-      :uk-tooltip="$t('moreRelatedMovies')"
+      :alt="label"
+      :uk-tooltip="label"
     >
       <span
         class="uk-label uk-label-success ech-basic"
         uk-icon="icon: video-camera; ratio: 0.75;"
-        >{{ $t('moreRelatedMovies') }}
+        >{{ label }}
       </span>
     </nuxt-link>
   </div>
@@ -25,13 +25,19 @@ export default {
     movieId: {
       type: Number,
       default() {
-        return ''
+        return 0
       }
     },
     mediaType: {
       type: String,
       default() {
         return ''
+      }
+    },
+    label: {
+      type: String,
+      default() {
+        return 'series'
       }
     }
   }

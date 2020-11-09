@@ -65,7 +65,7 @@
             <ech-crew :crews="movie._screenplay" label="screenplay"></ech-crew>
             <ech-crew :crews="movie._producer" label="producer"></ech-crew>
             <ech-recommended :adults="movie._adult"></ech-recommended>
-            <ech-home-page :home="movie._homepage"></ech-home-page>
+            <ech-home-page :home-page="movie._homepage"></ech-home-page>
           </div>
           <ech-sypnosis
             :overview="movie._overview"
@@ -80,6 +80,7 @@
           <ech-related-movies
             :movie-id="movie._id"
             :media-type="mediaType"
+            :label="$t('moreRelatedMovies')"
             class="uk-margin-medium-top"
           ></ech-related-movies>
         </div>

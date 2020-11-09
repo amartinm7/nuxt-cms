@@ -24,6 +24,7 @@
       ></ech-media-card-picture>
       <div>
         <span
+          v-if="false"
           class="uk-visible@s uk-align-right uk-margin-small-right uk-label-warning ech-basic ech-spin-icon uk-border-circle uk-padding-small uk-text-center"
         >
           {{ movie._vote_average.toFixed(1) }}
@@ -42,108 +43,55 @@
             <ech-star-rating :rating-value="movie._vote_average / 2">
             </ech-star-rating>
           </p>
-          <div class="uk-flex uk-flex-center">
-            <div class="uk-width-1-4">
-              <p class="uk-text-italic uk-text-center"></p>
-            </div>
-            <div class="uk-width-2-4 uk-align-center">
-              <p class="uk-text-italic uk-align-center">
-                <span
-                  v-if="movie._first_air_date"
-                  class="uk-label uk-label-success ech-basic"
-                  uk-icon="icon: calendar; ratio: 0.75;"
-                  >{{ $t('firstAirDate') }}:
-                  {{ movie._first_air_date | moment('DD-MMMM-YYYY') }}
-                </span>
-                <span
-                  v-if="movie._origin_countryToString"
-                  class="uk-label uk-label-success ech-basic"
-                  uk-icon="icon: location; ratio: 0.75;"
-                  >{{ $t('productionCountry') }}:
-                  {{ getCountryNameFrom(movie._origin_countryToString) }}
-                </span>
-                <span
-                  v-if="movie._original_language && movie._original_language[0]"
-                  class="uk-label uk-label-success ech-basic"
-                  uk-icon="icon: world; ratio: 0.75;"
-                  >{{ $t('originalLanguage') }}:
-                  {{ getLanguageNameFrom(movie._original_language) }}
-                </span>
-              </p>
-            </div>
-            <div class="uk-width-1-4">
-              <p class="uk-text-italic uk-text-center"></p>
-            </div>
+          <div class="uk-margin-medium-top">
+            <h2 class="uk-card-title ech-basic uk-text-center">
+              {{ $t('technicalDetails') }}
+            </h2>
+            <ech-release-date
+              :release-date="movie._first_air_date"
+            ></ech-release-date>
+            <ech-production-countries
+              :production-countries="movie._origin_country"
+            ></ech-production-countries>
+            <ech-original-language
+              :original-language="movie._original_language"
+            ></ech-original-language>
+            <ech-crew :crews="movie._created_by" label="createdBy"></ech-crew>
+            <ech-crew :crews="movie._screenplay" label="screenplay"></ech-crew>
+            <ech-crew :crews="movie._producer" label="producer"></ech-crew>
+            <ech-num-of-seasons
+              :num-of-seasons="movie._number_of_seasons"
+            ></ech-num-of-seasons>
+            <ech-num-of-episodes
+              :num-of-episodes="movie._number_of_episodes"
+            ></ech-num-of-episodes>
+            <ech-home-page :home-page="movie._homepage"></ech-home-page>
           </div>
-          <div>
-            <p
-              v-if="movie._overview"
-              :id="movie._id + 'overview'"
-              class="uk-dropcap uk-text-justify"
-            >
-              {{ movie._overview }}
-              <span
-                class="ech-basic"
-                uk-icon="icon: comment; ratio: 0.75;"
-                uk-tooltip="copy"
-                @click.stop.prevent="toClipboard(movie._id + 'overview')"
-              >
-              </span>
-            </p>
-          </div>
-          <div class="uk-flex uk-flex-center">
-            <ech-genres :movie="movie" :media-type="mediaType"></ech-genres>
-          </div>
-          <div
-            v-if="movie._networks && movie._networks[0]"
-            :uk-tooltip="$t('clickToSeeMoreAbout')"
-          >
-            <p class="uk-text-meta uk-margin-medium-top">
-              <ech-network-logo
-                :network="movie._networks[0]"
-              ></ech-network-logo>
-            </p>
-          </div>
-          <div>
-            <p v-if="movie._director" class="uk-text-meta">
-              {{ $t('director') }}:
-              <span class="uk-text-lead uk-text-small">{{
-                movie._director
-              }}</span>
-            </p>
-            <p v-if="movie._screenplay" class="uk-text-meta">
-              {{ $t('screenplay') }}:
-              <span class="uk-text-lead uk-text-small">{{
-                movie._screenplay
-              }}</span>
-            </p>
-            <p v-if="movie._homepage" class="uk-text-meta">
-              Homepage:
-              <a
-                :href="movie._homepage"
-                :alt="movie._name"
-                class="uk-text-lead uk-text-small"
-              >
-                {{ movie._homepage }}
-              </a>
-            </p>
-            <p class="uk-text-meta uk-margin-medium-top uk-text-center">
-              <nuxt-link
-                :to="getRelatedShowsURL({ id: movie._id, mediaType })"
-                class="uk-link-reset"
-              >
-                <span
-                  class="uk-label uk-label-success ech-basic"
-                  uk-icon="icon: reply; ratio: 0.75;"
-                  >{{ $t('moreRelatedTvShows') }}
-                </span>
-              </nuxt-link>
-            </p>
-            <ech-social-network-card-details
-              :title="movie._name"
-              :description="movie._overview"
-            ></ech-social-network-card-details>
-          </div>
+          <ech-sypnosis
+            :overview="movie._overview"
+            :movie-id="movie._id"
+            class="uk-margin-medium-top"
+          ></ech-sypnosis>
+          <ech-genres
+            :movie="movie"
+            :media-type="mediaType"
+            class="uk-margin-medium-top"
+          ></ech-genres>
+          <ech-networks-logo
+            :networks="movie._networks"
+            class="uk-margin-medium-top"
+          ></ech-networks-logo>
+          <ech-related-movies
+            :movie-id="movie._id"
+            :media-type="mediaType"
+            :label="$t('moreRelatedTvShows')"
+            class="uk-margin-medium-top"
+          ></ech-related-movies>
+          <ech-social-network-card-details
+            :title="movie._name"
+            :description="movie._overview"
+            class="uk-margin-medium-top"
+          ></ech-social-network-card-details>
         </div>
       </div>
       <link itemprop="thumbnailUrl" href="url_image" />
@@ -165,17 +113,35 @@ import MediaManager from '@/middleware/modules/vue/mixins/MediaManager'
 import MediaTypes from '@/middleware/modules/domain/MediaTypes'
 import LocateManager from '@/middleware/modules/vue/mixins/LocateManager'
 import Utils from '@/middleware/modules/vue/mixins/Utils'
-import EchNetworkLogo from '@/components/movies/EchNetworkLogo'
 import EchGenres from '@/components/movies/EchGenres'
 import SimilarShowsManager from '@/middleware/modules/vue/mixins/SimilarShowsManager'
 import EchMediaCardPicture from '@/components/movies/EchMediaCardPicture'
+import EchReleaseDate from '@/components/movies/EchReleaseDate'
+import EchProductionCountries from '@/components/movies/EchProductionCountries'
+import EchOriginalLanguage from '@/components/movies/EchOriginalLanguage'
+import EchNetworksLogo from '@/components/movies/EchNetworksLogo'
+import EchCrew from '@/components/movies/EchCrew'
+import EchHomePage from '@/components/movies/EchHomePage'
+import EchSypnosis from '@/components/movies/EchSypnosis'
+import EchRelatedMovies from '@/components/movies/EchRelatedMovies'
+import EchNumOfEpisodes from '@/components/movies/EchNumOfEpisodes'
+import EchNumOfSeasons from '@/components/movies/EchNumOfSeasons'
 
 export default {
   name: 'EchTvShowCardDetails',
   components: {
+    EchNumOfSeasons,
+    EchNumOfEpisodes,
+    EchRelatedMovies,
+    EchSypnosis,
+    EchHomePage,
+    EchCrew,
+    EchNetworksLogo,
+    EchOriginalLanguage,
+    EchProductionCountries,
+    EchReleaseDate,
     EchMediaCardPicture,
     EchGenres,
-    EchNetworkLogo,
     EchSocialNetworkCardDetails,
     EchStarRating
   },
