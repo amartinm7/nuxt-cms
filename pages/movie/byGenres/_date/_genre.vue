@@ -7,7 +7,7 @@
       <ech-networks-nav-bar></ech-networks-nav-bar>
     </section>
     <section class="uk-section uk-section-xsmall">
-      <ech-slider-main :movies="trendingMovies._results"> </ech-slider-main>
+      <ech-slider-main :movies="trendingShows._results"> </ech-slider-main>
       <ech-pagination
         @outbound-to-previous-page="toPrevious"
         @outbound-to-next-page="toNext"
@@ -36,7 +36,7 @@
     <section class="uk-section uk-section-xsmall">
       <div>
         <ech-movies-card
-          :movies="trendingMovies._results"
+          :movies="trendingShows._results"
           @outbound-open-video-modal="playVideo"
         ></ech-movies-card>
       </div>
@@ -60,16 +60,17 @@
 <!-- eslint-enable -->
 <script>
 /* eslint-disable camelcase, no-console */
-import { BeanContainerRegistry } from '../../../../middleware/BeanContainerRegistry'
-import EchMoviesCard from '../../../../components/movies/EchMoviesCard'
-import EchSliderMain from '../../../../components/slider/EchSliderMain'
-import EchHeaderMain from '../../../../layouts/header/EchHeaderMain'
-import VideoControllerManager from '../../../../middleware/modules/vue/mixins/VideoControllerManager'
-import { FindMoviesByControllerRequest } from '../../../../middleware/modules/movies/findBy/userapplication/controller/FindMoviesByController'
-import MediaTypes from '../../../../middleware/modules/domain/MediaTypes'
-import DetailsHeaderManager from '../../../../middleware/modules/vue/mixins/DetailsHeaderManager'
+import { BeanContainerRegistry } from '@/middleware/BeanContainerRegistry'
+import EchMoviesCard from '@/components/movies/EchMoviesCard'
+import EchSliderMain from '@/components/slider/EchSliderMain'
+import EchHeaderMain from '@/layouts/header/EchHeaderMain'
+import VideoControllerManager from '@/middleware/modules/vue/mixins/VideoControllerManager'
+import { FindMoviesByControllerRequest } from '@/middleware/modules/movies/findBy/userapplication/controller/FindMoviesByController'
+import MediaTypes from '@/middleware/modules/domain/MediaTypes'
+import DetailsHeaderManager from '@/middleware/modules/vue/mixins/DetailsHeaderManager'
 import EchPagination from '@/layouts/pagination/EchPagination'
 import EchNetworksNavBar from '~/layouts/networksbar/EchNetworksNavBar'
+import RedirectHomeManager from '@/middleware/modules/vue/mixins/RedirectHomeManager'
 // const _isEmpty = require('lodash.isempty')
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
@@ -82,14 +83,14 @@ export default {
     EchSliderMain,
     EchMoviesCard
   },
-  mixins: [VideoControllerManager, DetailsHeaderManager],
+  mixins: [VideoControllerManager, DetailsHeaderManager, RedirectHomeManager],
   // eslint-disable-next-line require-await
   async asyncData({ app, params, query }) {
     const language = app.i18n.locale
     const page = isNaN(query.page) ? 1 : Number(query.page)
     const genreId = isNaN(params.genre) ? '' : Number(params.genre)
     const queryParamsSortedBy = query.sortedBy ?? ''
-    const trendingMovies = await beanContainer.findMoviesByController.execute(
+    const trendingShows = await beanContainer.findMoviesByController.execute(
       new FindMoviesByControllerRequest({
         genreId,
         language,
@@ -103,7 +104,7 @@ export default {
       mediaType: MediaTypes.movie
     })
     return {
-      trendingMovies,
+      trendingShows,
       queryParamsSortedBy,
       genreId,
       genreName,
@@ -112,7 +113,7 @@ export default {
   },
   data() {
     return {
-      trendingMovies: {
+      trendingShows: {
         _page: 1,
         _total_pages: 1,
         _total_results: 1,
@@ -129,7 +130,7 @@ export default {
   methods: {
     async toPrevious() {
       const previousPage = this.page > 1 ? this.page - 1 : 1
-      this.trendingMovies = await beanContainer.findMoviesByController.execute(
+      this.trendingShows = await beanContainer.findMoviesByController.execute(
         new FindMoviesByControllerRequest({
           genres_ids: this.genres_ids,
           language: this.$i18n.locale,
@@ -141,10 +142,10 @@ export default {
     },
     async toNext() {
       const nextPage =
-        this.page < this.trendingMovies._total_pages
+        this.page < this.trendingShows._total_pages
           ? this.page + 1
-          : this.trendingMovies._total_pages
-      this.trendingMovies = await beanContainer.findMoviesByController.execute(
+          : this.trendingShows._total_pages
+      this.trendingShows = await beanContainer.findMoviesByController.execute(
         new FindMoviesByControllerRequest({
           genres_ids: this.genres_ids,
           language: this.$i18n.locale,

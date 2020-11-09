@@ -7,7 +7,7 @@
       <ech-networks-nav-bar></ech-networks-nav-bar>
     </section>
     <section class="uk-section uk-section-xsmall">
-      <ech-slider-main :movies="trendingTVShows._results"> </ech-slider-main>
+      <ech-slider-main :movies="trendingShows._results"> </ech-slider-main>
       <ech-pagination
         @outbound-to-previous-page="toPrevious"
         @outbound-to-next-page="toNext"
@@ -26,7 +26,7 @@
     <section class="uk-section uk-section-xsmall">
       <div>
         <ech-movies-card
-          :movies="trendingTVShows._results"
+          :movies="trendingShows._results"
           @outbound-open-video-modal="playVideo"
         ></ech-movies-card>
       </div>
@@ -60,7 +60,8 @@ import DetailsHeaderManager from '@/middleware/modules/vue/mixins/DetailsHeaderM
 import EchPagination from '@/layouts/pagination/EchPagination'
 import { GetSimilarMoviesControllerRequest } from '@/middleware/modules/movies/getSimilarMovies/userapplication/controller/GetSimilarMoviesController'
 import EchMoviesCard from '@/components/movies/EchMoviesCard'
-import EchNetworksNavBar from '~/layouts/networksbar/EchNetworksNavBar'
+import EchNetworksNavBar from '@/layouts/networksbar/EchNetworksNavBar'
+import RedirectHomeManager from '@/middleware/modules/vue/mixins/RedirectHomeManager'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
@@ -72,7 +73,7 @@ export default {
     EchHeaderMain,
     EchSliderMain
   },
-  mixins: [VideoControllerManager, DetailsHeaderManager],
+  mixins: [VideoControllerManager, DetailsHeaderManager, RedirectHomeManager],
   // eslint-disable-next-line require-await
   async asyncData({ app, params, query, route }) {
     const language = app.i18n.locale
@@ -80,18 +81,18 @@ export default {
     const movie_id = isNaN(params.similarShow)
       ? 335984
       : Number(params.similarShow)
-    const trendingTVShows = await beanContainer.getSimilarMoviesController.execute(
+    const trendingShows = await beanContainer.getSimilarMoviesController.execute(
       new GetSimilarMoviesControllerRequest({
         language,
         page,
         movie_id
       })
     )
-    return { trendingTVShows, page, movie_id }
+    return { trendingShows, page, movie_id }
   },
   data() {
     return {
-      trendingTVShows: {
+      trendingShows: {
         _page: 1,
         _total_pages: 1,
         _total_results: 1,
@@ -102,21 +103,10 @@ export default {
       movie_id: '335984'
     }
   },
-  mounted() {
-    if (this.trendingTVShows._total_results === 0) {
-      const language = this.$i18n.locale
-      const route = async () => {
-        await this.$router.push({
-          path: `/${language}`
-        })
-      }
-      route()
-    }
-  },
   methods: {
     async toPrevious() {
       const previousPage = this.page > 1 ? this.page - 1 : 1
-      this.trendingTVShows = await beanContainer.getSimilarMoviesController.execute(
+      this.trendingShows = await beanContainer.getSimilarMoviesController.execute(
         new GetSimilarMoviesControllerRequest({
           language: this.$i18n.locale,
           page: previousPage,
@@ -127,10 +117,10 @@ export default {
     },
     async toNext() {
       const nextPage =
-        this.page < this.trendingTVShows._total_pages
+        this.page < this.trendingShows._total_pages
           ? this.page + 1
-          : this.trendingTVShows._total_pages
-      this.trendingTVShows = await beanContainer.getSimilarMoviesController.execute(
+          : this.trendingShows._total_pages
+      this.trendingShows = await beanContainer.getSimilarMoviesController.execute(
         new GetSimilarMoviesControllerRequest({
           language: this.$i18n.locale,
           page: nextPage,

@@ -7,7 +7,7 @@
       <ech-networks-nav-bar></ech-networks-nav-bar>
     </section>
     <section class="uk-section uk-section-xsmall">
-      <ech-slider-main :movies="trendingTVShows._results"> </ech-slider-main>
+      <ech-slider-main :movies="trendingShows._results"> </ech-slider-main>
       <ech-pagination
         @outbound-to-previous-page="toPrevious"
         @outbound-to-next-page="toNext"
@@ -36,7 +36,7 @@
     <section class="uk-section uk-section-xsmall">
       <div>
         <ech-tv-show-card
-          :movies="trendingTVShows._results"
+          :movies="trendingShows._results"
           @outbound-open-video-modal="playVideo"
         ></ech-tv-show-card>
       </div>
@@ -71,6 +71,7 @@ import DetailsHeaderManager from '@/middleware/modules/vue/mixins/DetailsHeaderM
 import MediaTypes from '@/middleware/modules/domain/MediaTypes'
 import EchPagination from '@/layouts/pagination/EchPagination'
 import EchNetworksNavBar from '@/layouts/networksbar/EchNetworksNavBar'
+import RedirectHomeManager from '@/middleware/modules/vue/mixins/RedirectHomeManager'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
@@ -82,7 +83,7 @@ export default {
     EchSliderMain,
     EchTvShowCard
   },
-  mixins: [VideoControllerManager, DetailsHeaderManager],
+  mixins: [VideoControllerManager, DetailsHeaderManager, RedirectHomeManager],
   // eslint-disable-next-line require-await
   async asyncData({ app, params, query }) {
     const language = app.i18n.locale
@@ -94,7 +95,7 @@ export default {
     //   .split('_')
     //   .map((name) => app.$genreActionHandler(language).getGenreIdForTvBy(name))
     //   .filter((it) => it !== undefined)
-    const trendingTVShows = await beanContainer.findTvShowsByController.execute(
+    const trendingShows = await beanContainer.findTvShowsByController.execute(
       new FindTvShowsByControllerRequest({
         genreId,
         language,
@@ -107,11 +108,11 @@ export default {
       language,
       mediaType: MediaTypes.tv
     })
-    return { trendingTVShows, page, genreId, sortedBy, genreName }
+    return { trendingShows, page, genreId, sortedBy, genreName }
   },
   data() {
     return {
-      trendingTVShows: {
+      trendingShows: {
         _page: 1,
         _total_pages: 1,
         _total_results: 1,
@@ -127,7 +128,7 @@ export default {
   methods: {
     async toPrevious() {
       const previousPage = this.page > 1 ? this.page - 1 : 1
-      this.trendingTVShows = await beanContainer.findTvShowsByController.execute(
+      this.trendingShows = await beanContainer.findTvShowsByController.execute(
         new FindTvShowsByControllerRequest({
           genreId: this.genreId,
           language: this.$i18n.locale,
@@ -139,10 +140,10 @@ export default {
     },
     async toNext() {
       const nextPage =
-        this.page < this.trendingTVShows._total_pages
+        this.page < this.trendingShows._total_pages
           ? this.page + 1
-          : this.trendingTVShows._total_pages
-      this.trendingTVShows = await beanContainer.findTvShowsByController.execute(
+          : this.trendingShows._total_pages
+      this.trendingShows = await beanContainer.findTvShowsByController.execute(
         new FindTvShowsByControllerRequest({
           genreId: this.genreId,
           language: this.$i18n.locale,

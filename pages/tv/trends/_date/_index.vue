@@ -60,6 +60,7 @@ import DetailsHeaderManager from '@/middleware/modules/vue/mixins/DetailsHeaderM
 import PaginationForTrendingManager from '@/middleware/modules/vue/mixins/PaginationForTrendingManager'
 import EchPagination from '@/layouts/pagination/EchPagination'
 import EchNetworksNavBar from '@/layouts/networksbar/EchNetworksNavBar'
+import RedirectHomeManager from '@/middleware/modules/vue/mixins/RedirectHomeManager'
 
 export default {
   name: 'EchTvshowUpcoming',
@@ -74,7 +75,8 @@ export default {
     VideoControllerManager,
     UpcomingManager,
     DetailsHeaderManager,
-    PaginationForTrendingManager(MediaTypes.tv)
+    PaginationForTrendingManager(MediaTypes.tv),
+    RedirectHomeManager
   ],
   data() {
     return {

@@ -7,7 +7,7 @@
       <ech-networks-nav-bar></ech-networks-nav-bar>
     </section>
     <section class="uk-section uk-section-xsmall">
-      <ech-slider-main :movies="trendingTVShows._results"> </ech-slider-main>
+      <ech-slider-main :movies="trendingShows._results"> </ech-slider-main>
       <ech-pagination
         @outbound-to-previous-page="toPrevious"
         @outbound-to-next-page="toNext"
@@ -32,7 +32,7 @@
     <section class="uk-section uk-section-xsmall">
       <div>
         <ech-tv-show-card
-          :movies="trendingTVShows._results"
+          :movies="trendingShows._results"
           @outbound-open-video-modal="playVideo"
         ></ech-tv-show-card>
       </div>
@@ -97,7 +97,7 @@ export default {
     const networkId = isNaN(networkParam) ? '' : Number(networkParam)
     const sortedBy = query.sortedBy ?? ''
     console.log('FindTvShowsByRepository...' + networkId)
-    const trendingTVShows = await beanContainer.findTvShowsByController.execute(
+    const trendingShows = await beanContainer.findTvShowsByController.execute(
       new FindTvShowsByControllerRequest({
         language,
         sortedBy,
@@ -109,11 +109,11 @@ export default {
     const networkStatic = Networks.getNetWorkBy(networkId)
     const network = networkStatic?._id ? networkStatic : networkStore
     console.log('network...' + JSON.stringify(network))
-    return { trendingTVShows, page, networkId, network }
+    return { trendingShows, page, networkId, network }
   },
   data() {
     return {
-      trendingTVShows: {
+      trendingShows: {
         _page: 1,
         _total_pages: 1,
         _total_results: 1,
@@ -133,7 +133,7 @@ export default {
   methods: {
     async toPrevious() {
       const previousPage = this.page > 1 ? this.page - 1 : 1
-      this.trendingTVShows = await beanContainer.findTvShowsByController.execute(
+      this.trendingShows = await beanContainer.findTvShowsByController.execute(
         new FindTvShowsByControllerRequest({
           language: this.$i18n.locale,
           sortedBy: this.sortedBy,
@@ -145,10 +145,10 @@ export default {
     },
     async toNext() {
       const nextPage =
-        this.page < this.trendingTVShows._total_pages
+        this.page < this.trendingShows._total_pages
           ? this.page + 1
-          : this.trendingTVShows._total_pages
-      this.trendingTVShows = await beanContainer.findTvShowsByController.execute(
+          : this.trendingShows._total_pages
+      this.trendingShows = await beanContainer.findTvShowsByController.execute(
         new FindTvShowsByControllerRequest({
           language: this.$i18n.locale,
           sortedBy: this.sortedBy,

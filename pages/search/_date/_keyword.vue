@@ -40,14 +40,15 @@
 <!-- eslint-enable -->
 <script>
 /* eslint-disable camelcase, no-console */
-import { BeanContainerRegistry } from '../../../middleware/BeanContainerRegistry'
-import EchHeaderMain from '../../../layouts/header/EchHeaderMain'
-import EchSliderMain from '../../../components/slider/EchSliderMain'
-import VideoControllerManager from '../../../middleware/modules/vue/mixins/VideoControllerManager'
-import DetailsHeaderManager from '../../../middleware/modules/vue/mixins/DetailsHeaderManager'
+import { BeanContainerRegistry } from '@/middleware/BeanContainerRegistry'
+import EchHeaderMain from '@/layouts/header/EchHeaderMain'
+import EchSliderMain from '@/components/slider/EchSliderMain'
+import VideoControllerManager from '@/middleware/modules/vue/mixins/VideoControllerManager'
+import DetailsHeaderManager from '@/middleware/modules/vue/mixins/DetailsHeaderManager'
 import EchTvShowCard from '@/components/movies/EchTvShowCard'
 import EchMoviesCard from '@/components/movies/EchMoviesCard'
 import EchNetworksNavBar from '~/layouts/networksbar/EchNetworksNavBar'
+import RedirectHomeManager from '@/middleware/modules/vue/mixins/RedirectHomeManager'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
@@ -59,7 +60,7 @@ export default {
     EchHeaderMain,
     EchSliderMain
   },
-  mixins: [VideoControllerManager, DetailsHeaderManager],
+  mixins: [VideoControllerManager, DetailsHeaderManager, RedirectHomeManager],
   // eslint-disable-next-line require-await
   async asyncData({ app, params, store, route }) {
     console.log('EchSearch...')

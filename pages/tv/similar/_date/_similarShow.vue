@@ -7,7 +7,7 @@
       <ech-networks-nav-bar></ech-networks-nav-bar>
     </section>
     <section class="uk-section uk-section-xsmall">
-      <ech-slider-main :movies="trendingTVShows._results"> </ech-slider-main>
+      <ech-slider-main :movies="trendingShows._results"> </ech-slider-main>
       <ech-pagination
         @outbound-to-previous-page="toPrevious"
         @outbound-to-next-page="toNext"
@@ -26,7 +26,7 @@
     <section class="uk-section uk-section-xsmall">
       <div>
         <ech-tv-show-card
-          :movies="trendingTVShows._results"
+          :movies="trendingShows._results"
           @outbound-open-video-modal="playVideo"
         ></ech-tv-show-card>
       </div>
@@ -61,6 +61,7 @@ import DetailsHeaderManager from '@/middleware/modules/vue/mixins/DetailsHeaderM
 import EchPagination from '@/layouts/pagination/EchPagination'
 import { GetSimilarShowsControllerRequest } from '@/middleware/modules/tvShows/getSimilarShows/userapplication/controller/GetSimilarShowsController'
 import EchNetworksNavBar from '@/layouts/networksbar/EchNetworksNavBar'
+import RedirectHomeManager from '@/middleware/modules/vue/mixins/RedirectHomeManager'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
@@ -72,7 +73,7 @@ export default {
     EchSliderMain,
     EchTvShowCard
   },
-  mixins: [VideoControllerManager, DetailsHeaderManager],
+  mixins: [VideoControllerManager, DetailsHeaderManager, RedirectHomeManager],
   // eslint-disable-next-line require-await
   async asyncData({ app, params, query }) {
     console.log('getSimilarShowsController')
@@ -81,18 +82,18 @@ export default {
     const showId = isNaN(params.similarShow)
       ? 76479
       : Number(params.similarShow)
-    const trendingTVShows = await beanContainer.getSimilarShowsController.execute(
+    const trendingShows = await beanContainer.getSimilarShowsController.execute(
       new GetSimilarShowsControllerRequest({
         language,
         page,
         showId
       })
     )
-    return { trendingTVShows, page, showId }
+    return { trendingShows, page, showId }
   },
   data() {
     return {
-      trendingTVShows: {
+      trendingShows: {
         _page: 1,
         _total_pages: 1,
         _total_results: 1,
@@ -103,21 +104,10 @@ export default {
       showId: 76479
     }
   },
-  mounted() {
-    if (this.trendingTVShows._total_results === 0) {
-      const language = this.$i18n.locale
-      const route = async () => {
-        await this.$router.push({
-          path: `/${language}`
-        })
-      }
-      route()
-    }
-  },
   methods: {
     async toPrevious() {
       const previousPage = this.page > 1 ? this.page - 1 : 1
-      this.trendingTVShows = await beanContainer.getSimilarShowsController.execute(
+      this.trendingShows = await beanContainer.getSimilarShowsController.execute(
         new GetSimilarShowsControllerRequest({
           language: this.$i18n.locale,
           page: previousPage,
@@ -128,10 +118,10 @@ export default {
     },
     async toNext() {
       const nextPage =
-        this.page < this.trendingTVShows._total_pages
+        this.page < this.trendingShows._total_pages
           ? this.page + 1
-          : this.trendingTVShows._total_pages
-      this.trendingTVShows = await beanContainer.getSimilarShowsController.execute(
+          : this.trendingShows._total_pages
+      this.trendingShows = await beanContainer.getSimilarShowsController.execute(
         new GetSimilarShowsControllerRequest({
           language: this.$i18n.locale,
           page: nextPage,
