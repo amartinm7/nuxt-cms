@@ -30,7 +30,7 @@ export default {
       return Networks.getMostPopularNetworks()
     },
     routeToDefaultNetwork() {
-      if (this.trendingTVShows._total_results > 0) {
+      if (this.trendingShows._total_results > 0) {
         return
       }
       const defaultPageTo = {

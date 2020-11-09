@@ -1,6 +1,6 @@
 <template>
   <div v-if="crews">
-    <span class="uk-text-meta"> {{ $t(label) }}: </span>
+    <span class="uk-text-meta ech-basic"> {{ $t(label) }}: </span>
     <nuxt-link
       v-for="crew in crews"
       :key="crew._credit_id + Math.random()"
@@ -11,7 +11,7 @@
       :uk-tooltip="$t('moreAbout', { name: crew._name })"
     >
       <span
-        class="uk-text-lead uk-text-small uk-margin-small-right"
+        class="uk-text-lead uk-text-small uk-margin-small-right ech-basic"
         uk-icon="icon: user; ratio: 0.60;"
         >{{ crew._name }}
       </span>

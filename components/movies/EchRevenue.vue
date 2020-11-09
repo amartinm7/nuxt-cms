@@ -1,7 +1,7 @@
 <template>
   <div v-if="revenue && revenue !== 0">
-    <span class="uk-text-meta"> {{ $t('revenue') }}: </span>
-    <span class="uk-text-lead uk-text-small">
+    <span class="uk-text-meta ech-basic"> {{ $t('revenue') }}: </span>
+    <span class="uk-text-lead uk-text-small ech-basic">
       ${{ revenue | abbreviate }}
     </span>
   </div>

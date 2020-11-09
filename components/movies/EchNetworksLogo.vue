@@ -1,6 +1,6 @@
 <template>
   <div v-if="networks && networks[0]" :uk-tooltip="$t('clickToSeeMoreAbout')">
-    <p class="uk-text-meta uk-margin-medium-top">
+    <p class="uk-text-meta uk-margin-medium-top ech-basic">
       <ech-network-logo :network="networks[0]"></ech-network-logo>
     </p>
   </div>

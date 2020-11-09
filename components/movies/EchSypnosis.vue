@@ -3,7 +3,7 @@
     <h2 class="uk-card-title ech-basic uk-text-center">
       {{ $t('sypnosis') }}
     </h2>
-    <p class="uk-dropcap uk-text-justify">
+    <p class="uk-dropcap uk-text-justify ech-basic">
       {{ overview }}
       <span
         class="ech-basic"

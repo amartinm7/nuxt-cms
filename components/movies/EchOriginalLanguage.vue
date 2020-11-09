@@ -2,7 +2,7 @@
   <div v-if="originalLanguage">
     <span class="uk-text-meta ech-basic"> {{ $t('originalLanguage') }}: </span>
     <span
-      class="uk-text-lead uk-text-small"
+      class="uk-text-lead uk-text-small ech-basic"
       uk-icon="icon: calendar; ratio: 0.60;"
     >
       {{ getLanguageNameFrom(originalLanguage) }}

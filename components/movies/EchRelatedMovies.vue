@@ -1,5 +1,5 @@
 <template>
-  <div class="uk-text-meta uk-text-center">
+  <div class="uk-text-meta uk-text-center ech-basic">
     <nuxt-link
       :to="getRelatedShowsURL({ id: movieId, mediaType })"
       class="uk-link-reset"

@@ -79,7 +79,7 @@ export default {
   runtime: 'Duración',
   budget: 'Presupuesto',
   revenue: 'Ingresos',
-  networks: 'Networks',
+  networks: 'Canal',
   origin: 'Origen',
   productionCountry: 'País',
   biography: 'Biografía',

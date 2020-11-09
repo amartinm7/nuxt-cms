@@ -1,10 +1,10 @@
 <template>
   <div>
-    <span class="uk-text-meta">{{ $t('recommended') }}: </span>
-    <span v-if="!adult" class="uk-text-lead uk-text-small">{{
+    <span class="uk-text-meta ech-basic">{{ $t('recommended') }}: </span>
+    <span v-if="!adult" class="uk-text-lead uk-text-small ech-basic">{{
       $t('recommendedForAllPeople')
     }}</span>
-    <span v-if="adult" class="uk-text-lead uk-text-small">{{
+    <span v-if="adult" class="uk-text-lead uk-text-small ech-basic">{{
       $t('recommendedOnlyAdults')
     }}</span>
   </div>

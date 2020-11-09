@@ -1,7 +1,7 @@
 <template>
   <div v-if="numOfEpisodes && numOfEpisodes !== 0">
-    <span class="uk-text-meta"> {{ $t('numOfEpisodes') }}: </span>
-    <span class="uk-text-lead uk-text-small">
+    <span class="uk-text-meta ech-basic"> {{ $t('numOfEpisodes') }}: </span>
+    <span class="uk-text-lead uk-text-small ech-basic">
       {{ numOfEpisodes }}
     </span>
   </div>

@@ -4,7 +4,7 @@
     <span
       v-for="productionCountry in productionCountries"
       :key="productionCountry._iso_3166_1 + Math.random()"
-      class="uk-text-lead uk-text-small uk-margin-small-right"
+      class="uk-text-lead uk-text-small uk-margin-small-right ech-basic"
       :todo="productionCountry"
       uk-icon="icon: location; ratio: 0.50;"
     >

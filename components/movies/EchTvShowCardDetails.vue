@@ -59,6 +59,7 @@
             <ech-crew :crews="movie._created_by" label="createdBy"></ech-crew>
             <ech-crew :crews="movie._screenplay" label="screenplay"></ech-crew>
             <ech-crew :crews="movie._producer" label="producer"></ech-crew>
+            <ech-network-name :networks="movie._networks"></ech-network-name>
             <ech-num-of-seasons
               :num-of-seasons="movie._number_of_seasons"
             ></ech-num-of-seasons>
@@ -126,10 +127,12 @@ import EchSypnosis from '@/components/movies/EchSypnosis'
 import EchRelatedMovies from '@/components/movies/EchRelatedMovies'
 import EchNumOfEpisodes from '@/components/movies/EchNumOfEpisodes'
 import EchNumOfSeasons from '@/components/movies/EchNumOfSeasons'
+import EchNetworkName from '@/components/movies/EchNetworkName'
 
 export default {
   name: 'EchTvShowCardDetails',
   components: {
+    EchNetworkName,
     EchNumOfSeasons,
     EchNumOfEpisodes,
     EchRelatedMovies,
