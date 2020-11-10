@@ -27,7 +27,7 @@ export default {
       link: [
         {
           rel: 'canonical',
-          href: `https://www.estrenoscinehoy.com$${routePath}`
+          href: `https://www.estrenoscinehoy.com${routePath}`
         }
       ],
       htmlAttrs: {
