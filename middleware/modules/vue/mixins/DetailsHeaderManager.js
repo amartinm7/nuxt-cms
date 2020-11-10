@@ -8,7 +8,7 @@ export default {
     }
     const defaultDesc =
       'EstrenosCineHoy estrenos netflix, estrenos hbo, estrenos appletv+, estrenos disney+, estrenos amazon-prime, series netflix, series hbo, series appletv+,... !'
-    const routePath = this.$route.path
+    const routePath = this.$route.path.replace(/\/en\//g, '/')
     const language = this.$i18n.locale
     const defaultTitle =
       title ||
