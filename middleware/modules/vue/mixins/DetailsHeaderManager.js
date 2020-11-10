@@ -19,7 +19,7 @@ export default {
       'Estrenos netflix, estrenos hbo, estrenos appletv+, estreno disney+, estrenos amazon-prime, series netflix, , ... !'
     const defaultDescription = overview || defaultDesc
     const defaultPosterPath =
-      posterPath || 'www.estrenoscinehoy.com/manifest-icon-512.png'
+      posterPath || 'https://www.estrenoscinehoy.com/manifest-icon-512.png'
     return {
       script: [{ type: 'application/ld+json', json: jsonLD }],
       title: `${StringHandler.truncate(defaultTitle, 65)}`,
@@ -27,7 +27,7 @@ export default {
       link: [
         {
           rel: 'canonical',
-          href: `${routePath}`
+          href: `https://www.estrenoscinehoy.com$${routePath}`
         }
       ],
       htmlAttrs: {
@@ -70,7 +70,7 @@ export default {
         {
           hid: 'og:url',
           property: 'og:url',
-          content: `www.estrenoscinehoy.com${routePath}`
+          content: `https://www.estrenoscinehoy.com${routePath}`
         },
         {
           hid: 'og:site_name',
@@ -95,7 +95,7 @@ export default {
         {
           hid: 'twitter:site',
           property: 'twitter:site',
-          content: 'estrenoscinehoy.com'
+          content: '@estrenoscinehoy'
         },
         {
           hid: 'twitter:title',
@@ -110,7 +110,7 @@ export default {
         {
           hid: 'twitter:creator',
           property: 'twitter:creator',
-          content: 'estrenoscinehoy.com'
+          content: '@estrenoscinehoy'
         },
         {
           hid: 'twitter:image:src',
@@ -130,7 +130,7 @@ export default {
         {
           hid: 'twitter:url',
           name: 'twitter:url',
-          content: `www.estrenoscinehoy.com${routePath}`
+          content: `https://www.estrenoscinehoy.com${routePath}`
         }
       ]
     }
