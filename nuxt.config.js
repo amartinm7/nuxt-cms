@@ -140,8 +140,7 @@ export default {
     ],
     rootRedirect: 'es',
     detectBrowserLanguage: {
-      useCookie: true,
-      cookieKey: 'ech_i18n_redirected',
+      useCookie: false,
       alwaysRedirect: true,
       fallbackLocale: 'es'
     },
