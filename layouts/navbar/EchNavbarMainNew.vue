@@ -60,7 +60,7 @@
             href="#echOffcanvas"
           ></a>
         </nav>
-        <div id="echOffcanvas" uk-offcanvas="flip: true; bg-close: true">
+        <div id="echOffcanvas" uk-offcanvas="bg-close: true; esc-close: true;">
           <div class="uk-offcanvas-bar">
             <button
               class="uk-offcanvas-close uk-icon uk-close ech-spin-icon"
