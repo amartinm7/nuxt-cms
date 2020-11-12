@@ -106,7 +106,19 @@
               <div
                 class="uk-text-small uk-text-muted uk-margin uk-text-left@s uk-text-center"
               >
-                Estrenos cine hoy. All rights Reserved.
+                <span class="uk-padding-large"
+                  >Estrenos cine hoy. All rights Reserved.</span
+                >
+              </div>
+              <div
+                class="uk-text-small uk-text-muted uk-margin uk-text-left@s uk-text-center"
+              >
+                <nuxt-link
+                  to="/legal"
+                  class="uk-link-reset"
+                  uk-tooltip="aviso legal"
+                  ><span class="uk-padding-large">Aviso legal.</span></nuxt-link
+                >
               </div>
             </div>
           </div>

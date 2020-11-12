@@ -7,6 +7,7 @@
     <nuxt :key="$route.fullPath" class="ech-scrollspy-effect" />
     <ech-contact-footer-main></ech-contact-footer-main>
     <ech-footer-main></ech-footer-main>
+    <CookieControl :locale="this.$i18n.locale" />
   </div>
 </template>
 <script>

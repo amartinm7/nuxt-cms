@@ -47,9 +47,9 @@ export default {
     language: 'Idiomas'
   },
   switcher: {
-    trendingMovies: 'Tendencia en Cine',
+    trendingMovies: 'Tendencia Cine',
     trendingMoviesTip: 'Ver Tendencias en Cine',
-    trendingTVShows: 'Tendencia en Series TV',
+    trendingTVShows: 'Tendencia Series TV',
     trendingTVShowsTip: 'Ver Tendencias en Series TV'
   },
   sliderSwitcher: {

@@ -218,3 +218,6 @@ npm ci
 ## middleware
 https://nuxtjs.org/guides/directory-structure/middleware
 look for the example Now the stats middleware will be called for every route change.
+
+## google analytics
+https://google-analytics.nuxtjs.org/usage/time-tracking/

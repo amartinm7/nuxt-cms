@@ -29,6 +29,7 @@
     "lodash.sample": "^4.2.1",
     "moment": "^2.25.3",
     "nuxt": "^2.0.0",
+    "nuxt-cookie-control": "^1.9.5",
     "nuxt-i18n": "^6.8.1",
     "uikit": "^3.4.4",
     "vue": "latest",

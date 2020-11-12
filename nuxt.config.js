@@ -1,4 +1,5 @@
 import dynamicRoutes from './modules/CustomGenerate'
+import { cookiesProperties, cssProperties } from './modules/CookiesManager'
 
 export default {
   /**
@@ -109,11 +110,13 @@ export default {
     '~modules/CustomGenerate.js',
     'vue-social-sharing/nuxt',
     '@nuxt/http',
-    '@nuxtjs/google-adsense'
+    '@nuxtjs/google-adsense',
+    ['nuxt-cookie-control', cssProperties]
   ],
   'google-adsense': {
     id: process.env.ESTRENOSCINEHOY_GOOGLE_ADS_ID
   },
+  cookies: cookiesProperties(),
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
