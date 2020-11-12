@@ -1,7 +1,7 @@
 <template>
   <div v-if="overview" :id="movieId + '_overview'">
     <h2 class="uk-card-title ech-basic uk-text-center">
-      {{ $t('sypnosis') }}
+      {{ $t('synopsis') }}
     </h2>
     <p class="uk-dropcap uk-text-justify ech-basic">
       {{ overview }}
@@ -20,7 +20,7 @@
 import Utils from '@/middleware/modules/vue/mixins/Utils'
 
 export default {
-  name: 'EchSypnosis',
+  name: 'EchSynopsis',
   mixins: [Utils],
   props: {
     overview: {

@@ -67,11 +67,11 @@
             <ech-recommended :adults="movie._adult"></ech-recommended>
             <ech-home-page :home-page="movie._homepage"></ech-home-page>
           </div>
-          <ech-sypnosis
+          <ech-synopsis
             :overview="movie._overview"
             :movie-id="movie._id"
             class="uk-margin-medium-top"
-          ></ech-sypnosis>
+          ></ech-synopsis>
           <ech-genres
             :movie="movie"
             :media-type="mediaType"
@@ -124,14 +124,14 @@ import EchBudget from '@/components/movies/EchBudget'
 import EchRevenue from '@/components/movies/EchRevenue'
 import EchRecommended from '@/components/movies/EchRecommended'
 import EchHomePage from '@/components/movies/EchHomePage'
-import EchSypnosis from '@/components/movies/EchSypnosis'
 import EchRelatedMovies from '@/components/movies/EchRelatedMovies'
+import EchSynopsis from '@/components/movies/EchSypnosis'
 
 export default {
   name: 'EchMoviesCardDetail',
   components: {
+    EchSynopsis,
     EchRelatedMovies,
-    EchSypnosis,
     EchHomePage,
     EchRecommended,
     EchRevenue,

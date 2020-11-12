@@ -73,7 +73,7 @@ export default {
   recommended: 'Recomended',
   recommendedForAllPeople: 'All people',
   recommendedOnlyAdults: 'Only adults',
-  sypnosis: 'Sypnosis',
+  synopsis: 'Synopsis',
   knownFor: 'Known for',
   birthDay: 'BirthDay',
   runtime: 'Runtime',
