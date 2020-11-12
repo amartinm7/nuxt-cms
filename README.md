@@ -221,3 +221,7 @@ look for the example Now the stats middleware will be called for every route cha
 
 ## google analytics
 https://google-analytics.nuxtjs.org/usage/time-tracking/
+
+
+## texto legal
+https://superadmin.es/blog/privacidad/plantilla-aviso-legal/
