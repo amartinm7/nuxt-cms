@@ -6,7 +6,16 @@
     <section class="uk-section uk-section-xsmall">
       <ech-networks-nav-bar></ech-networks-nav-bar>
       <ech-slider-main :movies="multiSearch._results"> </ech-slider-main>
+      <div class="uk-padding-small"></div>
       <ech-friend-networks-nav-bar></ech-friend-networks-nav-bar>
+      <h1
+        class="ech-basic uk-text-center uk-text-capitalize uk-heading-large uk-text-bolder uk-text-emphasis uk-hidden@s"
+      >
+        {{ $t('search') }}
+      </h1>
+      <h1 class="ech-basic uk-text-center uk-visible@s">
+        {{ $t('search') }}
+      </h1>
       <div>
         <ech-tv-show-card
           :movies="multiSearch._results"

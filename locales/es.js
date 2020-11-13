@@ -111,5 +111,6 @@ export default {
   numOfEpisodes: 'Número de episodios',
   friendNetworkCastellana100:
     'Web amiga, visitanos aqui: www.castellana100bicishop.com',
-  friendNetwork: 'Web amiga'
+  friendNetwork: 'Web amiga',
+  search: 'Búsqueda'
 }

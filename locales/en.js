@@ -111,5 +111,6 @@ export default {
   numOfEpisodes: 'Number of episodes',
   friendNetworkCastellana100:
     'Friend Network, visit us here: www.castellana100bicishop.com',
-  friendNetwork: 'Friend Network'
+  friendNetwork: 'Friend Network',
+  search: 'Search'
 }
