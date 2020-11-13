@@ -27,7 +27,7 @@ export default {
     },
     {
       _id: 1024,
-      _name: 'primevideo',
+      _name: 'amazon',
       _logo_path: '/ifhbNuuVnlwYy5oXA5VIb2YR8AZ.png'
     },
     {
@@ -82,7 +82,7 @@ export default {
     },
     {
       _id: 2140,
-      _name: '#0',
+      _name: 'Movistar',
       _logo_path: '/7odcr2uwJNhanhEaFOnITogxmRX.png'
     },
     {
@@ -104,9 +104,11 @@ export default {
     }
   },
   getMostPopularNetworks() {
-    const popularNetworks = [49, 1024, 213, 2739, 2552].map((networkId) => {
-      return this.values.find((network) => network._id === networkId)
-    })
+    const popularNetworks = [49, 1024, 213, 2739, 2552, 2140].map(
+      (networkId) => {
+        return this.values.find((network) => network._id === networkId)
+      }
+    )
     return popularNetworks
   },
   getDefaultNetWork() {
