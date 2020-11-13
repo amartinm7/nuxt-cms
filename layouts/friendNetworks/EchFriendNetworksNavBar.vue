@@ -16,6 +16,7 @@
           :alt="$t('friendNetworkCastellana100')"
           :uk-tooltip="$t('friendNetworkCastellana100')"
           loading="lazy"
+          style="width:50%"
         />
       </span>
     </a>
