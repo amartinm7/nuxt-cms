@@ -56,7 +56,8 @@ export default {
     credits: 'Reparto',
     posters: 'Posters',
     trailers: 'Trailers',
-    staff: 'Equipo'
+    staff: 'Equipo',
+    seasons: 'Temporadas'
   },
   as: 'como',
   releaseDate: 'Estreno',
@@ -112,5 +113,6 @@ export default {
   friendNetworkCastellana100:
     'Web amiga, visitanos aqui: www.castellana100bicishop.com',
   friendNetwork: 'Web amiga',
-  search: 'Búsqueda'
+  search: 'Búsqueda',
+  numEpisodes: 'Número de Episodios'
 }

@@ -1,3 +1,5 @@
+const _isEmpty = require('lodash.isempty')
+
 export default {
   methods: {
     toClipboard(id) {
@@ -7,6 +9,9 @@ export default {
       window.getSelection().addRange(range)
       document.execCommand('copy')
       window.getSelection().removeAllRanges()
+    },
+    inNotEmpty(object) {
+      return !_isEmpty(object)
     }
   }
 }

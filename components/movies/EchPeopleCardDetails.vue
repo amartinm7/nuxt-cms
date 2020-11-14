@@ -66,7 +66,7 @@
               >
                 <span>
                   {{ $t('birthDay') }}:
-                  {{ people._birthday | moment('DD-MMMM-YYYY') }}
+                  {{ people._birthday | moment('DD-MM-YYYY') }}
                 </span>
                 <span
                   class="uk-margin-small-right"

@@ -56,7 +56,8 @@ export default {
     credits: 'Cast & Characters',
     posters: 'Posters',
     trailers: 'Trailers',
-    staff: 'Staff'
+    staff: 'Staff',
+    seasons: 'Seasons'
   },
   as: 'as',
   releaseDate: 'Release Date',
@@ -112,5 +113,6 @@ export default {
   friendNetworkCastellana100:
     'Friend Network, visit us here: www.castellana100bicishop.com',
   friendNetwork: 'Friend Network',
-  search: 'Search'
+  search: 'Search',
+  numEpisodes: 'Episodes Number'
 }

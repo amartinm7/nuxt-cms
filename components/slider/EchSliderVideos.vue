@@ -1,8 +1,8 @@
 <template>
-  <div v-if="existsVideos(videos)">
-    <h3 class="uk-text-lead uk-text-center ech-basic">
+  <div v-if="inNotEmpty(videos)">
+    <h2 class="uk-text-lead uk-text-center ech-basic">
       Videos
-    </h3>
+    </h2>
     <div
       class="uk-position-relative uk-visible-toggle uk-light"
       tabindex="-1"
@@ -21,7 +21,16 @@
           <div class="uk-panel">
             <a @click="initVideoURL(video._id.key)">
               <img
+                class="uk-hidden@s"
                 :src="getPosterURL(posterPath)"
+                :alt="video._id.id"
+                :title="video._id.id"
+                :uk-tooltip="video._id.id"
+                loading="lazy"
+              />
+              <img
+                class="uk-visible@s"
+                :src="getPoster2XURL(posterPath)"
                 :alt="video._id.id"
                 :title="video._id.id"
                 :uk-tooltip="video._id.id"
@@ -62,10 +71,11 @@
 <script>
 /* eslint-disable camelcase, no-console */
 import MediaManager from '../../middleware/modules/vue/mixins/MediaManager'
+import Utils from '@/middleware/modules/vue/mixins/Utils'
 
 export default {
   name: 'EchSliderVideos',
-  mixins: [MediaManager],
+  mixins: [MediaManager, Utils],
   props: {
     videos: {
       type: Array,

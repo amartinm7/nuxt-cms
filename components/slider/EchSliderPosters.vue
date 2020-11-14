@@ -1,8 +1,8 @@
 <template>
-  <div v-if="existsPosters(posters)">
-    <h3 class="uk-text-lead uk-text-center ech-basic">
+  <div v-if="inNotEmpty(posters)">
+    <h2 class="uk-text-lead uk-text-center ech-basic">
       Posters
-    </h3>
+    </h2>
     <div
       class="uk-position-relative uk-visible-toggle uk-light"
       tabindex="-1"
@@ -20,7 +20,16 @@
         >
           <div class="uk-panel">
             <img
+              class="uk-hidden@s"
               :src="getPosterURL(poster._file_path)"
+              :alt="poster._file_path"
+              :title="poster._file_path"
+              :uk-tooltip="poster._file_path"
+              loading="lazy"
+            />
+            <img
+              class="uk-visible@s"
+              :src="getPoster2XURL(poster._file_path)"
               :alt="poster._file_path"
               :title="poster._file_path"
               :uk-tooltip="poster._file_path"
@@ -47,10 +56,11 @@
 <script>
 /* eslint-disable camelcase, no-console */
 import MediaManager from '../../middleware/modules/vue/mixins/MediaManager'
+import Utils from '@/middleware/modules/vue/mixins/Utils'
 
 export default {
   name: 'EchSliderPosters',
-  mixins: [MediaManager],
+  mixins: [MediaManager, Utils],
   props: {
     posters: {
       type: Array,

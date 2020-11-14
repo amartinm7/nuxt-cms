@@ -9,19 +9,33 @@
         @outbound-open-video-modal="playVideo"
       ></ech-tv-show-card-details>
     </section>
-    <section class="uk-section uk-section-xsmall">
+    <section
+      v-if="inNotEmpty(sanitizedCredits)"
+      class="uk-section uk-section-xsmall"
+    >
       <ech-slider-people
         :credits="sanitizedCredits"
         :type="crewTypes.credits"
         class="uk-margin-small-top"
       ></ech-slider-people>
+    </section>
+    <section
+      v-if="inNotEmpty(sanitizedCrews)"
+      class="uk-section uk-section-xsmall"
+    >
       <ech-slider-people
         :credits="sanitizedCrews"
         :type="crewTypes.crew"
         class="uk-margin-medium-top"
       ></ech-slider-people>
     </section>
-    <section class="uk-section uk-section-xsmall">
+    <section
+      v-if="inNotEmpty(movies[0]._seasons)"
+      class="uk-section uk-section-xsmall"
+    >
+      <ech-slider-seasons :seasons="movies[0]._seasons"></ech-slider-seasons>
+    </section>
+    <section v-if="inNotEmpty(videos)" class="uk-section uk-section-xsmall">
       <ech-slider-videos
         :videos="videos"
         :poster-path="movies[0]._poster_path"
@@ -29,7 +43,7 @@
         @outbound-open-video-modal="playVideo"
       ></ech-slider-videos>
     </section>
-    <section class="uk-section uk-section-xsmall">
+    <section v-if="inNotEmpty(posters)" class="uk-section uk-section-xsmall">
       <ech-slider-posters :posters="posters"></ech-slider-posters>
     </section>
     <section class="uk-section uk-section-xsmall">
@@ -67,12 +81,15 @@ import MediaTypes from '@/middleware/modules/domain/MediaTypes'
 import DetailsHeaderManager from '@/middleware/modules/vue/mixins/DetailsHeaderManager'
 import RequestDetailsHeaderManager from '@/middleware/modules/vue/mixins/RequestDetailsHeaderManager'
 import EchNetworksNavBar from '@/layouts/networksbar/EchNetworksNavBar'
+import EchSliderSeasons from '@/components/slider/EchSliderSeasons'
+import Utils from '@/middleware/modules/vue/mixins/Utils'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
   name: 'EchTvshowDetails',
   scrollToTop: true,
   components: {
+    EchSliderSeasons,
     EchNetworksNavBar,
     EchTvShowCardDetails,
     EchSliderVideos,
@@ -85,7 +102,8 @@ export default {
     CreditsManager,
     DetailsHeaderManager,
     RequestDetailsHeaderManager,
-    CreditsManager
+    CreditsManager,
+    Utils
   ],
   // eslint-disable-next-line require-await
   async asyncData({ app, route, params, store }) {

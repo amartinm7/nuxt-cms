@@ -1,11 +1,11 @@
 <template>
-  <div v-if="existsCredits(credits)">
-    <h3 v-if="isCredits" class="uk-text-lead uk-text-center ech-basic">
+  <div v-if="inNotEmpty(credits)">
+    <h2 v-if="isCredits" class="uk-text-lead uk-text-center ech-basic">
       {{ $t('sliderSwitcher.credits') }}
-    </h3>
-    <h3 v-if="isCrew" class="uk-text-lead uk-text-center ech-basic">
+    </h2>
+    <h2 v-if="isCrew" class="uk-text-lead uk-text-center ech-basic">
       {{ $t('sliderSwitcher.staff') }}
-    </h3>
+    </h2>
     <div
       class="uk-position-relative uk-visible-toggle uk-light"
       tabindex="-1"
@@ -27,7 +27,16 @@
           >
             <div class="uk-panel">
               <img
+                class="uk-hidden@s"
                 :src="getPosterURL(credit._profile_path)"
+                :alt="credit._name"
+                :title="credit._name"
+                :uk-tooltip="credit._name"
+                loading="lazy"
+              />
+              <img
+                class="uk-visible@s"
+                :src="getPoster2XURL(credit._profile_path)"
                 :alt="credit._name"
                 :title="credit._name"
                 :uk-tooltip="credit._name"
@@ -69,10 +78,11 @@ import MediaManager from '@/middleware/modules/vue/mixins/MediaManager'
 import PeopleManager from '@/middleware/modules/vue/mixins/PeopleManager'
 import CreditsManager from '@/middleware/modules/vue/mixins/CreditsManager'
 import CrewTypes from '@/middleware/modules/domain/CrewTypes'
+import Utils from '@/middleware/modules/vue/mixins/Utils'
 
 export default {
   name: 'EchSliderPeople',
-  mixins: [MediaManager, PeopleManager, CreditsManager],
+  mixins: [MediaManager, PeopleManager, CreditsManager, Utils],
   props: {
     credits: {
       type: Array,

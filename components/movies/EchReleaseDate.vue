@@ -5,7 +5,7 @@
       class="uk-text-lead uk-text-small ech-basic"
       uk-icon="icon: calendar; ratio: 0.60;"
     >
-      {{ releaseDate | moment('DD-MMMM-YYYY') }}
+      {{ releaseDate | moment('DD-MM-YYYY') }}
     </span>
   </div>
 </template>
