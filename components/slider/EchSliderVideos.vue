@@ -15,7 +15,7 @@
         <a name="echSliderVideos"></a>
         <li
           v-for="video in videos"
-          :key="video._id.id + Math.random()"
+          :key="video._id + Math.random()"
           :todo="video"
         >
           <div class="uk-panel">

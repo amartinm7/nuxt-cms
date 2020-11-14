@@ -99,7 +99,6 @@ export default {
   },
   mixins: [
     VideoControllerManager,
-    CreditsManager,
     DetailsHeaderManager,
     RequestDetailsHeaderManager,
     CreditsManager,

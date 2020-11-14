@@ -36,6 +36,7 @@ import MediaTypes from '@/middleware/modules/domain/MediaTypes'
 import LocateManager from '@/middleware/modules/vue/mixins/LocateManager'
 import MediaManager from '@/middleware/modules/vue/mixins/MediaManager'
 import { GetTvShowsVideosControllerRequest } from '@/middleware/modules/tvShows/getVideos/userapplication/controller/GetTvShowsVideosController'
+import ValuesByDefault from '@/middleware/modules/domain/ValuesByDefault'
 
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
@@ -58,7 +59,7 @@ export default {
     imageUrl: {
       type: String,
       default() {
-        return 'https://www.estrenoscinehoy.com/_nuxt/img/isolated-monochrome-black.9dc380f.svg'
+        return ValuesByDefault.logoURLEstrenosCineHoy
       }
     },
     mediaType: {

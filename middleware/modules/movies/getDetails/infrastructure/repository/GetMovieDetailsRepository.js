@@ -1,11 +1,11 @@
 import GetAxiosRequest from '@/middleware/framework/modules/axios/GetAxiosRequest'
 import MediaTypes from '@/middleware/modules/domain/MediaTypes'
-import GetImageDetailsResponse from '@/middleware/modules/domain/responses/GetImageDetailsResponse'
-import GetCreditCastsResponse from '@/middleware/modules/domain/responses/GetCreditCastsResponse'
-import GetCreditCrewResponse from '@/middleware/modules/domain/responses/GetCreditCrewResponse'
-import GetProductionCountryResponse from '@/middleware/modules/domain/responses/GetProductionCountryResponse'
-import GetVideoDetailsResponse from '@/middleware/modules/domain/responses/GetVideoDetailsResponse'
-const _isEmpty = require('lodash.isempty')
+import GetRuntimeHoursResponse from '@/middleware/modules/domain/responses/GetRuntimeHoursResponse'
+import GetVideosDetailsTransformer from '@/middleware/modules/domain/responses/GetVideoDetailsResponse'
+import GetImageDetailsTransformer from '@/middleware/modules/domain/responses/GetImageDetailsResponse'
+import GetCreditCastsTransformer from '@/middleware/modules/domain/responses/GetCreditCastsResponse'
+import GetCreditCrewTransformer from '@/middleware/modules/domain/responses/GetCreditCrewResponse'
+import GetProductionCountryResponseTransformer from '@/middleware/modules/domain/responses/GetProductionCountryResponse'
 /* eslint-disable camelcase, no-console */
 class GetMovieDetailsRepository {
   constructor({ axios, accessToken }) {
@@ -97,61 +97,21 @@ class GetMovieDetailsRepositoryResponse {
     this._tagline = tagline
     this._budget = budget
     this._revenue = revenue
-    if (!_isEmpty(videos) && !_isEmpty(videos.results)) {
-      this._videos = videos.results.map((it) => {
-        // eslint-disable-next-line no-new
-        return new GetVideoDetailsResponse(it)
-      })
-    }
-    if (!_isEmpty(images)) {
-      this._images = new GetImageDetailsResponse(images)
-    }
-    if (!_isEmpty(credits) && !_isEmpty(credits.cast)) {
-      this._credits = credits.cast.map((it) => {
-        // eslint-disable-next-line no-new
-        return new GetCreditCastsResponse({ ...it })
-      })
-    }
-    if (!_isEmpty(credits) && !_isEmpty(credits.crew)) {
-      this._crews = credits.crew.map((it) => {
-        // eslint-disable-next-line no-new
-        return new GetCreditCrewResponse({ ...it })
-      })
-      this._crew = {
-        _director: this._crews.filter((it) => it._job === 'Director'),
-        _screenplay: this._crews.filter((it) => it._job === 'Screenplay'),
-        _producer: this._crews.filter((it) => it._job === 'Producer')
-      }
-    }
-    this._runtimeByHours = this._getRuntimeByHours()
-    if (!_isEmpty(production_countries) && !_isEmpty(production_countries)) {
-      this._production_countries = production_countries.map((it) => {
-        // eslint-disable-next-line no-new
-        return new GetProductionCountryResponse({ ...it })
-      })
-    }
-    this._director = this._crewDirector()
-    this._screenplay = this._crewScreenplay()
-    this._producer = this._crewProducer()
+    this._videos = GetVideosDetailsTransformer.transform(videos)
+    this._images = GetImageDetailsTransformer.transform(images)
+    this._credits = GetCreditCastsTransformer.transform(credits)
+    this._crews = GetCreditCrewTransformer.transform(credits)
+    this._crew = GetCreditCrewTransformer.transformByDepartment(this._crews)
+    this._director = this._crew._director
+    this._screenplay = this._crew._screenplay
+    this._producer = this._crew._producer
+    this._production_countries = GetProductionCountryResponseTransformer.transform(
+      production_countries
+    )
   }
 
   _getRuntimeByHours() {
-    const time = this._runtime ?? 0
-    const hours = Math.floor(time / 60)
-    const minutes = time % 60
-    return `${hours}h ${minutes}min`
-  }
-
-  _crewDirector() {
-    return this._crew?._director ?? ''
-  }
-
-  _crewScreenplay() {
-    return this._crew?._screenplay ?? ''
-  }
-
-  _crewProducer() {
-    return this._crew?._producer ?? ''
+    return GetRuntimeHoursResponse(this._runtime).getRuntimeByHours()
   }
 }
 

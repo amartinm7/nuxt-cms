@@ -1,5 +1,7 @@
 /* eslint-disable camelcase */
-export default class GetCreditCastsResponse {
+const _isEmpty = require('lodash.isempty')
+
+class GetCreditCastsResponse {
   constructor({
     cast_id,
     character,
@@ -18,5 +20,17 @@ export default class GetCreditCastsResponse {
     this._name = name
     this._order = order
     this._profile_path = profile_path
+  }
+}
+
+export default class GetCreditCastsTransformer {
+  static transform(credits) {
+    if (_isEmpty(credits) || _isEmpty(credits.cast)) {
+      return []
+    }
+    return credits.cast.map((cast) => {
+      // eslint-disable-next-line no-new
+      return new GetCreditCastsResponse({ ...cast })
+    })
   }
 }

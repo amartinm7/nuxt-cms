@@ -1,10 +1,15 @@
 import GetAxiosRequest from '@/middleware/framework/modules/axios/GetAxiosRequest'
 import MediaTypes from '@/middleware/modules/domain/MediaTypes'
-import GetCreditCrewResponse from '@/middleware/modules/domain/responses/GetCreditCrewResponse'
-import GetCreditCastsResponse from '@/middleware/modules/domain/responses/GetCreditCastsResponse'
-import GetImageDetailsResponse from '@/middleware/modules/domain/responses/GetImageDetailsResponse'
-import GetVideoDetailsResponse from '@/middleware/modules/domain/responses/GetVideoDetailsResponse'
-const _isEmpty = require('lodash.isempty')
+import GetVideosDetailsTransformer from '@/middleware/modules/domain/responses/GetVideoDetailsResponse'
+import GetImageDetailsTransformer from '@/middleware/modules/domain/responses/GetImageDetailsResponse'
+import GetCreditCastsTransformer from '@/middleware/modules/domain/responses/GetCreditCastsResponse'
+import GetCreditCrewTransformer from '@/middleware/modules/domain/responses/GetCreditCrewResponse'
+import GetSeasonsTransformer from '@/middleware/modules/domain/responses/GetSeasonsResponse'
+import GetNetworksTransformer from '@/middleware/modules/domain/responses/GetNetworksResponse'
+import GetProductionCompaniesTransformer from '@/middleware/modules/domain/responses/GetProductionCompaniesResponse'
+import GetProductionCountryResponseTransformer from '@/middleware/modules/domain/responses/GetProductionCountryResponse'
+import GetRuntimeHoursResponse from '@/middleware/modules/domain/responses/GetRuntimeHoursResponse'
+import GetCreatedByTransformer from '@/middleware/modules/domain/responses/GetCreatedByResponse'
 /* eslint-disable camelcase, no-console */
 class GetTvShowDetailsRepository {
   constructor({ axios, accessToken }) {
@@ -49,35 +54,6 @@ class GetTvShowDetailsRepositoryRequest {
   }
 }
 
-class GetSeasonsResponse {
-  constructor({
-    id,
-    episode_count,
-    name,
-    overview,
-    air_date,
-    poster_path,
-    season_number
-  }) {
-    this._id = id
-    this._episode_count = episode_count
-    this._name = name
-    this._overview = overview
-    this._air_date = air_date
-    this._poster_path = poster_path
-    this._season_number = season_number
-  }
-}
-
-class GetProductionCompaniesResponse {
-  constructor({ id, logo_path, name, origin_country }) {
-    this._id = id
-    this._logo_path = logo_path
-    this._name = name
-    this._origin_country = origin_country
-  }
-}
-
 /* eslint-disable camelcase */
 class GetTvShowDetailsRepositoryResponse {
   constructor({
@@ -111,10 +87,12 @@ class GetTvShowDetailsRepositoryResponse {
     created_by
   }) {
     this._error = error
+    this._adult = adult
+    this._runtime = runtime
     this._media_type = MediaTypes.tv
     this._genres = genres
     this._id = id
-    this._imdb_id = ''
+    this._imdb_id = imdb_id
     this._original_language = original_language
     this._original_name = original_name
     this._overview = overview
@@ -125,92 +103,31 @@ class GetTvShowDetailsRepositoryResponse {
     this._vote_average = vote_average
     this._vote_count = vote_count
     this._first_air_date = first_air_date
-    this._release_date = first_air_date
-    if (!_isEmpty(videos) && !_isEmpty(videos.results)) {
-      this._videos = videos.results.map((it) => {
-        // eslint-disable-next-line no-new
-        return new GetVideoDetailsResponse(it)
-      })
-    }
-    if (!_isEmpty(images)) {
-      this._images = new GetImageDetailsResponse(images)
-    }
-    if (!_isEmpty(credits) && !_isEmpty(credits.cast)) {
-      this._credits = credits.cast.map((it) => {
-        // eslint-disable-next-line no-new
-        return new GetCreditCastsResponse({ ...it })
-      })
-    }
-    if (!_isEmpty(credits) && !_isEmpty(created_by)) {
-      this._created_by = created_by.map((it) => {
-        // eslint-disable-next-line no-new
-        return new GetCreditCrewResponse({ ...it })
-      })
-    }
-    if (!_isEmpty(credits) && !_isEmpty(credits.crew)) {
-      this._crews = credits.crew.map((it) => {
-        // eslint-disable-next-line no-new
-        return new GetCreditCrewResponse({ ...it })
-      })
-      this._crew = {
-        _director: this._crews.filter((it) => it._job === 'Director'),
-        _screenplay: this._crews.filter(
-          (it) => it._job === 'Screenplay' || it._job === 'Novel'
-        ),
-        _producer: this._crews.filter(
-          (it) => it._job === 'Producer' || it._job === 'Executive Producer'
-        )
-      }
-    }
-    this._director = this._crewDirector()
-    this._screenplay = this._crewScreenplay()
-    this._producer = this._crewProducer()
+    this._release_date = release_date
+    this._videos = GetVideosDetailsTransformer.transform(videos)
+    this._images = GetImageDetailsTransformer.transform(images)
+    this._credits = GetCreditCastsTransformer.transform(credits)
+    this._crews = GetCreditCrewTransformer.transform(credits)
+    this._crew = GetCreditCrewTransformer.transformByDepartment(this._crews)
+    this._director = this._crew._director
+    this._screenplay = this._crew._screenplay
+    this._producer = this._crew._producer
+    this._created_by = GetCreatedByTransformer.transform(created_by)
     this._number_of_episodes = number_of_episodes
     this._number_of_seasons = number_of_seasons
     this._homepage = homepage
-    if (!_isEmpty(seasons)) {
-      this._seasons = seasons.map((it) => {
-        // eslint-disable-next-line no-new
-        return new GetSeasonsResponse({ ...it })
-      })
-    }
-    if (!_isEmpty(networks)) {
-      this._networks = networks.map((it) => {
-        // eslint-disable-next-line no-new
-        return new GetNetworksResponse({ ...it })
-      })
-      console.log('networks' + JSON.stringify(this._networks))
-    }
-    if (!_isEmpty(production_companies)) {
-      this._production_companies = production_companies.map((it) => {
-        // eslint-disable-next-line no-new
-        return new GetProductionCompaniesResponse({ ...it })
-      })
-    }
-    this._origin_country = origin_country.map((countryCode) => {
-      return { _iso_3166_1: countryCode }
-    })
+    this._seasons = GetSeasonsTransformer.transform(seasons)
+    this._networks = GetNetworksTransformer.transform(networks)
+    this._production_companies = GetProductionCompaniesTransformer.transform(
+      production_companies
+    )
+    this._origin_country = GetProductionCountryResponseTransformer.transform(
+      origin_country
+    )
   }
 
-  _crewDirector() {
-    return this._crew?._director ?? ''
-  }
-
-  _crewScreenplay() {
-    return this._crew?._screenplay ?? ''
-  }
-
-  _crewProducer() {
-    return this._crew?._producer ?? ''
-  }
-}
-
-class GetNetworksResponse {
-  constructor({ name, id, logo_path, origin_country }) {
-    this._name = name
-    this._id = id
-    this._logo_path = logo_path
-    this._origin_country = origin_country
+  _getRuntimeByHours() {
+    return GetRuntimeHoursResponse(this._runtime).getRuntimeByHours()
   }
 }
 

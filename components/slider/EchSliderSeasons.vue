@@ -39,6 +39,7 @@
               class="uk-overlay uk-overlay-primary uk-position-bottom uk-text-center uk-transition-slide-bottom"
             >
               <p class="uk-margin-remove uk-text-small">
+                {{ $t('releaseDate') }}:
                 {{ season._air_date | moment('DD-MM-YYYY') }}
               </p>
               <p class="uk-margin-remove uk-text-small">{{ season._name }}</p>
