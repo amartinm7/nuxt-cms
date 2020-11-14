@@ -10,7 +10,6 @@
           @click="initVideoURL(movie)"
           ><div class="uk-inline">
             <img
-              class="ech-default-img"
               :src="imageUrl"
               loading="lazy"
               :uk-tooltip="getTitle(movie)"

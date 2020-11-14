@@ -3,7 +3,7 @@
     uk-slider="autoplay: true; sets: true;"
     class="uk-slider uk-container uk-container-large"
   >
-    <div class="uk-position-relative" style="height: 278px;">
+    <div class="uk-position-relative">
       <ul
         class="uk-slider-items"
         style="transform: translate3d(0px, 0px, 0px);"
@@ -21,9 +21,17 @@
             "
           >
             <img
+              class="uk-hidden@s"
               :title="getTitle(movie)"
-              class="ech-default-img"
               :src="getPosterURL(movie._poster_path)"
+              loading="lazy"
+              :uk-tooltip="getTitle(movie)"
+              :alt="getTitle(movie)"
+            />
+            <img
+              class="uk-visible@s"
+              :title="getTitle(movie)"
+              :src="getPoster2XURL(movie._poster_path)"
               loading="lazy"
               :uk-tooltip="getTitle(movie)"
               :alt="getTitle(movie)"
