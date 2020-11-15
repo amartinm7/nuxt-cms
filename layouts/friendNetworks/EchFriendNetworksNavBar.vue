@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="false">
     <a
       href="https://www.castellana100bicishop.com/"
       class="uk-link-reset"
