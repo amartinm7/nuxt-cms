@@ -20,16 +20,7 @@
         >
           <div class="uk-panel">
             <img
-              class="uk-hidden@s"
               :src="getPosterURL(poster._file_path)"
-              :alt="poster._file_path"
-              :title="poster._file_path"
-              :uk-tooltip="poster._file_path"
-              loading="lazy"
-            />
-            <img
-              class="uk-visible@s"
-              :src="getPoster2XURL(poster._file_path)"
               :alt="poster._file_path"
               :title="poster._file_path"
               :uk-tooltip="poster._file_path"

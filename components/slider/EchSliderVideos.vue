@@ -21,16 +21,7 @@
           <div class="uk-panel">
             <a @click="initVideoURL(video._id.key)">
               <img
-                class="uk-hidden@s"
                 :src="getPosterURL(posterPath)"
-                :alt="video._id.id"
-                :title="video._id.id"
-                :uk-tooltip="video._id.id"
-                loading="lazy"
-              />
-              <img
-                class="uk-visible@s"
-                :src="getPoster2XURL(posterPath)"
                 :alt="video._id.id"
                 :title="video._id.id"
                 :uk-tooltip="video._id.id"

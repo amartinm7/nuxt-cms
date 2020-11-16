@@ -27,16 +27,7 @@
           >
             <div class="uk-panel">
               <img
-                class="uk-hidden@s"
                 :src="getPosterURL(credit._profile_path)"
-                :alt="credit._name"
-                :title="credit._name"
-                :uk-tooltip="credit._name"
-                loading="lazy"
-              />
-              <img
-                class="uk-visible@s"
-                :src="getPoster2XURL(credit._profile_path)"
                 :alt="credit._name"
                 :title="credit._name"
                 :uk-tooltip="credit._name"

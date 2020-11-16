@@ -20,16 +20,7 @@
         >
           <div class="uk-panel">
             <img
-              class="uk-hidden@s"
               :src="getPosterURL(season._poster_path)"
-              :alt="season._name"
-              :title="season._name"
-              :uk-tooltip="season._name"
-              loading="lazy"
-            />
-            <img
-              class="uk-visible@s"
-              :src="getPoster2XURL(season._poster_path)"
               :alt="season._name"
               :title="season._name"
               :uk-tooltip="season._name"
