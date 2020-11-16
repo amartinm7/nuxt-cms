@@ -26,6 +26,7 @@ import GetPeopleDetailsProvider from './modules/people/getDetails/GetPeopleDetai
 import GetMultiSearchByTitleProvider from './modules/all/getMultiSearchByTitle/GetMultiSearchByTitleProvider'
 import GetSimilarShowsProvider from '~/middleware/modules/tvShows/getSimilarShows/GetSimilarShowsProvider'
 import GetSimilarMoviesProvider from '@/middleware/modules/movies/getSimilarMovies/GetSimilarMoviesProvider'
+import GetTvSeasonsProvider from '@/middleware/modules/tvShows/getTvSeasons/GetTvSeasonsProvider'
 
 const _isEmpty = require('lodash.isempty')
 /* eslint-disable camelcase, no-console, no-new */
@@ -73,6 +74,7 @@ export class BeanContainerRegistry {
     new GetMultiSearchByTitleProvider(this._beanContainer)
     new GetSimilarShowsProvider(this._beanContainer)
     new GetSimilarMoviesProvider(this._beanContainer)
+    new GetTvSeasonsProvider(this._beanContainer)
   }
 
   static _getInstance(theMovieDBConfigToken, axios) {

@@ -95,13 +95,14 @@
           ></ech-social-network-card-details>
         </div>
       </div>
+      <!-- Thumbnail schema from schema.org inside for sharing with WhatsApp -->
       <link itemprop="thumbnailUrl" href="url_image" />
       <span
         itemprop="thumbnail"
         itemscope
         itemtype="http://schema.org/ImageObject"
       >
-        <link itemprop="url" :href="getPosterURL(movie._poster_path, index)" />
+        <link itemprop="url" :href="getPosterURL(movie._poster_path)" />
       </span>
     </article>
   </div>

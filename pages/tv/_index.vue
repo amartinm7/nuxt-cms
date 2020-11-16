@@ -10,21 +10,21 @@
       ></ech-tv-show-card-details>
     </section>
     <section
-      v-if="inNotEmpty(sanitizedCredits)"
+      v-if="inNotEmpty(movies[0]._credits)"
       class="uk-section uk-section-xsmall"
     >
       <ech-slider-people
-        :credits="sanitizedCredits"
+        :credits="sanitizedCredits(movies[0]._credits)"
         :type="crewTypes.credits"
         class="uk-margin-small-top"
       ></ech-slider-people>
     </section>
     <section
-      v-if="inNotEmpty(sanitizedCrews)"
+      v-if="inNotEmpty(movies[0]._crews)"
       class="uk-section uk-section-xsmall"
     >
       <ech-slider-people
-        :credits="sanitizedCrews"
+        :credits="sanitizedCrews(movies[0]._crews)"
         :type="crewTypes.crew"
         class="uk-margin-medium-top"
       ></ech-slider-people>

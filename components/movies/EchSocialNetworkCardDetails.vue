@@ -92,13 +92,15 @@ export default {
       return `www.estrenoscinehoy.com${this.$route.path}`
     },
     defaultTitleFacebook() {
-      return `${StringHandler.truncate(this.title, 65)}`
+      // return `${StringHandler.truncate(this.title, 65)}`
+      return this.title
     },
     defaultTitleTwitter() {
       return `${StringHandler.truncate(this.title, 35)}`
     },
     defaultDescriptionFacebook() {
-      return `${StringHandler.truncate(this.title, 155)}`
+      // return `${StringHandler.truncate(this.title, 155)}`
+      return this.description
     },
     defaultDescriptionTwitter() {
       return `${StringHandler.truncate(this.title, 65)}`

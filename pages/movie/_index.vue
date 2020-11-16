@@ -15,12 +15,12 @@
         uk-grid
       >
         <ech-slider-people
-          :credits="sanitizedCredits"
+          :credits="sanitizedCredits(movies[0]._credits)"
           :type="crewTypes.credits"
           class="uk-margin-small-top"
         ></ech-slider-people>
         <ech-slider-people
-          :credits="sanitizedCrews"
+          :credits="sanitizedCrews(movies[0]._crews)"
           :type="crewTypes.crew"
           class="uk-margin-medium-top"
         ></ech-slider-people>

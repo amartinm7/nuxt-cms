@@ -1,9 +1,5 @@
 import GetAxiosRequest from '@/middleware/framework/modules/axios/GetAxiosRequest'
-import MediaTypes from '@/middleware/modules/domain/MediaTypes'
-import GetVideosDetailsTransformer from '@/middleware/modules/domain/responses/GetVideoDetailsResponse'
-import GetImageDetailsTransformer from '@/middleware/modules/domain/responses/GetImageDetailsResponse'
-import GetCreditCastsTransformer from '@/middleware/modules/domain/responses/GetCreditCastsResponse'
-import GetCreditCrewTransformer from '@/middleware/modules/domain/responses/GetCreditCrewResponse'
+import GetSeasonDetailsTransformer from '@/middleware/modules/domain/responses/GetSeasonDetailsResponse'
 /* eslint-disable camelcase, no-console */
 class GetTvSeasonsRepository {
   constructor({ axios, accessToken }) {
@@ -17,7 +13,7 @@ class GetTvSeasonsRepository {
    * @returns {*}
    */
   execute(getTvSeasonsRepositoryRequest) {
-    const { movie_id, season_number, language } = {
+    const { movie_id, language, season_number } = {
       ...getTvSeasonsRepositoryRequest
     }
     const urlPath = `/tv/${movie_id}/season/${season_number}?language=${language}&append_to_response=videos,images,credits`
@@ -30,67 +26,27 @@ class GetTvSeasonsRepository {
   }
 
   async executeAsync(getTvSeasonsRepositoryRequest) {
+    const { movie_id, movie_name } = {
+      ...getTvSeasonsRepositoryRequest
+    }
     const axiosResponse = await this.execute(getTvSeasonsRepositoryRequest)
-    return new GetTvSeasonsRepositoryResponse({ ...axiosResponse.data })
+    const season = {
+      movie_id,
+      movie_name,
+      ...axiosResponse.data
+    }
+    // eslint-disable-next-line new-cap
+    return GetSeasonDetailsTransformer.transform({ season })
   }
 }
 
 class GetTvSeasonsRepositoryRequest {
-  constructor({ movie_id, language }) {
+  constructor({ movie_id, movie_name, language, season_number }) {
     this.movie_id = movie_id
+    this.movie_name = movie_name
     this.language = language
+    this.season_number = season_number
   }
 }
 
-/* eslint-disable camelcase */
-class GetTvSeasonsRepositoryResponse {
-  constructor({ page, total_pages, total_results, results }) {
-    this._page = page
-    this._total_pages = total_pages
-    this._total_results = total_results
-    this._results = results.map((it) => {
-      // eslint-disable-next-line no-new
-      return new GetTvSeasonsRepositoryResponseResult(it)
-    })
-  }
-}
-
-class GetTvSeasonsRepositoryResponseResult {
-  constructor({
-    id,
-    _id,
-    name,
-    air_date,
-    overview,
-    poster_path,
-    season_number,
-    episodes,
-    videos,
-    credits,
-    images
-  }) {
-    this._id = id
-    this.__id = _id
-    this._name = name
-    this.air_date = air_date
-    this._overview = overview
-    this._poster_path = poster_path
-    this._media_type = MediaTypes.tv
-    this._season_number = season_number
-    this._videos = GetVideosDetailsTransformer.transform(videos)
-    this._images = GetImageDetailsTransformer.transform(images)
-    this._credits = GetCreditCastsTransformer.transform(credits)
-    this._crews = GetCreditCrewTransformer.transform(credits)
-    this._crew = GetCreditCrewTransformer.transformByDepartment(this._crews)
-    this._director = this._crew._director
-    this._screenplay = this._crew._screenplay
-    this._producer = this._crew._producer
-  }
-}
-
-export {
-  GetTvSeasonsRepository,
-  GetTvSeasonsRepositoryRequest,
-  GetTvSeasonsRepositoryResponse,
-  GetTvSeasonsRepositoryResponseResult
-}
+export { GetTvSeasonsRepository, GetTvSeasonsRepositoryRequest }

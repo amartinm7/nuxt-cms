@@ -17,9 +17,11 @@ class GetTvSeasonsController {
 
 /* eslint-disable camelcase */
 class GetTvSeasonsControllerRequest {
-  constructor({ movie_id, language }) {
+  constructor({ movie_id, movie_name, language, season_number }) {
     this.movie_id = movie_id
+    this.movie_name = movie_name
     this.language = language
+    this.season_number = season_number
   }
 }
 

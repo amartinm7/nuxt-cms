@@ -1,5 +1,6 @@
 import MediaHandler from '../../../framework/modules/media/MediaHandler'
 import StringHandler from '../../../framework/modules/string/StringHandler'
+import ValuesByDefault from '@/middleware/modules/domain/ValuesByDefault'
 
 export default {
   head() {
@@ -19,7 +20,7 @@ export default {
       'Estrenos netflix, estrenos hbo, estrenos appletv+, estreno disney+, estrenos amazon-prime, series netflix, , ... !'
     const defaultDescription = overview || defaultDesc
     const defaultPosterPath =
-      posterPath || 'https://www.estrenoscinehoy.com/manifest-icon-512.png'
+      posterPath || ValuesByDefault.logoURLEstrenosCineHoy
     return {
       script: [{ type: 'application/ld+json', json: jsonLD }],
       title: `${StringHandler.truncate(defaultTitle, 65)}`,
