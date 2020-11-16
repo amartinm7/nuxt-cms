@@ -7,7 +7,7 @@ class MovieToJsonLDTransformer {
     this.actor = movieResponse._credits?.map((actor) => {
       return {
         '@type': 'Person',
-        name: actor.name
+        name: actor._name
       }
     })
     this.aggregateRating = {
