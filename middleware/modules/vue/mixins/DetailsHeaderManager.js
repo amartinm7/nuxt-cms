@@ -51,7 +51,12 @@ export default {
         {
           hid: 'og:type',
           property: 'og:type',
-          content: 'website'
+          content: 'article'
+        },
+        {
+          hid: 'og:type',
+          property: 'og:section',
+          content: 'movies'
         },
         {
           hid: 'og:title',
@@ -77,6 +82,21 @@ export default {
           hid: 'og:site_name',
           property: 'og:site_name',
           content: `estrenoscinehoy.com`
+        },
+        {
+          hid: 'article:publisher',
+          property: 'article:publisher',
+          content: `https://www.facebook.com/estrenoscinehoy`
+        },
+        {
+          hid: 'article:tag',
+          property: 'article:tag',
+          content: `netflix`
+        },
+        {
+          hid: 'article:author',
+          property: 'article:author',
+          content: `#estrenoscinehoy`
         },
         {
           hid: 'og:locale',
@@ -114,8 +134,8 @@ export default {
           content: '@estrenoscinehoy'
         },
         {
-          hid: 'twitter:image:src',
-          property: 'twitter:image:src',
+          hid: 'twitter:image',
+          property: 'twitter:image',
           content: MediaHandler.getPoster2XURL(defaultPosterPath)
         },
         {
