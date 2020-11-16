@@ -21,17 +21,8 @@
             "
           >
             <img
-              class="uk-hidden@s"
               :title="getTitle(movie)"
               :src="getPosterURL(movie._poster_path)"
-              loading="lazy"
-              :uk-tooltip="getTitle(movie)"
-              :alt="getTitle(movie)"
-            />
-            <img
-              class="uk-visible@s"
-              :title="getTitle(movie)"
-              :src="getPoster2XURL(movie._poster_path)"
               loading="lazy"
               :uk-tooltip="getTitle(movie)"
               :alt="getTitle(movie)"

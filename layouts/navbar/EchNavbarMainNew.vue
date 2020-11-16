@@ -7,7 +7,7 @@
         sel-target=".uk-navbar-container"
         class="uk-sticky"
       >
-        <nav class="uk-navbar uk-navbar-container uk-margin">
+        <nav class="uk-navbar uk-navbar-container">
           <div class="nav-overlay uk-navbar-left">
             <nuxt-link class="uk-navbar-item uk-logo" :to="localePath('/')">
               <img

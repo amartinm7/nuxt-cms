@@ -11,12 +11,20 @@
         :uk-tooltip="$t('friendNetworkCastellana100')"
       >
         <img
-          class="uk-align-center ech-basic"
+          class="uk-align-center ech-basic uk-hidden@s"
           src="../../assets/friendNetworks/castellana100bicishop.png"
           :alt="$t('friendNetworkCastellana100')"
           :uk-tooltip="$t('friendNetworkCastellana100')"
           loading="lazy"
-          style="width:50%"
+          style="width:40%"
+        />
+        <img
+          class="uk-align-center ech-basic uk-visible@s"
+          src="../../assets/friendNetworks/castellana100bicishop.png"
+          :alt="$t('friendNetworkCastellana100')"
+          :uk-tooltip="$t('friendNetworkCastellana100')"
+          loading="lazy"
+          style="width:40%"
         />
       </span>
     </a>
