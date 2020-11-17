@@ -18,7 +18,17 @@
           :key="season._id + Math.random()"
           :todo="season"
         >
-          <div class="uk-panel">
+          <nuxt-link
+            class="uk-link-reset"
+            :to="
+              getSeasonsPathURL(
+                season._season_number,
+                mediaType,
+                movieId,
+                movieName
+              )
+            "
+          >
             <img
               :src="getPosterURL(season._poster_path)"
               :alt="season._name"
@@ -45,7 +55,7 @@
              </p>
              <p class="uk-margin-remove uk-text-small">{{ season._id }}</p>-->
             </div>
-          </div>
+          </nuxt-link>
         </li>
       </ul>
       <a
@@ -67,20 +77,36 @@
 /* eslint-disable camelcase, no-console */
 import MediaManager from '@/middleware/modules/vue/mixins/MediaManager'
 import Utils from '@/middleware/modules/vue/mixins/Utils'
+import SeasonsManager from '@/middleware/modules/vue/mixins/SeasonsManager'
+import MediaTypes from '@/middleware/modules/domain/MediaTypes'
 
 export default {
   name: 'EchSliderSeasons',
-  mixins: [MediaManager, Utils],
+  mixins: [MediaManager, Utils, SeasonsManager],
   props: {
     seasons: {
       type: Array,
       default() {
         return []
       }
+    },
+    movieId: {
+      type: Number,
+      default() {
+        return 0
+      }
+    },
+    movieName: {
+      type: String,
+      default() {
+        return ''
+      }
     }
   },
   data() {
-    return {}
+    return {
+      mediaType: MediaTypes.tv
+    }
   }
 }
 </script>

@@ -40,11 +40,11 @@ export default {
   // eslint-disable-next-line require-await
   async asyncData({ app, route, params, store }) {
     const language = app.i18n.locale
-    const movie_id = params.index.split('-')[0]
-    const movie_name = params.index
-      .substring(params.index.indexOf('-') + 1)
+    const movie_id = params.id.split('-')[0]
+    const movie_name = params.id
+      .substring(params.id.indexOf('-') + 1)
       ?.replace(/-/g, ' ')
-    const season_number = 1
+    const season_number = params.index.split('-')[0]
     const getTvSeasonsControllerResponse = await beanContainer.getTvSeasonsController.execute(
       new GetTvSeasonsControllerRequest({
         movie_id,

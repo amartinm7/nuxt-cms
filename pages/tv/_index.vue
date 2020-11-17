@@ -33,7 +33,11 @@
       v-if="inNotEmpty(movies[0]._seasons)"
       class="uk-section uk-section-xsmall"
     >
-      <ech-slider-seasons :seasons="movies[0]._seasons"></ech-slider-seasons>
+      <ech-slider-seasons
+        :movie-id="movies[0]._id"
+        :seasons="movies[0]._seasons"
+        :movie-name="movies[0]._name"
+      ></ech-slider-seasons>
     </section>
     <section v-if="inNotEmpty(videos)" class="uk-section uk-section-xsmall">
       <ech-slider-videos

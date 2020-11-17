@@ -3,10 +3,30 @@
     <h1
       class="ech-basic uk-text-center uk-text-capitalize uk-heading-large uk-text-bolder uk-text-emphasis uk-hidden@s"
     >
-      {{ season._movie_name }}
+      <nuxt-link
+        class="uk-link-reset"
+        :to="getDetailPathURL(season._movie_id, season._movie_name, mediaType)"
+        >{{ season._movie_name }}
+      </nuxt-link>
+      <span
+        :id="season._movie_id"
+        class="uk-label ech-basic ech-spin-icon"
+        @click.stop.prevent="toClipboard(season._movie_id)"
+        >{{ season._movie_id }}</span
+      >
     </h1>
     <h1 class="ech-basic uk-text-center uk-visible@s">
-      {{ season._movie_name }}
+      <nuxt-link
+        class="uk-link-reset"
+        :to="getDetailPathURL(season._movie_id, season._movie_name, mediaType)"
+        >{{ season._movie_name }}
+      </nuxt-link>
+      <span
+        :id="season._movie_id"
+        class="uk-label ech-basic ech-spin-icon"
+        @click.stop.prevent="toClipboard(season._movie_id)"
+        >{{ season._movie_id }}</span
+      >
     </h1>
     <article
       v-if="season"
@@ -15,7 +35,7 @@
     >
       <ech-media-season-card-picture
         :season="season"
-        :image-url="getPoster2XURL(season._poster_path)"
+        :image-url="getPosterURL(season._poster_path)"
       ></ech-media-season-card-picture>
       <div>
         <span

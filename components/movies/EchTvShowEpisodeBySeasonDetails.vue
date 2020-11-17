@@ -9,7 +9,7 @@
     >
       <ech-media-season-card-picture
         :season="episode"
-        :image-url="getPoster2XURL(episode._still_path)"
+        :image-url="getPosterURL(episode._still_path)"
       ></ech-media-season-card-picture>
       <div>
         <span
@@ -79,6 +79,11 @@ export default {
   data() {
     return {
       mediaType: MediaTypes.tv
+    }
+  },
+  methods: {
+    isNotEmpty(episode) {
+      return !(episode._still_path || episode._still_path === undefined)
     }
   }
 }
