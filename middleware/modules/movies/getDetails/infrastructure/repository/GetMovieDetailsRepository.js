@@ -6,6 +6,7 @@ import GetImageDetailsTransformer from '@/middleware/modules/domain/responses/Ge
 import GetCreditCastsTransformer from '@/middleware/modules/domain/responses/GetCreditCastsResponse'
 import GetCreditCrewTransformer from '@/middleware/modules/domain/responses/GetCreditCrewResponse'
 import GetProductionCountryResponseTransformer from '@/middleware/modules/domain/responses/GetProductionCountryResponse'
+import GetKeywordsTransformer from '@/middleware/modules/domain/responses/GetKeywordsResponse'
 /* eslint-disable camelcase, no-console */
 class GetMovieDetailsRepository {
   constructor({ axios, accessToken }) {
@@ -20,7 +21,7 @@ class GetMovieDetailsRepository {
    */
   execute(getMovieDetailsRepositoryRequest) {
     const { movie_id, language } = { ...getMovieDetailsRepositoryRequest }
-    const urlPath = `/movie/${movie_id}?language=${language}&append_to_response=videos,images,credits`
+    const urlPath = `/movie/${movie_id}?language=${language}&append_to_response=videos,images,credits,keywords`
     console.log(urlPath)
     return this._axios(
       new GetAxiosRequest({
@@ -70,6 +71,7 @@ class GetMovieDetailsRepositoryResponse {
     videos,
     images,
     credits,
+    keywords,
     homepage,
     tagline,
     budget,
@@ -105,6 +107,7 @@ class GetMovieDetailsRepositoryResponse {
     this._director = this._crew._director
     this._screenplay = this._crew._screenplay
     this._producer = this._crew._producer
+    this._keywords = GetKeywordsTransformer.transform(keywords)
     this._production_countries = GetProductionCountryResponseTransformer.transform(
       production_countries
     )

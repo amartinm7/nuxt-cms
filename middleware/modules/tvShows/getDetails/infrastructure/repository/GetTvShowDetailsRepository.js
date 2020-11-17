@@ -10,6 +10,7 @@ import GetProductionCompaniesTransformer from '@/middleware/modules/domain/respo
 import GetProductionCountryResponseTransformer from '@/middleware/modules/domain/responses/GetProductionCountryResponse'
 import GetRuntimeHoursResponse from '@/middleware/modules/domain/responses/GetRuntimeHoursResponse'
 import GetCreatedByTransformer from '@/middleware/modules/domain/responses/GetCreatedByResponse'
+import GetKeywordsTransformer from '@/middleware/modules/domain/responses/GetKeywordsResponse'
 /* eslint-disable camelcase, no-console */
 class GetTvShowDetailsRepository {
   constructor({ axios, accessToken }) {
@@ -24,7 +25,7 @@ class GetTvShowDetailsRepository {
    */
   execute(getTvShowDetailsRepositoryRequest) {
     const { movie_id, language } = { ...getTvShowDetailsRepositoryRequest }
-    const urlPath = `/tv/${movie_id}?language=${language}&append_to_response=videos,images,credits`
+    const urlPath = `/tv/${movie_id}?language=${language}&append_to_response=videos,images,credits,keywords`
     console.log(urlPath)
     return this._axios(
       new GetAxiosRequest({
@@ -83,6 +84,7 @@ class GetTvShowDetailsRepositoryResponse {
     homepage,
     seasons,
     networks,
+    keywords,
     production_companies,
     created_by
   }) {
@@ -118,6 +120,7 @@ class GetTvShowDetailsRepositoryResponse {
     this._homepage = homepage
     this._seasons = GetSeasonsTransformer.transform(seasons)
     this._networks = GetNetworksTransformer.transform(networks)
+    this._keywords = GetKeywordsTransformer.transform(keywords)
     this._production_companies = GetProductionCompaniesTransformer.transform(
       production_companies
     )
