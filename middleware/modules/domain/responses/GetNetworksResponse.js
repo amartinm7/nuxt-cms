@@ -11,7 +11,7 @@ class GetNetworksResponse {
 
 export default class GetNetworksTransformer {
   static transform(networks) {
-    if (_isEmpty(networks) || _isEmpty(networks.results)) {
+    if (_isEmpty(networks)) {
       return []
     }
     return networks.map((network) => {

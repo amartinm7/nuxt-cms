@@ -15,9 +15,9 @@ class GetCreditCrewResponse {
 
 class GetCreditCrewByDepartmentResponse {
   constructor({ director, screenplay, producer }) {
-    this._director = director ?? ''
-    this._screenplay = screenplay ?? ''
-    this._producer = producer ?? ''
+    this._director = director ?? []
+    this._screenplay = screenplay ?? []
+    this._producer = producer ?? []
   }
 }
 
