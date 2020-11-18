@@ -5,8 +5,8 @@ import GetVideosDetailsTransformer from '@/middleware/modules/domain/responses/G
 import GetImageDetailsTransformer from '@/middleware/modules/domain/responses/GetImageDetailsResponse'
 import GetCreditCastsTransformer from '@/middleware/modules/domain/responses/GetCreditCastsResponse'
 import GetCreditCrewTransformer from '@/middleware/modules/domain/responses/GetCreditCrewResponse'
-import GetProductionCountryResponseTransformer from '@/middleware/modules/domain/responses/GetProductionCountryResponse'
 import GetKeywordsTransformer from '@/middleware/modules/domain/responses/GetKeywordsResponse'
+import { GetProductionCountryMoviesTransformer } from '@/middleware/modules/domain/responses/GetProductionCountryResponse'
 /* eslint-disable camelcase, no-console */
 class GetMovieDetailsRepository {
   constructor({ axios, accessToken }) {
@@ -108,7 +108,7 @@ class GetMovieDetailsRepositoryResponse {
     this._screenplay = this._crew._screenplay
     this._producer = this._crew._producer
     this._keywords = GetKeywordsTransformer.transform(keywords)
-    this._production_countries = GetProductionCountryResponseTransformer.transform(
+    this._production_countries = GetProductionCountryMoviesTransformer.transform(
       production_countries
     )
   }

@@ -7,7 +7,19 @@ class GetProductionCountryResponse {
   }
 }
 
-export default class GetProductionCountryResponseTransformer {
+class GetProductionCountryMoviesTransformer {
+  static transform(countries) {
+    if (_isEmpty(countries)) {
+      return []
+    }
+    return countries.map((country) => {
+      // eslint-disable-next-line no-new
+      return new GetProductionCountryResponse({ ...country })
+    })
+  }
+}
+
+class GetProductionCountryTvShowTransformer {
   static transform(countries) {
     if (_isEmpty(countries)) {
       return []
@@ -17,4 +29,9 @@ export default class GetProductionCountryResponseTransformer {
       return new GetProductionCountryResponse({ iso_3166_1: country_code })
     })
   }
+}
+
+export {
+  GetProductionCountryTvShowTransformer,
+  GetProductionCountryMoviesTransformer
 }

@@ -7,10 +7,10 @@ import GetCreditCrewTransformer from '@/middleware/modules/domain/responses/GetC
 import GetSeasonsTransformer from '@/middleware/modules/domain/responses/GetSeasonsResponse'
 import GetNetworksTransformer from '@/middleware/modules/domain/responses/GetNetworksResponse'
 import GetProductionCompaniesTransformer from '@/middleware/modules/domain/responses/GetProductionCompaniesResponse'
-import GetProductionCountryResponseTransformer from '@/middleware/modules/domain/responses/GetProductionCountryResponse'
 import GetRuntimeHoursResponse from '@/middleware/modules/domain/responses/GetRuntimeHoursResponse'
 import GetCreatedByTransformer from '@/middleware/modules/domain/responses/GetCreatedByResponse'
 import GetKeywordsTransformer from '@/middleware/modules/domain/responses/GetKeywordsResponse'
+import { GetProductionCountryTvShowTransformer } from '@/middleware/modules/domain/responses/GetProductionCountryResponse'
 /* eslint-disable camelcase, no-console */
 class GetTvShowDetailsRepository {
   constructor({ axios, accessToken }) {
@@ -124,7 +124,7 @@ class GetTvShowDetailsRepositoryResponse {
     this._production_companies = GetProductionCompaniesTransformer.transform(
       production_companies
     )
-    this._origin_country = GetProductionCountryResponseTransformer.transform(
+    this._origin_country = GetProductionCountryTvShowTransformer.transform(
       origin_country
     )
   }
