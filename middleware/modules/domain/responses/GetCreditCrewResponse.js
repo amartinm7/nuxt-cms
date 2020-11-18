@@ -26,10 +26,14 @@ export default class GetCreditCrewTransformer {
     if (_isEmpty(credits) || _isEmpty(credits.crew)) {
       return []
     }
-    return credits.crew.map((crew) => {
-      // eslint-disable-next-line no-new
-      return new GetCreditCrewResponse({ ...crew })
-    })
+    return credits.crew
+      .filter((crew) => {
+        return !_isEmpty(crew.profile_path)
+      })
+      .map((crew) => {
+        // eslint-disable-next-line no-new
+        return new GetCreditCrewResponse({ ...crew })
+      })
   }
 
   /**

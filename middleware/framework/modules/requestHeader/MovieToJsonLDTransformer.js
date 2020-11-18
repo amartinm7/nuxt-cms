@@ -13,15 +13,15 @@ class MovieToJsonLDTransformer {
     this.aggregateRating = {
       '@type': 'AggregateRating',
       bestRating: '10',
-      ratingValue: movieResponse._vote_average,
-      reviewCount: movieResponse._vote_count
+      ratingValue: movieResponse._vote_average ?? 5,
+      reviewCount: movieResponse._vote_count ?? 100
     }
     this.description = movieResponse._overview
     this.director = {
       '@type': 'Person',
       name: movieResponse._director?._name
     }
-    this.name = movieResponse._title
+    this.name = movieResponse._title || movieResponse._name
     this.author = [
       {
         '@type': 'Person',

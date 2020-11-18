@@ -25,7 +25,7 @@ import EchTvShowEpisodeBySeasonDetails from '@/components/movies/EchTvShowEpisod
 import CreditsManager from '@/middleware/modules/vue/mixins/CreditsManager'
 import DetailsHeaderManager from '@/middleware/modules/vue/mixins/DetailsHeaderManager'
 import RequestHeader from '@/middleware/framework/modules/requestHeader/RequestHeader'
-import MovieToJsonLDTransformer from '@/middleware/framework/modules/requestHeader/MovieToJsonLDTransformer'
+import SeasonToJsonLDTransformer from '@/middleware/framework/modules/requestHeader/SeasonToJsonLDTransformer'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
@@ -72,7 +72,7 @@ export default {
         _title: `${vm.season._movie_name}: ${vm.season._name}`,
         _overview: vm.season._overview,
         _poster_path: vm.season._poster_path,
-        _jsonLD: new MovieToJsonLDTransformer(
+        _jsonLD: new SeasonToJsonLDTransformer(
           vm.season,
           this.$route.path,
           this.$i18n.locale

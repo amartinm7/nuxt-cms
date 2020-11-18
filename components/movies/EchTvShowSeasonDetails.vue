@@ -6,7 +6,7 @@
       <nuxt-link
         class="uk-link-reset"
         :to="getDetailPathURL(season._movie_id, season._movie_name, mediaType)"
-        >{{ season._movie_name }}
+        >{{ season._movie_name }}: {{ season._name }}
       </nuxt-link>
       <span
         :id="season._movie_id"
@@ -19,7 +19,7 @@
       <nuxt-link
         class="uk-link-reset"
         :to="getDetailPathURL(season._movie_id, season._movie_name, mediaType)"
-        >{{ season._movie_name }}
+        >{{ season._movie_name }}: {{ season._name }}
       </nuxt-link>
       <span
         :id="season._movie_id"
@@ -57,19 +57,11 @@
           <ech-social-network-card-details
             :title="season._name"
             :description="season._overview"
+            :poster-path="season._poster_path"
             class="uk-margin-medium-top"
           ></ech-social-network-card-details>
         </div>
       </div>
-      <!-- Thumbnail schema from schema.org inside for sharing with WhatsApp -->
-      <link itemprop="thumbnailUrl" href="url_image" />
-      <span
-        itemprop="thumbnail"
-        itemscope
-        itemtype="http://schema.org/ImageObject"
-      >
-        <link itemprop="url" :href="getPosterURL(season._poster_path)" />
-      </span>
     </article>
   </div>
 </template>

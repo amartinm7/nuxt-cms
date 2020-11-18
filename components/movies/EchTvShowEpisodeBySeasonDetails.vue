@@ -20,18 +20,26 @@
         </span>
         <div class="uk-card-body">
           <h2 class="uk-card-title ech-basic uk-text-center">
-            {{ episode._name }}
-            <span
-              :id="episode._id"
-              class="uk-label ech-basic ech-spin-icon"
-              @click.stop.prevent="toClipboard(episode._id)"
-              >{{ episode._id }}</span
-            >
+            <div>{{ $t('episode') }} {{ episode._episode_number }}</div>
+            <div>
+              {{ episode._name }}
+              <span
+                :id="episode._id"
+                class="uk-label ech-basic ech-spin-icon"
+                @click.stop.prevent="toClipboard(episode._id)"
+                >{{ episode._id }}</span
+              >
+            </div>
           </h2>
           <p>
             <ech-star-rating :rating-value="episode._vote_average / 2">
             </ech-star-rating>
           </p>
+          <div class="uk-flex uk-flex-center">
+            <ech-release-date
+              :release-date="episode._air_date"
+            ></ech-release-date>
+          </div>
           <ech-synopsis
             :overview="episode._overview"
             :movie-id="episode._id"
@@ -53,10 +61,12 @@ import SimilarShowsManager from '@/middleware/modules/vue/mixins/SimilarShowsMan
 import EchSynopsis from '@/components/movies/EchSypnosis'
 import EchMediaSeasonCardPicture from '@/components/movies/EchMediaSeasonCardPicture'
 import CreditsManager from '@/middleware/modules/vue/mixins/CreditsManager'
+import EchReleaseDate from '@/components/movies/EchReleaseDate'
 
 export default {
   name: 'EchTvShowEpisodeBySeasonDetails',
   components: {
+    EchReleaseDate,
     EchMediaSeasonCardPicture,
     EchSynopsis,
     EchStarRating

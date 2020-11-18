@@ -89,19 +89,11 @@
             :title="movie._title"
             :description="movie._overview"
             :quote="movie._tagline"
+            :poster-path="movie._poster_path"
             class="uk-margin-medium-bottom"
           ></ech-social-network-card-details>
         </div>
       </div>
-      <!-- Thumbnail schema from schema.org inside for sharing with WhatsApp -->
-      <link itemprop="thumbnailUrl" href="url_image" />
-      <span
-        itemprop="thumbnail"
-        itemscope
-        itemtype="http://schema.org/ImageObject"
-      >
-        <link itemprop="url" :href="getPosterURL(movie._poster_path)" />
-      </span>
     </article>
   </div>
 </template>

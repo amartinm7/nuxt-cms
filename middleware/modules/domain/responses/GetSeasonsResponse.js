@@ -26,9 +26,13 @@ export default class GetSeasonsTransformer {
     if (_isEmpty(seasons)) {
       return []
     }
-    return seasons.map((season) => {
-      // eslint-disable-next-line no-new
-      return new GetSeasonsResponse({ ...season })
-    })
+    return seasons
+      .filter((season) => {
+        return !_isEmpty(season.poster_path)
+      })
+      .map((season) => {
+        // eslint-disable-next-line no-new
+        return new GetSeasonsResponse({ ...season })
+      })
   }
 }

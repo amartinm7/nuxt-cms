@@ -59,14 +59,19 @@
         uk-icon="mail"
       ></span>
     </ShareNetwork>
+    <ech-share-whatsapp-scheme
+      :poster-path="posterPath"
+    ></ech-share-whatsapp-scheme>
   </div>
 </template>
 <script>
 /* eslint-disable camelcase, no-console */
-import StringHandler from '../../middleware/framework/modules/string/StringHandler'
+import StringHandler from '@/middleware/framework/modules/string/StringHandler'
+import EchShareWhatsappScheme from '@/components/movies/EchShareWhatsappScheme'
 
 export default {
   name: 'EchSocialNetworkCardDetails',
+  components: { EchShareWhatsappScheme },
   props: {
     title: {
       type: String,
@@ -81,6 +86,12 @@ export default {
       }
     },
     quote: {
+      type: String,
+      default() {
+        return ''
+      }
+    },
+    posterPath: {
       type: String,
       default() {
         return ''

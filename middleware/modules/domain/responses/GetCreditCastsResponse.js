@@ -28,9 +28,13 @@ export default class GetCreditCastsTransformer {
     if (_isEmpty(credits) || _isEmpty(credits.cast)) {
       return []
     }
-    return credits.cast.map((cast) => {
-      // eslint-disable-next-line no-new
-      return new GetCreditCastsResponse({ ...cast })
-    })
+    return credits.cast
+      .filter((cast) => {
+        return !_isEmpty(cast.profile_path)
+      })
+      .map((cast) => {
+        // eslint-disable-next-line no-new
+        return new GetCreditCastsResponse({ ...cast })
+      })
   }
 }

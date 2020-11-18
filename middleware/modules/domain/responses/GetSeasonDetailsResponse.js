@@ -113,10 +113,13 @@ class GetEpisodesDetailsTransformer {
     if (_isEmpty(episodes)) {
       return {}
     }
-    return episodes.map((episode) => {
-      // eslint-disable-next-line no-new
-      return new GetEpisodeDetailsResponse({ ...episode })
-    })
+    return episodes
+      .filter((episode) => {
+        return !_isEmpty(episode.still_path)
+      })
+      .map((episode) => {
+        return new GetEpisodeDetailsResponse({ ...episode })
+      })
   }
 }
 

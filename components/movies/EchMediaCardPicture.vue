@@ -16,7 +16,7 @@
               :alt="getTitle(movie)"
               :title="getTitle(movie)"
             />
-            <div class="uk-position-center ech-basic" uk-tooltip="play">
+            <div class="uk-position-center ech-basic" uk-tooltip="play video">
               <span
                 class="uk-icon ech-spin-icon"
                 uk-icon="icon: play-circle; ratio: 3"

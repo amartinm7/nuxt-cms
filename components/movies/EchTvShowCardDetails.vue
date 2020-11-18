@@ -91,19 +91,11 @@
           <ech-social-network-card-details
             :title="movie._name"
             :description="movie._overview"
+            :poster-path="movie._poster_path"
             class="uk-margin-medium-top"
           ></ech-social-network-card-details>
         </div>
       </div>
-      <!-- Thumbnail schema from schema.org inside for sharing with WhatsApp -->
-      <link itemprop="thumbnailUrl" href="url_image" />
-      <span
-        itemprop="thumbnail"
-        itemscope
-        itemtype="http://schema.org/ImageObject"
-      >
-        <link itemprop="url" :href="getPosterURL(movie._poster_path)" />
-      </span>
     </article>
   </div>
 </template>

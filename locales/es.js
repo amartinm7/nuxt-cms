@@ -114,5 +114,6 @@ export default {
     'Web amiga, visitanos aqui: www.castellana100bicishop.com',
   friendNetwork: 'Web amiga',
   search: 'Búsqueda',
-  numEpisodes: 'Número de Episodios'
+  numEpisodes: 'Número de Episodios',
+  episode: 'Episodio'
 }
