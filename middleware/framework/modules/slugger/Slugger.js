@@ -45,7 +45,12 @@ export default class Slugger {
       ë: 'e',
       ï: 'i',
       ö: 'o',
-      ü: 'u'
+      ü: 'u',
+      Á: 'A',
+      É: 'E',
+      Í: 'I',
+      Ó: 'O',
+      Ú: 'U'
     }
     const result = sanitizedText.replace(/./g, function(character) {
       return map[character] ?? character

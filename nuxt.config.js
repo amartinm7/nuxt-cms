@@ -1,5 +1,6 @@
 import dynamicRoutes from './modules/CustomGenerate'
 import { cookiesProperties, cssProperties } from './modules/CookiesManager'
+import { redirections } from './modules/RedirectionsManager'
 
 export default {
   /**
@@ -17,7 +18,7 @@ export default {
     ESTRENOSCINEHOY_GOOGLE_ADS_ID:
       process.env.ESTRENOSCINEHOY_GOOGLE_ADS_ID || ''
   },
-  /*
+  /**
    ** Headers of the page
    */
   head: {
@@ -51,7 +52,7 @@ export default {
       }
     ]
   },
-  /*
+  /**
    ** Really important, scroll to top everytime you move to another link
    */
   router: {
@@ -59,11 +60,11 @@ export default {
       return { x: 0, y: 0 }
     }
   },
-  /*
+  /**
    ** Customize the progress-bar color
    */
   loading: { color: '#fff' },
-  /*
+  /**
    ** Global CSS
    */
   css: [
@@ -71,7 +72,7 @@ export default {
     'uikit/dist/css/uikit.css',
     '@assets/css/main.css'
   ],
-  /*
+  /**
    ** Plugins to load before mounting the App
    */
   plugins: [
@@ -85,7 +86,7 @@ export default {
     { src: '~/plugins/vueStarsRating', ssr: false },
     { src: '~/plugins/http', ssr: true }
   ],
-  /*
+  /**
    ** Nuxt.js dev-modules
    */
   buildModules: [
@@ -99,7 +100,7 @@ export default {
       }
     ]
   ],
-  /*
+  /**
    ** Nuxt.js modules
    */
   modules: [
@@ -111,18 +112,29 @@ export default {
     'vue-social-sharing/nuxt',
     '@nuxt/http',
     '@nuxtjs/google-adsense',
+    '@nuxtjs/redirect-module',
     ['nuxt-cookie-control', cssProperties]
   ],
+  /**
+   * google-adsense
+   */
   'google-adsense': {
     id: process.env.ESTRENOSCINEHOY_GOOGLE_ADS_ID
   },
+  /**
+   * @nuxtjs/redirect-module
+   */
+  redirect: redirections(),
+  /**
+   * nuxt-cookie-control
+   */
   cookies: cookiesProperties(),
-  /*
+  /**
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
   axios: {},
-  /*
+  /**
    ** i18n
    */
   i18n: {
@@ -170,11 +182,11 @@ export default {
     hostname: 'https://www.estrenoscinehoy.com',
     routes: dynamicRoutes()
   },
-  /*
+  /**
    ** Build configuration
    */
   build: {
-    /*
+    /**
      ** You can extend webpack config here
      */
     extend(config, ctx) {}
