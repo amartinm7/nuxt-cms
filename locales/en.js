@@ -115,5 +115,6 @@ export default {
   friendNetwork: 'Friend Network',
   search: 'Search',
   numEpisodes: 'Episodes Number',
-  episode: 'Episode'
+  episode: 'Episode',
+  originalTitle: 'Original title'
 }

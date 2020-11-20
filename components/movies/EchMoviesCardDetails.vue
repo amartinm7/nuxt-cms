@@ -59,6 +59,9 @@
             <ech-production-countries
               :production-countries="movie._production_countries"
             ></ech-production-countries>
+            <ech-original-title
+              :original-title="movie._original_title"
+            ></ech-original-title>
             <ech-budget :budget="movie._budget"></ech-budget>
             <ech-revenue :revenue="movie._revenue"></ech-revenue>
             <ech-crew :crews="movie._director" label="director"></ech-crew>
@@ -119,10 +122,12 @@ import EchRecommended from '@/components/movies/EchRecommended'
 import EchHomePage from '@/components/movies/EchHomePage'
 import EchRelatedMovies from '@/components/movies/EchRelatedMovies'
 import EchSynopsis from '@/components/movies/EchSypnosis'
+import EchOriginalTitle from '@/components/movies/EchOriginalTitle'
 
 export default {
   name: 'EchMoviesCardDetail',
   components: {
+    EchOriginalTitle,
     EchSynopsis,
     EchRelatedMovies,
     EchHomePage,

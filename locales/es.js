@@ -115,5 +115,6 @@ export default {
   friendNetwork: 'Web amiga',
   search: 'Búsqueda',
   numEpisodes: 'Número de Episodios',
-  episode: 'Episodio'
+  episode: 'Episodio',
+  originalTitle: 'Título original'
 }
