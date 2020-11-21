@@ -52,68 +52,21 @@
             class="uk-flex uk-flex-center uk-width-auto uk-text-italic uk-margin-medium"
           >
             <div>
-              <div v-if="people._place_of_birth">
-                <span> {{ $t('origin') }}: {{ people._place_of_birth }}</span>
-                <span
-                  class="uk-margin-small-right"
-                  uk-icon="icon: location; ratio: 0.75;"
-                ></span>
-              </div>
-              <div
-                v-if="people._birthday"
-                class="uk-label uk-label-success ech-basic"
-              >
-                <span>
-                  {{ $t('birthDay') }}:
-                  {{ people._birthday | moment('DD-MM-YYYY') }}
-                </span>
-                <span
-                  class="uk-margin-small-right"
-                  uk-icon="icon: calendar; ratio: 0.75;"
-                ></span>
-              </div>
-              <div
-                v-if="people._known_for_department"
-                class="uk-label uk-label-success ech-basic"
-              >
-                <span v-if="people._known_for_department">
-                  {{ $t('knownFor') }}: {{ people._known_for_department }}
-                </span>
-                <span
-                  class="uk-margin-small-right"
-                  uk-icon="icon: user; ratio: 0.75;"
-                ></span>
-              </div>
+              <ech-origin-place-of-birth
+                :place-of-birth="people._place_of_birth"
+              ></ech-origin-place-of-birth>
+              <ech-birthday :birthday="people._birthday"></ech-birthday>
+              <ech-known-for
+                :known-for="people._known_for_department"
+              ></ech-known-for>
+              <ech-home-page :home-page="people._homepage"></ech-home-page>
             </div>
           </div>
-          <div v-if="people._biography" class="uk-width-auto">
-            <h2 class="uk-text-center">{{ $t('biography') }}</h2>
-            <p class="uk-dropcap uk-text-justify">{{ people._biography }}</p>
-          </div>
-          <div class="uk-flex uk-flex-center">
-            <p>
-              <span
-                v-for="genre in people._genres"
-                :key="genre._id"
-                :todo="genre"
-                class="uk-label uk-label-warning uk-margin-small-left ech-basic"
-              >
-                {{ genre.name }}
-              </span>
-            </p>
-          </div>
-          <div>
-            <p v-if="people._homepage" class="uk-text-meta">
-              Homepage:
-              <a
-                :href="people._homepage"
-                :alt="people._name"
-                class="uk-text-lead uk-text-small"
-              >
-                {{ people._homepage }}
-              </a>
-            </p>
-          </div>
+          <ech-synopsis
+            :overview="people._biography"
+            :movie-id="people._id"
+            class="uk-margin-medium-top"
+          ></ech-synopsis>
           <ech-social-network-card-details
             :title="people._name"
             :description="people._biography"
@@ -130,10 +83,23 @@ import LocateManager from '../../middleware/modules/vue/mixins/LocateManager'
 import Utils from '../../middleware/modules/vue/mixins/Utils'
 import EchStarRating from './EchStarRating'
 import EchSocialNetworkCardDetails from '@/components/movies/EchSocialNetworkCardDetails'
+import EchHomePage from '@/components/movies/EchHomePage'
+import EchOriginPlaceOfBirth from '@/components/movies/EchOriginPlaceOfBirth'
+import EchBirthday from '@/components/movies/EchBirthday'
+import EchKnownFor from '@/components/movies/EchKnownFor'
+import EchSynopsis from '@/components/movies/EchSypnosis'
 
 export default {
   name: 'EchPeopleCardDetails',
-  components: { EchSocialNetworkCardDetails, EchStarRating },
+  components: {
+    EchSynopsis,
+    EchKnownFor,
+    EchBirthday,
+    EchOriginPlaceOfBirth,
+    EchHomePage,
+    EchSocialNetworkCardDetails,
+    EchStarRating
+  },
   mixins: [MediaManager, LocateManager, Utils],
   props: {
     people: {
