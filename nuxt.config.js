@@ -39,12 +39,12 @@ export default {
       {
         rel: 'apple-touch-icon',
         type: 'image/x-icon',
-        href: '/logo_white.png'
+        href: '/logo_color.png'
       },
       {
         rel: 'apple-touch-icon-precomposed',
         type: 'image/x-icon',
-        href: '/logo_white.png'
+        href: '/logo_color.png'
       },
       {
         rel: 'stylesheet',
