@@ -1,7 +1,7 @@
 <template>
   <div v-if="overview" :id="movieId + '_overview'">
     <h2 class="uk-card-title ech-basic uk-text-center">
-      {{ $t('synopsis') }}
+      {{ $t(label) }}
     </h2>
     <p class="uk-dropcap uk-text-justify ech-basic">
       {{ overview }}
@@ -33,6 +33,12 @@ export default {
       type: Number,
       default() {
         return 0
+      }
+    },
+    label: {
+      type: String,
+      default() {
+        return 'synopsis'
       }
     }
   }

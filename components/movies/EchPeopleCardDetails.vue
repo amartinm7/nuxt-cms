@@ -65,6 +65,7 @@
           <ech-synopsis
             :overview="people._biography"
             :movie-id="people._id"
+            label="biography"
             class="uk-margin-medium-top"
           ></ech-synopsis>
           <ech-social-network-card-details
