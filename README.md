@@ -23,6 +23,10 @@ $ npm run start
 $ npm run generate
 ```
 
+## npm ci
+borrar package-lock y regenerar
+npm install --package-lock
+
 remember this
 ````
 python -m SimpleHTTPServer
