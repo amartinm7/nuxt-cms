@@ -1,48 +1,54 @@
 <template>
-  <div v-if="inNotEmpty(posters)">
-    <h2 class="uk-text-lead uk-text-center ech-basic">
-      Posters
-    </h2>
-    <div
-      class="uk-position-relative uk-visible-toggle uk-light"
-      tabindex="-1"
-      uk-slider="clsActivated: uk-transition-active; center: true;"
-    >
-      <ul
-        class="uk-slider-items"
-        style="transform: translate3d(0px, 0px, 0px);"
+  <article
+    v-if="inNotEmpty(posters)"
+    class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin ech-scrollspy-effect"
+    uk-grid
+  >
+    <div class="uk-padding-large">
+      <h2 class="uk-text-lead uk-text-center ech-basic">
+        Posters
+      </h2>
+      <div
+        class="uk-position-relative uk-visible-toggle uk-light"
+        tabindex="-1"
+        uk-slider="clsActivated: uk-transition-active; center: true;"
       >
-        <a name="echSliderPosters"></a>
-        <li
-          v-for="poster in posters"
-          :key="poster._file_path + Math.random()"
-          :todo="poster"
+        <ul
+          class="uk-slider-items"
+          style="transform: translate3d(0px, 0px, 0px);"
         >
-          <div class="uk-panel">
-            <img
-              :src="getPosterURL(poster._file_path)"
-              :alt="poster._file_path"
-              :title="poster._file_path"
-              :uk-tooltip="poster._file_path"
-              loading="lazy"
-            />
-          </div>
-        </li>
-      </ul>
-      <a
-        class="uk-position-center-left uk-position-small uk-hidden-hover"
-        href="#"
-        uk-slidenav-previous
-        uk-slider-item="previous"
-      ></a>
-      <a
-        class="uk-position-center-right uk-position-small uk-hidden-hover"
-        href="#"
-        uk-slidenav-next
-        uk-slider-item="next"
-      ></a>
+          <a name="echSliderPosters"></a>
+          <li
+            v-for="poster in posters"
+            :key="poster._file_path + Math.random()"
+            :todo="poster"
+          >
+            <div class="uk-panel">
+              <img
+                :src="getPosterURL(poster._file_path)"
+                :alt="poster._file_path"
+                :title="poster._file_path"
+                :uk-tooltip="poster._file_path"
+                loading="lazy"
+              />
+            </div>
+          </li>
+        </ul>
+        <a
+          class="uk-position-center-left uk-position-small uk-hidden-hover"
+          href="#"
+          uk-slidenav-previous
+          uk-slider-item="previous"
+        ></a>
+        <a
+          class="uk-position-center-right uk-position-small uk-hidden-hover"
+          href="#"
+          uk-slidenav-next
+          uk-slider-item="next"
+        ></a>
+      </div>
     </div>
-  </div>
+  </article>
 </template>
 <script>
 /* eslint-disable camelcase, no-console */

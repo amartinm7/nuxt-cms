@@ -7,32 +7,24 @@
       <ech-people-card-details :people="people"></ech-people-card-details>
     </section>
     <section
-      v-if="
-        people._movie_credits._cast && people._movie_credits._cast.length > 0
-      "
+      v-if="inNotEmpty(people._movie_credits._cast)"
       class="uk-section uk-section-xsmall"
     >
-      <h2 class="uk-text-center">
-        {{ $t('appearOnMovies', { name: people._name }) }}
-      </h2>
-      <ech-slider-main
-        :movies="people._movie_credits._cast"
+      <ech-related-movies-for-person
         :media-type="mediaTypeMovie"
-      >
-      </ech-slider-main>
+        :movies="people._movie_credits._cast"
+        :person-name="people._name"
+      ></ech-related-movies-for-person>
     </section>
     <section
-      v-if="people._tv_credits._cast && people._tv_credits._cast.length > 0"
+      v-if="inNotEmpty(people._tv_credits._cast)"
       class="uk-section uk-section-xsmall"
     >
-      <h2 class="uk-text-center">
-        {{ $t('appearOnTvShows', { name: people._name }) }}
-      </h2>
-      <ech-slider-main
-        :movies="people._tv_credits._cast"
+      <ech-related-movies-for-person
         :media-type="mediaTypeTvShow"
-      >
-      </ech-slider-main>
+        :movies="people._tv_credits._cast"
+        :person-name="people._name"
+      ></ech-related-movies-for-person>
     </section>
     <section class="uk-section uk-section-xsmall">
       <ech-disqus></ech-disqus>
@@ -51,23 +43,25 @@ import EchPeopleCardDetails from '@/components/movies/EchPeopleCardDetails'
 import DetailsHeaderManager from '@/middleware/modules/vue/mixins/DetailsHeaderManager'
 import RequestDetailsHeaderManager from '@/middleware/modules/vue/mixins/RequestDetailsHeaderManager'
 import DetailsPeopleManager from '@/middleware/modules/vue/mixins/DetailsPeopleManager'
-import EchSliderMain from '@/components/slider/EchSliderMain'
 import EchNetworksNavBar from '~/layouts/networksbar/EchNetworksNavBar'
+import Utils from '@/middleware/modules/vue/mixins/Utils'
+import EchRelatedMoviesForPerson from '@/components/slider/EchRelatedMoviesForPerson'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
   name: 'EchPeopleDetails',
   scrollToTop: true,
   components: {
+    EchRelatedMoviesForPerson,
     EchNetworksNavBar,
-    EchSliderMain,
     EchPeopleCardDetails,
     EchDisqus
   },
   mixins: [
     DetailsHeaderManager,
     RequestDetailsHeaderManager,
-    DetailsPeopleManager
+    DetailsPeopleManager,
+    Utils
   ],
   // eslint-disable-next-line require-await
   async asyncData({ app, route, params, store }) {

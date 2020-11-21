@@ -9,33 +9,34 @@
         @outbound-open-video-modal="playVideo"
       ></ech-movies-card-detail>
     </section>
-    <section class="uk-section uk-section-xsmall">
-      <article
-        class="uk-card uk-card-default uk-grid-collapse uk-margin ech-scrollspy-effect"
-        uk-grid
-      >
-        <ech-slider-people
-          :credits="sanitizedCredits(movies[0]._credits)"
-          :type="crewTypes.credits"
-          class="uk-margin-small-top"
-        ></ech-slider-people>
-        <ech-slider-people
-          :credits="sanitizedCrews(movies[0]._crews)"
-          :type="crewTypes.crew"
-          class="uk-margin-medium-top"
-        ></ech-slider-people>
-        <ech-slider-videos
-          :videos="videos"
-          :poster-path="movies[0]._poster_path"
-          :posters="posters"
-          class="uk-margin-medium-top"
-          @outbound-open-video-modal="playVideo"
-        ></ech-slider-videos>
-        <ech-slider-posters
-          :posters="posters"
-          class="uk-margin-medium-top"
-        ></ech-slider-posters>
-      </article>
+    <section
+      v-if="inNotEmpty(sanitizedCredits(movies[0]._credits))"
+      class="uk-section uk-section-xsmall"
+    >
+      <ech-slider-people
+        :credits="sanitizedCredits(movies[0]._credits)"
+        :type="crewTypes.credits"
+      ></ech-slider-people>
+    </section>
+    <section
+      v-if="inNotEmpty(sanitizedCrews(movies[0]._crews))"
+      class="uk-section uk-section-xsmall"
+    >
+      <ech-slider-people
+        :credits="sanitizedCrews(movies[0]._crews)"
+        :type="crewTypes.crew"
+      ></ech-slider-people>
+    </section>
+    <section v-if="inNotEmpty(videos)" class="uk-section uk-section-xsmall">
+      <ech-slider-videos
+        :videos="videos"
+        :poster-path="movies[0]._poster_path"
+        :posters="posters"
+        @outbound-open-video-modal="playVideo"
+      ></ech-slider-videos>
+    </section>
+    <section v-if="inNotEmpty(posters)" class="uk-section uk-section-xsmall">
+      <ech-slider-posters :posters="posters"></ech-slider-posters>
     </section>
     <section class="uk-section uk-section-xsmall">
       <ech-disqus class="uk-margin-medium-top"></ech-disqus>
@@ -72,6 +73,7 @@ import MediaTypes from '@/middleware/modules/domain/MediaTypes'
 import DetailsHeaderManager from '@/middleware/modules/vue/mixins/DetailsHeaderManager'
 import RequestDetailsHeaderManager from '@/middleware/modules/vue/mixins/RequestDetailsHeaderManager'
 import EchNetworksNavBar from '@/layouts/networksbar/EchNetworksNavBar'
+import Utils from '@/middleware/modules/vue/mixins/Utils'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
@@ -89,7 +91,8 @@ export default {
     VideoControllerManager,
     CreditsManager,
     DetailsHeaderManager,
-    RequestDetailsHeaderManager
+    RequestDetailsHeaderManager,
+    Utils
   ],
   // eslint-disable-next-line require-await
   async asyncData({ app, route, params, store, context }) {
