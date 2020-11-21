@@ -16,6 +16,7 @@
       <ech-slider-people
         :credits="sanitizedCredits(movies[0]._credits)"
         :type="crewTypes.credits"
+        :movie-name="movies[0]._name"
         class="uk-margin-small-top"
       ></ech-slider-people>
     </section>
@@ -26,6 +27,7 @@
       <ech-slider-people
         :credits="sanitizedCrews(movies[0]._crews)"
         :type="crewTypes.crew"
+        :movie-name="movies[0]._name"
         class="uk-margin-medium-top"
       ></ech-slider-people>
     </section>
@@ -44,11 +46,15 @@
         :videos="videos"
         :poster-path="movies[0]._poster_path"
         :posters="posters"
+        :movie-name="movies[0]._name"
         @outbound-open-video-modal="playVideo"
       ></ech-slider-videos>
     </section>
     <section v-if="inNotEmpty(posters)" class="uk-section uk-section-xsmall">
-      <ech-slider-posters :posters="posters"></ech-slider-posters>
+      <ech-slider-posters
+        :posters="posters"
+        :movie-name="movies[0]._name"
+      ></ech-slider-posters>
     </section>
     <section class="uk-section uk-section-xsmall">
       <ech-disqus></ech-disqus>

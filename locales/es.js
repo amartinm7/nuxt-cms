@@ -116,5 +116,10 @@ export default {
   search: 'Búsqueda',
   numEpisodes: 'Número de Episodios',
   episode: 'Episodio',
-  originalTitle: 'Título original'
+  originalTitle: 'Título original',
+  postersBy: 'Posters de {name}',
+  creditsBy: 'Reparto de {name}',
+  staffBy: 'Equipo de {name}',
+  seasonsBy: 'Temporadas de {name}',
+  videosBy: 'Videos de {name}'
 }

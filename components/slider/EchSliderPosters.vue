@@ -6,7 +6,7 @@
   >
     <div class="uk-padding-large">
       <h2 class="uk-text-lead uk-text-center ech-basic">
-        Posters
+        {{ $t('postersBy', { name: movieName }) }}
       </h2>
       <div
         class="uk-position-relative uk-visible-toggle uk-light"
@@ -63,6 +63,12 @@ export default {
       type: Array,
       default() {
         return []
+      }
+    },
+    movieName: {
+      type: String,
+      default() {
+        return ''
       }
     }
   }

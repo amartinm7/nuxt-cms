@@ -6,10 +6,10 @@
   >
     <div class="uk-padding-large">
       <h2 v-if="isCredits" class="uk-text-lead uk-text-center ech-basic">
-        {{ $t('sliderSwitcher.credits') }}
+        {{ $t('creditsBy', { name: movieName }) }}
       </h2>
       <h2 v-if="isCrew" class="uk-text-lead uk-text-center ech-basic">
-        {{ $t('sliderSwitcher.staff') }}
+        {{ $t('staffBy', { name: movieName }) }}
       </h2>
       <div
         class="uk-position-relative uk-visible-toggle uk-light"
@@ -93,6 +93,12 @@ export default {
       type: String,
       default() {
         return CrewTypes.credits
+      }
+    },
+    movieName: {
+      type: String,
+      default() {
+        return ''
       }
     }
   },

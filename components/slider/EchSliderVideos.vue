@@ -6,7 +6,7 @@
   >
     <div class="uk-padding-large">
       <h2 class="uk-text-lead uk-text-center ech-basic">
-        Videos
+        {{ $t('videosBy', { name: movieName }) }}
       </h2>
       <div
         class="uk-position-relative uk-visible-toggle uk-light"
@@ -81,6 +81,12 @@ export default {
       }
     },
     posterPath: {
+      type: String,
+      default() {
+        return ''
+      }
+    },
+    movieName: {
       type: String,
       default() {
         return ''
