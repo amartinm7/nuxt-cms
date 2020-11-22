@@ -8,16 +8,14 @@ export default {
       ...this.requestHeader
     }
     const defaultDesc =
-      'EstrenosCineHoy estrenos netflix, estrenos hbo, estrenos appletv+, estrenos disney+, estrenos amazon-prime, series netflix, series hbo, series appletv+,... !'
+      'EstrenosCineHoy mejores estrenos netflix con nuevas series y peliculas recomendadas, estrenos hbo nuevas series y peliculas, estrenos appletv+ series, estrenos disney+ series, estrenos amazon-prime series,... !'
     const routePath =
       this.$route.path === '/es'
         ? '/'
         : this.$route.path.replace(/\/es\//g, '/').replace(/\/en\//g, '/')
     // const routePath = this.$route.path.replace(/\/en\//g, '/')
     const language = this.$i18n.locale
-    const defaultTitle =
-      title ||
-      'Estrenos netflix, estrenos hbo, estrenos appletv+, estreno disney+, estrenos amazon-prime, series netflix, , ... !'
+    const defaultTitle = title || defaultDesc
     const defaultDescription = overview || defaultDesc
     const defaultPosterPath =
       posterPath || ValuesByDefault.logoURLEstrenosCineHoy

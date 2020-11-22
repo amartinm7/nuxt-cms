@@ -14,10 +14,10 @@
       <h1
         class="ech-basic uk-text-center uk-text-capitalize uk-heading-large uk-text-bolder uk-text-emphasis uk-hidden@s"
       >
-        {{ $t('similarMovies') }}
+        {{ $t('recommendedMovies') }}
       </h1>
       <h1 class="ech-basic uk-text-center uk-visible@s">
-        {{ $t('similarMovies') }}
+        {{ $t('recommendedMovies') }}
       </h1>
     </section>
     <section class="uk-section uk-section-xsmall">
@@ -55,15 +55,15 @@ import VideoControllerManager from '@/middleware/modules/vue/mixins/VideoControl
 import MediaTypes from '@/middleware/modules/domain/MediaTypes'
 import DetailsHeaderManager from '@/middleware/modules/vue/mixins/DetailsHeaderManager'
 import EchPagination from '@/layouts/pagination/EchPagination'
-import { GetSimilarMoviesControllerRequest } from '@/middleware/modules/movies/getSimilarMovies/userapplication/controller/GetSimilarMoviesController'
 import EchMoviesCard from '@/components/movies/EchMoviesCard'
 import EchNetworksNavBar from '@/layouts/networksbar/EchNetworksNavBar'
 import RedirectHomeManager from '@/middleware/modules/vue/mixins/RedirectHomeManager'
 import EchFriendNetworksNavBar from '@/layouts/friendNetworks/EchFriendNetworksNavBar'
+import { GetRecommendedMoviesControllerRequest } from '@/middleware/modules/movies/getRecommendedMovies/userapplication/controller/GetRecommendedMoviesController'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
-  name: 'EchMoviesSimilar',
+  name: 'EchMoviesRecommendedShow',
   components: {
     EchFriendNetworksNavBar,
     EchNetworksNavBar,
@@ -77,11 +77,11 @@ export default {
   async asyncData({ app, params, query, route }) {
     const language = app.i18n.locale
     const page = isNaN(query.page) ? 1 : Number(query.page)
-    const movie_id = isNaN(params.similarShow)
+    const movie_id = isNaN(params.recommendedShow)
       ? 335984
-      : Number(params.similarShow)
-    const trendingShows = await beanContainer.getSimilarMoviesController.execute(
-      new GetSimilarMoviesControllerRequest({
+      : Number(params.recommendedShow)
+    const trendingShows = await beanContainer.getRecommendedMoviesController.execute(
+      new GetRecommendedMoviesControllerRequest({
         language,
         page,
         movie_id
@@ -105,8 +105,8 @@ export default {
   methods: {
     async toPrevious() {
       const previousPage = this.page > 1 ? this.page - 1 : 1
-      this.trendingShows = await beanContainer.getSimilarMoviesController.execute(
-        new GetSimilarMoviesControllerRequest({
+      this.trendingShows = await beanContainer.getRecommendedMoviesController.execute(
+        new GetRecommendedMoviesControllerRequest({
           language: this.$i18n.locale,
           page: previousPage,
           movie_id: this.movie_id
@@ -119,8 +119,8 @@ export default {
         this.page < this.trendingShows._total_pages
           ? this.page + 1
           : this.trendingShows._total_pages
-      this.trendingShows = await beanContainer.getSimilarMoviesController.execute(
-        new GetSimilarMoviesControllerRequest({
+      this.trendingShows = await beanContainer.getRecommendedMoviesController.execute(
+        new GetRecommendedMoviesControllerRequest({
           language: this.$i18n.locale,
           page: nextPage,
           movie_id: this.movie_id

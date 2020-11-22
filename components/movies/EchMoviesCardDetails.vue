@@ -86,6 +86,10 @@
             :label="$t('moreRelatedMovies')"
             class="uk-margin-medium-top"
           ></ech-related-movies>
+          <ech-recommended-movies
+            :movie-id="movie._id"
+            class="uk-margin-medium-top"
+          ></ech-recommended-movies>
         </div>
         <div>
           <ech-social-network-card-details
@@ -123,10 +127,12 @@ import EchHomePage from '@/components/movies/EchHomePage'
 import EchRelatedMovies from '@/components/movies/EchRelatedMovies'
 import EchSynopsis from '@/components/movies/EchSypnosis'
 import EchOriginalTitle from '@/components/movies/EchOriginalTitle'
+import EchRecommendedMovies from '@/components/movies/EchRecommendedMovies'
 
 export default {
   name: 'EchMoviesCardDetail',
   components: {
+    EchRecommendedMovies,
     EchOriginalTitle,
     EchSynopsis,
     EchRelatedMovies,

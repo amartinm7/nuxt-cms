@@ -121,5 +121,6 @@ export default {
   creditsBy: 'Reparto de {name}',
   staffBy: 'Equipo de {name}',
   seasonsBy: 'Temporadas de {name}',
-  videosBy: 'Videos de {name}'
+  videosBy: 'Videos de {name}',
+  recommendedMovies: 'Peliculas Recomendadas'
 }
