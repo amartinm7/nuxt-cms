@@ -58,10 +58,18 @@ export default class Slugger {
     return result
   }
 
+  static _sanitizeSpecialWords(word) {
+    const text = word ?? ''
+    return text.replace(/[^\w\s]/g, '')
+  }
+
   static sluggify(arrayOfStrings) {
     return arrayOfStrings
       .map((it) => {
         return this._sanitize(it)
+      })
+      .map((it) => {
+        return this._sanitizeSpecialWords(it)
       })
       .map((it) => {
         return Slugger._slugger(`${it}`)
