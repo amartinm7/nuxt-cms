@@ -88,6 +88,8 @@
           ></ech-related-movies>
           <ech-recommended-movies
             :movie-id="movie._id"
+            label="recommendedMovies"
+            :media-type="mediaType"
             class="uk-margin-medium-top"
           ></ech-recommended-movies>
         </div>

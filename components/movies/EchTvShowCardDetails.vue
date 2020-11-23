@@ -91,6 +91,12 @@
             :label="$t('moreRelatedTvShows')"
             class="uk-margin-medium-top"
           ></ech-related-movies>
+          <ech-recommended-movies
+            :movie-id="movie._id"
+            label="recommendedTvShows"
+            :media-type="mediaType"
+            class="uk-margin-medium-top"
+          ></ech-recommended-movies>
           <ech-social-network-card-details
             :title="movie._name"
             :description="movie._overview"
@@ -125,10 +131,12 @@ import EchNumOfSeasons from '@/components/movies/EchNumOfSeasons'
 import EchNetworkName from '@/components/movies/EchNetworkName'
 import EchSynopsis from '@/components/movies/EchSypnosis'
 import EchOriginalTitle from '@/components/movies/EchOriginalTitle'
+import EchRecommendedMovies from '@/components/movies/EchRecommendedMovies'
 
 export default {
   name: 'EchTvShowCardDetails',
   components: {
+    EchRecommendedMovies,
     EchOriginalTitle,
     EchSynopsis,
     EchNetworkName,

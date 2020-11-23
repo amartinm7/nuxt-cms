@@ -1,15 +1,15 @@
 <template>
   <div class="uk-text-meta uk-text-center ech-basic">
     <nuxt-link
-      :to="getRecommendedMoviesURL({ id: movieId })"
+      :to="getRecommendedMoviesURL({ id: movieId, mediaType })"
       class="uk-link-reset"
-      :alt="$t('recommendedMovies')"
-      :uk-tooltip="$t('recommendedMovies')"
+      :alt="$t(label)"
+      :uk-tooltip="$t(label)"
     >
       <span
         class="uk-label uk-label-success ech-basic"
         uk-icon="icon: video-camera; ratio: 0.75;"
-        >{{ $t('recommendedMovies') }}
+        >{{ $t(label) }}
       </span>
     </nuxt-link>
   </div>
@@ -26,6 +26,18 @@ export default {
       type: Number,
       default() {
         return 0
+      }
+    },
+    mediaType: {
+      type: String,
+      default() {
+        return ''
+      }
+    },
+    label: {
+      type: String,
+      default() {
+        return ''
       }
     }
   }

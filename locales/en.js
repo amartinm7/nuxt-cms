@@ -122,5 +122,6 @@ export default {
   staffBy: '{name} Staff',
   seasonsBy: '{name} Seasons',
   videosBy: '{name} Videos',
-  recommendedMovies: 'Recommended Movies'
+  recommendedMovies: 'Recommended Movies',
+  recommendedTvShows: 'Recomendadas Series'
 }
