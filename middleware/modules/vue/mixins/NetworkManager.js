@@ -8,7 +8,7 @@ export default {
     getNetWorkLogoURL(network) {
       return `https://image.tmdb.org/t/p/h60${network?._logo_path}`
     },
-    getTvShowByNetworkURL2({ network, page, language }) {
+    getTvShowByNetworkURL({ network, page, language }) {
       // const language = this.$i18n.locale
       const mediaTypeTV = MediaTypes.tv
       const networkId = network?._id
@@ -19,18 +19,6 @@ export default {
       return `/${language}/${mediaTypeTV}/byNetwork/${Date.now()}/${Slugger.sluggify(
         [networkId, premiereSlug, network._name]
       )}/?page=${page}&sortedBy=popularity.desc`
-    },
-    getTvShowByNetworkURL(network) {
-      const language = this.$i18n.locale
-      const mediaTypeTV = MediaTypes.tv
-      const networkId = network?._id
-      if (!networkId) {
-        return `/${language}/`
-      }
-      const premiereSlug = this.$i18n.messages[this.$i18n.locale].premiere
-      return `/${language}/${mediaTypeTV}/byNetwork/${Date.now()}/${Slugger.sluggify(
-        [networkId, premiereSlug, network._name]
-      )}/?sortedBy=popularity.desc`
     },
     isNetworkStored(networkId) {
       return (

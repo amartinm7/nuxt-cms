@@ -6,11 +6,11 @@
     <section class="uk-section uk-section-xsmall">
       <ech-networks-nav-bar></ech-networks-nav-bar>
       <ech-slider-main :movies="trendingShows._results"> </ech-slider-main>
-      <ech-pagination-new
+      <ech-pagination-by-network
         :network="network"
         :page="page"
         :total-pages="trendingShows._total_results"
-      ></ech-pagination-new>
+      ></ech-pagination-by-network>
       <ech-friend-networks-nav-bar></ech-friend-networks-nav-bar>
       <h1
         class="ech-basic uk-text-center uk-text-capitalize uk-heading-large uk-text-bolder uk-text-emphasis uk-hidden@s"
@@ -69,13 +69,13 @@ import Networks from '@/middleware/modules/domain/Networks'
 import NetworkManager from '@/middleware/modules/vue/mixins/NetworkManager'
 import EchNetworkLogo from '@/components/movies/EchNetworkLogo'
 import EchFriendNetworksNavBar from '@/layouts/friendNetworks/EchFriendNetworksNavBar'
-import EchPaginationNew from '@/components/movies/EchPaginationNew'
+import EchPaginationByNetwork from '@/components/movies/EchPaginationByNetwork'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
   name: 'EchTvShowsByGenres',
   components: {
-    EchPaginationNew,
+    EchPaginationByNetwork,
     EchFriendNetworksNavBar,
     EchNetworkLogo,
     EchNetworksNavBar,
