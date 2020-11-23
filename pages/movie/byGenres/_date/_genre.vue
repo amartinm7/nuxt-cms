@@ -6,10 +6,11 @@
     <section class="uk-section uk-section-xsmall">
       <ech-networks-nav-bar></ech-networks-nav-bar>
       <ech-slider-main :movies="trendingShows._results"> </ech-slider-main>
-      <ech-pagination
-        @outbound-to-previous-page="toPrevious"
-        @outbound-to-next-page="toNext"
-      ></ech-pagination>
+      <ech-pagination-by-genres
+        :genre-id="genreId"
+        :genre-name="genreName"
+        :media-type="mediaType"
+      ></ech-pagination-by-genres>
       <ech-friend-networks-nav-bar></ech-friend-networks-nav-bar>
       <h1
         v-if="!genreName"
@@ -65,19 +66,19 @@ import VideoControllerManager from '@/middleware/modules/vue/mixins/VideoControl
 import { FindMoviesByControllerRequest } from '@/middleware/modules/movies/findBy/userapplication/controller/FindMoviesByController'
 import MediaTypes from '@/middleware/modules/domain/MediaTypes'
 import DetailsHeaderManager from '@/middleware/modules/vue/mixins/DetailsHeaderManager'
-import EchPagination from '@/layouts/pagination/EchPagination'
 import EchNetworksNavBar from '~/layouts/networksbar/EchNetworksNavBar'
 import RedirectHomeManager from '@/middleware/modules/vue/mixins/RedirectHomeManager'
 import EchFriendNetworksNavBar from '@/layouts/friendNetworks/EchFriendNetworksNavBar'
+import EchPaginationByGenres from '@/components/movies/EchPaginationByGenres'
 // const _isEmpty = require('lodash.isempty')
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
   name: 'EchMoviesByGenres',
   components: {
+    EchPaginationByGenres,
     EchFriendNetworksNavBar,
     EchNetworksNavBar,
-    EchPagination,
     EchHeaderMain,
     EchSliderMain,
     EchMoviesCard
@@ -87,13 +88,14 @@ export default {
   async asyncData({ app, params, query }) {
     const language = app.i18n.locale
     const page = isNaN(query.page) ? 1 : Number(query.page)
-    const genreId = isNaN(params.genre) ? '' : Number(params.genre)
-    const queryParamsSortedBy = query.sortedBy ?? ''
+    const genreParam = params.genre?.split('-')?.[0] ?? ''
+    const genreId = isNaN(genreParam) ? '' : Number(genreParam)
+    const sortedBy = query.sortedBy ?? ''
     const trendingShows = await beanContainer.findMoviesByController.execute(
       new FindMoviesByControllerRequest({
         genreId,
         language,
-        sortedBy: queryParamsSortedBy,
+        sortedBy,
         page
       })
     )
@@ -104,7 +106,7 @@ export default {
     })
     return {
       trendingShows,
-      queryParamsSortedBy,
+      sortedBy,
       genreId,
       genreName,
       page
@@ -119,40 +121,10 @@ export default {
         _results: []
       },
       mediaType: MediaTypes.movie,
-      pathParams: '',
-      queryParamsSortedBy: '',
-      genres_ids: [],
+      sortedBy: 'popularity.desc',
+      genreId: 0,
       genreName: '',
       page: 1
-    }
-  },
-  methods: {
-    async toPrevious() {
-      const previousPage = this.page > 1 ? this.page - 1 : 1
-      this.trendingShows = await beanContainer.findMoviesByController.execute(
-        new FindMoviesByControllerRequest({
-          genres_ids: this.genres_ids,
-          language: this.$i18n.locale,
-          sortedBy: this.queryParamsSortedBy,
-          page: previousPage
-        })
-      )
-      this.page = previousPage
-    },
-    async toNext() {
-      const nextPage =
-        this.page < this.trendingShows._total_pages
-          ? this.page + 1
-          : this.trendingShows._total_pages
-      this.trendingShows = await beanContainer.findMoviesByController.execute(
-        new FindMoviesByControllerRequest({
-          genres_ids: this.genres_ids,
-          language: this.$i18n.locale,
-          sortedBy: this.queryParamsSortedBy,
-          page: nextPage
-        })
-      )
-      this.page = nextPage
     }
   }
 }

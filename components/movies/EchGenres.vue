@@ -6,9 +6,17 @@
     <div class="uk-flex uk-flex-center uk-flex-wrap uk-flex-around">
       <nuxt-link
         v-for="genre in movie._genres"
-        :key="genre._id"
+        :key="genre.id"
         :todo="genre"
-        :to="getByGenreURL(genre, mediaType)"
+        :to="
+          getByGenreURL({
+            genreId: genre.id,
+            genreName: genre.name,
+            mediaType,
+            language,
+            page: 1
+          })
+        "
         class="uk-link-reset"
         :alt="$t('moreAbout', { name: genre.name })"
         :uk-tooltip="$t('moreAbout', { name: genre.name })"
@@ -24,11 +32,11 @@
   </div>
 </template>
 <script>
-import MediaManager from '@/middleware/modules/vue/mixins/MediaManager'
+import GenresManager from '@/middleware/modules/vue/mixins/GenresManager'
 
 export default {
   name: 'EchGenres',
-  mixins: [MediaManager],
+  mixins: [GenresManager],
   props: {
     movie: {
       type: Object,
@@ -41,6 +49,11 @@ export default {
       default() {
         return ''
       }
+    }
+  },
+  computed: {
+    language() {
+      return this.$i18n.locale
     }
   }
 }
