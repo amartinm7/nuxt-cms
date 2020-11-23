@@ -80,7 +80,7 @@
 <script>
 /* eslint-disable camelcase, no-console */
 import MediaManager from '../../middleware/modules/vue/mixins/MediaManager'
-import LocateManager from '../../middleware/modules/vue/mixins/LocateManager'
+import LocateManager from '../../middleware/modules/vue/mixins/LocaleManager'
 import Utils from '../../middleware/modules/vue/mixins/Utils'
 import EchStarRating from './EchStarRating'
 import EchSocialNetworkCardDetails from '@/components/movies/EchSocialNetworkCardDetails'

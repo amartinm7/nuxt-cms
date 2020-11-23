@@ -14,7 +14,7 @@
 </template>
 <script>
 /* eslint-disable camelcase, no-console */
-import LocateManager from '@/middleware/modules/vue/mixins/LocateManager'
+import LocateManager from '@/middleware/modules/vue/mixins/LocaleManager'
 
 export default {
   name: 'EchProductionCountries',

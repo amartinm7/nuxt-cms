@@ -2,7 +2,7 @@
   <div v-if="networks && networks[0]">
     <span class="uk-text-meta ech-basic"> {{ $t('networks') }}: </span>
     <nuxt-link
-      :to="getTvShowByNetworkURL(networks[0])"
+      :to="getTvShowByNetworkURL2({ network: networks[0], page: 1, language })"
       :alt="$t('premiereWithNetwork', { name: networks[0]._name })"
       :uk-tooltip="$t('premiereWithNetwork', { name: networks[0]._name })"
       class="uk-link-reset ech-basic"
@@ -19,10 +19,11 @@
 <script>
 /* eslint-disable camelcase, no-console */
 import NetworkManager from '@/middleware/modules/vue/mixins/NetworkManager'
+import LocaleManager from '@/middleware/modules/vue/mixins/LocaleManager'
 
 export default {
   name: 'EchNetworkName',
-  mixins: [NetworkManager],
+  mixins: [NetworkManager, LocaleManager],
   props: {
     networks: {
       type: Array,

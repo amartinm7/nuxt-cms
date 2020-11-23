@@ -56,6 +56,9 @@
         :movie-name="movies[0]._name"
       ></ech-slider-posters>
     </section>
+    <section v-if="inNotEmpty(reviews)" class="uk-section uk-section-xsmall">
+      <ech-reviews :reviews="reviews"></ech-reviews>
+    </section>
     <section class="uk-section uk-section-xsmall">
       <ech-disqus></ech-disqus>
     </section>
@@ -93,12 +96,14 @@ import RequestDetailsHeaderManager from '@/middleware/modules/vue/mixins/Request
 import EchNetworksNavBar from '@/layouts/networksbar/EchNetworksNavBar'
 import EchSliderSeasons from '@/components/slider/EchSliderSeasons'
 import Utils from '@/middleware/modules/vue/mixins/Utils'
+import EchReviews from '@/components/movies/EchReviews'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
   name: 'EchTvshowDetails',
   scrollToTop: true,
   components: {
+    EchReviews,
     EchSliderSeasons,
     EchNetworksNavBar,
     EchTvShowCardDetails,

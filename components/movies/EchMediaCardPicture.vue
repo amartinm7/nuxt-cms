@@ -33,7 +33,7 @@
 import { BeanContainerRegistry } from '@/middleware/BeanContainerRegistry'
 import { GetMovieVideosControllerRequest } from '@/middleware/modules/movies/getVideos/userapplication/controller/GetMovieVideosController'
 import MediaTypes from '@/middleware/modules/domain/MediaTypes'
-import LocateManager from '@/middleware/modules/vue/mixins/LocateManager'
+import LocateManager from '@/middleware/modules/vue/mixins/LocaleManager'
 import MediaManager from '@/middleware/modules/vue/mixins/MediaManager'
 import { GetTvShowsVideosControllerRequest } from '@/middleware/modules/tvShows/getVideos/userapplication/controller/GetTvShowsVideosController'
 import ValuesByDefault from '@/middleware/modules/domain/ValuesByDefault'

@@ -24,6 +24,11 @@ export default {
     },
     videos() {
       return this.refillArray(this.movies[0]._videos)
+    },
+    reviews() {
+      if (_isEmpty(this.movies[0]._reviews)) return []
+      return this.movies[0]._reviews
+      // return this.movies[0]._reviews.filter((review) => !!review._content)
     }
   },
   methods: {

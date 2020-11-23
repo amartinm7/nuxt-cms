@@ -21,5 +21,10 @@ export default {
     getLanguageNameFrom(isoCode) {
       return this.getLanguageFrom(isoCode)?.name ?? ''
     }
+  },
+  computed: {
+    language() {
+      return this.$i18n.locale
+    }
   }
 }

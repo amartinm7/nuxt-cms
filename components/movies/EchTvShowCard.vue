@@ -58,7 +58,7 @@
 import EchStarRating from './EchStarRating'
 import MediaManager from '@/middleware/modules/vue/mixins/MediaManager'
 import MediaTypes from '@/middleware/modules/domain/MediaTypes'
-import LocateManager from '@/middleware/modules/vue/mixins/LocateManager'
+import LocateManager from '@/middleware/modules/vue/mixins/LocaleManager'
 import Utils from '@/middleware/modules/vue/mixins/Utils'
 import EchMediaCardPicture from '@/components/movies/EchMediaCardPicture'
 

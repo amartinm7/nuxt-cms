@@ -6,10 +6,11 @@
     <section class="uk-section uk-section-xsmall">
       <ech-networks-nav-bar></ech-networks-nav-bar>
       <ech-slider-main :movies="trendingShows._results"> </ech-slider-main>
-      <ech-pagination
-        @outbound-to-previous-page="toPrevious"
-        @outbound-to-next-page="toNext"
-      ></ech-pagination>
+      <ech-pagination-new
+        :network="network"
+        :page="page"
+        :total-pages="trendingShows._total_results"
+      ></ech-pagination-new>
       <ech-friend-networks-nav-bar></ech-friend-networks-nav-bar>
       <h1
         class="ech-basic uk-text-center uk-text-capitalize uk-heading-large uk-text-bolder uk-text-emphasis uk-hidden@s"
@@ -62,22 +63,22 @@ import VideoControllerManager from '@/middleware/modules/vue/mixins/VideoControl
 import { FindTvShowsByControllerRequest } from '@/middleware/modules/tvShows/findBy/userapplication/controller/FindTvShowsByController'
 import MediaTypes from '@/middleware/modules/domain/MediaTypes'
 import DetailsHeaderManager from '@/middleware/modules/vue/mixins/DetailsHeaderManager'
-import EchPagination from '@/layouts/pagination/EchPagination'
 import MediaManager from '@/middleware/modules/vue/mixins/MediaManager'
 import EchNetworksNavBar from '@/layouts/networksbar/EchNetworksNavBar'
 import Networks from '@/middleware/modules/domain/Networks'
 import NetworkManager from '@/middleware/modules/vue/mixins/NetworkManager'
 import EchNetworkLogo from '@/components/movies/EchNetworkLogo'
 import EchFriendNetworksNavBar from '@/layouts/friendNetworks/EchFriendNetworksNavBar'
+import EchPaginationNew from '@/components/movies/EchPaginationNew'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
   name: 'EchTvShowsByGenres',
   components: {
+    EchPaginationNew,
     EchFriendNetworksNavBar,
     EchNetworkLogo,
     EchNetworksNavBar,
-    EchPagination,
     EchHeaderMain,
     EchSliderMain,
     EchTvShowCard
@@ -128,37 +129,7 @@ export default {
   },
   mounted() {
     this.routeToDefaultNetwork()
-  },
-  methods: {
-    async toPrevious() {
-      const previousPage = this.page > 1 ? this.page - 1 : 1
-      this.trendingShows = await beanContainer.findTvShowsByController.execute(
-        new FindTvShowsByControllerRequest({
-          language: this.$i18n.locale,
-          sortedBy: this.sortedBy,
-          page: previousPage,
-          networkId: this.networkId
-        })
-      )
-      this.page = previousPage
-    },
-    async toNext() {
-      const nextPage =
-        this.page < this.trendingShows._total_pages
-          ? this.page + 1
-          : this.trendingShows._total_pages
-      this.trendingShows = await beanContainer.findTvShowsByController.execute(
-        new FindTvShowsByControllerRequest({
-          language: this.$i18n.locale,
-          sortedBy: this.sortedBy,
-          page: nextPage,
-          networkId: this.networkId
-        })
-      )
-      this.page = nextPage
-    }
   }
 }
-//     this.network = this.$store.getters['network/networkStore/getNetwork']
 </script>
 <style></style>

@@ -29,6 +29,7 @@ import GetSimilarMoviesProvider from '@/middleware/modules/movies/getSimilarMovi
 import GetTvSeasonsProvider from '@/middleware/modules/tvShows/getTvSeasons/GetTvSeasonsProvider'
 import GetRecommendedMoviesProvider from '@/middleware/modules/movies/getRecommendedMovies/GetRecommendedMoviesProvider'
 import GetRecommendedTvShowsProvider from '@/middleware/modules/tvShows/getRecommendedTvShows/GetRecommendedTvShowsProvider'
+import GetReviewsTvShowsProvider from '@/middleware/modules/tvShows/getReviewsTvShows/GetReviewsTvShowsProvider'
 
 const _isEmpty = require('lodash.isempty')
 /* eslint-disable camelcase, no-console, no-new */
@@ -79,6 +80,7 @@ export class BeanContainerRegistry {
     new GetTvSeasonsProvider(this._beanContainer)
     new GetRecommendedMoviesProvider(this._beanContainer)
     new GetRecommendedTvShowsProvider(this._beanContainer)
+    new GetReviewsTvShowsProvider(this._beanContainer)
   }
 
   static _getInstance(theMovieDBConfigToken, axios) {

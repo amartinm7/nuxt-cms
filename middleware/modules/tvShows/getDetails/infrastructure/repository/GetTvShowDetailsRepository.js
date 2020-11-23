@@ -11,6 +11,7 @@ import GetRuntimeHoursResponse from '@/middleware/modules/domain/responses/GetRu
 import GetCreatedByTransformer from '@/middleware/modules/domain/responses/GetCreatedByResponse'
 import GetKeywordsTransformer from '@/middleware/modules/domain/responses/GetKeywordsResponse'
 import { GetProductionCountryTvShowTransformer } from '@/middleware/modules/domain/responses/GetProductionCountryResponse'
+import GetReviewsTransformer from '@/middleware/modules/domain/responses/GetReviewsResponse'
 /* eslint-disable camelcase, no-console */
 class GetTvShowDetailsRepository {
   constructor({ axios, accessToken }) {
@@ -25,7 +26,7 @@ class GetTvShowDetailsRepository {
    */
   execute(getTvShowDetailsRepositoryRequest) {
     const { movie_id, language } = { ...getTvShowDetailsRepositoryRequest }
-    const urlPath = `/tv/${movie_id}?language=${language}&append_to_response=videos,images,credits,keywords`
+    const urlPath = `/tv/${movie_id}?language=${language}&append_to_response=videos,images,credits,keywords,reviews`
     console.log(urlPath)
     return this._axios(
       new GetAxiosRequest({
@@ -86,7 +87,8 @@ class GetTvShowDetailsRepositoryResponse {
     networks,
     keywords,
     production_companies,
-    created_by
+    created_by,
+    reviews
   }) {
     this._error = error
     this._adult = adult
@@ -127,6 +129,8 @@ class GetTvShowDetailsRepositoryResponse {
     this._origin_country = GetProductionCountryTvShowTransformer.transform(
       origin_country
     )
+    console.log(JSON.stringify(reviews))
+    this._reviews = GetReviewsTransformer.transform(reviews)
   }
 
   _getRuntimeByHours() {

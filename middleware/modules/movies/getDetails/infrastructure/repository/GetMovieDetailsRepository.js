@@ -7,6 +7,7 @@ import GetCreditCastsTransformer from '@/middleware/modules/domain/responses/Get
 import GetCreditCrewTransformer from '@/middleware/modules/domain/responses/GetCreditCrewResponse'
 import GetKeywordsTransformer from '@/middleware/modules/domain/responses/GetKeywordsResponse'
 import { GetProductionCountryMoviesTransformer } from '@/middleware/modules/domain/responses/GetProductionCountryResponse'
+import GetReviewsTransformer from '@/middleware/modules/domain/responses/GetReviewsResponse'
 /* eslint-disable camelcase, no-console */
 class GetMovieDetailsRepository {
   constructor({ axios, accessToken }) {
@@ -21,7 +22,7 @@ class GetMovieDetailsRepository {
    */
   execute(getMovieDetailsRepositoryRequest) {
     const { movie_id, language } = { ...getMovieDetailsRepositoryRequest }
-    const urlPath = `/movie/${movie_id}?language=${language}&append_to_response=videos,images,credits,keywords`
+    const urlPath = `/movie/${movie_id}?language=${language}&append_to_response=videos,images,credits,keywords,reviews`
     console.log(urlPath)
     return this._axios(
       new GetAxiosRequest({
@@ -76,7 +77,8 @@ class GetMovieDetailsRepositoryResponse {
     tagline,
     budget,
     revenue,
-    production_countries
+    production_countries,
+    reviews
   }) {
     this._error = error
     this._media_type = MediaTypes.movie
@@ -111,6 +113,7 @@ class GetMovieDetailsRepositoryResponse {
     this._production_countries = GetProductionCountryMoviesTransformer.transform(
       production_countries
     )
+    this._reviews = GetReviewsTransformer.transform(reviews)
   }
 
   _getRuntimeByHours() {
