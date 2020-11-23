@@ -9,7 +9,7 @@
       <ech-pagination-by-network
         :network="network"
         :page="page"
-        :total-pages="trendingShows._total_results"
+        :total-pages="trendingShows._total_pages"
       ></ech-pagination-by-network>
       <ech-friend-networks-nav-bar></ech-friend-networks-nav-bar>
       <h1

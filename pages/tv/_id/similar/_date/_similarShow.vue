@@ -6,10 +6,12 @@
     <section class="uk-section uk-section-xsmall">
       <ech-networks-nav-bar></ech-networks-nav-bar>
       <ech-slider-main :movies="trendingShows._results"> </ech-slider-main>
-      <ech-pagination
-        @outbound-to-previous-page="toPrevious"
-        @outbound-to-next-page="toNext"
-      ></ech-pagination>
+      <ech-pagination-by-similar
+        :movie-id="showId"
+        :page="page"
+        :media-type="mediaType"
+        :total-pages="trendingShows._total_pages"
+      ></ech-pagination-by-similar>
       <ech-friend-networks-nav-bar></ech-friend-networks-nav-bar>
       <h1
         class="ech-basic uk-text-center uk-text-capitalize uk-heading-large uk-text-bolder uk-text-emphasis uk-hidden@s"
@@ -60,11 +62,13 @@ import { GetSimilarShowsControllerRequest } from '@/middleware/modules/tvShows/g
 import EchNetworksNavBar from '@/layouts/networksbar/EchNetworksNavBar'
 import RedirectHomeManager from '@/middleware/modules/vue/mixins/RedirectHomeManager'
 import EchFriendNetworksNavBar from '@/layouts/friendNetworks/EchFriendNetworksNavBar'
+import EchPaginationBySimilar from "@/components/movies/EchPaginationBySimilar";
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
   name: 'EchTvSimilarTvShows',
   components: {
+    EchPaginationBySimilar,
     EchFriendNetworksNavBar,
     EchNetworksNavBar,
     EchPagination,
@@ -101,33 +105,6 @@ export default {
       mediaType: MediaTypes.tv,
       page: 1,
       showId: 76479
-    }
-  },
-  methods: {
-    async toPrevious() {
-      const previousPage = this.page > 1 ? this.page - 1 : 1
-      this.trendingShows = await beanContainer.getSimilarShowsController.execute(
-        new GetSimilarShowsControllerRequest({
-          language: this.$i18n.locale,
-          page: previousPage,
-          showId: this.showId
-        })
-      )
-      this.page = previousPage
-    },
-    async toNext() {
-      const nextPage =
-        this.page < this.trendingShows._total_pages
-          ? this.page + 1
-          : this.trendingShows._total_pages
-      this.trendingShows = await beanContainer.getSimilarShowsController.execute(
-        new GetSimilarShowsControllerRequest({
-          language: this.$i18n.locale,
-          page: nextPage,
-          showId: this.showId
-        })
-      )
-      this.page = nextPage
     }
   }
 }

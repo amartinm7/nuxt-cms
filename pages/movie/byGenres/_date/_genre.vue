@@ -10,6 +10,7 @@
         :genre-id="genreId"
         :genre-name="genreName"
         :media-type="mediaType"
+        :total-pages="trendingShows._total_pages"
       ></ech-pagination-by-genres>
       <ech-friend-networks-nav-bar></ech-friend-networks-nav-bar>
       <h1

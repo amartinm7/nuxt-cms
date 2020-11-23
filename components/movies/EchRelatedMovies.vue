@@ -1,7 +1,7 @@
 <template>
   <div class="uk-text-meta uk-text-center ech-basic">
     <nuxt-link
-      :to="getRelatedShowsURL({ id: movieId, mediaType })"
+      :to="getRelatedShowsURL({ id: movieId, mediaType, language, page })"
       class="uk-link-reset"
       :alt="label"
       :uk-tooltip="label"
@@ -39,6 +39,17 @@ export default {
       default() {
         return 'series'
       }
+    },
+    page: {
+      type: Number,
+      default() {
+        return 1
+      }
+    }
+  },
+  computed: {
+    language() {
+      return this.$i18n.locale
     }
   }
 }
