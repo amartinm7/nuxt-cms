@@ -148,7 +148,14 @@
                           <nuxt-link
                             v-for="(keyMessage, i) in showMenuListForTvShows"
                             :key="i"
-                            :to="getTopListlURL(keyMessage, mediaTypes.tv)"
+                            :to="
+                              getTrendingURL({
+                                actionNameIndex: keyMessage,
+                                mediaType: mediaTypes.tv,
+                                language,
+                                page: 1
+                              })
+                            "
                             class="uk-link-reset"
                           >
                             <li>
@@ -157,7 +164,11 @@
                                 uk-icon="icon: play; "
                               ></span
                               >{{
-                                translateKeyMessage(keyMessage, mediaTypes.tv)
+                                translateKeyMessage({
+                                  actionNameIndex: keyMessage,
+                                  mediaType: mediaTypes.tv,
+                                  language
+                                })
                               }}
                             </li>
                           </nuxt-link>
@@ -173,7 +184,14 @@
                           <nuxt-link
                             v-for="(keyMessage, i) in showMenuListForMovies"
                             :key="i"
-                            :to="getTopListlURL(keyMessage, mediaTypes.movie)"
+                            :to="
+                              getTrendingURL({
+                                actionNameIndex: keyMessage,
+                                mediaType: mediaTypes.movie,
+                                language,
+                                page: 1
+                              })
+                            "
                             class="uk-link-reset"
                           >
                             <li>
@@ -182,10 +200,11 @@
                                 uk-icon="icon: play; "
                               ></span
                               >{{
-                                translateKeyMessage(
-                                  keyMessage,
-                                  mediaTypes.movie
-                                )
+                                translateKeyMessage({
+                                  actionNameIndex: keyMessage,
+                                  mediaType: mediaTypes.movie,
+                                  language
+                                })
                               }}
                             </li>
                           </nuxt-link>
@@ -399,7 +418,14 @@
                             <nuxt-link
                               v-for="(keyMessage, i) in showMenuListForMovies"
                               :key="i"
-                              :to="getTopListlURL(keyMessage, mediaTypes.movie)"
+                              :to="
+                                getTrendingURL({
+                                  actionNameIndex: keyMessage,
+                                  mediaType: mediaTypes.movie,
+                                  language,
+                                  page: 1
+                                })
+                              "
                               class="uk-link-reset"
                             >
                               <li>
@@ -408,10 +434,11 @@
                                   uk-icon="icon: video-camera; "
                                 ></span
                                 >{{
-                                  translateKeyMessage(
-                                    keyMessage,
-                                    mediaTypes.movie
-                                  )
+                                  translateKeyMessage({
+                                    actionNameIndex: keyMessage,
+                                    mediaType: mediaTypes.movie,
+                                    language
+                                  })
                                 }}
                               </li>
                             </nuxt-link>
@@ -445,7 +472,14 @@
                             <nuxt-link
                               v-for="(keyMessage, i) in showMenuListForTvShows"
                               :key="i"
-                              :to="getTopListlURL(keyMessage, mediaTypes.tv)"
+                              :to="
+                                getTrendingURL({
+                                  actionNameIndex: keyMessage,
+                                  mediaType: mediaTypes.tv,
+                                  language,
+                                  page: 1
+                                })
+                              "
                               class="uk-link-reset"
                             >
                               <li>
@@ -454,7 +488,11 @@
                                   uk-icon="icon: tv; "
                                 ></span
                                 >{{
-                                  translateKeyMessage(keyMessage, mediaTypes.tv)
+                                  translateKeyMessage({
+                                    actionNameIndex: keyMessage,
+                                    mediaType: mediaTypes.tv,
+                                    language
+                                  })
                                 }}
                               </li>
                             </nuxt-link>
@@ -546,19 +584,22 @@ import EchFiltersBy from '../filter/EchFiltersBy'
 import EchSortedBy from '../filter/EchSortedBy'
 import MediaTypes from '@/middleware/modules/domain/MediaTypes'
 import ActionMapper from '@/middleware/ActionMapper'
-import Slugger from '@/middleware/framework/modules/slugger/Slugger'
 import UpcomingManager from '@/middleware/modules/vue/mixins/UpcomingManager'
+import TrendingManager from '@/middleware/modules/vue/mixins/TrendingManager'
 
 export default {
   name: 'EchNavbarMainNew',
   components: { EchSortedBy, EchFiltersBy },
-  mixins: [UpcomingManager],
+  mixins: [UpcomingManager, TrendingManager],
   data() {
     return {
       searchQuery: ''
     }
   },
   computed: {
+    language() {
+      return this.$i18n.locale
+    },
     mediaTypes() {
       return MediaTypes
     },
@@ -575,12 +616,6 @@ export default {
     }
   },
   methods: {
-    getTopListlURL(actionNameIndex, mediaType) {
-      const actionName = this.translateKeyMessage(actionNameIndex, mediaType)
-      const sluggifyActionName = Slugger.sluggify([actionNameIndex, actionName])
-      const language = this.$i18n.locale
-      return `/${language}/${mediaType}/trends/${Date.now()}/${sluggifyActionName}/`
-    },
     doSearch() {
       const language = this.$i18n.locale
       this.$router.push({

@@ -9,6 +9,6 @@ export default (mediaType) => ({
       mediaType,
       action
     }).execute({ language, page: currentPage })
-    return { trendingShows, action, page: currentPage, actionNameIndex: action }
+    return { trendingShows, page: currentPage, actionNameIndex: action }
   }
 })

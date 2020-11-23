@@ -30,7 +30,6 @@
 import PaginationManager from '@/middleware/modules/vue/mixins/PaginationManager'
 import LocaleManager from '@/middleware/modules/vue/mixins/LocaleManager'
 import TrendingManager from '@/middleware/modules/vue/mixins/TrendingManager'
-import MediaTypes from '@/middleware/modules/domain/MediaTypes'
 
 export default {
   name: 'EchPaginationByTrending',
@@ -45,7 +44,7 @@ export default {
     mediaType: {
       type: String,
       default() {
-        return MediaTypes.tv
+        return ''
       }
     }
   }

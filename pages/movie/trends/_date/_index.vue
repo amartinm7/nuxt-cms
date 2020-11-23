@@ -6,10 +6,12 @@
     <section class="uk-section uk-section-xsmall">
       <ech-networks-nav-bar></ech-networks-nav-bar>
       <ech-slider-main :movies="trendingShows._results"> </ech-slider-main>
-      <ech-pagination
-        @outbound-to-previous-page="toPrevious"
-        @outbound-to-next-page="toNext"
-      ></ech-pagination>
+      <ech-pagination-by-trending
+        :action-name-index="actionNameIndex"
+        :media-type="mediaType"
+        :page="page"
+        :total-pages="trendingShows._total_results"
+      ></ech-pagination-by-trending>
       <ech-friend-networks-nav-bar></ech-friend-networks-nav-bar>
       <h1
         class="ech-basic uk-text-center uk-text-capitalize uk-heading-large uk-text-bolder uk-text-emphasis uk-hidden@s"
@@ -54,18 +56,19 @@ import VideoControllerManager from '@/middleware/modules/vue/mixins/VideoControl
 import UpcomingManager from '@/middleware/modules/vue/mixins/UpcomingManager'
 import MediaTypes from '@/middleware/modules/domain/MediaTypes'
 import DetailsHeaderManager from '@/middleware/modules/vue/mixins/DetailsHeaderManager'
-import EchPagination from '@/layouts/pagination/EchPagination'
 import PaginationForTrendingManager from '@/middleware/modules/vue/mixins/PaginationForTrendingManager'
 import EchNetworksNavBar from '@/layouts/networksbar/EchNetworksNavBar'
 import RedirectHomeManager from '@/middleware/modules/vue/mixins/RedirectHomeManager'
 import EchFriendNetworksNavBar from '@/layouts/friendNetworks/EchFriendNetworksNavBar'
+import TrendingManager from '@/middleware/modules/vue/mixins/TrendingManager'
+import EchPaginationByTrending from '@/components/movies/EchPaginationByTranding'
 
 export default {
   name: 'EchMoviesUpcoming',
   components: {
+    EchPaginationByTrending,
     EchFriendNetworksNavBar,
     EchNetworksNavBar,
-    EchPagination,
     EchHeaderMain,
     EchSliderMain,
     EchMoviesCard
@@ -75,7 +78,8 @@ export default {
     UpcomingManager,
     DetailsHeaderManager,
     PaginationForTrendingManager(MediaTypes.movie),
-    RedirectHomeManager
+    RedirectHomeManager,
+    TrendingManager
   ],
   data() {
     return {
@@ -85,8 +89,8 @@ export default {
         _total_results: 1,
         _results: []
       },
+      actionNameIndex: '',
       mediaType: MediaTypes.movie,
-      action: '',
       page: 1
     }
   }

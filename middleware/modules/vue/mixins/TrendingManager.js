@@ -17,7 +17,7 @@ export default {
       const actionName = ActionMapper.getActionCodes()?.[mediaType]?.[
         actionNameIndex
       ]
-      return this.$i18n.messages[language].pages?.[mediaType]?.[actionName]
+      return this.$i18n.messages[language]?.pages?.[mediaType]?.[actionName]
     }
   }
 }
