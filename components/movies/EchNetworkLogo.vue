@@ -1,6 +1,9 @@
 <template>
   <div>
-    <nuxt-link :to="getTvShowByNetworkURL(network)" class="uk-link-reset">
+    <nuxt-link
+      :to="getTvShowByNetworkURL({ network, page: 1, language })"
+      class="uk-link-reset"
+    >
       <span>
         <img
           class="uk-align-center ech-basic"
@@ -25,6 +28,11 @@ export default {
       default() {
         return {}
       }
+    }
+  },
+  computed: {
+    language() {
+      return this.$i18n.locale
     }
   }
 }

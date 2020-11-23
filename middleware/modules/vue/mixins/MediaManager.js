@@ -15,12 +15,6 @@ export default {
       const slugger = Slugger.sluggify([movie_title])
       return `/${language}/${mediaType}/${movie_id}-${slugger}`
     },
-    getByGenreURL(genre, mediaType) {
-      const language = this.$i18n.locale
-      return `/${language}/${mediaType}/bygenres/${Date.now()}/${
-        genre.id
-      }/?sortedBy=popularity.desc`
-    },
     getVideoURLFrom(key) {
       const url = `https://www.youtube.com/embed/${key}?autoplay=1&amp;showinfo=0&amp;rel=0&amp;modestbranding=1&amp;playsinline=1`
       return url
