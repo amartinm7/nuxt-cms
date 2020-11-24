@@ -86,7 +86,7 @@
             class="uk-margin-medium-top"
           ></ech-networks-logo>
           <ech-related-movies
-            :movie-id="movie._id"
+            :movie="movie"
             :media-type="mediaType"
             :label="$t('moreRelatedTvShows')"
             class="uk-margin-medium-top"

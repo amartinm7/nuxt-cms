@@ -7,7 +7,7 @@
         :uk-tooltip="$t('previousResults')"
         :to="
           getRelatedShowsURL({
-            id: movieId,
+            movie: movie,
             mediaType,
             page: toPrevious,
             language
@@ -21,7 +21,7 @@
         :uk-tooltip="$t('nextResults')"
         :to="
           getRelatedShowsURL({
-            id: movieId,
+            movie: movie,
             mediaType,
             page: toNext,
             language
@@ -40,10 +40,10 @@ export default {
   name: 'EchPaginationBySimilar',
   mixins: [SimilarShowsManager, PaginationManager],
   props: {
-    movieId: {
-      type: Number,
+    movie: {
+      type: Object,
       default() {
-        return 0
+        return {}
       }
     },
     mediaType: {

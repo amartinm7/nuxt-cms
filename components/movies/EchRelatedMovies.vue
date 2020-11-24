@@ -1,7 +1,7 @@
 <template>
   <div class="uk-text-meta uk-text-center ech-basic">
     <nuxt-link
-      :to="getRelatedShowsURL({ id: movieId, mediaType, language, page })"
+      :to="getRelatedShowsURL({ movie, mediaType, language, page })"
       class="uk-link-reset"
       :alt="label"
       :uk-tooltip="label"
@@ -22,10 +22,10 @@ export default {
   name: 'EchRelatedMovies',
   mixins: [SimilarShowsManager],
   props: {
-    movieId: {
-      type: Number,
+    movie: {
+      type: Object,
       default() {
-        return 0
+        return {}
       }
     },
     mediaType: {

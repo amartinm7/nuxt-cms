@@ -81,7 +81,7 @@
             class="uk-margin-medium-top"
           ></ech-genres>
           <ech-related-movies
-            :movie-id="movie._id"
+            :movie="movie"
             :media-type="mediaType"
             :label="$t('moreRelatedMovies')"
             class="uk-margin-medium-top"

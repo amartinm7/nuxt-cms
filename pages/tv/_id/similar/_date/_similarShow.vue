@@ -7,7 +7,7 @@
       <ech-networks-nav-bar></ech-networks-nav-bar>
       <ech-slider-main :movies="trendingShows._results"> </ech-slider-main>
       <ech-pagination-by-similar
-        :movie-id="showId"
+        :movie="movie"
         :page="page"
         :media-type="mediaType"
         :total-pages="trendingShows._total_pages"
@@ -62,6 +62,7 @@ import EchNetworksNavBar from '@/layouts/networksbar/EchNetworksNavBar'
 import RedirectHomeManager from '@/middleware/modules/vue/mixins/RedirectHomeManager'
 import EchFriendNetworksNavBar from '@/layouts/friendNetworks/EchFriendNetworksNavBar'
 import EchPaginationBySimilar from '@/components/movies/EchPaginationBySimilar'
+import GetIdNameFromPathParam from '@/middleware/framework/modules/requestParams/GetIdNameFromPathParam'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
@@ -80,17 +81,20 @@ export default {
     console.log('getSimilarShowsController')
     const language = app.i18n.locale
     const page = isNaN(query.page) ? 1 : Number(query.page)
-    const showId = isNaN(params.similarShow)
-      ? 76479
-      : Number(params.similarShow)
+    const { _id, _name } = GetIdNameFromPathParam.parse({
+      pathParam: params.id,
+      defaultParam: 76479
+    })
+    const movie_name = _name
+    const movie_id = _id
     const trendingShows = await beanContainer.getSimilarShowsController.execute(
       new GetSimilarShowsControllerRequest({
         language,
         page,
-        showId
+        showId: movie_id
       })
     )
-    return { trendingShows, page, showId }
+    return { trendingShows, page, movie: { _id: movie_id, _name: movie_name } }
   },
   data() {
     return {
@@ -102,7 +106,7 @@ export default {
       },
       mediaType: MediaTypes.tv,
       page: 1,
-      showId: 76479
+      movie: {}
     }
   }
 }
