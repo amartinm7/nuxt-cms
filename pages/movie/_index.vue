@@ -29,7 +29,10 @@
         :movie-name="movies[0]._title"
       ></ech-slider-people>
     </section>
-    <section v-if="inNotEmpty(videos)" class="uk-section uk-section-xsmall">
+    <section
+      v-if="false && inNotEmpty(videos)"
+      class="uk-section uk-section-xsmall"
+    >
       <ech-slider-videos
         :videos="videos"
         :poster-path="movies[0]._poster_path"
@@ -38,11 +41,17 @@
         @outbound-open-video-modal="playVideo"
       ></ech-slider-videos>
     </section>
-    <section v-if="inNotEmpty(posters)" class="uk-section uk-section-xsmall">
+    <section
+      v-if="false && inNotEmpty(posters)"
+      class="uk-section uk-section-xsmall"
+    >
       <ech-slider-posters
         :posters="posters"
         :movie-name="movies[0]._title"
       ></ech-slider-posters>
+    </section>
+    <section v-if="inNotEmpty(reviews)" class="uk-section uk-section-xsmall">
+      <ech-reviews :reviews="reviews"></ech-reviews>
     </section>
     <section class="uk-section uk-section-xsmall">
       <ech-disqus class="uk-margin-medium-top"></ech-disqus>
@@ -80,12 +89,14 @@ import DetailsHeaderManager from '@/middleware/modules/vue/mixins/DetailsHeaderM
 import RequestDetailsHeaderManager from '@/middleware/modules/vue/mixins/RequestDetailsHeaderManager'
 import EchNetworksNavBar from '@/layouts/networksbar/EchNetworksNavBar'
 import Utils from '@/middleware/modules/vue/mixins/Utils'
+import EchReviews from '@/components/movies/EchReviews'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
   name: 'EchMoviesDetails',
   scrollToTop: true,
   components: {
+    EchReviews,
     EchNetworksNavBar,
     EchMoviesCardDetail,
     EchSliderVideos,
@@ -108,10 +119,6 @@ export default {
       new GetMovieDetailsControllerRequest({ movie_id, language })
     )
     if (getMovieDetailsControllerResponse._error) {
-      console.log(app)
-      console.log(route)
-      console.log(params)
-      console.log(context)
       app.router.push('/') // fallback volver a main page
       return
     }

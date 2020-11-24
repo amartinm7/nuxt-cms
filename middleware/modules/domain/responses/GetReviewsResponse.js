@@ -5,7 +5,7 @@ class GetReviewAuthorDetailsResponse {
     this._name = name
     this._username = username
     this._avatar_path = avatar_path
-    this._rating = rating
+    this._rating = rating ?? 5
   }
 }
 

@@ -11,7 +11,7 @@
       :read-only="rating['read-only']"
       class="uk-flex uk-flex-center ech-basic"
       @rating-selected="setRating"
-      @current-rating="setCurrentRating($event, 'dsfdsfd')"
+      @current-rating="setCurrentRating($event, '5')"
     >
     </star-rating>
   </div>
@@ -33,6 +33,12 @@ export default {
       default() {
         return 0
       }
+    },
+    starSize: {
+      type: Number,
+      default() {
+        return 35
+      }
     }
   },
   data() {
@@ -44,7 +50,7 @@ export default {
         'max-rating': 5,
         'read-only': true,
         'inactive-char': '',
-        'star-size': 35,
+        'star-size': this.starSize,
         'show-rating': false
       }
     }

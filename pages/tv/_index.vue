@@ -41,7 +41,10 @@
         :movie-name="movies[0]._name"
       ></ech-slider-seasons>
     </section>
-    <section v-if="inNotEmpty(videos)" class="uk-section uk-section-xsmall">
+    <section
+      v-if="false && inNotEmpty(videos)"
+      class="uk-section uk-section-xsmall"
+    >
       <ech-slider-videos
         :videos="videos"
         :poster-path="movies[0]._poster_path"
@@ -50,7 +53,10 @@
         @outbound-open-video-modal="playVideo"
       ></ech-slider-videos>
     </section>
-    <section v-if="inNotEmpty(posters)" class="uk-section uk-section-xsmall">
+    <section
+      v-if="false && inNotEmpty(posters)"
+      class="uk-section uk-section-xsmall"
+    >
       <ech-slider-posters
         :posters="posters"
         :movie-name="movies[0]._name"

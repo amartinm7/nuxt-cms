@@ -123,5 +123,6 @@ export default {
   seasonsBy: 'Temporadas de {name}',
   videosBy: 'Videos de {name}',
   recommendedMovies: 'Películas Recomendadas',
-  recommendedTvShows: 'Series Recomendadas'
+  recommendedTvShows: 'Series Recomendadas',
+  reviewBy: '{name} dice:'
 }
