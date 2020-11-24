@@ -1,7 +1,7 @@
 <template>
   <div class="uk-text-meta uk-text-center ech-basic">
     <nuxt-link
-      :to="getRecommendedMoviesURL({ id: movieId, mediaType })"
+      :to="getRecommendedMoviesURL({ movie, mediaType, language, page: 1 })"
       class="uk-link-reset"
       :alt="$t(label)"
       :uk-tooltip="$t(label)"
@@ -22,10 +22,10 @@ export default {
   name: 'EchRecommendedMovies',
   mixins: [RecommendedMoviesManager],
   props: {
-    movieId: {
-      type: Number,
+    movie: {
+      type: Object,
       default() {
-        return 0
+        return {}
       }
     },
     mediaType: {
@@ -39,6 +39,11 @@ export default {
       default() {
         return ''
       }
+    }
+  },
+  computed: {
+    language() {
+      return this.$i18n.locale
     }
   }
 }

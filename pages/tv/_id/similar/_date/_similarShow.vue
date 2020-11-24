@@ -57,12 +57,11 @@ import EchTvShowCard from '@/components/movies/EchTvShowCard'
 import VideoControllerManager from '@/middleware/modules/vue/mixins/VideoControllerManager'
 import MediaTypes from '@/middleware/modules/domain/MediaTypes'
 import DetailsHeaderManager from '@/middleware/modules/vue/mixins/DetailsHeaderManager'
-import EchPagination from '@/layouts/pagination/EchPagination'
 import { GetSimilarShowsControllerRequest } from '@/middleware/modules/tvShows/getSimilarShows/userapplication/controller/GetSimilarShowsController'
 import EchNetworksNavBar from '@/layouts/networksbar/EchNetworksNavBar'
 import RedirectHomeManager from '@/middleware/modules/vue/mixins/RedirectHomeManager'
 import EchFriendNetworksNavBar from '@/layouts/friendNetworks/EchFriendNetworksNavBar'
-import EchPaginationBySimilar from "@/components/movies/EchPaginationBySimilar";
+import EchPaginationBySimilar from '@/components/movies/EchPaginationBySimilar'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
@@ -71,7 +70,6 @@ export default {
     EchPaginationBySimilar,
     EchFriendNetworksNavBar,
     EchNetworksNavBar,
-    EchPagination,
     EchHeaderMain,
     EchSliderMain,
     EchTvShowCard

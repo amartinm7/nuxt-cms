@@ -6,10 +6,12 @@
     <section class="uk-section uk-section-xsmall">
       <ech-networks-nav-bar></ech-networks-nav-bar>
       <ech-slider-main :movies="trendingShows._results"> </ech-slider-main>
-      <ech-pagination
-        @outbound-to-previous-page="toPrevious"
-        @outbound-to-next-page="toNext"
-      ></ech-pagination>
+      <ech-pagination-by-recommended
+        :movie="movie"
+        :page="page"
+        :media-type="mediaType"
+        :total-pages="trendingShows._total_pages"
+      ></ech-pagination-by-recommended>
       <ech-friend-networks-nav-bar></ech-friend-networks-nav-bar>
       <h1
         class="ech-basic uk-text-center uk-text-capitalize uk-heading-large uk-text-bolder uk-text-emphasis uk-hidden@s"
@@ -54,21 +56,22 @@ import EchSliderMain from '@/components/slider/EchSliderMain'
 import VideoControllerManager from '@/middleware/modules/vue/mixins/VideoControllerManager'
 import MediaTypes from '@/middleware/modules/domain/MediaTypes'
 import DetailsHeaderManager from '@/middleware/modules/vue/mixins/DetailsHeaderManager'
-import EchPagination from '@/layouts/pagination/EchPagination'
 import EchNetworksNavBar from '@/layouts/networksbar/EchNetworksNavBar'
 import RedirectHomeManager from '@/middleware/modules/vue/mixins/RedirectHomeManager'
 import EchFriendNetworksNavBar from '@/layouts/friendNetworks/EchFriendNetworksNavBar'
 import { GetRecommendedTvShowsControllerRequest } from '@/middleware/modules/tvShows/getRecommendedTvShows/userapplication/controller/GetRecommendedTvShowsController'
 import EchTvShowCard from '@/components/movies/EchTvShowCard'
+import EchPaginationByRecommended from '@/components/movies/EchPaginationByRecommendation'
+import GetIdNameFromPathParam from '@/middleware/framework/modules/requestParams/GetIdNameFromPathParam'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
   name: 'EchTvRecommendedShow',
   components: {
+    EchPaginationByRecommended,
     EchTvShowCard,
     EchFriendNetworksNavBar,
     EchNetworksNavBar,
-    EchPagination,
     EchHeaderMain,
     EchSliderMain
   },
@@ -77,9 +80,12 @@ export default {
   async asyncData({ app, params, query, route }) {
     const language = app.i18n.locale
     const page = isNaN(query.page) ? 1 : Number(query.page)
-    const movie_id = isNaN(params.recommendedShow)
-      ? 76479
-      : Number(params.recommendedShow)
+    const { _id, _name } = GetIdNameFromPathParam.parse({
+      pathParam: params.id,
+      defaultParam: 76479
+    })
+    const movie_name = _name
+    const movie_id = _id
     const trendingShows = await beanContainer.getRecommendedTvShowsController.execute(
       new GetRecommendedTvShowsControllerRequest({
         language,
@@ -87,7 +93,7 @@ export default {
         movie_id
       })
     )
-    return { trendingShows, page, movie_id }
+    return { trendingShows, page, movie: { _id: movie_id, _name: movie_name } }
   },
   data() {
     return {
@@ -99,34 +105,7 @@ export default {
       },
       mediaType: MediaTypes.tv,
       page: 1,
-      movie_id: '76479'
-    }
-  },
-  methods: {
-    async toPrevious() {
-      const previousPage = this.page > 1 ? this.page - 1 : 1
-      this.trendingShows = await beanContainer.getRecommendedTvShowsController.execute(
-        new GetRecommendedTvShowsControllerRequest({
-          language: this.$i18n.locale,
-          page: previousPage,
-          movie_id: this.movie_id
-        })
-      )
-      this.page = previousPage
-    },
-    async toNext() {
-      const nextPage =
-        this.page < this.trendingShows._total_pages
-          ? this.page + 1
-          : this.trendingShows._total_pages
-      this.trendingShows = await beanContainer.getRecommendedTvShowsController.execute(
-        new GetRecommendedTvShowsControllerRequest({
-          language: this.$i18n.locale,
-          page: nextPage,
-          movie_id: this.movie_id
-        })
-      )
-      this.page = nextPage
+      movie: {}
     }
   }
 }

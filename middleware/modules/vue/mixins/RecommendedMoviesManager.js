@@ -1,8 +1,13 @@
+import Slugger from '@/middleware/framework/modules/slugger/Slugger'
+
 export default {
   methods: {
-    getRecommendedMoviesURL({ id, mediaType }) {
-      const language = this.$i18n.locale
-      return `/${language}/${mediaType}/${id}/recommended/${Date.now()}?page=1`
+    getRecommendedMoviesURL({ movie, mediaType, language, page }) {
+      const title = movie._name ?? movie._title ?? ''
+      const slugger = Slugger.sluggify(title.split('-'))
+      return `/${language}/${mediaType}/${
+        movie._id
+      }-${slugger}/recommended/${Date.now()}?page=${page}`
     }
   }
 }

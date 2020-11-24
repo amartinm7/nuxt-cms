@@ -92,7 +92,7 @@
             class="uk-margin-medium-top"
           ></ech-related-movies>
           <ech-recommended-movies
-            :movie-id="movie._id"
+            :movie="movie"
             label="recommendedTvShows"
             :media-type="mediaType"
             class="uk-margin-medium-top"
