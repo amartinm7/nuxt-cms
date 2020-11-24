@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1
-      class="ech-basic uk-text-center uk-text-capitalize uk-heading-large uk-text-bolder uk-text-emphasis uk-hidden@s"
+      class="ech-basic uk-text-center uk-heading-small uk-text-bolder uk-text-emphasis uk-hidden@s"
     >
       {{ people._name }}
     </h1>

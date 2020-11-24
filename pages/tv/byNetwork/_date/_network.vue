@@ -13,7 +13,7 @@
       ></ech-pagination-by-network>
       <ech-friend-networks-nav-bar></ech-friend-networks-nav-bar>
       <h1
-        class="ech-basic uk-text-center uk-text-capitalize uk-heading-large uk-text-bolder uk-text-emphasis uk-hidden@s"
+        class="ech-basic uk-text-center uk-heading-small uk-text-bolder uk-text-emphasis uk-hidden@s"
       >
         {{ $t('premiereWithNetwork', { name: network._name }) }}
       </h1>
@@ -109,7 +109,7 @@ export default {
     const networkStatic = Networks.getNetWorkBy(networkId)
     const network = networkStatic?._id ? networkStatic : networkStore
     console.log('network...' + JSON.stringify(network))
-    return { trendingShows, page, networkId, network }
+    return { trendingShows, page, networkId, network, language }
   },
   data() {
     return {
@@ -124,7 +124,8 @@ export default {
       sortedBy: 'popularity.desc',
       page: 1,
       networkId: '',
-      network: {}
+      network: {},
+      language: 'es'
     }
   },
   mounted() {

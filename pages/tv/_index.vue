@@ -134,7 +134,8 @@ export default {
       ...getTvShowDetailsControllerResponse
     }
     return {
-      movies: [movie]
+      movies: [movie],
+      language
     }
   },
   data() {
@@ -142,7 +143,8 @@ export default {
       movies: [],
       movie_name: '',
       movie_id: 0,
-      mediaType: MediaTypes.tv
+      mediaType: MediaTypes.tv,
+      language: 'es'
     }
   }
 }

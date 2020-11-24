@@ -14,12 +14,12 @@
       ></ech-pagination-by-trending>
       <ech-friend-networks-nav-bar></ech-friend-networks-nav-bar>
       <h1
-        class="ech-basic uk-text-center uk-text-capitalize uk-heading-large uk-text-bolder uk-text-emphasis uk-hidden@s"
+        class="ech-basic uk-text-center uk-heading-small uk-text-bolder uk-text-emphasis uk-hidden@s"
       >
-        {{ getSection(mediaType) }}
+        {{ getSection({ mediaType, language }) }}
       </h1>
       <h1 class="ech-basic uk-text-center uk-visible@s">
-        {{ getSection(mediaType) }}
+        {{ getSection({ mediaType, language }) }}
       </h1>
     </section>
     <section class="uk-section uk-section-xsmall">
@@ -60,8 +60,7 @@ import PaginationForTrendingManager from '@/middleware/modules/vue/mixins/Pagina
 import EchNetworksNavBar from '@/layouts/networksbar/EchNetworksNavBar'
 import RedirectHomeManager from '@/middleware/modules/vue/mixins/RedirectHomeManager'
 import EchFriendNetworksNavBar from '@/layouts/friendNetworks/EchFriendNetworksNavBar'
-import TrendingManager from '@/middleware/modules/vue/mixins/TrendingManager'
-import EchPaginationByTrending from '@/components/movies/EchPaginationByTranding'
+import EchPaginationByTrending from '@/components/movies/EchPaginationByTrending'
 
 export default {
   name: 'EchMoviesUpcoming',
@@ -78,8 +77,7 @@ export default {
     UpcomingManager,
     DetailsHeaderManager,
     PaginationForTrendingManager(MediaTypes.movie),
-    RedirectHomeManager,
-    TrendingManager
+    RedirectHomeManager
   ],
   data() {
     return {
@@ -91,7 +89,8 @@ export default {
       },
       actionNameIndex: '',
       mediaType: MediaTypes.movie,
-      page: 1
+      page: 1,
+      language: 'es'
     }
   }
 }

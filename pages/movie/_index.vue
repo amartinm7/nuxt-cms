@@ -119,7 +119,8 @@ export default {
       ...getMovieDetailsControllerResponse
     }
     return {
-      movies: [movie]
+      movies: [movie],
+      language
     }
   },
   data() {
@@ -127,7 +128,8 @@ export default {
       movies: [],
       movie_title: '',
       movie_id: 0,
-      mediaType: MediaTypes.movie
+      mediaType: MediaTypes.movie,
+      language: 'es'
     }
   }
 }

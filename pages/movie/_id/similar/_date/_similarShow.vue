@@ -14,7 +14,7 @@
       ></ech-pagination-by-similar>
       <ech-friend-networks-nav-bar></ech-friend-networks-nav-bar>
       <h1
-        class="ech-basic uk-text-center uk-text-capitalize uk-heading-large uk-text-bolder uk-text-emphasis uk-hidden@s"
+        class="ech-basic uk-text-center uk-heading-small uk-text-bolder uk-text-emphasis uk-hidden@s"
       >
         {{ $t('similarMovies') }}
       </h1>
@@ -93,7 +93,12 @@ export default {
         movie_id
       })
     )
-    return { trendingShows, page, movie: { _id: movie_id, _name: movie_name } }
+    return {
+      trendingShows,
+      page,
+      movie: { _id: movie_id, _name: movie_name },
+      language
+    }
   },
   data() {
     return {
@@ -105,7 +110,8 @@ export default {
       },
       mediaType: MediaTypes.movie,
       page: 1,
-      movie: {}
+      movie: {},
+      language: 'es'
     }
   }
 }

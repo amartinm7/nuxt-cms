@@ -55,14 +55,16 @@ export default {
     )
     return {
       season: {
-        ...getTvSeasonsControllerResponse
+        ...getTvSeasonsControllerResponse,
+        language
       }
     }
   },
   data() {
     return {
       season: {},
-      mediaType: MediaTypes.tv
+      mediaType: MediaTypes.tv,
+      language: 'es'
     }
   },
   computed: {

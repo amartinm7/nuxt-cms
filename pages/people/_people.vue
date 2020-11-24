@@ -71,14 +71,16 @@ export default {
       new GetPeopleDetailsControllerRequest({ person_id, language })
     )
     return {
-      people: getPeopleDetailsControllerResponse
+      people: getPeopleDetailsControllerResponse,
+      language
     }
   },
   data() {
     return {
       people: {},
       mediaTypeMovie: MediaTypes.movie,
-      mediaTypeTvShow: MediaTypes.tv
+      mediaTypeTvShow: MediaTypes.tv,
+      language: 'es'
     }
   }
 }

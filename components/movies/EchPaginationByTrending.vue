@@ -29,11 +29,11 @@
 <script>
 import PaginationManager from '@/middleware/modules/vue/mixins/PaginationManager'
 import LocaleManager from '@/middleware/modules/vue/mixins/LocaleManager'
-import TrendingManager from '@/middleware/modules/vue/mixins/TrendingManager'
+import UpcomingManager from '@/middleware/modules/vue/mixins/UpcomingManager'
 
 export default {
   name: 'EchPaginationByTrending',
-  mixins: [TrendingManager, PaginationManager, LocaleManager],
+  mixins: [UpcomingManager, PaginationManager, LocaleManager],
   props: {
     actionNameIndex: {
       type: String,

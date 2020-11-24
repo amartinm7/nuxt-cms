@@ -18,7 +18,7 @@ export default {
   },
   movies: 'Cine',
   seo: {
-    index: 'Estrenos cine hoy: todas las series de tv y cine a un click!'
+    index: 'Estrenos cine hoy: toda la info de series de tv y cine a un click!'
   },
   pages: {
     home: 'Estrenos cine hoy',
@@ -29,7 +29,7 @@ export default {
     comedy: 'Comedia',
     family: 'Familia',
     news: 'Noticias',
-    trending: 'Peliculas de Actualidad',
+    trending: 'Películas de Actualidad',
     tv: {
       airingToday: 'Hoy en TV',
       onTheAirTv: 'Series en TV',
@@ -39,7 +39,7 @@ export default {
     movie: {
       nowPlaying: 'Cartelera cine',
       cinemania: 'Cinemania',
-      topRated: 'Top Cine: mejores peliculas',
+      topRated: 'Top Cine: mejores Películas',
       upcoming: 'Avances cine'
     }
   },
@@ -97,7 +97,7 @@ export default {
   moreRelatedTvShows: 'Series tv similares',
   moreRelatedMovies: 'Películas similares',
   similarTvShows: 'Series similares',
-  similarMovies: 'Peliculas similares',
+  similarMovies: 'Películas similares',
   appearOnMovies: `Películas de {name}`,
   appearOnTvShows: 'Tv & Series de {name}',
   male: 'Hombre',
@@ -122,6 +122,6 @@ export default {
   staffBy: 'Equipo de {name}',
   seasonsBy: 'Temporadas de {name}',
   videosBy: 'Videos de {name}',
-  recommendedMovies: 'Peliculas Recomendadas',
+  recommendedMovies: 'Películas Recomendadas',
   recommendedTvShows: 'Series Recomendadas'
 }

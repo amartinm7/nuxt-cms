@@ -155,7 +155,7 @@ export default {
     ],
     rootRedirect: 'es',
     detectBrowserLanguage: {
-      useCookie: false,
+      useCookie: true,
       alwaysRedirect: true,
       fallbackLocale: 'es'
     },

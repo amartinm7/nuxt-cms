@@ -585,12 +585,11 @@ import EchSortedBy from '../filter/EchSortedBy'
 import MediaTypes from '@/middleware/modules/domain/MediaTypes'
 import ActionMapper from '@/middleware/ActionMapper'
 import UpcomingManager from '@/middleware/modules/vue/mixins/UpcomingManager'
-import TrendingManager from '@/middleware/modules/vue/mixins/TrendingManager'
 
 export default {
   name: 'EchNavbarMainNew',
   components: { EchSortedBy, EchFiltersBy },
-  mixins: [UpcomingManager, TrendingManager],
+  mixins: [UpcomingManager],
   data() {
     return {
       searchQuery: ''

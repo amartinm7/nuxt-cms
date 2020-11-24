@@ -14,7 +14,7 @@
       </div>
       <ech-friend-networks-nav-bar></ech-friend-networks-nav-bar>
       <h1
-        class="ech-basic uk-text-center uk-text-capitalize uk-heading-large uk-text-bolder uk-text-emphasis uk-hidden@s"
+        class="ech-basic uk-text-center uk-heading-small uk-text-bolder uk-text-emphasis uk-hidden@s"
       >
         {{ $t('pages.trending') }}
       </h1>
@@ -110,7 +110,7 @@ export default {
     const getTrendingMoviesResponse = await beanContainer.getTrendingMoviesController.getTrendingMoviesAndTVShows(
       { language, page: Number(currentPage) }
     )
-    return { ...getTrendingMoviesResponse, page: currentPage }
+    return { ...getTrendingMoviesResponse, page: currentPage, language }
   },
   data() {
     return {
@@ -129,7 +129,8 @@ export default {
       mediaType: MediaTypes.movie,
       trendingResults: {},
       requestHeader: {},
-      page: 1
+      page: 1,
+      language: 'es'
     }
   },
   mounted() {
@@ -145,33 +146,6 @@ export default {
           ? self.trendingTVShows
           : self.trendingMovies
     })
-  },
-  methods: {
-    async toPrevious() {
-      const language = this.$i18n.locale
-      const previousPage = this.page > 1 ? this.page - 1 : 1
-      const getTrendingMoviesResponse = await beanContainer.getTrendingMoviesController.getTrendingMoviesAndTVShows(
-        { language, page: Number(previousPage) }
-      )
-      this.trendingMovies = getTrendingMoviesResponse.trendingMovies
-      this.trendingTVShows = getTrendingMoviesResponse.trendingTVShows
-      this.page = previousPage
-      this.trendingResults = this.trendingMovies
-    },
-    async toNext() {
-      const language = this.$i18n.locale
-      const nextPage =
-        this.page < this.trendingResults._total_pages
-          ? this.page + 1
-          : this.trendingResults._total_pages
-      const getTrendingMoviesResponse = await beanContainer.getTrendingMoviesController.getTrendingMoviesAndTVShows(
-        { language, page: Number(nextPage) }
-      )
-      this.trendingMovies = getTrendingMoviesResponse.trendingMovies
-      this.trendingTVShows = getTrendingMoviesResponse.trendingTVShows
-      this.page = nextPage
-      this.trendingResults = this.trendingMovies
-    }
   }
 }
 </script>

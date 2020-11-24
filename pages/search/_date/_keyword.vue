@@ -9,7 +9,7 @@
       <div class="uk-padding-small"></div>
       <ech-friend-networks-nav-bar></ech-friend-networks-nav-bar>
       <h1
-        class="ech-basic uk-text-center uk-text-capitalize uk-heading-large uk-text-bolder uk-text-emphasis uk-hidden@s"
+        class="ech-basic uk-text-center uk-heading-small uk-text-bolder uk-text-emphasis uk-hidden@s"
       >
         {{ $t('search') }}
       </h1>
@@ -83,7 +83,7 @@ export default {
     const multiSearch = {
       ...getMultiSearchByTitleControllerResponse
     }
-    return { multiSearch }
+    return { multiSearch, language }
   },
   data() {
     return {
@@ -93,7 +93,8 @@ export default {
         _total_results: 1,
         _results: []
       },
-      requestHeader: {}
+      requestHeader: {},
+      language: 'es'
     }
   }
 }

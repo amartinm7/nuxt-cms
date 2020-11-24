@@ -15,13 +15,13 @@
       <ech-friend-networks-nav-bar></ech-friend-networks-nav-bar>
       <h1
         v-if="!genreName"
-        class="ech-basic uk-text-center uk-text-capitalize uk-heading-large uk-text-bolder uk-text-emphasis uk-hidden@s"
+        class="ech-basic uk-text-center uk-heading-small uk-text-bolder uk-text-emphasis uk-hidden@s"
       >
         {{ $t('pages.movie.byGenres') }}
       </h1>
       <h1
         v-if="genreName"
-        class="ech-basic uk-text-center uk-text-capitalize uk-heading-large uk-text-bolder uk-text-emphasis uk-hidden@s"
+        class="ech-basic uk-text-center uk-heading-small uk-text-bolder uk-text-emphasis uk-hidden@s"
       >
         {{ genreName }}
       </h1>
@@ -110,7 +110,8 @@ export default {
       sortedBy,
       genreId,
       genreName,
-      page
+      page,
+      language
     }
   },
   data() {
@@ -125,7 +126,8 @@ export default {
       sortedBy: 'popularity.desc',
       genreId: 0,
       genreName: '',
-      page: 1
+      page: 1,
+      language: 'es'
     }
   }
 }
