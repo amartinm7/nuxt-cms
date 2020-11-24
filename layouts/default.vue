@@ -5,7 +5,7 @@
   >
     <ech-navbar-main-new></ech-navbar-main-new>
     <nuxt :key="$route.fullPath" class="ech-scrollspy-effect" />
-    <ech-introducing></ech-introducing>
+    <ech-introducing v-if="true"></ech-introducing>
     <ech-contact-footer-main></ech-contact-footer-main>
     <ech-footer-main></ech-footer-main>
     <CookieControl :locale="this.$i18n.locale" />
