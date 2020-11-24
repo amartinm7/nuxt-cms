@@ -7,10 +7,6 @@
       <ech-networks-nav-bar></ech-networks-nav-bar>
       <div class="uk-active">
         <ech-slider-main :movies="trendingResults._results"></ech-slider-main>
-        <ech-pagination
-          @outbound-to-previous-page="toPrevious"
-          @outbound-to-next-page="toNext"
-        ></ech-pagination>
       </div>
       <ech-friend-networks-nav-bar></ech-friend-networks-nav-bar>
       <h1
@@ -86,7 +82,6 @@ import EchHeaderMain from '@/layouts/header/EchHeaderMain'
 import VideoControllerManager from '@/middleware/modules/vue/mixins/VideoControllerManager'
 import MediaTypes from '@/middleware/modules/domain/MediaTypes'
 import DetailsHeaderManager from '@/middleware/modules/vue/mixins/DetailsHeaderManager'
-import EchPagination from '@/layouts/pagination/EchPagination'
 import EchNetworksNavBar from '@/layouts/networksbar/EchNetworksNavBar'
 import EchFriendNetworksNavBar from '@/layouts/friendNetworks/EchFriendNetworksNavBar'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
@@ -96,7 +91,6 @@ export default {
   components: {
     EchFriendNetworksNavBar,
     EchNetworksNavBar,
-    EchPagination,
     EchHeaderMain,
     EchSliderMain,
     EchTvShowCard,
