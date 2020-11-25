@@ -9,9 +9,7 @@
             About Us! Hello ;)
           </h2>
         </div>
-        <div
-          class="uk-dropcap uk-text-justify ech-basic uk-padding-small uk-text-break"
-        >
+        <div class="uk-dropcap uk-text-justify uk-padding-small uk-text-break">
           <p>
             Estamos construyendo un sitio nuevo para mostrar toda la información
             sobre series y películas: las mejores series netflix, hbo, amazon
