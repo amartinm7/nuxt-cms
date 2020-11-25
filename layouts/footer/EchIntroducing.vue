@@ -5,9 +5,9 @@
     >
       <div class="uk-padding-large">
         <div>
-          <h1 class="ech-basic uk-text-center">
+          <h2 class="ech-basic uk-text-center">
             About Us!
-          </h1>
+          </h2>
         </div>
         <div
           class="uk-dropcap uk-text-justify ech-basic uk-padding-small uk-text-break"

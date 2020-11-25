@@ -8,7 +8,9 @@
       <div class="uk-active">
         <ech-slider-main :movies="trendingResults._results"></ech-slider-main>
       </div>
-      <ech-friend-networks-nav-bar></ech-friend-networks-nav-bar>
+      <ech-friend-networks-nav-bar
+        class="uk-padding-small"
+      ></ech-friend-networks-nav-bar>
       <h1
         class="ech-basic uk-text-center uk-heading-small uk-text-bolder uk-text-emphasis uk-hidden@s"
       >
