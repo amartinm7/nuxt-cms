@@ -3,13 +3,19 @@ const replace = require('stream-replace')
 const chalk = require('chalk')
 const util = require('./util')
 const info = chalk.keyword('cyan')
+// eslint-disable-next-line import/order
+const camelCase = require('lodash.camelcase')
 
 class CreateResources {
-  constructor(keyWords) {
-    this.keyWords = keyWords
+  _generateKeyWords(useCase) {
+    const instanceUseCase = camelCase(useCase)
+    const folderDest = 'created'
+    const outputPath = 'build/' + folderDest
+    return { useCase, instanceUseCase, folderDest, outputPath }
   }
 
-  async run() {
+  async run({ useCase }) {
+    const keywords = this._generateKeyWords(useCase)
     const folders = [
       'adomain',
       'application/usecase',
@@ -18,8 +24,8 @@ class CreateResources {
     ]
     await this.createDestFolders(
       folders,
-      this.keyWords.outputPath,
-      this.keyWords.instanceUseCase
+      keywords.outputPath,
+      keywords.instanceUseCase
     )
     const mapper = {
       Controller: 'userapplication/controller',
@@ -29,13 +35,13 @@ class CreateResources {
     }
     // eslint-disable-next-line no-path-concat
     const templatesFolder = __dirname + '/../templates'
-    await util.createFolder(this.keyWords.outputPath)
+    await util.createFolder(keywords.outputPath)
     fs.readdirSync(templatesFolder).forEach((templateName) => {
-      const outputFileName = `${this.keyWords.outputPath}/${this.keyWords.instanceUseCase}/${mapper[templateName]}/${this.keyWords.useCase}${templateName}.js`
+      const outputFileName = `${keywords.outputPath}/${keywords.instanceUseCase}/${mapper[templateName]}/${keywords.useCase}${templateName}.js`
       const templatePath = `${templatesFolder}/${templateName}`
       fs.createReadStream(templatePath)
-        .pipe(replace(/{{useCase}}/gi, this.keyWords.useCase))
-        .pipe(replace(/{{instanceUseCase}}/gi, this.keyWords.instanceUseCase))
+        .pipe(replace(/{{useCase}}/gi, keywords.useCase))
+        .pipe(replace(/{{instanceUseCase}}/gi, keywords.instanceUseCase))
         .pipe(fs.createWriteStream(outputFileName))
       console.log(info(outputFileName))
     })

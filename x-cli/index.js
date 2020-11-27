@@ -1,7 +1,6 @@
 #! /usr/bin/env node
 const console = require('console')
 const mason = require('commander')
-const camelCase = require('lodash.camelcase')
 
 const chalk = require('chalk')
 const { version } = require('./package.json')
@@ -11,14 +10,7 @@ const warning = chalk.keyword('orange')
 const info = chalk.keyword('cyan')
 
 // commands, add as many as you wish
-const CreateResources = require('./src/commands/create')
-
-function generateKeyWords(useCase) {
-  const instanceUseCase = camelCase(useCase)
-  const folderDest = 'created'
-  const outputPath = 'build/' + folderDest
-  return { useCase, instanceUseCase, folderDest, outputPath }
-}
+const CreateResources = require('./src/commands/CreateResources')
 
 mason.version(version)
 
@@ -26,9 +18,8 @@ mason
   .command('create usecase <useCase>')
   .description('creates a new usecase')
   .action((useCase) => {
-    const keyWords = generateKeyWords(useCase)
-    console.log(info('creating usecase in path... %s'), keyWords.outputPath)
-    new CreateResources(keyWords).run()
+    console.log(info('creating usecase... %s'), useCase)
+    new CreateResources().run({ useCase })
   })
 
 mason.command('*').action(() => {
