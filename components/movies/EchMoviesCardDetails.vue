@@ -9,9 +9,6 @@
       {{ movies[0]._title }}
     </h1>
     <article
-      v-for="(movie, index) in movies"
-      :key="movie._id"
-      :todo="movie"
       class="uk-card uk-card-default uk-card-hover uk-grid-collapse uk-child-width-1-2@s uk-margin ech-scrollspy-effect"
       uk-grid
     >
@@ -23,12 +20,7 @@
         @outbound-open-video-modal="emitMessagePlayVideo"
       ></ech-media-card-picture>
       <div>
-        <!--        <span-->
-        <!--          class="uk-visible@s uk-align-right uk-margin-small-right uk-label-warning ech-basic ech-spin-icon uk-border-circle uk-padding-small uk-text-center"-->
-        <!--        >-->
-        <!--          {{ movie._vote_average.toFixed(1) }}-->
-        <!--        </span>-->
-        <div class="uk-card-body uk-card-hover">
+        <div class="uk-card-body">
           <h2 class="uk-card-title ech-basic uk-text-center">
             {{ movie._title }} ({{ movie._release_date | moment('YYYY') }})
             <span
@@ -70,11 +62,24 @@
             <ech-recommended :adults="movie._adult"></ech-recommended>
             <ech-home-page :home-page="movie._homepage"></ech-home-page>
           </div>
+        </div>
+      </div>
+    </article>
+    <article
+      class="uk-card uk-card-default uk-card-hover uk-grid-collapse uk-child-width-1-2@s uk-margin ech-scrollspy-effect"
+      uk-grid
+    >
+      <div>
+        <div class="uk-card-body">
           <ech-synopsis
             :overview="movie._overview"
             :movie-id="movie._id"
             class="uk-margin-medium-top"
           ></ech-synopsis>
+        </div>
+      </div>
+      <div>
+        <div class="uk-card-body">
           <ech-genres
             :movie="movie"
             :media-type="mediaType"
@@ -169,6 +174,11 @@ export default {
   data() {
     return {
       mediaType: MediaTypes.movie
+    }
+  },
+  computed: {
+    movie() {
+      return this.movies?.[0]
     }
   }
 }
