@@ -67,6 +67,20 @@
               :num-of-episodes="movie._number_of_episodes"
             ></ech-num-of-episodes>
             <ech-home-page :home-page="movie._homepage"></ech-home-page>
+            <div
+              class="uk-flex uk-flex-center uk-flex-wrap uk-flex-around uk-padding-small"
+            >
+              <ech-media-card-picture-new
+                v-for="(video, videoIndex) in movie._videos"
+                :key="video._id + Math.random()"
+                :todo="video"
+                :movie="movie"
+                :image-url="getPosterURL(movie._poster_path)"
+                :index="videoIndex"
+                :media-type="mediaType"
+                @outbound-open-video-modal="emitMessagePlayVideo"
+              ></ech-media-card-picture-new>
+            </div>
           </div>
         </div>
       </div>
@@ -142,10 +156,12 @@ import EchNetworkName from '@/components/movies/EchNetworkName'
 import EchSynopsis from '@/components/movies/EchSypnosis'
 import EchOriginalTitle from '@/components/movies/EchOriginalTitle'
 import EchRecommendedMovies from '@/components/movies/EchRecommendedMovies'
+import EchMediaCardPictureNew from '@/components/movies/EchMediaCardPictureNew'
 
 export default {
   name: 'EchTvShowCardDetails',
   components: {
+    EchMediaCardPictureNew,
     EchRecommendedMovies,
     EchOriginalTitle,
     EchSynopsis,

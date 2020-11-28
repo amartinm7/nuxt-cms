@@ -4,9 +4,7 @@ import Configuration from './Configuration'
 import GetGenresMovieListProvider from './modules/genres/getGenresMovieList/GetGenresMovieListProvider'
 import GetGenresTvShowListProvider from './modules/genres/getGenresTvShowList/GetGenresTvShowListProvider'
 import GetLatestProvider from './modules/movies/getLatest/GetLatestMoviesProvider'
-import GetVideosProvider from './modules/movies/getVideos/GetVideosMoviesProvider'
 import GetTrendingProvider from './modules/trending/getTrending/GetTrendingProvider'
-import GetVideosTvShowProvider from './modules/tvShows/getVideos/GetVideosTvShowProvider'
 import GetMovieDetailsProvider from './modules/movies/getDetails/GetMovieDetailsProvider'
 import GetDetailsTvShowProvider from './modules/tvShows/getDetails/GetDetailsTvShowProvider'
 import GetLatestTvShowProvider from './modules/tvShows/getLatest/GetLatestTvShowProvider'
@@ -56,9 +54,7 @@ export class BeanContainerRegistry {
     new GetMovieDetailsProvider(this._beanContainer)
     new GetGenresTvShowListProvider(this._beanContainer)
     new GetLatestProvider(this._beanContainer)
-    new GetVideosProvider(this._beanContainer)
     new GetTrendingProvider(this._beanContainer)
-    new GetVideosTvShowProvider(this._beanContainer)
     new GetDetailsTvShowProvider(this._beanContainer)
     new GetLatestTvShowProvider(this._beanContainer)
     new GetAiringTodayTvShowProvider(this._beanContainer)

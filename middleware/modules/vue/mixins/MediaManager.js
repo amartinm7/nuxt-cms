@@ -25,6 +25,14 @@ export default {
     },
     getTitle(movie) {
       return movie?._title || movie?._name
+    },
+    initVideoURL(movie, index) {
+      const url = this.getVideoURLFrom(movie?._videos[index]?._key)
+      console.log('emit...' + url)
+      this.emitMessagePlayVideo(url)
+    },
+    getVideoName(movie, index) {
+      return movie?._videos?.[index]._name
     }
   }
 }
