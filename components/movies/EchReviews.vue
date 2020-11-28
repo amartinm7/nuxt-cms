@@ -1,7 +1,7 @@
 <template>
   <div v-if="inNotEmpty(reviews)">
     <article
-      class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin ech-scrollspy-effect"
+      class="uk-card uk-card-default uk-card-hover uk-grid-collapse uk-child-width-1-2@s uk-margin ech-scrollspy-effect"
       uk-grid
     >
       <div>
@@ -24,7 +24,7 @@
               <div>
                 <ech-star-rating
                   :rating-value="review._author_details._rating / 2"
-                  star-size="20"
+                  :star-size="20"
                 >
                 </ech-star-rating>
               </div>

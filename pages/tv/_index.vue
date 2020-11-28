@@ -9,27 +9,11 @@
         @outbound-open-video-modal="playVideo"
       ></ech-tv-show-card-details>
     </section>
-    <section
-      v-if="inNotEmpty(movies[0]._credits)"
-      class="uk-section uk-section-xsmall"
-    >
-      <ech-slider-people
-        :credits="sanitizedCredits(movies[0]._credits)"
-        :type="crewTypes.credits"
-        :movie-name="movies[0]._name"
+    <section v-if="inNotEmpty(movies[0])" class="uk-section uk-section-xsmall">
+      <ech-slider-people-extended
+        :movies="movies"
         class="uk-margin-small-top"
-      ></ech-slider-people>
-    </section>
-    <section
-      v-if="inNotEmpty(movies[0]._crews)"
-      class="uk-section uk-section-xsmall"
-    >
-      <ech-slider-people
-        :credits="sanitizedCrews(movies[0]._crews)"
-        :type="crewTypes.crew"
-        :movie-name="movies[0]._name"
-        class="uk-margin-medium-top"
-      ></ech-slider-people>
+      ></ech-slider-people-extended>
     </section>
     <section
       v-if="inNotEmpty(movies[0]._seasons)"
@@ -91,7 +75,6 @@ import { BeanContainerRegistry } from '@/middleware/BeanContainerRegistry'
 import { GetTvShowDetailsControllerRequest } from '@/middleware/modules/tvShows/getDetails/userapplication/controller/GetTvShowDetailsController'
 import VideoControllerManager from '@/middleware/modules/vue/mixins/VideoControllerManager'
 import CreditsManager from '@/middleware/modules/vue/mixins/CreditsManager'
-import EchSliderPeople from '@/components/slider/EchSliderPeople'
 import EchDisqus from '@/components/disqus/EchDisqus'
 import EchSliderVideos from '@/components/slider/EchSliderVideos'
 import EchSliderPosters from '@/components/slider/EchSliderPosters'
@@ -103,20 +86,21 @@ import EchNetworksNavBar from '@/layouts/networksbar/EchNetworksNavBar'
 import EchSliderSeasons from '@/components/slider/EchSliderSeasons'
 import Utils from '@/middleware/modules/vue/mixins/Utils'
 import EchReviews from '@/components/movies/EchReviews'
+import EchSliderPeopleExtended from '@/components/slider/EchSliderPeopleExtended'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
   name: 'EchTvshowDetails',
   scrollToTop: true,
   components: {
+    EchSliderPeopleExtended,
     EchReviews,
     EchSliderSeasons,
     EchNetworksNavBar,
     EchTvShowCardDetails,
     EchSliderVideos,
     EchSliderPosters,
-    EchDisqus,
-    EchSliderPeople
+    EchDisqus
   },
   mixins: [
     VideoControllerManager,

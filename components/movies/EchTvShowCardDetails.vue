@@ -9,9 +9,6 @@
       {{ movies[0]._name }}
     </h1>
     <article
-      v-for="(movie, index) in movies"
-      :key="movie._id"
-      :todo="movie"
       class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin ech-scrollspy-effect"
       uk-grid
     >
@@ -71,11 +68,24 @@
             ></ech-num-of-episodes>
             <ech-home-page :home-page="movie._homepage"></ech-home-page>
           </div>
+        </div>
+      </div>
+    </article>
+    <article
+      class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-padding-small uk-margin ech-scrollspy-effect"
+      uk-grid
+    >
+      <div>
+        <div class="uk-card-body">
           <ech-synopsis
             :overview="movie._overview"
             :movie-id="movie._id"
             class="uk-margin-medium-top"
           ></ech-synopsis>
+        </div>
+      </div>
+      <div>
+        <div class="uk-card-body">
           <ech-genres
             :movie="movie"
             :media-type="mediaType"
@@ -165,7 +175,13 @@ export default {
   },
   data() {
     return {
-      mediaType: MediaTypes.tv
+      mediaType: MediaTypes.tv,
+      index: 0
+    }
+  },
+  computed: {
+    movie() {
+      return this.movies?.[0]
     }
   },
   mounted() {

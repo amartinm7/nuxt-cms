@@ -9,7 +9,7 @@
       {{ people._name }}
     </h1>
     <article
-      class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin ech-scrollspy-effect"
+      class="uk-card uk-card-default uk-card-hover uk-grid-collapse uk-child-width-1-2@s uk-margin ech-scrollspy-effect"
       uk-grid
     >
       <div
@@ -29,7 +29,7 @@
         </div>
       </div>
       <div>
-        <div class="uk-card-body">
+        <div class="uk-card-body uk-card-hover">
           <h2 class="uk-card-title ech-basic uk-text-center">
             <span v-if="people._birthday"
               >{{ people._name }} ({{

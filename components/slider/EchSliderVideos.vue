@@ -1,7 +1,7 @@
 <template>
   <article
     v-if="inNotEmpty(videos)"
-    class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin ech-scrollspy-effect"
+    class="uk-card uk-card-default uk-card-hover uk-grid-collapse uk-child-width-1-2@s uk-margin ech-scrollspy-effect"
     uk-grid
   >
     <div class="uk-padding-large">

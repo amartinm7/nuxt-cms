@@ -4,7 +4,7 @@
       v-for="episode in episodes"
       :key="episode._id + Math.random()"
       :todo="episode"
-      class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin ech-scrollspy-effect"
+      class="uk-card uk-card-default uk-card-hover uk-grid-collapse uk-child-width-1-2@s uk-margin ech-scrollspy-effect"
       uk-grid
     >
       <ech-media-season-card-picture
@@ -18,7 +18,7 @@
         >
           {{ episode._vote_average.toFixed(1) }}
         </span>
-        <div class="uk-card-body">
+        <div class="uk-card-body uk-card-hover">
           <h2 class="uk-card-title ech-basic uk-text-center">
             <div>{{ $t('episode') }} {{ episode._episode_number }}</div>
             <div>

@@ -1,7 +1,7 @@
 <template>
   <div>
     <article
-      class="uk-card uk-card-default uk-grid-collapse ech-scrollspy-effect"
+      class="uk-card uk-card-default uk-card-hover uk-grid-collapse ech-scrollspy-effect"
     >
       <div class="uk-padding-large">
         <h1 class="ech-basic uk-text-center">

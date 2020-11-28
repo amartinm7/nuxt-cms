@@ -12,7 +12,7 @@
       v-for="(movie, index) in movies"
       :key="movie._id"
       :todo="movie"
-      class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin ech-scrollspy-effect"
+      class="uk-card uk-card-default uk-card-hover uk-grid-collapse uk-child-width-1-2@s uk-margin ech-scrollspy-effect"
       uk-grid
     >
       <ech-media-card-picture
@@ -28,7 +28,7 @@
         <!--        >-->
         <!--          {{ movie._vote_average.toFixed(1) }}-->
         <!--        </span>-->
-        <div class="uk-card-body">
+        <div class="uk-card-body uk-card-hover">
           <h2 class="uk-card-title ech-basic uk-text-center">
             {{ movie._title }} ({{ movie._release_date | moment('YYYY') }})
             <span
