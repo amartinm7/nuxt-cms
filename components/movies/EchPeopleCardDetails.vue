@@ -29,7 +29,7 @@
         </div>
       </div>
       <div>
-        <div class="uk-card-body uk-card-hover">
+        <div class="uk-card-body">
           <h2 class="uk-card-title ech-basic uk-text-center">
             <span v-if="people._birthday"
               >{{ people._name }} ({{

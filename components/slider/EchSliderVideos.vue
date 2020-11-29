@@ -96,6 +96,7 @@ export default {
   methods: {
     initVideoURL(key) {
       console.log('emit...' + key)
+      if (!key) return
       this.emitMessagePlayVideo(this.getVideoURLFrom(key))
     }
   }

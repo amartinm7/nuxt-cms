@@ -18,7 +18,7 @@
         >
           {{ episode._vote_average.toFixed(1) }}
         </span>
-        <div class="uk-card-body uk-card-hover">
+        <div class="uk-card-body">
           <h2 class="uk-card-title ech-basic uk-text-center">
             <div>{{ $t('episode') }} {{ episode._episode_number }}</div>
             <div>

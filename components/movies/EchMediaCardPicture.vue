@@ -7,7 +7,7 @@
         {{ index }}
         <a
           class="uk-button uk-button-default uk-align-center"
-          @click="initVideoURL(movie, index)"
+          @click="asyncInitVideoURL(movie, index)"
           ><div class="uk-inline">
             <img
               :src="imageUrl"
@@ -70,7 +70,11 @@ export default {
     }
   },
   methods: {
-    async initVideoURL(movie) {
+    async asyncInitVideoURL(movie) {
+      if (movie?._videos?.[0]?._key) {
+        this.initVideoURL(movie, 0)
+        return
+      }
       if (this.mediaType === MediaTypes.movie) {
         await this.initMovieVideoVideoURL(movie)
       }
@@ -88,6 +92,7 @@ export default {
         })
       )
       console.log('emit...' + getMovieVideosControllerResponse.url)
+      if (!getMovieVideosControllerResponse.url) return
       this.emitMessagePlayVideo(getMovieVideosControllerResponse.url)
     },
     async initTvShowVideoURL(movie) {
@@ -100,6 +105,7 @@ export default {
         })
       )
       console.log('emit...' + getTvShowsVideosControllerResponse.url)
+      if (!getTvShowsVideosControllerResponse.url) return
       this.emitMessagePlayVideo(getTvShowsVideosControllerResponse.url)
     }
   }
