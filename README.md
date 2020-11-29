@@ -25,7 +25,15 @@ $ npm run generate
 
 ## npm ci
 borrar package-lock y regenerar
+```bash
 npm install --package-lock
+```
+
+## generate package-lock.json when is needed
+````bash
+npm i --package-lock-only
+npm ci
+````
 
 remember this
 ````
