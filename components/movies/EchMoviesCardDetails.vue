@@ -180,7 +180,8 @@ export default {
   },
   data() {
     return {
-      mediaType: MediaTypes.movie
+      mediaType: MediaTypes.movie,
+      index: 0
     }
   },
   computed: {

@@ -10,10 +10,10 @@
       ></ech-tv-show-card-details>
     </section>
     <section v-if="inNotEmpty(movies[0])" class="uk-section uk-section-xsmall">
-      <ech-slider-people-extended
+      <ech-slider-people-card-extended
         :movies="movies"
         class="uk-margin-small-top"
-      ></ech-slider-people-extended>
+      ></ech-slider-people-card-extended>
     </section>
     <section
       v-if="inNotEmpty(movies[0]._seasons)"
@@ -86,14 +86,14 @@ import EchNetworksNavBar from '@/layouts/networksbar/EchNetworksNavBar'
 import EchSliderSeasons from '@/components/slider/EchSliderSeasons'
 import Utils from '@/middleware/modules/vue/mixins/Utils'
 import EchReviews from '@/components/movies/EchReviews'
-import EchSliderPeopleExtended from '@/components/slider/EchSliderPeopleExtended'
+import EchSliderPeopleCardExtended from '@/components/slider/EchSliderPeopleCardExtended'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
   name: 'EchTvshowDetails',
   scrollToTop: true,
   components: {
-    EchSliderPeopleExtended,
+    EchSliderPeopleCardExtended,
     EchReviews,
     EchSliderSeasons,
     EchNetworksNavBar,

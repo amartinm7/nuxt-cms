@@ -9,25 +9,11 @@
         @outbound-open-video-modal="playVideo"
       ></ech-movies-card-detail>
     </section>
-    <section
-      v-if="inNotEmpty(sanitizedCredits(movies[0]._credits))"
-      class="uk-section uk-section-xsmall"
-    >
-      <ech-slider-people
-        :credits="sanitizedCredits(movies[0]._credits)"
-        :type="crewTypes.credits"
-        :movie-name="movies[0]._title"
-      ></ech-slider-people>
-    </section>
-    <section
-      v-if="inNotEmpty(sanitizedCrews(movies[0]._crews))"
-      class="uk-section uk-section-xsmall"
-    >
-      <ech-slider-people
-        :credits="sanitizedCrews(movies[0]._crews)"
-        :type="crewTypes.crew"
-        :movie-name="movies[0]._title"
-      ></ech-slider-people>
+    <section v-if="inNotEmpty(movies[0])" class="uk-section uk-section-xsmall">
+      <ech-slider-people-card-extended
+        :movies="movies"
+        class="uk-margin-small-top"
+      ></ech-slider-people-card-extended>
     </section>
     <section
       v-if="false && inNotEmpty(videos)"
@@ -78,7 +64,6 @@
 import { BeanContainerRegistry } from '@/middleware/BeanContainerRegistry'
 import { GetMovieDetailsControllerRequest } from '@/middleware/modules/movies/getDetails/userapplication/controller/GetMovieDetailsController'
 import VideoControllerManager from '@/middleware/modules/vue/mixins/VideoControllerManager'
-import EchSliderPeople from '@/components/slider/EchSliderPeople'
 import CreditsManager from '@/middleware/modules/vue/mixins/CreditsManager'
 import EchDisqus from '@/components/disqus/EchDisqus'
 import EchSliderPosters from '@/components/slider/EchSliderPosters'
@@ -90,19 +75,20 @@ import RequestDetailsHeaderManager from '@/middleware/modules/vue/mixins/Request
 import EchNetworksNavBar from '@/layouts/networksbar/EchNetworksNavBar'
 import Utils from '@/middleware/modules/vue/mixins/Utils'
 import EchReviews from '@/components/movies/EchReviews'
+import EchSliderPeopleCardExtended from '@/components/slider/EchSliderPeopleCardExtended'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
   name: 'EchMoviesDetails',
   scrollToTop: true,
   components: {
+    EchSliderPeopleCardExtended,
     EchReviews,
     EchNetworksNavBar,
     EchMoviesCardDetail,
     EchSliderVideos,
     EchSliderPosters,
-    EchDisqus,
-    EchSliderPeople
+    EchDisqus
   },
   mixins: [
     VideoControllerManager,
