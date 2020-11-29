@@ -16,7 +16,7 @@ class SearchTvShowsRepository {
    */
   execute(searchTvShowsRepositoryRequest) {
     const { query, language } = { ...searchTvShowsRepositoryRequest }
-    const urlPath = `/search/tv/?language=${language}&query=${query}&append_to_response=videos,images,credits`
+    const urlPath = `/search/tv/?language=${language}&query=${query}&append_to_response=images,credits,keywords,reviews,videos`
     return this._axios(
       new GetAxiosRequest({
         accessToken: this._accessToken,

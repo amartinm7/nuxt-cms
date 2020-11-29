@@ -15,6 +15,9 @@ class GetVideoDetailsResponse {
 }
 export default class GetVideosDetailsTransformer {
   static transform(videos) {
+    console.log(
+      'GetVideosDetailsTransformer...videos... ' + JSON.stringify(videos)
+    )
     if (_isEmpty(videos) || _isEmpty(videos.results)) {
       return []
     }

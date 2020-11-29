@@ -16,7 +16,7 @@ class GetSimilarMoviesRepository {
     const { movie_id, language, page } = {
       ...getSimilarMoviesRepositoryRequest
     }
-    const urlPath = `/movie/${movie_id}/similar?language=${language}&append_to_response=videos,images,credits&page=${page}`
+    const urlPath = `/movie/${movie_id}/similar?language=${language}&append_to_response=images,credits,keywords,reviews,videos&page=${page}`
     return this._axios(
       new GetAxiosRequest({
         accessToken: this._accessToken,

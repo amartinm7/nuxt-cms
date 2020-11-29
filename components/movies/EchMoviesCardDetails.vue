@@ -61,6 +61,11 @@
             <ech-crew :crews="movie._producer" label="producer"></ech-crew>
             <ech-recommended :adults="movie._adult"></ech-recommended>
             <ech-home-page :home-page="movie._homepage"></ech-home-page>
+            <ech-play-videos
+              :movie="movie"
+              :media-type="mediaType"
+              @outbound-open-video-modal="emitMessagePlayVideo"
+            ></ech-play-videos>
           </div>
         </div>
       </div>
@@ -135,10 +140,12 @@ import EchRelatedMovies from '@/components/movies/EchRelatedMovies'
 import EchSynopsis from '@/components/movies/EchSypnosis'
 import EchOriginalTitle from '@/components/movies/EchOriginalTitle'
 import EchRecommendedMovies from '@/components/movies/EchRecommendedMovies'
+import EchPlayVideos from '@/components/movies/EchPlayVideos'
 
 export default {
   name: 'EchMoviesCardDetail',
   components: {
+    EchPlayVideos,
     EchRecommendedMovies,
     EchOriginalTitle,
     EchSynopsis,

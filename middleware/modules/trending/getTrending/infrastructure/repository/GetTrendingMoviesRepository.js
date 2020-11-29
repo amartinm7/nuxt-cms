@@ -24,7 +24,7 @@ class GetTrendingMoviesRepository {
       language,
       page
     } = getTrendingMoviesRepositoryRequest
-    const urlPath = `/trending/${mediaType}/${timeWindow}?language=${language}&page=${page}`
+    const urlPath = `/trending/${mediaType}/${timeWindow}?language=${language}&page=${page}&append_to_response=images,credits,keywords,reviews,videos`
     const axiosRequest = new GetAxiosRequest({
       accessToken: this._accessToken,
       baseURL: 'https://api.themoviedb.org/3'

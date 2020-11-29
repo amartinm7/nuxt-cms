@@ -16,7 +16,7 @@ class GetRecommendedMoviesRepository {
     const { movie_id, language, page } = {
       ...getRecommendedMoviesRepositoryRequest
     }
-    const urlPath = `/movie/${movie_id}/recommendations?language=${language}&page=${page}`
+    const urlPath = `/movie/${movie_id}/recommendations?language=${language}&page=${page}&append_to_response=images,credits,keywords,reviews,videos`
     console.log('urlPath ' + urlPath)
     return this._axios(
       new GetAxiosRequest({

@@ -24,7 +24,7 @@ class FindMoviesByRepository {
     const withGenres = genreId ?? ''
     const withoutGenres = ''
     const year = 2020
-    const urlPath = `/discover/movie?language=${language}&with_genres=${withGenres}&without_genres=${withoutGenres}&sort_by=${withSortedBy}&append_to_response=videos,images,credits&with_original_language=${originalLanguages}&include_video=true&primary_release_year=${year}&page=${page}`
+    const urlPath = `/discover/movie?language=${language}&with_genres=${withGenres}&without_genres=${withoutGenres}&sort_by=${withSortedBy}&append_to_response=images,credits,keywords,reviews,videos&with_original_language=${originalLanguages}&include_video=true&primary_release_year=${year}&page=${page}`
     console.log('urlPath... ' + urlPath)
     return this._axios(
       new GetAxiosRequest({

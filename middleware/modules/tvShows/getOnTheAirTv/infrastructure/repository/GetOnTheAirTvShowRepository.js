@@ -16,7 +16,7 @@ class GetOnTheAirTvShowRepository {
    */
   execute(getOnTheAirTvShowRepositoryRequest) {
     const { page, language } = { ...getOnTheAirTvShowRepositoryRequest }
-    const urlPath = `/tv/on_the_air?language=${language}&page=${page}`
+    const urlPath = `/tv/on_the_air?language=${language}&page=${page}&append_to_response=images,credits,keywords,reviews,videos`
     return this._axios(
       new GetAxiosRequest({
         accessToken: this._accessToken,

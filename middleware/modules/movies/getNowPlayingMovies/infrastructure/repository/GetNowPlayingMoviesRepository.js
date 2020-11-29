@@ -16,7 +16,7 @@ class GetNowPlayingMoviesRepository {
    */
   execute(getNowPlayingMoviesRepositoryRequest) {
     const { page, language } = { ...getNowPlayingMoviesRepositoryRequest }
-    const urlPath = `/movie/now_playing?language=${language}&page=${page}`
+    const urlPath = `/movie/now_playing?language=${language}&page=${page}&append_to_response=images,credits,keywords,reviews,videos`
     return this._axios(
       new GetAxiosRequest({
         accessToken: this._accessToken,

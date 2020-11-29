@@ -27,6 +27,10 @@ export default {
       return movie?._title || movie?._name
     },
     initVideoURL(movie, index) {
+      console.log(
+        `initVideoURL testing key... "${movie?._videos[index]?._key}"`
+      )
+      if (!movie?._videos[index]?._key) return
       const url = this.getVideoURLFrom(movie?._videos[index]?._key)
       console.log('emit...' + url)
       this.emitMessagePlayVideo(url)

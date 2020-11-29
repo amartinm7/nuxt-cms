@@ -14,7 +14,7 @@ class GetLatestMoviesRepository {
    */
   execute(getLatestMoviesRepositoryRequest) {
     const { language } = { ...getLatestMoviesRepositoryRequest }
-    const urlPath = `/movie/latest?language=${language}`
+    const urlPath = `/movie/latest?language=${language}&append_to_response=images,credits,keywords,reviews,videos`
     return this._axios(
       new GetAxiosRequest({
         accessToken: this._accessToken,

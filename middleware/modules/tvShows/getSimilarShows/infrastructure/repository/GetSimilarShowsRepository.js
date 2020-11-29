@@ -15,7 +15,7 @@ class GetSimilarShowsRepository {
    */
   execute(getSimilarShowsRepositoryRequest) {
     const { showId, language, page } = { ...getSimilarShowsRepositoryRequest }
-    const urlPath = `/tv/${showId}/similar?language=${language}&page=${page}&append_to_response=videos,images,credits`
+    const urlPath = `/tv/${showId}/similar?language=${language}&page=${page}&append_to_response=images,credits,keywords,reviews,videos`
     return this._axios(
       new GetAxiosRequest({
         accessToken: this._accessToken,

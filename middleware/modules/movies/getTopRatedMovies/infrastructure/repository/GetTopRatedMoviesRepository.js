@@ -16,7 +16,7 @@ class GetTopRatedMoviesRepository {
    */
   execute(getTopRatedMoviesRepositoryRequest) {
     const { page, language } = { ...getTopRatedMoviesRepositoryRequest }
-    const urlPath = `/movie/top_rated?language=${language}&page=${page}`
+    const urlPath = `/movie/top_rated?language=${language}&page=${page}&append_to_response=images,credits,keywords,reviews,videos`
     return this._axios(
       new GetAxiosRequest({
         accessToken: this._accessToken,

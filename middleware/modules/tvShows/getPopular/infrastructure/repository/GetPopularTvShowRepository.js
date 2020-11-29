@@ -16,7 +16,7 @@ class GetPopularTvShowRepository {
    */
   execute(getPopularTvShowRepositoryRequest) {
     const { page, language } = { ...getPopularTvShowRepositoryRequest }
-    const urlPath = `/tv/popular?language=${language}&page=${page}&with_original_language=es|en`
+    const urlPath = `/tv/popular?language=${language}&page=${page}&with_original_language=es|en&append_to_response=images,credits,keywords,reviews,videos`
     return this._axios(
       new GetAxiosRequest({
         accessToken: this._accessToken,

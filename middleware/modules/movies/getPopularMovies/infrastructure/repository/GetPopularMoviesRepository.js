@@ -16,7 +16,7 @@ class GetPopularMoviesRepository {
    */
   execute(getPopularMoviesRepositoryRequest) {
     const { page, language } = { ...getPopularMoviesRepositoryRequest }
-    const urlPath = `/movie/popular?language=${language}&page=${page}`
+    const urlPath = `/movie/popular?language=${language}&page=${page}&append_to_response=images,credits,keywords,reviews,videos`
     return this._axios(
       new GetAxiosRequest({
         accessToken: this._accessToken,

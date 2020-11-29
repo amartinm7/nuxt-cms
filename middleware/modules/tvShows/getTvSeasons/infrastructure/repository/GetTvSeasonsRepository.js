@@ -16,7 +16,7 @@ class GetTvSeasonsRepository {
     const { movie_id, language, season_number } = {
       ...getTvSeasonsRepositoryRequest
     }
-    const urlPath = `/tv/${movie_id}/season/${season_number}?language=${language}&append_to_response=videos,images,credits`
+    const urlPath = `/tv/${movie_id}/season/${season_number}?language=${language}&append_to_response=images,credits,keywords,reviews,videos`
     return this._axios(
       new GetAxiosRequest({
         accessToken: this._accessToken,

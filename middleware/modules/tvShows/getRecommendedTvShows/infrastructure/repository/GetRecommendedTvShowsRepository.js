@@ -18,7 +18,7 @@ class GetRecommendedTvShowsRepository {
     const { movie_id, language, page } = {
       ...getRecommendedTvShowsRepositoryRequest
     }
-    const urlPath = `/tv/${movie_id}/recommendations?language=${language}&page=${page}`
+    const urlPath = `/tv/${movie_id}/recommendations?language=${language}&page=${page}&append_to_response=images,credits,keywords,reviews,videos`
     return this._axios(
       new GetAxiosRequest({
         accessToken: this._accessToken,

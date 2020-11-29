@@ -26,7 +26,7 @@ class GetTvShowDetailsRepository {
    */
   execute(getTvShowDetailsRepositoryRequest) {
     const { movie_id, language } = { ...getTvShowDetailsRepositoryRequest }
-    const urlPath = `/tv/${movie_id}?language=${language}&append_to_response=videos,images,credits,keywords,reviews`
+    const urlPath = `/tv/${movie_id}?language=${language}&append_to_response=images,credits,keywords,reviews,videos`
     console.log(urlPath)
     return this._axios(
       new GetAxiosRequest({
@@ -108,6 +108,7 @@ class GetTvShowDetailsRepositoryResponse {
     this._vote_count = vote_count
     this._first_air_date = first_air_date
     this._release_date = release_date
+    console.log('videos... ' + JSON.stringify(videos))
     this._videos = GetVideosDetailsTransformer.transform(videos)
     this._images = GetImageDetailsTransformer.transform(images)
     this._credits = GetCreditCastsTransformer.transform(credits)

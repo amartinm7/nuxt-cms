@@ -16,7 +16,7 @@ class SearchMoviesRepository {
    */
   execute(searchMoviesRepositoryRequest) {
     const { query, language } = { ...searchMoviesRepositoryRequest }
-    const urlPath = `/search/movie?language=${language}&query=${query}&append_to_response=videos,images,credits`
+    const urlPath = `/search/movie?language=${language}&query=${query}&append_to_response=images,credits,keywords,reviews,videos`
     return this._axios(
       new GetAxiosRequest({
         accessToken: this._accessToken,

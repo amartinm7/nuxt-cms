@@ -16,7 +16,7 @@ class GetTopRatedTvShowRepository {
    */
   execute(getTopRatedTvShowRepositoryRequest) {
     const { page, language } = { ...getTopRatedTvShowRepositoryRequest }
-    const urlPath = `/tv/top_rated?language=${language}&page=${page}&with_original_language=es|en`
+    const urlPath = `/tv/top_rated?language=${language}&page=${page}&with_original_language=es|en&append_to_response=images,credits,keywords,reviews,videos`
     return this._axios(
       new GetAxiosRequest({
         accessToken: this._accessToken,

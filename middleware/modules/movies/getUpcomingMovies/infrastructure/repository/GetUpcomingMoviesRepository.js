@@ -16,7 +16,7 @@ class GetUpcomingMoviesRepository {
    */
   execute(getUpcomingMoviesRepositoryRequest) {
     const { page, language } = { ...getUpcomingMoviesRepositoryRequest }
-    const urlPath = `/movie/upcoming?language=${language}&page=${page}`
+    const urlPath = `/movie/upcoming?language=${language}&page=${page}&append_to_response=images,credits,keywords,reviews,videos`
     return this._axios(
       new GetAxiosRequest({
         accessToken: this._accessToken,

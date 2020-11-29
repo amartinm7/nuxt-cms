@@ -14,7 +14,7 @@ class GetLatestTvShowRepository {
    */
   execute(getLatestTvShowRepositoryRequest) {
     const { language } = { ...getLatestTvShowRepositoryRequest }
-    const urlPath = `/tv/latest?language=${language}`
+    const urlPath = `/tv/latest?language=${language}&append_to_response=images,credits,keywords,reviews,videos`
     return this._axios(
       new GetAxiosRequest({
         accessToken: this._accessToken,
