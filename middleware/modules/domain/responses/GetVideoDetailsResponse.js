@@ -15,6 +15,7 @@ class GetVideoDetailsResponse {
 }
 export default class GetVideosDetailsTransformer {
   static transform(videos) {
+    // eslint-disable-next-line no-console
     console.log(
       'GetVideosDetailsTransformer...videos... ' + JSON.stringify(videos)
     )

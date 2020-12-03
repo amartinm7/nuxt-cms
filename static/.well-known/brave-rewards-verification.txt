@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: estrenoscinehoy.com
+Token: ef316555b67a9be2ef9c9250a5c9d119d2fe8271799925a12a070499a4954ceb
