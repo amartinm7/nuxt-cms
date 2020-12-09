@@ -5,36 +5,26 @@
     class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin ech-scrollspy-effect"
     uk-grid
   >-->
-  <article
-    v-if="inNotEmpty(movies)"
-    uk-grid
-    class="uk-flex-1 uk-flex uk-flex-wrap"
-  >
-    <ech-slider-people-card
-      :credits="sanitizedCredits(movies[0]._credits)"
-      :type="crewTypes.credits"
-      :movie-name="movies[0]._name || movies[0]._title"
-    >
-    </ech-slider-people-card>
-    <ech-slider-people-card
-      :credits="sanitizedCrews(movies[0]._crews)"
-      :type="crewTypes.crew"
-      :movie-name="movies[0]._name || movies[0]._title"
-    >
-    </ech-slider-people-card>
-    <!--
-    <ech-slider-people-column
-      :credits="sanitizedCredits(movies[0]._credits)"
-      :type="crewTypes.credits"
-      :movie-name="movies[0]._name"
-    ></ech-slider-people-column>
-    <ech-slider-people-column
-      :credits="sanitizedCrews(movies[0]._crews)"
-      :type="crewTypes.crew"
-      :movie-name="movies[0]._name"
-    ></ech-slider-people-column>
-    -->
-  </article>
+  <div>
+    <article v-if="inNotEmpty(movies)" class="uk-flex-wrap uk-flex uk-flex-1">
+      <div>
+        <ech-slider-people-card
+          :credits="sanitizedCredits(movies[0]._credits)"
+          :type="crewTypes.credits"
+          :movie-name="movies[0]._name || movies[0]._title"
+        >
+        </ech-slider-people-card>
+      </div>
+      <div>
+        <ech-slider-people-card
+          :credits="sanitizedCrews(movies[0]._crews)"
+          :type="crewTypes.crew"
+          :movie-name="movies[0]._name || movies[0]._title"
+        >
+        </ech-slider-people-card>
+      </div>
+    </article>
+  </div>
 </template>
 <script>
 /* eslint-disable camelcase, no-console */

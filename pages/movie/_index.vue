@@ -12,7 +12,7 @@
     <section v-if="inNotEmpty(movies[0])" class="uk-section uk-section-xsmall">
       <ech-slider-people-card-extended
         :movies="movies"
-        class="uk-margin-small-top"
+        class="uk-section uk-section-xsmall"
       ></ech-slider-people-card-extended>
     </section>
     <section

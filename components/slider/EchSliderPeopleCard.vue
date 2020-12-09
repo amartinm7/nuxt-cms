@@ -6,12 +6,12 @@
     <h2 v-if="isCrew" class="uk-text-lead uk-text-center ech-basic">
       {{ $t('staffBy', { name: movieName }) }}
     </h2>
-    <div>
+    <div class="uk-child-width-1-2@s uk-flex uk-flex-wrap uk-flex-1">
       <div
         v-for="credit in credits"
         :key="credit._credit_id + Math.random()"
         :todo="credit"
-        class="uk-card uk-card-default uk-card-hover uk-child-width-1-2 uk-grid-collapse uk-margin"
+        class="uk-card uk-card-default uk-card-hover uk-grid-collapse uk-margin-small-bottom"
         style="height:138px"
         uk-grid
       >
@@ -28,11 +28,10 @@
               loading="lazy"
               style="height:138px"
             />
-            <canvas height="138px"></canvas>
           </nuxt-link>
         </div>
-        <div class="uk-width-2-3">
-          <div class="uk-card-body uk-width-expand">
+        <div class="uk-width-2-3" style="height:138px">
+          <div class="uk-card-body uk-width-expand" style="height:138px">
             <nuxt-link
               class="uk-link-reset"
               :to="getPeoplePathURL(credit._id, credit._name)"
