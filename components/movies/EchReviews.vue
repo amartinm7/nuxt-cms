@@ -31,7 +31,7 @@
             </a>
             <div class="uk-accordion-content">
               <div
-                class="uk-dropcap uk-text-justify ech-basic uk-padding-small uk-text-break"
+                class="uk-dropcap uk-text-justify uk-padding-small uk-text-break"
               >
                 {{ review._content }}
               </div>

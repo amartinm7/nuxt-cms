@@ -85,7 +85,7 @@
           <ech-synopsis
             :overview="movie._overview"
             :movie-id="movie._id"
-            class="uk-margin-medium-top"
+            class="uk-margin-small-top"
           ></ech-synopsis>
         </div>
       </div>
@@ -94,7 +94,7 @@
           <ech-genres
             :movie="movie"
             :media-type="mediaType"
-            class="uk-margin-medium-top"
+            class="uk-margin-small-top"
           ></ech-genres>
           <ech-networks-logo
             :networks="movie._networks"
