@@ -40,7 +40,7 @@
 /* eslint-disable camelcase, no-console */
 import Utils from '@/middleware/modules/vue/mixins/Utils'
 import CreditsManager from '@/middleware/modules/vue/mixins/CreditsManager'
-import EchSliderPeopleCard from '@/components/slider/EchSliderPeopleCard'
+import EchSliderPeopleCard from '@/components/slider/EchPeopleCard'
 
 export default {
   name: 'EchSliderPeopleColumnExtended',

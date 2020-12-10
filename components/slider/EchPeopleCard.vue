@@ -1,5 +1,5 @@
 <template>
-  <div v-if="inNotEmpty(credits)">
+  <div v-if="inNotEmpty(credits)" class="uk-padding">
     <h2 v-if="isCredits" class="uk-text-lead uk-text-center ech-basic">
       {{ $t('creditsBy', { name: movieName }) }}
     </h2>
@@ -12,7 +12,7 @@
         :key="credit._credit_id + Math.random()"
         :todo="credit"
         class="uk-card uk-card-default uk-card-hover uk-grid-collapse uk-margin-small-bottom"
-        style="height:138px"
+        style="height:138px;"
         uk-grid
       >
         <div class="uk-card-media-left uk-cover-container uk-width-1-3">
@@ -61,7 +61,7 @@ import CrewTypes from '@/middleware/modules/domain/CrewTypes'
 import Utils from '@/middleware/modules/vue/mixins/Utils'
 
 export default {
-  name: 'EchSliderPeopleCard',
+  name: 'EchPeopleCard',
   mixins: [MediaManager, PeopleManager, CreditsManager, Utils],
   props: {
     credits: {

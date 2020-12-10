@@ -124,5 +124,6 @@ export default {
   videosBy: '{name} Videos',
   recommendedMovies: 'Recommended Movies',
   recommendedTvShows: 'Recomendadas Series',
-  reviewBy: '{name} says:'
+  reviewBy: '{name} says:',
+  at: 'At'
 }

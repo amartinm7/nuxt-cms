@@ -109,12 +109,12 @@ export default {
   technicalDetails: 'Ficha Técnica',
   createdBy: 'Creado por',
   numOfSeasons: 'Número de temporadas',
-  numOfEpisodes: 'Número de episodios',
+  numOfEpisodes: 'Núm de episodios',
   friendNetworkCastellana100:
     'Web amiga, visitanos aqui: www.castellana100bicishop.com',
   friendNetwork: 'Web amiga',
   search: 'Búsqueda',
-  numEpisodes: 'Número de Episodios',
+  numEpisodes: 'Episodios',
   episode: 'Episodio',
   originalTitle: 'Título original',
   postersBy: 'Posters de {name}',
@@ -124,5 +124,6 @@ export default {
   videosBy: 'Videos de {name}',
   recommendedMovies: 'Películas Recomendadas',
   recommendedTvShows: 'Series Recomendadas',
-  reviewBy: '{name} dice:'
+  reviewBy: '{name} dice:',
+  at: 'En'
 }

@@ -10,10 +10,10 @@
       ></ech-movies-card-detail>
     </section>
     <section v-if="inNotEmpty(movies[0])" class="uk-section uk-section-xsmall">
-      <ech-slider-people-card-extended
+      <ech-people-card-extended
         :movies="movies"
         class="uk-section uk-section-xsmall"
-      ></ech-slider-people-card-extended>
+      ></ech-people-card-extended>
     </section>
     <section
       v-if="false && inNotEmpty(videos)"
@@ -75,14 +75,14 @@ import RequestDetailsHeaderManager from '@/middleware/modules/vue/mixins/Request
 import EchNetworksNavBar from '@/layouts/networksbar/EchNetworksNavBar'
 import Utils from '@/middleware/modules/vue/mixins/Utils'
 import EchReviews from '@/components/movies/EchReviews'
-import EchSliderPeopleCardExtended from '@/components/slider/EchSliderPeopleCardExtended'
+import EchPeopleCardExtended from '@/components/slider/EchPeopleCardExtended'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
   name: 'EchMoviesDetails',
   scrollToTop: true,
   components: {
-    EchSliderPeopleCardExtended,
+    EchPeopleCardExtended,
     EchReviews,
     EchNetworksNavBar,
     EchMoviesCardDetail,

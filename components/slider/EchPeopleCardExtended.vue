@@ -1,12 +1,6 @@
 <template>
-  <!--
-  <article
-    v-if="inNotEmpty(movies)"
-    class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin ech-scrollspy-effect"
-    uk-grid
-  >-->
   <div>
-    <article v-if="inNotEmpty(movies)" class="uk-flex-wrap uk-flex uk-flex-1">
+    <article v-if="inNotEmpty(movies)">
       <ul uk-tab>
         <li>
           <a href="#">{{ $t('sliderSwitcher.credits') }}</a>
@@ -14,26 +8,51 @@
         <li>
           <a href="#">{{ $t('sliderSwitcher.staff') }}</a>
         </li>
+        <li>
+          <a href="#">{{ $t('sliderSwitcher.posters') }}</a>
+        </li>
+        <li>
+          <a href="#">{{ $t('sliderSwitcher.seasons') }}</a>
+        </li>
       </ul>
       <ul class="uk-switcher uk-margin">
         <li>
           <div>
-            <ech-slider-people-card
+            <ech-people-card
               :credits="sanitizedCredits(movies[0]._credits)"
               :type="crewTypes.credits"
               :movie-name="movies[0]._name || movies[0]._title"
             >
-            </ech-slider-people-card>
+            </ech-people-card>
           </div>
         </li>
         <li>
           <div>
-            <ech-slider-people-card
+            <ech-people-card
               :credits="sanitizedCrews(movies[0]._crews)"
               :type="crewTypes.crew"
               :movie-name="movies[0]._name || movies[0]._title"
             >
-            </ech-slider-people-card>
+            </ech-people-card>
+          </div>
+        </li>
+        <li>
+          <div>
+            <ech-people-card
+              :credits="sanitizedCrews(movies[0]._crews)"
+              :type="crewTypes.crew"
+              :movie-name="movies[0]._name || movies[0]._title"
+            >
+            </ech-people-card>
+          </div>
+        </li>
+        <li>
+          <div>
+            <ech-seasons-card
+              :movie-id="movies[0]._id"
+              :seasons="movies[0]._seasons"
+              :movie-name="movies[0]._name"
+            ></ech-seasons-card>
           </div>
         </li>
       </ul>
@@ -44,11 +63,12 @@
 /* eslint-disable camelcase, no-console */
 import Utils from '@/middleware/modules/vue/mixins/Utils'
 import CreditsManager from '@/middleware/modules/vue/mixins/CreditsManager'
-import EchSliderPeopleCard from '@/components/slider/EchSliderPeopleCard'
+import EchSeasonsCard from '@/components/slider/EchCardSeasons'
+import EchPeopleCard from '@/components/slider/EchPeopleCard'
 
 export default {
-  name: 'EchSliderPeopleCardExtended',
-  components: { EchSliderPeopleCard },
+  name: 'EchPeopleCardExtended',
+  components: { EchPeopleCard, EchSeasonsCard },
   mixins: [Utils, CreditsManager],
   props: {
     movies: {

@@ -10,20 +10,10 @@
       ></ech-tv-show-card-details>
     </section>
     <section v-if="inNotEmpty(movies[0])" class="uk-section uk-section-xsmall">
-      <ech-slider-people-card-extended
+      <ech-people-card-extended
         :movies="movies"
         class="uk-margin-small-top"
-      ></ech-slider-people-card-extended>
-    </section>
-    <section
-      v-if="inNotEmpty(movies[0]._seasons)"
-      class="uk-section uk-section-xsmall"
-    >
-      <ech-slider-seasons
-        :movie-id="movies[0]._id"
-        :seasons="movies[0]._seasons"
-        :movie-name="movies[0]._name"
-      ></ech-slider-seasons>
+      ></ech-people-card-extended>
     </section>
     <section
       v-if="false && inNotEmpty(videos)"
@@ -83,19 +73,17 @@ import MediaTypes from '@/middleware/modules/domain/MediaTypes'
 import DetailsHeaderManager from '@/middleware/modules/vue/mixins/DetailsHeaderManager'
 import RequestDetailsHeaderManager from '@/middleware/modules/vue/mixins/RequestDetailsHeaderManager'
 import EchNetworksNavBar from '@/layouts/networksbar/EchNetworksNavBar'
-import EchSliderSeasons from '@/components/slider/EchSliderSeasons'
 import Utils from '@/middleware/modules/vue/mixins/Utils'
 import EchReviews from '@/components/movies/EchReviews'
-import EchSliderPeopleCardExtended from '@/components/slider/EchSliderPeopleCardExtended'
+import EchPeopleCardExtended from '@/components/slider/EchPeopleCardExtended'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
   name: 'EchTvshowDetails',
   scrollToTop: true,
   components: {
-    EchSliderPeopleCardExtended,
+    EchPeopleCardExtended,
     EchReviews,
-    EchSliderSeasons,
     EchNetworksNavBar,
     EchTvShowCardDetails,
     EchSliderVideos,
