@@ -76,7 +76,8 @@ export default {
   recommendedOnlyAdults: 'Only adults',
   synopsis: 'Synopsis',
   knownFor: 'Known for',
-  birthDay: 'BirthDay',
+  birthday: 'BirthDay',
+  deathday: 'Deathday',
   runtime: 'Runtime',
   budget: 'Budget',
   revenue: 'Revenue',
@@ -123,7 +124,7 @@ export default {
   seasonsBy: '"{name}" Seasons',
   videosBy: '"{name}" Videos',
   recommendedMovies: 'Recommended Movies',
-  recommendedTvShows: 'Recomendadas Series',
+  recommendedTvShows: 'Recommended Series',
   reviewBy: '{name} says:',
   at: 'At'
 }

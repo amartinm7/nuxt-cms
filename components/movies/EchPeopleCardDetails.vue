@@ -56,6 +56,7 @@
                 :place-of-birth="people._place_of_birth"
               ></ech-origin-place-of-birth>
               <ech-birthday :birthday="people._birthday"></ech-birthday>
+              <ech-deathday :deathday="people._deathday"></ech-deathday>
               <ech-known-for
                 :known-for="people._known_for_department"
               ></ech-known-for>
@@ -89,10 +90,12 @@ import EchOriginPlaceOfBirth from '@/components/movies/EchOriginPlaceOfBirth'
 import EchBirthday from '@/components/movies/EchBirthday'
 import EchKnownFor from '@/components/movies/EchKnownFor'
 import EchSynopsis from '@/components/movies/EchSypnosis'
+import EchDeathday from '@/components/movies/EchDeathday'
 
 export default {
   name: 'EchPeopleCardDetails',
   components: {
+    EchDeathday,
     EchSynopsis,
     EchKnownFor,
     EchBirthday,
