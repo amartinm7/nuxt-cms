@@ -11,7 +11,7 @@
         <li>
           <a href="#">{{ $t('sliderSwitcher.posters') }}</a>
         </li>
-        <li>
+        <li v-if="inNotEmpty(movies[0]._seasons)">
           <a href="#">{{ $t('sliderSwitcher.seasons') }}</a>
         </li>
       </ul>
@@ -46,7 +46,7 @@
             </ech-card-posters>
           </div>
         </li>
-        <li>
+        <li v-if="inNotEmpty(movies[0]._seasons)">
           <div>
             <ech-seasons-card
               :movie-id="movies[0]._id"
