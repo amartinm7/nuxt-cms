@@ -108,7 +108,6 @@ export default {
     const networkStore = store.getters['network/networkStore/getNetwork']
     const networkStatic = Networks.getNetWorkBy(networkId)
     const network = networkStatic?._id ? networkStatic : networkStore
-    console.log('network...' + JSON.stringify(network))
     return { trendingShows, page, networkId, network, language }
   },
   data() {

@@ -3,7 +3,7 @@
     <h2 class="uk-card-title ech-basic uk-text-center">
       {{ $t(label) }}
     </h2>
-    <p class="uk-dropcap uk-text-justify ech-basic uk-text-break">
+    <p class="uk-dropcap uk-text-justify uk-text-break">
       {{ overview }}
       <span
         class="ech-basic"
