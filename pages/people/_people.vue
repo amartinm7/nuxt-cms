@@ -27,6 +27,11 @@
       ></ech-related-movies-for-person>
     </section>
     <section class="uk-section uk-section-xsmall">
+      <ech-details-card-extended-for-people
+        :people="people"
+      ></ech-details-card-extended-for-people>
+    </section>
+    <section class="uk-section uk-section-xsmall">
       <ech-disqus></ech-disqus>
     </section>
   </div>
@@ -46,12 +51,14 @@ import DetailsPeopleManager from '@/middleware/modules/vue/mixins/DetailsPeopleM
 import EchNetworksNavBar from '~/layouts/networksbar/EchNetworksNavBar'
 import Utils from '@/middleware/modules/vue/mixins/Utils'
 import EchRelatedMoviesForPerson from '@/components/slider/EchRelatedMoviesForPerson'
+import EchDetailsCardExtendedForPeople from '@/components/slider/EchDetailsCardExtendedForPeople'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
   name: 'EchPeopleDetails',
   scrollToTop: true,
   components: {
+    EchDetailsCardExtendedForPeople,
     EchRelatedMoviesForPerson,
     EchNetworksNavBar,
     EchPeopleCardDetails,

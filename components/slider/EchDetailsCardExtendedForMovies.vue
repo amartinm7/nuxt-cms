@@ -41,6 +41,7 @@
             <ech-card-posters
               :posters="posters"
               :movie-name="movies[0]._name || movies[0]._title"
+              label="postersBy"
             >
             </ech-card-posters>
           </div>
@@ -67,7 +68,7 @@ import EchPeopleCard from '@/components/slider/EchPeopleCard'
 import EchCardPosters from '@/components/slider/EchCardPosters'
 
 export default {
-  name: 'EchPeopleCardExtended',
+  name: 'EchDetailsCardExtendedForMovies',
   components: { EchCardPosters, EchPeopleCard, EchSeasonsCard },
   mixins: [Utils, CreditsManager],
   props: {

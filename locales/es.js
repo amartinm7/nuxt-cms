@@ -126,5 +126,7 @@ export default {
   recommendedMovies: 'Películas Recomendadas',
   recommendedTvShows: 'Series Recomendadas',
   reviewBy: '{name} dice:',
-  at: 'En'
+  at: 'En',
+  photography: 'Fotos',
+  photographyBy: 'Fotos de "{name}"'
 }

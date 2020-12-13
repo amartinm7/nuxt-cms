@@ -1,7 +1,7 @@
 <template>
   <div v-if="inNotEmpty(posters)" class="uk-padding">
     <h2 class="uk-text-lead uk-text-center ech-basic">
-      {{ $t('postersBy', { name: movieName }) }}
+      {{ $t(label, { name: movieName }) }}
     </h2>
     <div class="uk-child-width-1-2@s uk-flex uk-flex-wrap uk-flex-1">
       <div
@@ -41,6 +41,12 @@ export default {
       }
     },
     movieName: {
+      type: String,
+      default() {
+        return ''
+      }
+    },
+    label: {
       type: String,
       default() {
         return ''

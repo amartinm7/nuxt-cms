@@ -126,5 +126,7 @@ export default {
   recommendedMovies: 'Recommended Movies',
   recommendedTvShows: 'Recommended Series',
   reviewBy: '{name} says:',
-  at: 'At'
+  at: 'At',
+  photography: 'Photos',
+  photographyBy: '"{name}" photos'
 }
