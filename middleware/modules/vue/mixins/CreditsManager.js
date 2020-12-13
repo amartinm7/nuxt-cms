@@ -16,9 +16,8 @@ export default {
     posters() {
       if (_isEmpty(this.movies[0]._images)) return []
       const posters = this.movies[0]._images._posters ?? []
-      return posters
-        .filter((poster) => !!poster._file_path)
-        .filter((poster) => poster._vote_count > 1)
+      return posters.filter((poster) => !!poster._file_path)
+      // .filter((poster) => poster._vote_count > 1)
     },
     videos() {
       return this.refillArray(this.movies[0]._videos)
