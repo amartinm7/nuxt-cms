@@ -38,12 +38,11 @@
         </li>
         <li>
           <div>
-            <ech-people-card
-              :credits="sanitizedCrews(movies[0]._crews)"
-              :type="crewTypes.crew"
+            <ech-card-posters
+              :posters="posters"
               :movie-name="movies[0]._name || movies[0]._title"
             >
-            </ech-people-card>
+            </ech-card-posters>
           </div>
         </li>
         <li>
@@ -65,10 +64,11 @@ import Utils from '@/middleware/modules/vue/mixins/Utils'
 import CreditsManager from '@/middleware/modules/vue/mixins/CreditsManager'
 import EchSeasonsCard from '@/components/slider/EchCardSeasons'
 import EchPeopleCard from '@/components/slider/EchPeopleCard'
+import EchCardPosters from '@/components/slider/EchCardPosters'
 
 export default {
   name: 'EchPeopleCardExtended',
-  components: { EchPeopleCard, EchSeasonsCard },
+  components: { EchCardPosters, EchPeopleCard, EchSeasonsCard },
   mixins: [Utils, CreditsManager],
   props: {
     movies: {
