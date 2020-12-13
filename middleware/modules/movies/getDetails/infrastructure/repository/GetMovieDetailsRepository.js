@@ -21,6 +21,7 @@ class GetMovieDetailsRepository {
    * @returns {*}
    */
   execute(getMovieDetailsRepositoryRequest) {
+    debugger
     const { movie_id, language } = { ...getMovieDetailsRepositoryRequest }
     const urlPath = `/movie/${movie_id}?language=${language}&append_to_response=images,credits,keywords,reviews,videos`
     console.log(urlPath)

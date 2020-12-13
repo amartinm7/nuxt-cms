@@ -5,7 +5,7 @@
     </h2>
     <div class="uk-child-width-1-2@s uk-flex uk-flex-wrap uk-flex-1">
       <div
-        v-for="poster in posters"
+        v-for="(poster, index) in posters"
         :key="poster._file_path + Math.random()"
         :todo="poster"
         class="uk-grid-collapse uk-margin-small-bottom "
@@ -14,9 +14,9 @@
         <div class="uk-width-1-1">
           <img
             :src="getPosterURL(poster._file_path)"
-            :alt="poster._file_path"
-            :title="poster._file_path"
-            :uk-tooltip="poster._file_path"
+            :alt="`${movieName} poster ${index}`"
+            :title="`${movieName} poster ${index}`"
+            :uk-tooltip="`${movieName} poster ${index}`"
             loading="lazy"
             class="uk-align-center"
           />
