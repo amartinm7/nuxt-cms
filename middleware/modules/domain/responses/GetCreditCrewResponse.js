@@ -50,7 +50,8 @@ export default class GetCreditCrewTransformer {
         (it) =>
           it._job === 'Screenplay' ||
           it._job === 'Novel' ||
-          it._job === 'Writer'
+          it._job === 'Writer' ||
+          it._job === 'Comic Book'
       ),
       producer: crews.filter(
         (it) => it._job === 'Producer' || it._job === 'Executive Producer'
