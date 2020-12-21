@@ -44,11 +44,13 @@ export default class GetCreditCrewTransformer {
     if (_isEmpty(crews)) {
       return new GetCreditCrewByDepartmentResponse({})
     }
-
     return new GetCreditCrewByDepartmentResponse({
       director: crews.filter((it) => it._job === 'Director'),
       screenplay: crews.filter(
-        (it) => it._job === 'Screenplay' || it._job === 'Novel'
+        (it) =>
+          it._job === 'Screenplay' ||
+          it._job === 'Novel' ||
+          it._job === 'Writer'
       ),
       producer: crews.filter(
         (it) => it._job === 'Producer' || it._job === 'Executive Producer'
