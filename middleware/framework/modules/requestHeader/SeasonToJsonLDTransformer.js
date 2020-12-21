@@ -14,8 +14,8 @@ class SeasonToJsonLDTransformer {
     this.aggregateRating = {
       '@type': 'AggregateRating',
       bestRating: '10',
-      ratingValue: seasonResponse._vote_average ?? 5,
-      reviewCount: seasonResponse._vote_count ?? 100
+      ratingValue: this._sanitizeRatingValue(seasonResponse._vote_average),
+      reviewCount: this._sanitizeReviewCount(seasonResponse._vote_count)
     }
     this.description = seasonResponse._overview
     // TODO fill the director
@@ -35,6 +35,19 @@ class SeasonToJsonLDTransformer {
     this.url = `https://www.estrenoscinehoy.com${url}`
     this.inLanguage = language
     this.dateCreated = seasonResponse._release_date
+  }
+
+  // sanitize because google_search says it
+  _sanitizeRatingValue(vote) {
+    if (vote === undefined) return 5
+    if (vote === 0) return 1
+    return vote
+  }
+
+  _sanitizeReviewCount(vote) {
+    if (vote === undefined) return 100
+    if (vote === 0) return 1
+    return vote
   }
 }
 

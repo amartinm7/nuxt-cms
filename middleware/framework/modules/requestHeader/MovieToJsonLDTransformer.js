@@ -13,8 +13,8 @@ class MovieToJsonLDTransformer {
     this.aggregateRating = {
       '@type': 'AggregateRating',
       bestRating: '10',
-      ratingValue: movieResponse._vote_average ?? 5,
-      reviewCount: movieResponse._vote_count ?? 100
+      ratingValue: this._sanitizeRatingValue(movieResponse._vote_average),
+      reviewCount: this._sanitizeReviewCount(movieResponse._vote_count)
     }
     this.description = movieResponse._overview
     this.director = {
@@ -33,6 +33,19 @@ class MovieToJsonLDTransformer {
     this.url = `https://www.estrenoscinehoy.com${url}`
     this.inLanguage = language
     this.dateCreated = movieResponse._release_date
+  }
+
+  // sanitize because google_search says it
+  _sanitizeRatingValue(vote) {
+    if (vote === undefined) return 5
+    if (vote === 0) return 1
+    return vote
+  }
+
+  _sanitizeReviewCount(vote) {
+    if (vote === undefined) return 100
+    if (vote === 0) return 1
+    return vote
   }
 }
 
