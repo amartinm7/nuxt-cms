@@ -18,11 +18,13 @@ class MovieToJsonLDTransformer {
       reviewCount: this._sanitizeReviewCount(movieResponse._vote_count)
     }
     this.description = movieResponse._overview
-    this.director = {
-      '@type': 'Person',
-      name:
-        movieResponse._director?.[0]?._name ||
-        movieResponse._crew?._producer?.[0]?._name
+    if (this._getDirectorName(movieResponse)) {
+      this.director = {
+        '@type': 'Person',
+        name:
+          movieResponse._director?.[0]?._name ||
+          movieResponse._crew?._producer?.[0]?._name
+      }
     }
     this.name = movieResponse._title || movieResponse._name
     this.identifier = movieResponse._imdb_id
@@ -33,6 +35,13 @@ class MovieToJsonLDTransformer {
     )}`
     this.inLanguage = language
     this.dateCreated = movieResponse._release_date
+  }
+
+  _getDirectorName(movieResponse) {
+    return (
+      movieResponse._director?.[0]?._name ||
+      movieResponse._crew?._producer?.[0]?._name
+    )
   }
 
   // sanitize because google_search says it
