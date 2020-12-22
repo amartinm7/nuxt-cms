@@ -87,6 +87,8 @@ import MediaTypes from '@/middleware/modules/domain/MediaTypes'
 import DetailsHeaderManager from '@/middleware/modules/vue/mixins/DetailsHeaderManager'
 import EchNetworksNavBar from '@/layouts/networksbar/EchNetworksNavBar'
 import EchFriendNetworksNavBar from '@/layouts/friendNetworks/EchFriendNetworksNavBar'
+import RequestHeader from '@/middleware/framework/modules/requestHeader/RequestHeader'
+import MovieListToJsonLDTransformer from '@/middleware/framework/modules/requestHeader/MovieListToJsonLDTransformer'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
@@ -125,9 +127,23 @@ export default {
       },
       mediaType: MediaTypes.movie,
       trendingResults: {},
-      requestHeader: {},
       page: 1,
       language: 'es'
+    }
+  },
+  computed: {
+    requestHeader() {
+      const vm = this
+      return new RequestHeader({
+        _name: 'trending',
+        _overview: 'trending movies',
+        _poster_path: '',
+        _jsonLD: new MovieListToJsonLDTransformer(
+          vm.trendingMovies,
+          this.$route.path,
+          this.$i18n.locale
+        )
+      })
     }
   },
   mounted() {
