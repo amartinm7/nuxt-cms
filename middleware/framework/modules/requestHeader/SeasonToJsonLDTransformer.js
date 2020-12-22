@@ -24,12 +24,6 @@ class SeasonToJsonLDTransformer {
       name: seasonResponse._director?._name
     }
     this.name = `${seasonResponse._movie_name}: ${seasonResponse._name}`
-    this.author = [
-      {
-        '@type': 'Person',
-        name: seasonResponse._crew?._screenplay?._name
-      }
-    ]
     this.identifier = seasonResponse._id
     this.image = MediaHandler.getPoster2XURL(seasonResponse._poster_path)
     this.url = `https://www.estrenoscinehoy.com${url}`
