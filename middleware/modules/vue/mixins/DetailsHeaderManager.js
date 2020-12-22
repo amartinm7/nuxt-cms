@@ -1,5 +1,5 @@
-import MediaHandler from '../../../framework/modules/media/MediaHandler'
-import StringHandler from '../../../framework/modules/string/StringHandler'
+import MediaHandler from '@/middleware/framework/modules/media/MediaHandler'
+import StringHandler from '@/middleware/framework/modules/string/StringHandler'
 import ValuesByDefault from '@/middleware/modules/domain/ValuesByDefault'
 
 export default {

@@ -56,6 +56,7 @@ import EchMoviesCard from '@/components/movies/EchMoviesCard'
 import EchNetworksNavBar from '~/layouts/networksbar/EchNetworksNavBar'
 import RedirectHomeManager from '@/middleware/modules/vue/mixins/RedirectHomeManager'
 import EchFriendNetworksNavBar from '@/layouts/friendNetworks/EchFriendNetworksNavBar'
+import RequestHeaderManager from '@/middleware/modules/vue/mixins/RequestHeaderManager'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
@@ -68,7 +69,12 @@ export default {
     EchHeaderMain,
     EchSliderMain
   },
-  mixins: [VideoControllerManager, DetailsHeaderManager, RedirectHomeManager],
+  mixins: [
+    VideoControllerManager,
+    DetailsHeaderManager,
+    RedirectHomeManager,
+    RequestHeaderManager
+  ],
   // eslint-disable-next-line require-await
   async asyncData({ app, params, store, route }) {
     console.log('EchSearch...')
@@ -93,8 +99,9 @@ export default {
         _total_results: 1,
         _results: []
       },
-      requestHeader: {},
-      language: 'es'
+      language: 'es',
+      title: 'Series by Network',
+      overview: 'Series by Network'
     }
   }
 }

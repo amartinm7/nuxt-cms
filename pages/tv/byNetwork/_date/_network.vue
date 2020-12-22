@@ -70,6 +70,8 @@ import NetworkManager from '@/middleware/modules/vue/mixins/NetworkManager'
 import EchNetworkLogo from '@/components/movies/EchNetworkLogo'
 import EchFriendNetworksNavBar from '@/layouts/friendNetworks/EchFriendNetworksNavBar'
 import EchPaginationByNetwork from '@/components/movies/EchPaginationByNetwork'
+import RequestHeaderManager from '@/middleware/modules/vue/mixins/RequestHeaderManager'
+
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
@@ -87,7 +89,8 @@ export default {
     VideoControllerManager,
     DetailsHeaderManager,
     MediaManager,
-    NetworkManager
+    NetworkManager,
+    RequestHeaderManager
   ],
   // eslint-disable-next-line require-await
   async asyncData({ app, params, query, store }) {
@@ -124,7 +127,9 @@ export default {
       page: 1,
       networkId: '',
       network: {},
-      language: 'es'
+      language: 'es',
+      title: 'Series by Network',
+      overview: 'Series by Network'
     }
   },
   mounted() {

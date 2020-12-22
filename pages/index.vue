@@ -87,8 +87,7 @@ import MediaTypes from '@/middleware/modules/domain/MediaTypes'
 import DetailsHeaderManager from '@/middleware/modules/vue/mixins/DetailsHeaderManager'
 import EchNetworksNavBar from '@/layouts/networksbar/EchNetworksNavBar'
 import EchFriendNetworksNavBar from '@/layouts/friendNetworks/EchFriendNetworksNavBar'
-import RequestHeader from '@/middleware/framework/modules/requestHeader/RequestHeader'
-import MovieListToJsonLDTransformer from '@/middleware/framework/modules/requestHeader/MovieListToJsonLDTransformer'
+import RequestHeaderManager from '@/middleware/modules/vue/mixins/RequestHeaderManager'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
@@ -101,7 +100,7 @@ export default {
     EchTvShowCard,
     EchMoviesCard
   },
-  mixins: [VideoControllerManager, DetailsHeaderManager],
+  mixins: [VideoControllerManager, DetailsHeaderManager, RequestHeaderManager],
   // eslint-disable-next-line require-await
   async asyncData({ app, query }) {
     const language = app.i18n.locale
@@ -128,21 +127,9 @@ export default {
       mediaType: MediaTypes.movie,
       trendingResults: {},
       page: 1,
-      language: 'es'
-    }
-  },
-  computed: {
-    requestHeader() {
-      const vm = this
-      return new RequestHeader({
-        _name: 'trending',
-        _overview: 'trending movies',
-        _poster_path: '',
-        _jsonLD: new MovieListToJsonLDTransformer(
-          vm.trendingMovies,
-          this.$i18n.locale
-        )
-      })
+      language: 'es',
+      title: 'Trending Movies',
+      overview: 'Trending Movies'
     }
   },
   mounted() {

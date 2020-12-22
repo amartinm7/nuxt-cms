@@ -1,6 +1,8 @@
-import RequestHeader from '../../../framework/modules/requestHeader/RequestHeader'
+import RequestHeader from '@/middleware/framework/modules/requestHeader/RequestHeader'
 import ActionMapper from '@/middleware/ActionMapper'
 import Slugger from '@/middleware/framework/modules/slugger/Slugger'
+import MovieListToJsonLDTransformer from '@/middleware/framework/modules/requestHeader/MovieListToJsonLDTransformer'
+import ValuesByDefault from '@/middleware/modules/domain/ValuesByDefault'
 
 export default {
   methods: {
@@ -30,12 +32,18 @@ export default {
   },
   computed: {
     requestHeader() {
-      const title = `Estrenos Cine Hoy: ${this.getSection(
-        this.mediaType,
-        this.$i18n.locale // coger este parametro de la url
-      )}`
+      const title = `Estrenos Cine Hoy: ${this.getSection({
+        mediaType: this.mediaType,
+        language: this.$i18n.locale // coger este parametro de la url
+      })}`
       return new RequestHeader({
-        _title: title
+        _title: `${title}`,
+        _overview: `${title}`,
+        _poster_path: ValuesByDefault.logoURLEstrenosCineHoy,
+        _jsonLD: new MovieListToJsonLDTransformer(
+          this.trendingMovies || this.trendingShows,
+          this.$i18n.locale
+        )
       })
     }
   }

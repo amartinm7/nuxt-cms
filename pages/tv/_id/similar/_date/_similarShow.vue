@@ -63,6 +63,7 @@ import RedirectHomeManager from '@/middleware/modules/vue/mixins/RedirectHomeMan
 import EchFriendNetworksNavBar from '@/layouts/friendNetworks/EchFriendNetworksNavBar'
 import EchPaginationBySimilar from '@/components/movies/EchPaginationBySimilar'
 import GetIdNameFromPathParam from '@/middleware/framework/modules/requestParams/GetIdNameFromPathParam'
+import RequestHeaderManager from '@/middleware/modules/vue/mixins/RequestHeaderManager'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
@@ -75,7 +76,12 @@ export default {
     EchSliderMain,
     EchTvShowCard
   },
-  mixins: [VideoControllerManager, DetailsHeaderManager, RedirectHomeManager],
+  mixins: [
+    VideoControllerManager,
+    DetailsHeaderManager,
+    RedirectHomeManager,
+    RequestHeaderManager
+  ],
   // eslint-disable-next-line require-await
   async asyncData({ app, params, query }) {
     console.log('getSimilarShowsController')
@@ -112,7 +118,9 @@ export default {
       mediaType: MediaTypes.tv,
       page: 1,
       movie: {},
-      language: 'es'
+      language: 'es',
+      title: 'Similar Series',
+      overview: 'Similar Series'
     }
   }
 }

@@ -4,7 +4,7 @@ class MovieListToJsonLDTransformer {
   constructor(trendingMovies, language) {
     this['@context'] = 'https://schema.org'
     this['@type'] = 'ItemList'
-    this.itemListElement = trendingMovies._results.map(
+    this.itemListElement = trendingMovies?._results?.map(
       (movieResponse, index) => {
         return {
           '@type': 'ListItem',

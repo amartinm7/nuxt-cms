@@ -63,6 +63,7 @@ import { GetRecommendedTvShowsControllerRequest } from '@/middleware/modules/tvS
 import EchTvShowCard from '@/components/movies/EchTvShowCard'
 import EchPaginationByRecommended from '@/components/movies/EchPaginationByRecommendation'
 import GetIdNameFromPathParam from '@/middleware/framework/modules/requestParams/GetIdNameFromPathParam'
+import RequestHeaderManager from '@/middleware/modules/vue/mixins/RequestHeaderManager'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
@@ -75,7 +76,12 @@ export default {
     EchHeaderMain,
     EchSliderMain
   },
-  mixins: [VideoControllerManager, DetailsHeaderManager, RedirectHomeManager],
+  mixins: [
+    VideoControllerManager,
+    DetailsHeaderManager,
+    RedirectHomeManager,
+    RequestHeaderManager
+  ],
   // eslint-disable-next-line require-await
   async asyncData({ app, params, query, route }) {
     const language = app.i18n.locale
@@ -111,7 +117,9 @@ export default {
       mediaType: MediaTypes.tv,
       page: 1,
       movie: {},
-      language: 'es'
+      language: 'es',
+      title: 'Recommended Series',
+      overview: 'Recommended Series'
     }
   }
 }

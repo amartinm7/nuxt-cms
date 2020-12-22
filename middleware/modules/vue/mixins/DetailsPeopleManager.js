@@ -1,5 +1,5 @@
 /* eslint-disable camelcase, no-console */
-import RequestHeader from '../../../framework/modules/requestHeader/RequestHeader'
+import RequestHeader from '@/middleware/framework/modules/requestHeader/RequestHeader'
 import PeopleToJsonLDTransformer from '@/middleware/framework/modules/requestHeader/PeopleToJsonLDTransformer'
 
 export default {

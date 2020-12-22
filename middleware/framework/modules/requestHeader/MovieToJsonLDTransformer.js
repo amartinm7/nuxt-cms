@@ -21,8 +21,8 @@ class MovieToJsonLDTransformer {
     this.director = {
       '@type': 'Person',
       name:
-        movieResponse._director[0]?._name ||
-        movieResponse._crew?._producer[0]?._name
+        movieResponse._director?.[0]?._name ||
+        movieResponse._crew?._producer?.[0]?._name
     }
     this.name = movieResponse._title || movieResponse._name
     this.identifier = movieResponse._imdb_id

@@ -72,6 +72,7 @@ import EchNetworksNavBar from '@/layouts/networksbar/EchNetworksNavBar'
 import RedirectHomeManager from '@/middleware/modules/vue/mixins/RedirectHomeManager'
 import EchFriendNetworksNavBar from '@/layouts/friendNetworks/EchFriendNetworksNavBar'
 import EchPaginationByGenres from '@/components/movies/EchPaginationByGenres'
+import RequestHeaderManager from '@/middleware/modules/vue/mixins/RequestHeaderManager'
 const beanContainer = BeanContainerRegistry.getBeanContainer()
 
 export default {
@@ -84,7 +85,12 @@ export default {
     EchSliderMain,
     EchTvShowCard
   },
-  mixins: [VideoControllerManager, DetailsHeaderManager, RedirectHomeManager],
+  mixins: [
+    VideoControllerManager,
+    DetailsHeaderManager,
+    RedirectHomeManager,
+    RequestHeaderManager
+  ],
   // eslint-disable-next-line require-await
   async asyncData({ app, params, query }) {
     const language = app.i18n.locale
@@ -124,7 +130,9 @@ export default {
       genreId: 0,
       genreName: '',
       page: 1,
-      language: 'es'
+      language: 'es',
+      title: 'Series by Genre',
+      overview: 'Series by Genre'
     }
   }
 }

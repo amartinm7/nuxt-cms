@@ -1,4 +1,4 @@
-import * as ServiceLocator from '../../../framework/modules/ServiceLocator'
+import * as ServiceLocator from '@/middleware/framework/modules/ServiceLocator'
 /* eslint-disable camelcase, no-console */
 export default {
   methods: {
