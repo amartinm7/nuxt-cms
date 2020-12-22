@@ -140,7 +140,6 @@ export default {
         _poster_path: '',
         _jsonLD: new MovieListToJsonLDTransformer(
           vm.trendingMovies,
-          this.$route.path,
           this.$i18n.locale
         )
       })

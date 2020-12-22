@@ -1,7 +1,7 @@
 import MovieToJsonLDTransformer from '@/middleware/framework/modules/requestHeader/MovieToJsonLDTransformer'
 
 class MovieListToJsonLDTransformer {
-  constructor(trendingMovies, url, language) {
+  constructor(trendingMovies, language) {
     this['@context'] = 'https://schema.org'
     this['@type'] = 'ItemList'
     this.itemListElement = trendingMovies._results.map(
@@ -10,7 +10,7 @@ class MovieListToJsonLDTransformer {
           '@type': 'ListItem',
           position: `${++index}`,
           item: {
-            ...new MovieToJsonLDTransformer(movieResponse, url, language)
+            ...new MovieToJsonLDTransformer(movieResponse, language)
           }
         }
       }

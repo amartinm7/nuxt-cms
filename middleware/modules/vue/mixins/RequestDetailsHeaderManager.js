@@ -7,11 +7,7 @@ export default {
       const vm = this
       return new RequestHeader({
         ...vm.movies[0],
-        _jsonLD: new MovieToJsonLDTransformer(
-          vm.movies[0],
-          this.$route.path,
-          this.$i18n.locale
-        )
+        _jsonLD: new MovieToJsonLDTransformer(vm.movies[0], this.$i18n.locale)
       })
     }
   }
