@@ -8,7 +8,7 @@
     >
       <span
         class="uk-label uk-label-success ech-basic"
-        uk-icon="icon: video-camera; ratio: 0.75;"
+        uk-icon="icon: search; ratio: 1;"
         >{{ $t(label) }}
       </span>
     </nuxt-link>
