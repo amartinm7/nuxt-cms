@@ -71,8 +71,7 @@
               <li class="el-item">
                 <div class="el-content uk-panel">
                   <a
-                    href="#"
-                    uk-scroll=""
+                    href="https://www.youtube.com/channel/UCS3-tMNQUyqK1CxFBUAsyvQ"
                     class="el-link uk-link-muted"
                     target="_blank"
                   >
