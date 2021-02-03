@@ -94,6 +94,11 @@ export default {
       _id: 2739,
       _name: 'Disney+',
       _logo_path: '/gJ8VX6JSu3ciXHuC2dDGAo2lvwM.png'
+    },
+    {
+      _id: 3186,
+      _name: 'HBOmax',
+      _logo_path: '/nmU0UMDJB3dRRQSTUqawzF2Od1a.png'
     }
   ],
   getNetWorkBy(id) {
