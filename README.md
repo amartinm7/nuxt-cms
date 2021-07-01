@@ -9,6 +9,9 @@
 ## Build Setup
 
 ``` bash
+# read .nvmrc for node version
+$ nvm use
+
 # install dependencies
 $ npm install
 
